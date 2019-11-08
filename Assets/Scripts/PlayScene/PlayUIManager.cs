@@ -10,31 +10,34 @@ public class PlayUIManager : MonoBehaviour
     public PlayerData playerdata;
     public Text FileName;
     public Text Heart;
+    public Text Heart2;
     public Text Time;
     public Text Event;
     void Start()
     {
         playerdata = DataManager.currentData;
         FileName.text = "File Name : " + playerdata.name;
-        Heart.text = playerdata.heart.ToString();
-        Time.text = playerdata.time.ToString();
-        Event.text = playerdata.evenPrograss.ToString();
+        Heart.text = playerdata.Heart.ToString();
+        Heart2.text = "X " + playerdata.Heart.ToString();
+        Time.text = playerdata.Time.ToString();
+        Event.text = playerdata.EventPrograss.ToString();
     }
     public void AddHeart(int v)
     {
-        playerdata.heart += v;
-        Heart.text = playerdata.heart.ToString();
+        playerdata.Heart += v;
+        Heart.text = playerdata.Heart.ToString();
+        Heart2.text = "X " + playerdata.Heart.ToString();
     }
     public void AddTime(int v)
     {
-        playerdata.time += v;
-        Time.text = playerdata.time.ToString();
+        playerdata.Time += v;
+        Time.text = playerdata.Time.ToString();
     }
 
     public void AddEvent(int v)
     {
-        playerdata.evenPrograss += v;
-        Event.text = playerdata.evenPrograss.ToString();
+        playerdata.EventPrograss += v;
+        Event.text = playerdata.EventPrograss.ToString();
     }
     // Update is called once per frame
    

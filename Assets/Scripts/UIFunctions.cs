@@ -18,6 +18,11 @@ public class UIFunctions : MonoBehaviour
         //데이터 로딩
     }
 
+    public void ToggleUI(GameObject ui)
+    {
+        ui.SetActive(!ui.activeSelf);
+    }
+
     public void Load()
     {
 

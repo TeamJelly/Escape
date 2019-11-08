@@ -21,18 +21,18 @@ public class LoadingManager : MonoBehaviour
     {
         AsyncOperation  async_operation = SceneManager.LoadSceneAsync(nextScene);
         async_operation.allowSceneActivation = false;
-        //while (async_operation.progress < 0.9f)
-        //{
-        //    slider.value = async_operation.progress;
-        //    yield return new WaitForEndOfFrame();
-        //}
-        float ratio = 0;
-        while (ratio < 1)
+        while (async_operation.progress < 0.9f)
         {
-            ratio += 0.02f;
-            slider.value = ratio;
-            yield return new WaitForSecondsRealtime(0.01f);
+            slider.value = async_operation.progress;
+            yield return new WaitForEndOfFrame();
         }
+        //float ratio = 0;
+        //while (ratio < 1)
+        //{
+        //    ratio += 0.02f;
+        //    slider.value = ratio;
+        //    yield return new WaitForSecondsRealtime(0.01f);
+        //}
         async_operation.allowSceneActivation = true;
     }
     // Update is called once per frame

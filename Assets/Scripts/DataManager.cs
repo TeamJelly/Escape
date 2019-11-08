@@ -65,10 +65,25 @@ public static class DataManager
 public class PlayerData
 {
     public string name;
-    public int heart = 5;
-    public int time = 0;
-    public int evenPrograss = 0;
-
+    int heart = 5;
+    int time = 0;
+    int eventPrograss = 0;
+    //public List<Item> items = new List<Item>();
+    public int Heart
+    {
+        get { return heart; }
+        set { heart = value > 10 ? 10 : value < 0 ? 0 : value; }
+    }  
+    public int Time
+    {
+        get { return time; }
+        set { time = value > 10 ? 10 : value < 0 ? 0 : value; }
+    }   
+    public int EventPrograss
+    {
+        get { return eventPrograss; }
+        set { eventPrograss = value > 10 ? 10 : value < 0 ? 0 : value; }
+    }
     public PlayerData(string n)
     {
         name = n;

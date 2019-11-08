@@ -18,13 +18,13 @@ public class LoadDataPage : MonoBehaviour
     {
         DataManager.saveFileList = DataManager.GetSaveFileList();
         PlayerData p = new PlayerData("data 1");
-        p.heart = 1;
+        p.Heart = 1;
         DataManager.AddSaveFile(p);
         p = new PlayerData("data 2");
-        p.heart = 2;
+        p.Heart = 2;
         DataManager.AddSaveFile(p);
         p = new PlayerData("data 3");
-        p.heart = 3;
+        p.Heart = 3;
         DataManager.AddSaveFile(p);
     }
     // Update is called once per frame
