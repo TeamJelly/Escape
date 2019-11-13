@@ -17,7 +17,12 @@ public class UIFunctions : MonoBehaviour
         LoadingManager.LoadScene(name);
         //데이터 로딩
     }
-
+    public void NextEvent(string name)
+    {
+        DataManager.currentData.currentScene = name;
+        Save();
+        SelectScene(name);
+    }
     public void ToggleUI(GameObject ui)
     {
         ui.SetActive(!ui.activeSelf);
@@ -25,14 +30,15 @@ public class UIFunctions : MonoBehaviour
 
     public void Load()
     {
-
+        DataManager.Load();
     }
     public void Save()
     {
-        DataManager.AddSaveFile(DataManager.currentData);
+        DataManager.Save();
     }
     public void StartNew()
     {
-        DataManager.currentData = new PlayerData("AutoSave");
+        DataManager.StartAsNew();
+        SelectScene("Intro");
     }
 }

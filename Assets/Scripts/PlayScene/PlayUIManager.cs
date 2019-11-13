@@ -8,15 +8,13 @@ public class PlayUIManager : MonoBehaviour
     // Start is called before the first frame update
 
     public PlayerData playerdata;
-    public Text FileName;
     public Text Heart;
     public Text Heart2;
     public Text Time;
     public Text Event;
     void Start()
     {
-        playerdata = DataManager.currentData;
-        FileName.text = "File Name : " + playerdata.name;
+        playerdata = PlayManager.instance.data;
         Heart.text = playerdata.Heart.ToString();
         Heart2.text = "X " + playerdata.Heart.ToString();
         Time.text = playerdata.Time.ToString();

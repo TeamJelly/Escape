@@ -8,7 +8,7 @@ public static class DataManager
 {
     public static List<string> saveFileList;
     // Start is called before the first frame update
-    public static PlayerData currentData;
+    public static PlayerData currentData = null;
     public static void AddSaveFile(PlayerData data)
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -60,6 +60,33 @@ public static class DataManager
         else list = new List<string>();
         return list;
     }
+
+    //단일저장시 사용.
+    public static void StartAsNew()
+    {
+        currentData = new PlayerData("blank");
+        currentData.currentScene = "Intro";
+        Save();
+
+    }
+    public static void Save()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream stream = new FileStream(Application.persistentDataPath + "/SaveFile.sav", FileMode.Create);
+        bf.Serialize(stream, currentData);
+        stream.Close();
+    }
+    public static void Load()
+    {
+        if (File.Exists(Application.persistentDataPath + "/SaveFile.sav"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream stream = new FileStream(Application.persistentDataPath + "/SaveFile.sav", FileMode.Open);
+            currentData = bf.Deserialize(stream) as PlayerData;
+            stream.Close();
+        }
+    }
+     
 }
 [Serializable]
 public class PlayerData
@@ -68,6 +95,7 @@ public class PlayerData
     int heart = 5;
     int time = 0;
     int eventPrograss = 0;
+    public string currentScene = "PlayScene";
     //public List<Item> items = new List<Item>();
     public int Heart
     {
