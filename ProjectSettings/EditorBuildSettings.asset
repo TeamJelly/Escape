@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: 4cac30c92d38c7e4bbfbcd2aab33809e
@@ -23,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intro.unity
     guid: c2df0fde406a2d649b33685d2e856635
+  - enabled: 1
+    path: Assets/Scenes/panorama.unity
+    guid: 07230f50d0e1e3c49b3d449a5ec09b50
+  - enabled: 1
+    path: Assets/Scenes/panorama2.unity
+    guid: 569c072fd4556124dac4c2c12cab2d8a
+  - enabled: 1
+    path: Assets/Scenes/panorama3.unity
+    guid: a46a8f8509f779841bc11ea2b0318c29
   m_configObjects: {}

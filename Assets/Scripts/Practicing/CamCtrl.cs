@@ -10,6 +10,8 @@ public class CamCtrl : MonoBehaviour
     public Vector3 delta;
     public Vector2 input;
     public int speed = 6;
+    public int MaxXAxis = 60;
+    public int MaxYAxis = 60;
     public void Awake()
     {
         instance = this;
@@ -22,11 +24,12 @@ public class CamCtrl : MonoBehaviour
         {
             input = Input.GetTouch(0).deltaPosition * Time.smoothDeltaTime * speed;
             delta += new Vector3(-input.y, input.x, 0);
-            if (delta.x > 60) delta.x = 60;
-            else if (delta.x < -60) delta.x = -60;
+            if (delta.x > MaxXAxis) delta.x = MaxXAxis;
+            else if (delta.x < -MaxXAxis) delta.x = -MaxXAxis;
 
-            if (delta.y > 60) delta.y = 60;
-            else if (delta.y < -60) delta.y = -60;
+            delta.y %= 360;
+            if (delta.y > MaxYAxis) delta.y = MaxYAxis;
+            else if (delta.y < -MaxYAxis) delta.y = -MaxYAxis;
 
            Camera.main.transform.rotation = Quaternion.Euler(originAngle + delta);
         }
