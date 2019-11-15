@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerdata:
     name: 
-  FileName: {fileID: 894990846}
+    currentScene: 
   Heart: {fileID: 1980142221}
   Heart2: {fileID: 864284285}
   Time: {fileID: 1048599500}
@@ -1403,6 +1403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     name: 
+    currentScene: 
   usingItem: {fileID: 0}
 --- !u!114 &278335557
 MonoBehaviour:
@@ -3354,7 +3355,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000005096197, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -303, y: -137.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &635119641
