@@ -96,7 +96,7 @@ public class PlayerData
     int time = 0;
     int eventPrograss = 0;
     public string currentScene = "PlayScene";
-    //public List<Item> items = new List<Item>();
+    public List<int> items = new List<int>();
     public int Heart
     {
         get { return heart; }

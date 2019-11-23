@@ -22,5 +22,5 @@ public class PlayManager : MonoBehaviour
     public void AddTime(int i) { data.Time += i; }
     public void SubTime(int i) { data.Time -= i; }
 
-    public void GetItem(Item item) { }// data.items.Add(item); }
+    public void GetItem(Item item) { data.items.Add(System.Array.IndexOf(BackgroundManager.instance.allItems, item)); }
 }

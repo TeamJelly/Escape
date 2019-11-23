@@ -25,13 +25,21 @@ public abstract class WorkNode : MonoBehaviour
     }
     public void InitNode(Button b)
     {
+        List<WorkNode> removeList = new List<WorkNode>();
         foreach (WorkNode node in nodes)
         {
+            if (!BackgroundManager.instance.allNodes.Contains(node.gameObject)) // 이미 수행한 노드에 대한 처리랄까
+            {
+                removeList.Add(node);
+                continue;
+            }
             //node.beforeNode = this;
             node.button = Instantiate(b); // 복제하여 사용.
             node.button.GetComponentInChildren<Text>().text = node.buttonText;
             node.button.transform.SetParent(GameObject.Find("Interactive Buttons").transform);
         }
+        foreach(WorkNode d in removeList) nodes.Remove(d); // 위의 반복문 내에서 삭제불가하여 따로 삭제.
+        removeList.Clear();
     }
     public void ShowNodes()
     {
