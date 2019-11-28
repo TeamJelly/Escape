@@ -36,5 +36,9 @@ public class UIFunctions : MonoBehaviour
     {
         DataManager.Save();
     }
-    
+    public void StartNew()
+    {
+        DataManager.StartAsNew();
+        SelectScene("Intro");
+    }
 }

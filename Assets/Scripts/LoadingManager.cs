@@ -26,6 +26,13 @@ public class LoadingManager : MonoBehaviour
             slider.value = async_operation.progress;
             yield return new WaitForEndOfFrame();
         }
+        //float ratio = 0;
+        //while (ratio < 1)
+        //{
+        //    ratio += 0.02f;
+        //    slider.value = ratio;
+        //    yield return new WaitForSecondsRealtime(0.01f);
+        //}
         async_operation.allowSceneActivation = true;
     }
     // Update is called once per frame

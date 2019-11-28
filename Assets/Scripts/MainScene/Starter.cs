@@ -14,4 +14,14 @@ public class Starter : MonoBehaviour
             LoadButton.SetActive(false);
        
     }
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }
