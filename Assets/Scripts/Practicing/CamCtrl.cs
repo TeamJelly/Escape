@@ -12,6 +12,7 @@ public class CamCtrl : MonoBehaviour
     public int speed = 6;
     public int MaxXAxis = 60;
     public int MaxYAxis = 60;
+    public bool isMovable = true;
     public void Awake()
     {
         instance = this;
@@ -20,10 +21,11 @@ public class CamCtrl : MonoBehaviour
     }
     public void LateUpdate()
     {
-        if (Input.touchCount > 0)
+        if (isMovable && Input.touchCount > 0)
         {
             input = Input.GetTouch(0).deltaPosition * Time.smoothDeltaTime * speed;
-            delta += new Vector3(-input.y, input.x, 0);
+           // delta += new Vector3(-input.y, input.x, 0);
+            delta += new Vector3(0, input.x, 0);
             if (delta.x > MaxXAxis) delta.x = MaxXAxis;
             else if (delta.x < -MaxXAxis) delta.x = -MaxXAxis;
 

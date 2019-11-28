@@ -16,23 +16,18 @@ public class ChatSystem : MonoBehaviour
     public GameObject chatUI;
     public Text chatTxt;
     public GameObject[] Chatter;
-
+    System.Action onEnd;
 
     public chatter[] chatList;
 
-
-    public bool startMessage;
     private bool isSkipped = false;
-    public bool MoveNextScene = false;
-    public string nextSceneName;
-    //private GameObject defaultUI;
 
-    void OnEnable()
+    public void StartChat(System.Action onEnd)
     {
-        StartCoroutine(StartChat());
+        this.onEnd = onEnd;
+        StartCoroutine(loop());
     }
-
-    IEnumerator StartChat()
+    IEnumerator loop()
     {
 
         int checkNum = 0;
@@ -52,16 +47,9 @@ public class ChatSystem : MonoBehaviour
             Chatter[chatList[checkNum].who].SetActive(false);
             checkNum++;
         }
-
         chatUI.SetActive(false);
         Time.timeScale = 1;
-        //defaultUI.SetActive(true);
-        if (MoveNextScene) MoveNext();
-    }
-    public void MoveNext()
-    {
-        GetComponent<UIFunctions>().NextEvent(nextSceneName);
-        //데이터 로딩
+        onEnd();
     }
     public void SkipChat()
     {
