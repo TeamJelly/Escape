@@ -7,55 +7,40 @@ using System;
 [Serializable]
 public class BackgroundManager : MonoBehaviour
 {
-    public List<GameObject> allNodes = new List<GameObject>();
-    public WorkNode currentNode;
-    public Button interactButton;
-    public Button BackButton;
+    public List<Button> allNodes = new List<Button>();
+    public List<Item> items = new List<Item>();
+    public List<Puzzle> puzzles = new List<Puzzle>();
     public static BackgroundManager instance;
 
-
-    public Item[] allItems;
     public GameObject notifyPanel;
+    public PlayerData data;
+
     private void Awake()
     {
-        instance = this;
-        foreach (int itemIndex in DataManager.currentData.items)
-        {
-            allNodes.Remove(allItems[itemIndex].gameObject);
-            allItems[itemIndex].gameObject.SetActive(false);
-        }
-        //allNodes = GameObject.FindGameObjectsWithTag("WorkNode");
-        foreach (GameObject node in allNodes)
-            node.GetComponent<WorkNode>().InitNode(interactButton);
-        
-        //currentNode.ShowNodes();
-        currentNode.OnClick(currentNode);
+        data = DataManager.currentData;
+        QuestDatabase.InitQuestLists();
     }
     private void Start()
     {
-        foreach(int itemIndex in PlayManager.instance.data.items)
+        foreach(Item item in items)
         {
-            allItems[itemIndex].gameObject.SetActive(false);
+            if (data.items[item.ID] > 0)
+                item.DisableItem();
         }
-    }
-    //GUI상의 뒤로가기 버튼에 연결.
-    public void EnableBackButton(AccessNode n)
-    {
-        BackButton.onClick.RemoveAllListeners();
-        BackButton.onClick.AddListener(()=>
+        foreach(Button b in allNodes)
         {
-            n.beforeNode.OnClick(n);
-        });
-        BackButton.gameObject.SetActive(true);
+            b.onClick.AddListener(DisableCamMove);
+        }
+
+        //여기다가 이벤트 진행사항 불러오기 만들어야 함.
     }
-    public void DisableBackButton()
+
+    public void EnableCamMove()
     {
-        BackButton.gameObject.SetActive(false);
+        CamCtrl.instance.isMovable = true;
     }
-    public void EnableGetItemPannel(ItemNode n)
+    public void DisableCamMove()
     {
-        notifyPanel.GetComponentInChildren<Text>().text = n.item.itemName + " 을(를) 획득하였다.";
-        notifyPanel.SetActive(true);
-        //아이템 획득패널 활성화. 아이템 노드 내의 아이템 객체에서 이미지 뽑아서 보여주기.
+        CamCtrl.instance.isMovable = false;
     }
 }

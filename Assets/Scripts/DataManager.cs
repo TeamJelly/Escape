@@ -9,57 +9,7 @@ public static class DataManager
     public static List<string> saveFileList;
     // Start is called before the first frame update
     public static PlayerData currentData = null;
-    public static void AddSaveFile(PlayerData data)
-    {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream stream = new FileStream(Application.persistentDataPath + "/" + data.name + ".sav", FileMode.Create);
-        bf.Serialize(stream, data);
-        stream.Close();
 
-        bf = new BinaryFormatter();
-        stream = new FileStream(Application.persistentDataPath + "/saveFileList.list", FileMode.Create);
-        if(!saveFileList.Contains(data.name))
-             saveFileList.Add(data.name);
-        bf.Serialize(stream, saveFileList);
-        stream.Close();
-    }
-    public static void DeleteSaveFile(string fileName)
-    {
-        File.Delete(Application.persistentDataPath + "/" + fileName + ".sav");
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream stream = new FileStream(Application.persistentDataPath + "/saveFileList.list", FileMode.Create);
-        saveFileList.Remove(fileName);
-        bf.Serialize(stream, saveFileList);
-        stream.Close();
-        
-    }
-    public static PlayerData LoadSaveFile(string fileName)
-    {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream stream = new FileStream(Application.persistentDataPath + "/" + fileName + ".sav", FileMode.Open);
-        PlayerData data = bf.Deserialize(stream) as PlayerData;
-        stream.Close();
-        //currentData = data;
-        return data;
-
-    }
-
-    public static List<string> GetSaveFileList()
-    {
-        
-        List<string> list;
-        if (File.Exists(Application.persistentDataPath + "/saveFileList.list"))
-        {
-            Debug.Log(Application.persistentDataPath);
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream stream = new FileStream(Application.persistentDataPath + "/saveFileList.list", FileMode.Open);
-
-            list = bf.Deserialize(stream) as List<string>; 
-            stream.Close();
-        }
-        else list = new List<string>();
-        return list;
-    }
 
     //단일저장시 사용.
     public static void StartAsNew()
@@ -96,7 +46,13 @@ public class PlayerData
     int time = 0;
     int eventPrograss = 0;
     public string currentScene = "PlayScene";
-    public List<int> items = new List<int>();
+    //public List<int> items = new List<int>();
+
+    //0은 발견되지 않음; 1은 발견 및 수집된 상태; 2는 완료되었거나 소진된 상태.
+    public int[] items = new int[100];
+    public int[] mainEvents = new int[100];// 10 ~ 19 : 첫번째 이벤트 흐름의 이벤트들. 
+    public int[] subEvents = new int[100];
+
     public int Heart
     {
         get { return heart; }
@@ -115,5 +71,9 @@ public class PlayerData
     public PlayerData(string n)
     {
         name = n;
+        Array.Clear(items, 0, items.Length);
+        Array.Clear(mainEvents, 0, mainEvents.Length);
+        Array.Clear(subEvents, 0, subEvents.Length);
+        
     }
 }

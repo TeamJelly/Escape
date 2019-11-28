@@ -15,6 +15,10 @@ public class PlayManager : MonoBehaviour
     {
         instance = this;
         data = DataManager.currentData;
+
+        if(CallbackManager.todoListNextScene != null)
+        CallbackManager.todoListNextScene();
+        CallbackManager.todoListNextScene = null;
     }
 
     public void AddHeart(int i) { data.Heart += i; }
@@ -22,5 +26,22 @@ public class PlayManager : MonoBehaviour
     public void AddTime(int i) { data.Time += i; }
     public void SubTime(int i) { data.Time -= i; }
 
-    public void GetItem(Item item) { data.items.Add(System.Array.IndexOf(BackgroundManager.instance.allItems, item)); }
+    public void GetItem(Item item) { data.items[item.ID] = 1; }
+
+    public void GetQuest(string eventType, int eventID)
+    {
+        if (eventType == "Main") 
+        {
+            data.mainEvents[eventID] = 1;
+            DataManager.Save();
+            GetComponent<QuestUIManager>().Enable(QuestDatabase.MainQList[eventID]);
+        }
+        else if (eventType == "Sub") data.subEvents[eventID] = 1;
+        
+    }
+    public void FinishQuest(string eventType, int eventID)
+    {
+        if (eventType == "Main") data.mainEvents[eventID] = 2;
+        else if (eventType == "Sub") data.subEvents[eventID] = 2;
+    }
 }

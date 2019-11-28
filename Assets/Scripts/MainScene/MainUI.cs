@@ -25,4 +25,9 @@ public class MainUI : UIFunctions
         currentUI = g;
         currentUI.SetActive(true);
     }
+    public void StartNew()
+    {
+        DataManager.StartAsNew();
+        SelectScene("Intro");
+    }
 }
