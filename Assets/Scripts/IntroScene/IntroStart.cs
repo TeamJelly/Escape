@@ -18,14 +18,18 @@ public class IntroStart : MonoBehaviour
             {
                 DataManager.currentData.currentScene = "panorama3";
                 DataManager.Save();
-                GameObject playUI = GameObject.Find("PlayUI");
+               
                 GameObject funcs = GameObject.Find("Functions");
-                playUI.SetActive(false);
-                funcs.GetComponent<ChatSystem>().StartChat(
+                UIFunctions uiFunc = funcs.GetComponent<UIFunctions>();
+                ChatSystem chat = funcs.GetComponent<ChatSystem>();
+                GameObject playUI = uiFunc.currentUI;
+                GameObject chatUI = chat.chatUI;
+                uiFunc.SwabCurrentUI(chatUI);
+                chat.StartChat(
                     () =>
                         {
                             funcs.GetComponent<PlayManager>().GetQuest("Main",10);
-                            playUI.SetActive(true);
+                            uiFunc.SwabCurrentUI(playUI);
                         });
 
             };

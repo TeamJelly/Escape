@@ -33,6 +33,7 @@ public class P_M4 : Puzzle
         checkButton.onClick.AddListener(CheckResult);
     }
 
+    //그냥 현재 선택된 다이얼 표시기 표시기능.
     void SetCurrent(int i)
     {
         Debug.Log(i);
@@ -67,6 +68,8 @@ public class P_M4 : Puzzle
         SubButton.gameObject.SetActive(false);
         currentIndicator.SetActive(false);
         unlockMessage.SetActive(true);
+        DataManager.currentData.mainEvents[eventID] = 2;
+        DataManager.Save();
     }
 
 }

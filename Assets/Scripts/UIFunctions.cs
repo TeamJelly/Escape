@@ -6,10 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class UIFunctions : MonoBehaviour
 {
+    public GameObject currentUI;
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+    public void SwabCurrentUI(GameObject g)
+    {
+        currentUI.SetActive(false);
+        currentUI = g;
+        currentUI.SetActive(true);
     }
     public void SelectScene(string name)
     {
@@ -28,13 +35,9 @@ public class UIFunctions : MonoBehaviour
         ui.SetActive(!ui.activeSelf);
     }
 
-    public void Load()
-    {
-        DataManager.Load();
-    }
     public void Save()
     {
         DataManager.Save();
     }
-    
+     
 }

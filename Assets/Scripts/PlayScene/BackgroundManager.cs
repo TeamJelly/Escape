@@ -8,24 +8,33 @@ using System;
 public class BackgroundManager : MonoBehaviour
 {
     public List<Button> allNodes = new List<Button>();
-    public List<Item> items = new List<Item>();
+    public List<ItemObject> items = new List<ItemObject>();
     public List<Puzzle> puzzles = new List<Puzzle>();
     public static BackgroundManager instance;
 
     public GameObject notifyPanel;
-    public PlayerData data;
+    PlayerData data;
 
     private void Awake()
     {
         data = DataManager.currentData;
         QuestDatabase.InitQuestLists();
+        ItemDatabase.InitItemList();
+
+        GameObject[] _items = GameObject.FindGameObjectsWithTag("Item");
+
+        foreach(GameObject i in _items)
+        {
+            items.Add(i.GetComponent<ItemObject>());
+        }
     }
     private void Start()
     {
-        foreach(Item item in items)
+        foreach(ItemObject itemObj in items)
         {
-            if (data.items[item.ID] > 0)
-                item.DisableItem();
+            itemObj.item = ItemDatabase.GetItemWithID(itemObj.itemID);
+            if (data.items[itemObj.item.ID] > 0)
+                itemObj.DisableItem();
         }
         foreach(Button b in allNodes)
         {

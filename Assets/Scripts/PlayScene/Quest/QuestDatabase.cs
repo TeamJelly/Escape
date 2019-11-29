@@ -54,6 +54,12 @@ public static class QuestDatabase
 
           };
     }
+    public static Quest GetQuestWithID(string type, int ID)
+    {
+        if (type == "Main")
+            return MainQList[ID];
+        else return SubQList[ID];
+    }
 }
 public class Quest
 {
