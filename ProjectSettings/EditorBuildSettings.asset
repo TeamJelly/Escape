@@ -18,8 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro.unity
     guid: c2df0fde406a2d649b33685d2e856635
   - enabled: 1
-    path: Assets/Scenes/Intro.unity
-    guid: c2df0fde406a2d649b33685d2e856635
+    path: Assets/Scenes/Intro2.unity
+    guid: 254ed0bb8b4313840b49beb9d4586e0e
   - enabled: 1
     path: Assets/Scenes/panorama.unity
     guid: 07230f50d0e1e3c49b3d449a5ec09b50
