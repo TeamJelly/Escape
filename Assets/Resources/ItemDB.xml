@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Inventory>
+	<Field id="1" name="이상한 화분" description="몬생긴 화분이다." />
+	<Field id="2" name="신용카드" description="연이의 신용카드이다."/>
+	<Field id="3" name="부러진 열쇠" description="연이가 처참히 부숴버린 불쌍한 열쇠다."/>
+</Inventory>

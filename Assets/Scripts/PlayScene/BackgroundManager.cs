@@ -19,6 +19,7 @@ public class BackgroundManager : MonoBehaviour
     {
         data = DataManager.currentData;
         QuestDatabase.InitQuestLists();
+        //StartCoroutine(ItemDatabase.Process());
         ItemDatabase.InitItemList();
 
         GameObject[] _items = GameObject.FindGameObjectsWithTag("Item");
@@ -30,7 +31,7 @@ public class BackgroundManager : MonoBehaviour
     }
     private void Start()
     {
-        foreach(ItemObject itemObj in items)
+        foreach (ItemObject itemObj in items)
         {
             itemObj.item = ItemDatabase.GetItemWithID(itemObj.itemID);
             if (data.items[itemObj.item.ID] > 0)
