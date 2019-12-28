@@ -11,16 +11,26 @@ public class PlayManager : MonoBehaviour
     public Item usingItem;
 
 
+    
     private void Awake()
     {
         instance = this;
         data = DataManager.currentData;
 
-        if(CallbackManager.todoListNextScene != null)
-        CallbackManager.todoListNextScene();
-        CallbackManager.todoListNextScene = null;
+        
     }
-
+    private void Start()
+    {
+        if(data.mainEvents[10] == 0)
+        {
+            DataManager.currentData.currentScene = "ForNewUISystem";
+            GetComponent<ChatSystem>().StartChat(
+                   () =>
+                   {
+                       GetQuest("Main", 10);
+                   });
+        }
+    }
     public void AddHeart(int i) { data.Heart += i; }
     public void SubHeart(int i) { data.Heart -= i; }
     public void AddTime(int i) { data.Time += i; }
@@ -34,7 +44,7 @@ public class PlayManager : MonoBehaviour
         {
             data.mainEvents[eventID] = 1;
             DataManager.Save();
-            GetComponent<QuestUIManager>().Enable(QuestDatabase.MainQList[eventID]);
+            QuestUIManager.instance.Enable(QuestDatabase.MainQList[eventID]);
         }
         else if (eventType == "Sub") data.subEvents[eventID] = 1;
         

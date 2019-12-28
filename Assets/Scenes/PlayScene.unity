@@ -1316,7 +1316,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 278335554}
-  - component: {fileID: 278335553}
   - component: {fileID: 278335552}
   - component: {fileID: 278335555}
   - component: {fileID: 278335557}
@@ -1351,18 +1350,6 @@ MonoBehaviour:
   Heart2: {fileID: 864284285}
   Time: {fileID: 1048599500}
   Event: {fileID: 572075981}
---- !u!114 &278335553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 278335551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ac13bc4a325618488c3995214dbfccc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &278335554
 Transform:
   m_ObjectHideFlags: 0
@@ -1395,6 +1382,7 @@ MonoBehaviour:
   speed: 6
   MaxXAxis: 60
   MaxYAxis: 60
+  isMovable: 1
 --- !u!114 &278335556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1413,7 +1401,10 @@ MonoBehaviour:
     items: 
     mainEvents: 
     subEvents: 
-  usingItem: {fileID: 0}
+  usingItem:
+    itemName: 
+    itemDescription: 
+    ID: 0
 --- !u!114 &278335557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1427,24 +1418,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allNodes:
-  - {fileID: 125159522}
-  - {fileID: 1081673582}
-  - {fileID: 384299569}
-  - {fileID: 1967614275}
-  - {fileID: 1794610948}
-  - {fileID: 1342847800}
-  - {fileID: 335529957}
-  - {fileID: 1494392638}
-  - {fileID: 1606324028}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   items: []
+  puzzles: []
   notifyPanel: {fileID: 1357546204}
-  data:
-    name: 
-    currentScene: 
-    items: 
-    mainEvents: 
-    subEvents: 
 --- !u!114 &278335558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1797,7 +1783,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 278335553}
+      - m_Target: {fileID: 0}
         m_MethodName: Save
         m_Mode: 1
         m_Arguments:
@@ -2334,7 +2320,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 278335553}
+      - m_Target: {fileID: 0}
         m_MethodName: ToggleUI
         m_Mode: 2
         m_Arguments:
@@ -4659,7 +4645,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 278335553}
+      - m_Target: {fileID: 0}
         m_MethodName: ToggleUI
         m_Mode: 2
         m_Arguments:
@@ -6960,7 +6946,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 278335553}
+      - m_Target: {fileID: 0}
         m_MethodName: SelectScene
         m_Mode: 5
         m_Arguments:

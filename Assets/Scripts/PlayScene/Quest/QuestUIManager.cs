@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class QuestUIManager : MonoBehaviour
 {
-    public GameObject thisUI;
+    public static QuestUIManager instance;
+    //public GameObject thisUI;
     public Text title;
     public Text problem;
     public Text description;
     public GameObject todoPanel;
-    public GameObject todoDescriptionPanel;
+   // public GameObject todoDescriptionPanel;
     int[] mainQList;
     int[] subQList;
     Button[] slots;
@@ -19,11 +20,13 @@ public class QuestUIManager : MonoBehaviour
         title.text = q.title;
         problem.text = q.problem;
         description.text = q.description;
-        thisUI.SetActive(true);
+        this.gameObject.SetActive(true);
     }
 
     private void Awake()
     {
+        instance = this;
+        gameObject.SetActive(false);
         slots = todoPanel.GetComponentsInChildren<Button>();
         mainQList = DataManager.currentData.mainEvents;
         subQList = DataManager.currentData.subEvents;

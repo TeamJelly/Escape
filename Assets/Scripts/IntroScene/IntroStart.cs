@@ -10,28 +10,27 @@ public class IntroStart : MonoBehaviour
     {
         DataManager.currentData.currentScene = "Intro";
         DataManager.Save();
-        chatsystem.StartChat(() =>  GetComponent<UIFunctions>().SelectScene(nextSceneName));
+        chatsystem.StartChat(() => UIFunctions.SelectScene(nextSceneName));
 
 
-        CallbackManager.todoListNextScene =
-        () =>
-            {
-                DataManager.currentData.currentScene = "panorama3";
-                DataManager.Save();
+        //CallbackManager.todoListNextScene =
+        //() =>
+        //    {
+        //        DataManager.currentData.currentScene = "ForNewUISystem";
+        //        DataManager.Save();
                
-                GameObject funcs = GameObject.Find("Functions");
-                UIFunctions uiFunc = funcs.GetComponent<UIFunctions>();
-                ChatSystem chat = funcs.GetComponent<ChatSystem>();
-                GameObject playUI = uiFunc.currentUI;
-                GameObject chatUI = chat.chatUI;
-                uiFunc.SwabCurrentUI(chatUI);
-                chat.StartChat(
-                    () =>
-                        {
-                            funcs.GetComponent<PlayManager>().GetQuest("Main",10);
-                            uiFunc.SwabCurrentUI(playUI);
-                        });
+        //        GameObject funcs = GameObject.Find("Functions");
+        //        ChatSystem chat = funcs.GetComponent<ChatSystem>();
+        //        GameObject playUI = UIFunctions.currentUI;
+        //        GameObject chatUI = chat.chatUI;
+        //        UIFunctions.currentUI = chatUI;//SwabCurrentUI(chatUI);
+        //        chat.StartChat(
+        //            () =>
+        //                {
+        //                    funcs.GetComponent<PlayManager>().GetQuest("Main",10);
+        //                    UIFunctions.SwabCurrentUI(playUI);
+        //                });
 
-            };
+        //    };
         }
 }

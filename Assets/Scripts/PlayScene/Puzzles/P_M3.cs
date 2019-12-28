@@ -25,7 +25,7 @@ public class P_M3 : Puzzle
     }
     public override void OnEnd()
     {
-        isCleared = true;
+        //isCleared = true;
         unlockMessage.SetActive(true);
         useItemButton.gameObject.SetActive(false);
         DataManager.currentData.mainEvents[eventID] = 2;

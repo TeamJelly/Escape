@@ -4327,7 +4327,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be3bf9ed51f46e9428fe40af2de8cf22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isCleared: 0
+  isMain: 1
+  eventID: 0
+  ui: {fileID: 0}
   buttons:
   - {fileID: 1926853597}
   - {fileID: 1083477245}
@@ -4339,6 +4341,7 @@ MonoBehaviour:
   AddButton: {fileID: 1634038745}
   SubButton: {fileID: 846279457}
   unlockMessage: {fileID: 912617882}
+  answer: 00000000000000000000000000000000
 --- !u!114 &833631403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7266,7 +7269,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078394402}
+      - m_Target: {fileID: 0}
         m_MethodName: ToggleUI
         m_Mode: 2
         m_Arguments:
@@ -9009,7 +9012,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078394402}
+      - m_Target: {fileID: 0}
         m_MethodName: SelectScene
         m_Mode: 5
         m_Arguments:
@@ -11125,7 +11128,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078394402}
+      - m_Target: {fileID: 0}
         m_MethodName: SelectScene
         m_Mode: 5
         m_Arguments:
@@ -11259,7 +11262,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2078394400}
   - component: {fileID: 2078394401}
-  - component: {fileID: 2078394402}
   m_Layer: 0
   m_Name: Functions
   m_TagString: Untagged
@@ -11300,18 +11302,6 @@ MonoBehaviour:
   MaxXAxis: 60
   MaxYAxis: 360
   isMovable: 1
---- !u!114 &2078394402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078394399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ac13bc4a325618488c3995214dbfccc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2085721270
 GameObject:
   m_ObjectHideFlags: 0

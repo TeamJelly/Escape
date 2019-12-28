@@ -7,12 +7,11 @@ using System;
 [Serializable]
 public class BackgroundManager : MonoBehaviour
 {
-    public List<Button> allNodes = new List<Button>();
+   // public List<Button> allNodes = new List<Button>();
     public List<ItemObject> items = new List<ItemObject>();
-    public List<Puzzle> puzzles = new List<Puzzle>();
+    //public List<Puzzle> puzzles = new List<Puzzle>();
     public static BackgroundManager instance;
 
-    public GameObject notifyPanel;
     PlayerData data;
 
     private void Awake()
@@ -37,10 +36,10 @@ public class BackgroundManager : MonoBehaviour
             if (data.items[itemObj.item.ID] > 0)
                 itemObj.DisableItem();
         }
-        foreach(Button b in allNodes)
-        {
-            b.onClick.AddListener(DisableCamMove);
-        }
+        //foreach(Button b in allNodes)
+        //{
+        //    b.onClick.AddListener(DisableCamMove);
+        //}
 
         //여기다가 이벤트 진행사항 불러오기 만들어야 함.
     }
