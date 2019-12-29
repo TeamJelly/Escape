@@ -10,7 +10,6 @@ public class PlayUIManager : MonoBehaviour
     public Text Heart;
     public Text Heart2;
     public Text Time;
-    public Text Event;
 
 
     void Start()
@@ -19,7 +18,6 @@ public class PlayUIManager : MonoBehaviour
         Heart.text = playerdata.Heart.ToString();
         Heart2.text = "X " + playerdata.Heart.ToString();
         Time.text = playerdata.Time.ToString();
-        Event.text = playerdata.EventPrograss.ToString();
     }
 
     public void AddHeart(int v)
@@ -32,12 +30,6 @@ public class PlayUIManager : MonoBehaviour
     {
         playerdata.Time += v;
         Time.text = playerdata.Time.ToString();
-    }
-
-    public void AddEvent(int v)
-    {
-        playerdata.EventPrograss += v;
-        Event.text = playerdata.EventPrograss.ToString();
     }
     // Update is called once per frame
    

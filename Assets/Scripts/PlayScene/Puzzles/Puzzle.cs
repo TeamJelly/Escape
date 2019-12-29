@@ -4,9 +4,11 @@ using UnityEngine;
 
 public abstract class Puzzle : MonoBehaviour
 {
-   // public bool isCleared = false; // 
-   // public bool isShown = false; // 
-    public bool isMain = true; // 메인이벤트면 true 서브이벤트면 false
+    // public bool isCleared = false; // 
+    // public bool isShown = false; // 
+
+    public QuestType type;
+   // public bool isMain = true; // 메인이벤트면 true 서브이벤트면 false
     public int eventID;
 
 
@@ -18,12 +20,10 @@ public abstract class Puzzle : MonoBehaviour
     public abstract void OnEnd();
     public void CheckEventState()
     {
-        int eventState = DataManager.currentData.mainEvents[eventID];
+        int eventState = DataManager.currentData.events[(int)type,eventID];
         if (eventState == 0)
         {
-            DataManager.currentData.mainEvents[eventID] = 1;
-            DataManager.Save();
-            QuestUIManager.instance.Enable(QuestDatabase.MainQList[eventID]);
+            BackgroundManager.instance.GetQuest(type, eventID);
         }
         else if (eventState == 2) OnEnd();
     }

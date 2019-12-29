@@ -4,10 +4,12 @@ using UnityEngine;
 using System;
 using System.IO;
 using System.Xml;
+
+
+public enum QuestType {Main, Sub};
 public static class QuestDatabase
 {
-    public static Quest[] MainQList = new Quest[100];
-    public static Quest[] SubQList = new Quest[100];
+    static Quest[,] QList = new Quest[2,100];
 
     public static void InitQuestLists()
     {
@@ -26,12 +28,12 @@ public static class QuestDatabase
                 foreach (XmlNode child in node.ChildNodes)
                 {
                     int id = Convert.ToInt32(child.Attributes.GetNamedItem("id").Value);
-                    MainQList[id] = new Quest
+                    QList[0, id] = new Quest
                     {
+                        type = QuestType.Main,
                         title = child.Attributes.GetNamedItem("title").Value,
                         problem = child.Attributes.GetNamedItem("problem").Value,
                         description = child.Attributes.GetNamedItem("description").Value,
-                        state = 0,
                         ID = id
                     };
                 }
@@ -40,29 +42,17 @@ public static class QuestDatabase
 
         }
     }
-    public static Quest GetQuestWithID(string type, int ID)
+    public static Quest GetQuestWithID(QuestType type, int ID)
     {
-        if (type == "Main")
-            return MainQList[ID];
-        else return SubQList[ID];
+        return QList[(int)type, ID];
     }
 }
 public class Quest
 {
+    public QuestType type;
     public string title; // 이벤트 제목
     public string problem; // 이벤트 문제
-    public int state; //0이면안받은 상태, 1이면 수행중, 2이면 완료
     public int ID; // 이벤트 고유 ID
     public string description; // 이벤트 설명
-
-}
-
-class MainQuest : Quest
-{
-    int ChapterNum;
-}
-
-class SubQuest : Quest
-{
 
 }

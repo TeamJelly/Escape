@@ -20,39 +20,36 @@ public class ChatSystem : MonoBehaviour
 
     public chatter[] chatList;
 
-    private bool isSkipped = false;
+    public Button nextButton;
+    int index = 0;
 
     public void StartChat(System.Action onEnd)
     {
         this.onEnd = onEnd;
-        StartCoroutine(loop());
-    }
-    IEnumerator loop()
-    {
-
-        int checkNum = 0;
-        yield return new WaitForSeconds(0.1f);
         Time.timeScale = 0;
+        chatTxt.text = chatList[index].talkString;
+        Chatter[chatList[index].who].SetActive(true);
         chatUI.SetActive(true);
-        while (checkNum < chatList.Length && !isSkipped)
-        {
-            chatTxt.text = chatList[checkNum].talkString;
-            Chatter[chatList[checkNum].who].SetActive(true);
-            while (!isSkipped)
-            {
-                if (Input.touchCount != 0 && Input.GetTouch(0).phase == TouchPhase.Began) break;
-                yield return null;
-            }
-            yield return new WaitForSecondsRealtime(0.1f);
-            Chatter[chatList[checkNum].who].SetActive(false);
-            checkNum++;
-        }
+    }
+
+    public void SkipChat()
+    {
         chatUI.SetActive(false);
         Time.timeScale = 1;
         onEnd();
     }
-    public void SkipChat()
+
+    public void NextString()
     {
-        isSkipped = true;
+        Chatter[chatList[index].who].SetActive(false);
+        index++;
+        if (index == chatList.Length)
+        {
+            SkipChat();
+            return;
+        }
+        chatTxt.text = chatList[index].talkString;
+        Chatter[chatList[index].who].SetActive(true);
+
     }
 }

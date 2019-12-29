@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 352276160}
   - component: {fileID: 352276159}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: OptionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -892,7 +892,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2045726172}
+      - m_Target: {fileID: 2045726174}
         m_MethodName: Load
         m_Mode: 1
         m_Arguments:
@@ -1495,7 +1495,7 @@ GameObject:
   - component: {fileID: 905907882}
   - component: {fileID: 905907881}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: NewButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1974,7 +1974,7 @@ GameObject:
   - component: {fileID: 1495930364}
   - component: {fileID: 1495930363}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: OmakeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2623,7 +2623,6 @@ GameObject:
   - component: {fileID: 2045726173}
   - component: {fileID: 2045726175}
   - component: {fileID: 2045726174}
-  - component: {fileID: 2045726172}
   m_Layer: 0
   m_Name: Funcions
   m_TagString: Untagged
@@ -2631,19 +2630,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2045726172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2045726171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffd1ea50948b9604fa2d88b72bc64795, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InformUI: {fileID: 0}
 --- !u!4 &2045726173
 Transform:
   m_ObjectHideFlags: 0
@@ -2772,7 +2758,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2045726172}
+      - m_Target: {fileID: 2045726174}
         m_MethodName: StartNew
         m_Mode: 1
         m_Arguments:

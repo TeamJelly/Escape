@@ -10,8 +10,6 @@ public static class DataManager
     // Start is called before the first frame update
     public static PlayerData currentData = null;
 
-
-    //단일저장시 사용.
     public static void StartAsNew()
     {
         currentData = new PlayerData("blank");
@@ -44,14 +42,11 @@ public class PlayerData
     public string name;
     int heart = 5;
     int time = 0;
-    int eventPrograss = 0;
     public string currentScene = "PlayScene";
-    //public List<int> items = new List<int>();
 
-    //0은 발견되지 않음; 1은 발견 및 수집된 상태; 2는 완료되었거나 소진된 상태.
     public int[] items = new int[100];
-    public int[] mainEvents = new int[100];// 10 ~ 19 : 첫번째 이벤트 흐름의 이벤트들. 
-    public int[] subEvents = new int[100];
+    public int[,] events = new int[2,100];//[0,0] ~ [0,100]은 Main, [1,0] ~ [1,100]은 Sub. QuestDatabase의 enum형 참고.
+                                          //0은 발견되지 않음; 1은 발견 및 수집된 상태; 2는 완료되었거나 소진된 상태.
 
     public int Heart
     {
@@ -63,17 +58,11 @@ public class PlayerData
         get { return time; }
         set { time = value > 10 ? 10 : value < 0 ? 0 : value; }
     }   
-    public int EventPrograss
-    {
-        get { return eventPrograss; }
-        set { eventPrograss = value > 10 ? 10 : value < 0 ? 0 : value; }
-    }
     public PlayerData(string n)
     {
         name = n;
         Array.Clear(items, 0, items.Length);
-        Array.Clear(mainEvents, 0, mainEvents.Length);
-        Array.Clear(subEvents, 0, subEvents.Length);
+        Array.Clear(events, 0, events.Length);
         
     }
 }

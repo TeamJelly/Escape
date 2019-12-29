@@ -7,22 +7,26 @@ using System;
 [Serializable]
 public class BackgroundManager : MonoBehaviour
 {
-   // public List<Button> allNodes = new List<Button>();
     public List<ItemObject> items = new List<ItemObject>();
-    //public List<Puzzle> puzzles = new List<Puzzle>();
     public static BackgroundManager instance;
 
     PlayerData data;
 
     private void Awake()
     {
+        instance = this;
         data = DataManager.currentData;
-        QuestDatabase.InitQuestLists();
-        //StartCoroutine(ItemDatabase.Process());
-        ItemDatabase.InitItemList();
+        if (data.events[(int)QuestType.Main,10] == 0)
+        {
+            DataManager.currentData.currentScene = "ForNewUISystem";
+            GetComponent<ChatSystem>().StartChat(
+                   () =>
+                   {
+                       GetQuest(QuestType.Main, 10);
+                   });
+        }
 
         GameObject[] _items = GameObject.FindGameObjectsWithTag("Item");
-
         foreach(GameObject i in _items)
         {
             items.Add(i.GetComponent<ItemObject>());
@@ -36,20 +40,23 @@ public class BackgroundManager : MonoBehaviour
             if (data.items[itemObj.item.ID] > 0)
                 itemObj.DisableItem();
         }
-        //foreach(Button b in allNodes)
-        //{
-        //    b.onClick.AddListener(DisableCamMove);
-        //}
-
-        //여기다가 이벤트 진행사항 불러오기 만들어야 함.
     }
+    public void AddHeart(int i) { data.Heart += i; }
+    public void SubHeart(int i) { data.Heart -= i; }
+    public void AddTime(int i) { data.Time += i; }
+    public void SubTime(int i) { data.Time -= i; }
 
-    public void EnableCamMove()
+    public void GetItem(Item item) { data.items[item.ID] = 1; }
+
+    public void GetQuest(QuestType type, int eventID)
     {
-        CamCtrl.instance.isMovable = true;
+        data.events[(int)type, eventID] = 1;
+        DataManager.Save();
+        QuestUIManager.instance.Enable(QuestDatabase.GetQuestWithID(type,eventID));
     }
-    public void DisableCamMove()
+    public void FinishQuest(QuestType type, int eventID)
     {
-        CamCtrl.instance.isMovable = false;
+        data.events[(int)type,eventID] = 2;
+        DataManager.Save();
     }
 }
