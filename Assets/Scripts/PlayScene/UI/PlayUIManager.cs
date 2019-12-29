@@ -6,30 +6,36 @@ using UnityEngine.UI;
 public class PlayUIManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public PlayerData playerdata;
-    public Text Heart;
-    public Text Heart2;
-    public Text Time;
+    public Image fadeBackground;
 
-
-    void Start()
+    public void Move(GameObject area)
     {
-        playerdata = DataManager.currentData;
-        Heart.text = playerdata.Heart.ToString();
-        Heart2.text = "X " + playerdata.Heart.ToString();
-        Time.text = playerdata.Time.ToString();
+        StartCoroutine(Fade(area));
     }
+    IEnumerator Fade(GameObject area)
+    {
+        Color tempColor = fadeBackground.color;
+        float fadeTime = 0.2f;
 
-    public void AddHeart(int v)
-    {
-        playerdata.Heart += v;
-        Heart.text = playerdata.Heart.ToString();
-        Heart2.text = "X " + playerdata.Heart.ToString();
-    }
-    public void AddTime(int v)
-    {
-        playerdata.Time += v;
-        Time.text = playerdata.Time.ToString();
+        while (tempColor.a < 1f)
+        {
+            fadeBackground.color = tempColor;
+            tempColor.a += Time.deltaTime / fadeTime;
+            yield return null;
+        }
+        tempColor.a = 1.0f;
+        fadeBackground.color = tempColor;
+        area.SetActive(!area.activeSelf);
+        tempColor = fadeBackground.color;
+
+        while (tempColor.a > 0f)
+        {
+            fadeBackground.color = tempColor;
+            tempColor.a -= Time.deltaTime / fadeTime;
+            yield return null;
+        }
+        tempColor.a = 0.0f;
+        fadeBackground.color = tempColor;
     }
     // Update is called once per frame
    
