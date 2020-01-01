@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class IntroStart : MonoBehaviour
 {
-    public ChatSystem chatsystem;
     public string nextSceneName;
-    private void Awake()
+    private void Start()
     {
-        DataManager.currentData.currentScene = "Intro";
         DataManager.Save();
-        chatsystem.StartChat(() => UIFunctions.SelectScene(nextSceneName));
+        ChatSystem.instance.StartChat(1,() => { UIFunctions.SelectScene(nextSceneName);});
 
 
         //CallbackManager.todoListNextScene =

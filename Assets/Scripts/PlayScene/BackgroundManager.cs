@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 using System;
 
 [Serializable]
@@ -16,15 +17,7 @@ public class BackgroundManager : MonoBehaviour
     {
         instance = this;
         data = DataManager.currentData;
-        if (data.events[(int)QuestType.Main,10] == 0)
-        {
-            DataManager.currentData.currentScene = "ForNewUISystem";
-            GetComponent<ChatSystem>().StartChat(
-                   () =>
-                   {
-                       GetQuest(QuestType.Main, 10);
-                   });
-        }
+       
 
         GameObject[] _items = GameObject.FindGameObjectsWithTag("Item");
         foreach(GameObject i in _items)
@@ -34,6 +27,15 @@ public class BackgroundManager : MonoBehaviour
     }
     private void Start()
     {
+        if (data.events[(int)QuestType.Main, 10] == 0)
+        {
+            DataManager.Save();
+            ChatSystem.instance.StartChat(2,
+                   () =>
+                   {
+                       GetQuest(QuestType.Main, 10);
+                   });
+        }
         foreach (ItemObject itemObj in items)
         {
             itemObj.item = ItemDatabase.GetItemWithID(itemObj.itemID);

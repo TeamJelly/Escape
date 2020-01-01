@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 public static class DataManager
@@ -19,6 +20,7 @@ public static class DataManager
     }
     public static void Save()
     {
+        currentData.currentScene = SceneManager.GetActiveScene().name;
         BinaryFormatter bf = new BinaryFormatter();
         FileStream stream = new FileStream(Application.persistentDataPath + "/SaveFile.sav", FileMode.Create);
         bf.Serialize(stream, currentData);

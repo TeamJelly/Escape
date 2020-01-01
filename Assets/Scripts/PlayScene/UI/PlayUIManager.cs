@@ -8,6 +8,12 @@ public class PlayUIManager : MonoBehaviour
     // Start is called before the first frame update
     public Image fadeBackground;
     public GameObject currentPanel;
+    public static PlayUIManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     public void Move(GameObject area)
     {
         StartCoroutine(Fade(area));
