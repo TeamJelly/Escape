@@ -21,12 +21,13 @@ public class Starter : MonoBehaviour
     public void Load()
     {
         DataManager.Load();
-        UIFunctions.SelectScene(DataManager.currentData.currentScene);
+        //UIFunctions.SelectScene(DataManager.currentData.currentScene);
+        PlayUIManager.instance.FadeOutForNextScene(DataManager.currentData.currentScene);
     }
 
     public void StartNew()
     {
         DataManager.StartAsNew();
-        UIFunctions.SelectScene("Intro");
+        PlayUIManager.instance.FadeOutForNextScene("Intro");
     }
 }

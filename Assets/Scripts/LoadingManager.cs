@@ -7,7 +7,7 @@ public class LoadingManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public static string nextScene;
-    public Slider slider;
+    //public Slider slider;
     public static void LoadScene(string sceneName) // 다른씬에서 로딩씬으로 넘어갈 때 이용.
     {
         nextScene = sceneName;
@@ -23,7 +23,7 @@ public class LoadingManager : MonoBehaviour
         async_operation.allowSceneActivation = false;
         while (async_operation.progress < 0.9f)
         {
-            slider.value = async_operation.progress;
+            //slider.value = async_operation.progress;
             yield return new WaitForEndOfFrame();
         }
         async_operation.allowSceneActivation = true;

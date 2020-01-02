@@ -41,7 +41,7 @@ public class ChatSystem : MonoBehaviour
     {
         Interpret("ChatDB/Chat#" + chatNum);
         this.onEnd = onEnd;
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         index = 0;
              
         Chatter[chatList[index].who].SetActive(true);
@@ -54,7 +54,7 @@ public class ChatSystem : MonoBehaviour
     {
         StopCoroutine(coroutine);
         chatUI.SetActive(false);
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         onEnd();
     }
 

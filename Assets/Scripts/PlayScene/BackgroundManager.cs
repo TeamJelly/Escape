@@ -29,12 +29,15 @@ public class BackgroundManager : MonoBehaviour
     {
         if (data.events[(int)QuestType.Main, 10] == 0)
         {
-            DataManager.Save();
-            ChatSystem.instance.StartChat(2,
-                   () =>
-                   {
-                       GetQuest(QuestType.Main, 10);
-                   });
+            DataManager.Save();          
+            PlayUIManager.instance.FadeIn(() =>
+            {
+                ChatSystem.instance.StartChat(2,
+                  () =>
+                  {
+                      GetQuest(QuestType.Main, 10);
+                  });
+            });
         }
         foreach (ItemObject itemObj in items)
         {
