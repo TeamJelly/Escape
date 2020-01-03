@@ -54,6 +54,7 @@ public class ChatSystem : MonoBehaviour
     {
         StopCoroutine(coroutine);
         chatUI.SetActive(false);
+        Chatter[chatList[index].who].SetActive(false);
         //Time.timeScale = 1;
         onEnd();
     }
@@ -84,7 +85,8 @@ public class ChatSystem : MonoBehaviour
         index++;
         if (index == chatList.Length)
         {
-            SkipChat();
+            chatUI.SetActive(false);
+            onEnd();
             return;
         }     
         Chatter[chatList[index].who].SetActive(true);

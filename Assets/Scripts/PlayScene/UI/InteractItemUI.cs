@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class InteractItemUI : MonoBehaviour
 {
-    public GameObject thisUI;
     public GameObject panel;
     Button[] slots;
     int[] itemsList;

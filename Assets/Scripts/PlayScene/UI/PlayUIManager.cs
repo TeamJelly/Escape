@@ -17,12 +17,13 @@ public class PlayUIManager : MonoBehaviour
     }
     public void Move(GameObject area)
     {
+        fadeBackground.interactable = false;
          FadeOut(() =>
          {
              currentPanel.SetActive(false);
              currentPanel = area;
              currentPanel.SetActive(true);
-             FadeIn(() => { });
+             FadeIn(() => { fadeBackground.interactable = true;});
          });
     }
     public void FadeIn(System.Action onEnd)
@@ -36,17 +37,24 @@ public class PlayUIManager : MonoBehaviour
     public void FadeIn(CanvasGroup fadeObject)
     {
         fadeObject.alpha = 0;
+        fadeObject.interactable = false;
         fadeObject.gameObject.SetActive(true);
-        StartCoroutine(FadeIn(fadeObject,() => { }));
+        StartCoroutine(FadeIn(fadeObject,() => { fadeObject.interactable = true; }));
     }
     public void FadeOut(CanvasGroup fadeObject)
     {
-        StartCoroutine(FadeOut(fadeObject, () => { fadeObject.gameObject.SetActive(false); }));
+        fadeObject.interactable = false;
+        StartCoroutine(FadeOut(fadeObject, () => 
+        { 
+            fadeObject.gameObject.SetActive(false); 
+            fadeObject.interactable = true; 
+        }));
     }
     public void FadeOutForNextScene(string sceneName)
     {
         StartCoroutine(FadeOut(fadeBackground, () => { UIFunctions.SelectScene(sceneName);}));
     }
+
     IEnumerator FadeIn(CanvasGroup fadeObject, System.Action onEnd)
     {
         float tempAlpha = 0;
