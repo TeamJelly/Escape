@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Chat>
-	<Field who="양아치A" message="와! Coooooool한 미인!"/>
-	<Field who="양아치B" message="뭐? 어디?"/>
-	<Field who="양아치A" message="저기 가로등 아래에 서있는 사람."/>
-	<Field who="양아치B" message="Uhyooooo! 초 Lucky한 상황이네!"/>
-	<Field who="x" message="지금 당장 꼬셔보자!"/>
-	<Field who="양아치A" message="오라!오라! 거기 외로워보이는 아가씨, 우리랑 놀자!"/>
-	<Field who="여자" message="좋아요! 뭐하고 놀까요?"/>
-	<Field who="양아치B" message="케헤헤, 그럴줄 알았다구! 클럽이나 술집가서 신나..."/>
-	<Field who="여자" message="일단 저쪽 골목에서 같이 깊은 얘기를 나눠보지 않을래요?"/>
-	<Field who="양아치B" message="우히힛! 밤은 짧다고. 신나게 놀아보자!"/>
-	<Field who="양아치A" message="(비짱, 오이오이.. 괜찮은거냐구.. 이 여자 좀 이상하지 않아?)"/>
-	<Field who="양아치B" message="(괜찮아 에이짱, 여자 혼자서 뭘 할수있겠어. 일단 따라 가보자)"/>
-	<Field who="나래이션" message="잠시후"/>
-	<Field who="나래이션" message="으아악!"/>
-	<Field who="나래이션" message="살려줘!"/>
+	<Field who="나레이터" message="안녕히가세요."/>
+	<Field who="주인공" message="안녕히계세요~"/>
+	<Field who="나레이터" message="오늘따라 거리에 사람이 없네."/>
+	<Field who="나레이터" message="평소라면 골목길에 사람이 없어도 신경쓰지 않았겠지만, 오늘따라 이상하게 적막한 골목길이 어쩐지 스산하게 느껴졌다."/>
+	<Field who="연이" message="주인공오빠!"/>
+	<Field who="주인공" message="우왓!"/>
+	<Field who="나레이터" message="어두운 골목길에 어울리지 않는 아름다운 외모를 가진 소녀가 눈 앞에 나타났다."/>
+	<Field who="나레이터" message="달빛을 받아 빛나는 붉은 빛의 검은색 눈동자를 보고 그녀가 왜 내 이름을 아는지에 대한 의문도 잠시 잊어버리고 그녀의 얼굴을 응시했다."/>
+	<Field who="나레이터" message="이런 예쁜 소녀가 왜 나한테 말을 걸었지? 그보다 내 이름은 어떻게 아는거야?"/>
+	<Field who="나레이터" message="그 의문을 제기하기도 전에 그녀가 입을 열었다."/>
+	<Field who="연이" message="저는 연이라고 해요. 저랑 사귀어주세요."/>
+	<Field who="주인공" message="네??"/>
+	<Field who="나레이터" message="마치 러브코미디의 전개처럼 눈 앞의 소녀가 나에게 고백했고, 이런 수법의 다단계가 있다는걸 얼마전에 들은 나는 반사적으로 이렇게 말했다."/>
+	<Field who="주인공" message="아! 안사요!"/>
+	<Field who="연이" message="전에는 나한태 친절하게 대해줬는대 왜그래."/>
+	<Field who="주인공" message="무슨소리를 하시는거예요. 그보다 누구신대 저한태 이러세요?"/>
+	<Field who="연이" message="편의점에서도 피씨방에서도 나랑 얘기했자나 오빠."/>
+	<Field who="나레이터" message="듣고보니 마스크를 안껴서 몰라봤을 뿐, 여태까지 다녔던 편의점과 피씨방 알바생이랑 똑같이 생겼다는 사실을 눈치챘다."/>
+	<Field who="연이" message="그 알바자리 구할려고 얼마나 힘들었는대! 오빠를 조금이라도 더 가까이서 보고싶었다고."/>
+	<Field who="나레이터" message="그녀의 손에서 커터칼이 번뜩이는 모습을 보고 나는 황급히 뒤로 돌아 도망가려 했다."/>
+	<Field who="연이" message="(갑자기 연이가 달려든다)"/>
+	<Field who="주인공" message="살려주세요!"/>
+	<Field who="나레이터" message="나는 전속력으로 도망갔다. 그때 내 코트 사이로 커터칼이 날아와 박혔고, 커터칼은 그대로 벽에 꽂혀 내 몸을 구속했다."/>
+	<Field who="나레이터" message="이런 말도안되는 일이 일어난다고?"/>
+	<Field who="연이" message="어디가 오빠♡ 나랑 같이 가자."/>
+	<Field who="나레이터" message="황급히 코트를 벗었지만, 그녀는 이미 내 뒤에 와있었다."/>
+	<Field who="연이" message="잡았다 ♡♡"/>
+	<Field who="주인공" message="으아아아아아아!"/>
+	<Field who="나레이터" message="나는 그 말을 끝으로 정신을 잃었다."/>
 </Chat>

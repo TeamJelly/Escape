@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Chat>
-	<Field who="주인공" message="(어쩌다 이렇게 된걸까..)"/>
-	<Field who="나래이션" message="방금 만난 여자네 집에서 샤워를 하고있는 기묘한 상황이었다."/>
-	<Field who="연이" message="샤워 물온도는 괜찮으신가요? 보일러가 자주 말썽을 부리거든요."/>
-	<Field who="주인공" message="응 괜찮아!"/>
-	<Field who="나래이션" message="여자의 이름은 '연이', 나보다 어린데도 상경해서 혼자 자취하는 기특한 여대생이었다."/>
-	<Field who="연이" message="아까는 정말 덕분에 살았어요."/>
-	<Field who="주인공" message="아아 괜찮아; 너도 나를 도와줬으니까 쎔쎔인걸로 하자"/>
-	<Field who="연이" message="뜬금없지만 오빠라고 불러도 되요?"/>
-	<Field who="주인공" message="응? 너가 그렇게 불르고 싶다면야.. 맘대로해"/>
-	<Field who="연이" message="그래? 알았어 오빠!"/>
-	<Field who="주인공" message="슬슬 다 씻었으니까 나가 볼까"/>
-	<Field who="주인공" message="(갑자기 왜 이렇게 졸리지?)"/>
-	<Field who="주인공" message="여기서 잠들면.. 안돼..는데.."/>
-	<Field who="연이" message="사랑해,"/>
-	<Field who="x" message="오.빠.♡."/>
-	<Field who="나래이션" message="그것이 흐려지는 의식 속에서 마지막으로 들은 말이였다."/>
+	<Field who="나레이터" state="0" message="철저하게 안에서 밖으로 나가는걸 막는 잠금장치 뿐이라서, 바로 나가는건 불가능하겠어."/>
+	<Field who="연이" state="0" message="오빠 밥먹어~"/>
+	<Field who="주인공" state="0" message="어~"/>
+	<Field who="나레이터" state="0" message="탈출하기 위해서라도 당분간은 연이의 장단에 맞춰주면서 상황을 지켜봐야겠어."/>
 </Chat>
