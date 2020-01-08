@@ -18,19 +18,25 @@ public class ChatSystem : MonoBehaviour
 
     public GameObject chatUI;
     public Text chatTxt;
-    public GameObject[] Chatter;
+    public GameObject[] Charactor;
+    GameObject currentCharactor;
     System.Action onEnd = null;
 
     Chatter[] chatList;
     int index = 0;
     public static ChatSystem instance;
     Dictionary<string, int> nameConvertor = new Dictionary<string, int>();
+    string stackedChat = "";
+
     public void Awake()
     {
         instance = this;
-        nameConvertor.Add("나레이터", 0);
-        nameConvertor.Add("주인공", 1);
-        nameConvertor.Add("연이", 2);
+        nameConvertor.Add("x", -1);
+        for (int i = 0; i < Charactor.Length; i++)
+        {
+            nameConvertor.Add(Charactor[i].name, i);
+            Debug.Log(Charactor[i].name);
+        }
     }
     public void ChatTest(int chatNum)
     {
@@ -43,8 +49,9 @@ public class ChatSystem : MonoBehaviour
         this.onEnd = onEnd;
         //Time.timeScale = 0;
         index = 0;
-             
-        Chatter[chatList[index].who].SetActive(true);
+        chatTxt.text = "";
+        currentCharactor = Charactor[chatList[index].who];
+        currentCharactor.SetActive(true);
         chatUI.SetActive(true);
         coroutine = StringAnimation(chatList[index].talkString);
         StartCoroutine(coroutine);
@@ -54,7 +61,8 @@ public class ChatSystem : MonoBehaviour
     {
         StopCoroutine(coroutine);
         chatUI.SetActive(false);
-        Chatter[chatList[index].who].SetActive(false);
+        Charactor[chatList[index].who].SetActive(false);
+        chatTxt.text = "";
         //Time.timeScale = 1;
         onEnd();
     }
@@ -64,7 +72,6 @@ public class ChatSystem : MonoBehaviour
     IEnumerator StringAnimation(string text)
     {
         isCoroutineRunning = true;
-        chatTxt.text = "";
         for(int i = 0; i < text.Length; i++)
         {
             chatTxt.text += text[i];
@@ -78,18 +85,31 @@ public class ChatSystem : MonoBehaviour
         {
             StopCoroutine(coroutine);
             isCoroutineRunning = false;
-            chatTxt.text = chatList[index].talkString;
+            chatTxt.text = stackedChat + chatList[index].talkString;
             return;
         }
-        Chatter[chatList[index].who].SetActive(false);
         index++;
         if (index == chatList.Length)
         {
             chatUI.SetActive(false);
+            chatTxt.text = "";
             onEnd();
             return;
-        }     
-        Chatter[chatList[index].who].SetActive(true);
+        }
+        if (chatList[index].who == -1)
+        {          
+            chatTxt.text += "\n";
+            stackedChat = chatTxt.text;
+            coroutine = StringAnimation(chatList[index].talkString);
+            StartCoroutine(coroutine);
+            return;
+        }
+        else stackedChat = "";
+        currentCharactor.SetActive(false);
+        
+        currentCharactor = Charactor[chatList[index].who];
+        currentCharactor.SetActive(true);
+        chatTxt.text = "";
         coroutine = StringAnimation(chatList[index].talkString);
         StartCoroutine(coroutine);
     }
