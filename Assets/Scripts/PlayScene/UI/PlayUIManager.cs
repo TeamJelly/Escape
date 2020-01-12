@@ -6,40 +6,79 @@ using UnityEngine.UI;
 public class PlayUIManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public PlayerData playerdata;
-    public Text Heart;
-    public Text Heart2;
-    public Text Time;
-    public Text Event;
+    public CanvasGroup fadeBackground;
+    public GameObject currentPanel;
+    public static PlayUIManager instance;
 
-
-    void Start()
+    private void Awake()
     {
-        playerdata = DataManager.currentData;
-        Heart.text = playerdata.Heart.ToString();
-        Heart2.text = "X " + playerdata.Heart.ToString();
-        Time.text = playerdata.Time.ToString();
-        Event.text = playerdata.EventPrograss.ToString();
+        instance = this;
+        FadeIn(() => { });
+    }
+    public void Move(GameObject area)
+    {
+        fadeBackground.interactable = false;
+         FadeOut(() =>
+         {
+             currentPanel.SetActive(false);
+             currentPanel = area;
+             currentPanel.SetActive(true);
+             FadeIn(() => { fadeBackground.interactable = true;});
+         });
+    }
+    public void FadeIn(System.Action onEnd)
+    {
+        StartCoroutine(FadeIn(fadeBackground,onEnd));
+    }
+    public void FadeOut(System.Action onEnd)
+    {
+        StartCoroutine(FadeOut(fadeBackground, onEnd));
+    }
+    public void FadeIn(CanvasGroup fadeObject)
+    {
+        fadeObject.alpha = 0;
+        fadeObject.interactable = false;
+        fadeObject.gameObject.SetActive(true);
+        StartCoroutine(FadeIn(fadeObject,() => { fadeObject.interactable = true; }));
+    }
+    public void FadeOut(CanvasGroup fadeObject)
+    {
+        fadeObject.interactable = false;
+        StartCoroutine(FadeOut(fadeObject, () => 
+        { 
+            fadeObject.gameObject.SetActive(false); 
+            fadeObject.interactable = true; 
+        }));
+    }
+    public void FadeOutForNextScene(string sceneName)
+    {
+        StartCoroutine(FadeOut(fadeBackground, () => { UIFunctions.SelectScene(sceneName);}));
     }
 
-    public void AddHeart(int v)
+    IEnumerator FadeIn(CanvasGroup fadeObject, System.Action onEnd)
     {
-        playerdata.Heart += v;
-        Heart.text = playerdata.Heart.ToString();
-        Heart2.text = "X " + playerdata.Heart.ToString();
+        float tempAlpha = 0;
+        float fadeTime = 0.2f;
+        while (tempAlpha < 1f)
+        {
+            fadeObject.alpha = tempAlpha;
+            tempAlpha += Time.deltaTime / fadeTime;
+            yield return null;
+        }
+        fadeObject.alpha = 1.0f;
+        onEnd();
     }
-    public void AddTime(int v)
+    IEnumerator FadeOut(CanvasGroup fadeObject, System.Action onEnd)
     {
-        playerdata.Time += v;
-        Time.text = playerdata.Time.ToString();
+        float tempAlpha = 1;
+        float fadeTime = 0.2f;
+        while (tempAlpha > 0)
+        {
+            fadeObject.alpha = tempAlpha;
+            tempAlpha -= Time.deltaTime / fadeTime;
+            yield return null;
+        }
+        fadeObject.alpha = 0;
+        onEnd();
     }
-
-    public void AddEvent(int v)
-    {
-        playerdata.EventPrograss += v;
-        Event.text = playerdata.EventPrograss.ToString();
-    }
-    // Update is called once per frame
-   
-
 }

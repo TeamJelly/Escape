@@ -5,15 +5,23 @@ using UnityEngine.UI;
 
 public class QuestUIManager : MonoBehaviour
 {
+    public static QuestUIManager instance;
     public GameObject thisUI;
     public Text title;
     public Text problem;
     public Text description;
     public GameObject todoPanel;
-    public GameObject todoDescriptionPanel;
-    int[] mainQList;
-    int[] subQList;
+   // public GameObject todoDescriptionPanel;
     Button[] slots;
+    int[,] events;
+
+
+    private void Awake()
+    {
+        events = DataManager.currentData.events;
+        instance = this;
+        slots = todoPanel.GetComponentsInChildren<Button>();
+    }
     public void Enable(Quest q)
     {
         title.text = q.title;
@@ -22,36 +30,33 @@ public class QuestUIManager : MonoBehaviour
         thisUI.SetActive(true);
     }
 
-    private void Awake()
-    {
-        slots = todoPanel.GetComponentsInChildren<Button>();
-        mainQList = DataManager.currentData.mainEvents;
-        subQList = DataManager.currentData.subEvents;
-    }
-
     public void UpdateTodoList()
     {
         int slotIdx = 0;
-        for (int i = 0; i < mainQList.Length; i++)
+        for (int i = 0; i < 100; i++)
         {
-            if (mainQList[i] == 0) continue;
-            Quest q = QuestDatabase.GetQuestWithID("Main", i);
+            if(events[(int)QuestType.Main,i] == 0) continue;
+            Quest q = QuestDatabase.GetQuestWithID(QuestType.Main, i);
+            
             slots[slotIdx].onClick.RemoveAllListeners();
             slots[slotIdx].onClick.AddListener(() => Enable(q));
-            if (mainQList[i] == 1)
+            if (DataManager.currentData.events[0, q.ID] == 1)
                 slots[slotIdx].gameObject.GetComponentInChildren<Text>().text = q.title;
-            else if(mainQList[i] == 2)
+            else if(DataManager.currentData.events[0, i] == 2)
                 slots[slotIdx].gameObject.GetComponentInChildren<Text>().text = q.title + "-완료";
             slotIdx++;
         }
-        for (int i = 0; i < subQList.Length; i++)
+        for (int i = 0; i < 100; i++)
         {
-            if (subQList[i] == 0) continue;           
-            Quest q = QuestDatabase.GetQuestWithID("Sub", i);
-            if (subQList[i] == 1)
-                slots[slotIdx].gameObject.GetComponentInChildren<Text>().text = QuestDatabase.GetQuestWithID("Sub", i).title;
-            else if (subQList[i] == 2)
-                slots[slotIdx].gameObject.GetComponentInChildren<Text>().text = QuestDatabase.GetQuestWithID("Sub", i).title + "-완료";
+            if (events[(int)QuestType.Sub, i] == 0) continue;
+            Quest q = QuestDatabase.GetQuestWithID(QuestType.Sub, i);
+
+            slots[slotIdx].onClick.RemoveAllListeners();
+            slots[slotIdx].onClick.AddListener(() => Enable(q));
+            if (DataManager.currentData.events[1, q.ID] == 1)
+                slots[slotIdx].gameObject.GetComponentInChildren<Text>().text = q.title;
+            else if (DataManager.currentData.events[1, i] == 2)
+                slots[slotIdx].gameObject.GetComponentInChildren<Text>().text = q.title + "-완료";
             slotIdx++;
         }
     }

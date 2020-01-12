@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Chat>
+	<Field who="양아치A" message="와! Coooooool한 미인!"/>
+	<Field who="양아치B" message="뭐? 어디?"/>
+	<Field who="양아치A" message="저기 가로등 아래에 서있는 사람."/>
+	<Field who="양아치B" message="Uhyooooo! 초 Lucky한 상황이네!"/>
+	<Field who="x" message="지금 당장 꼬셔보자!"/>
+	<Field who="양아치A" message="오라!오라! 거기 외로워보이는 아가씨, 우리랑 놀자!"/>
+	<Field who="여자" message="좋아요! 뭐하고 놀까요?"/>
+	<Field who="양아치B" message="케헤헤, 그럴줄 알았다구! 클럽이나 술집가서 신나..."/>
+	<Field who="여자" message="일단 저쪽 골목에서 같이 깊은 얘기를 나눠보지 않을래요?"/>
+	<Field who="양아치B" message="우히힛! 밤은 짧다고. 신나게 놀아보자!"/>
+	<Field who="양아치A" message="(비짱, 오이오이.. 괜찮은거냐구.. 이 여자 좀 이상하지 않아?)"/>
+	<Field who="양아치B" message="(괜찮아 에이짱, 여자 혼자서 뭘 할수있겠어. 일단 따라 가보자)"/>
+	<Field who="나래이션" message="잠시후"/>
+	<Field who="나래이션" message="으아악!"/>
+	<Field who="나래이션" message="살려줘!"/>
+</Chat>

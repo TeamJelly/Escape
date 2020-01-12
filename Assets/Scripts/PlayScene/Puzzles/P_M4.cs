@@ -3,21 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class P_M4 : Puzzle
+public class P_M4 : Puzzle // 비밀번호 자물쇠 퍼즐
 {
     
-    public Button[] buttons;
-    public int currentIndex;
-    public GameObject currentIndicator;
-    public Button checkButton;
-    public Button AddButton;
-    public Button SubButton;
+    public Button[] buttons; // 자물쇠 숫자들.
+    public Button checkButton; // 열기 버튼
     public GameObject unlockMessage;
-    int[] vals = new int[4];
+    int[] vals = new int[4]; // 자물쇠 현재상태.
 
+    [SerializeField]
+    public int[] answer = new int[4]; // 정답
     private void Awake()
     {
-        isMain = true;
+        type = QuestType.Main;
         eventID = 22;
     }
     private void Start()
@@ -26,35 +24,21 @@ public class P_M4 : Puzzle
         for (int i = 0; i < buttons.Length; i++)
         {
             int temp = i;
-            buttons[i].onClick.AddListener(() => { SetCurrent(temp); });
+            buttons[i].onClick.AddListener(() => 
+            {
+                vals[temp] += 1;
+                if (vals[temp] > 9) vals[temp] = 0;
+                buttons[temp].GetComponentInChildren<Text>().text = vals[temp].ToString();
+            }); // 각 숫자칸마다 터치해서 숫자증가 기능 추가.
         }
-        AddButton.onClick.AddListener(() => { SetValue(1); });
-        SubButton.onClick.AddListener(() => { SetValue(-1); });
+
         checkButton.onClick.AddListener(CheckResult);
     }
-
-    //그냥 현재 선택된 다이얼 표시기 표시기능.
-    void SetCurrent(int i)
-    {
-        Debug.Log(i);
-        currentIndex = i;
-        currentIndicator.transform.position = buttons[i].transform.position;
-        currentIndicator.SetActive(true);
-    }
-
-    void SetValue(int i)
-    {
-        vals[currentIndex] = (vals[currentIndex] + i);
-        if (vals[currentIndex] > 9) vals[currentIndex] = 0;
-        else if (vals[currentIndex] < 0) vals[currentIndex] = 9;
-        buttons[currentIndex].GetComponentInChildren<Text>().text = vals[currentIndex].ToString();
-    }
-
     void CheckResult()
     {
-        if (vals[0] == 1 && vals[1] == 2 && vals[2] == 2 && vals[3] == 4)
+        if (vals[0] == answer[0] && vals[1] == answer[1] && vals[2] == answer[2] && vals[3] == answer[3])
         {
-            isCleared = true;
+            //isCleared = true;
             OnEnd();
         }           
     }
@@ -64,12 +48,8 @@ public class P_M4 : Puzzle
         {
             buttons[i].onClick.RemoveAllListeners();
         }
-        AddButton.gameObject.SetActive(false);
-        SubButton.gameObject.SetActive(false);
-        currentIndicator.SetActive(false);
         unlockMessage.SetActive(true);
-        DataManager.currentData.mainEvents[eventID] = 2;
-        DataManager.Save();
+        BackgroundManager.instance.FinishQuest(type, eventID);
     }
 
 }

@@ -1,58 +1,142 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+[System.Serializable]
+public class Chatter
+{
+    public int who;
+    public string talkString;
+
+};
 public class ChatSystem : MonoBehaviour
 {
 
-    [System.Serializable]
-    public class chatter
-    {
-        public int who;
-        public string talkString;
-
-    };
     public GameObject chatUI;
     public Text chatTxt;
-    public GameObject[] Chatter;
-    System.Action onEnd;
+    public GameObject[] Charactor;
+    GameObject currentCharactor;
+    System.Action onEnd = null;
 
-    public chatter[] chatList;
+    Chatter[] chatList;
+    int index = 0;
+    public static ChatSystem instance;
+    Dictionary<string, int> nameConvertor = new Dictionary<string, int>();
+    string stackedChat = "";
 
-    private bool isSkipped = false;
-
-    public void StartChat(System.Action onEnd)
+    public void Awake()
     {
-        this.onEnd = onEnd;
-        StartCoroutine(loop());
-    }
-    IEnumerator loop()
-    {
-
-        int checkNum = 0;
-        yield return new WaitForSeconds(0.1f);
-        Time.timeScale = 0;
-        chatUI.SetActive(true);
-        while (checkNum < chatList.Length && !isSkipped)
+        instance = this;
+        nameConvertor.Add("x", -1);
+        for (int i = 0; i < Charactor.Length; i++)
         {
-            chatTxt.text = chatList[checkNum].talkString;
-            Chatter[chatList[checkNum].who].SetActive(true);
-            while (!isSkipped)
-            {
-                if (Input.touchCount != 0 && Input.GetTouch(0).phase == TouchPhase.Began) break;
-                yield return null;
-            }
-            yield return new WaitForSecondsRealtime(0.1f);
-            Chatter[chatList[checkNum].who].SetActive(false);
-            checkNum++;
+            nameConvertor.Add(Charactor[i].name, i);
+            Debug.Log(Charactor[i].name);
         }
-        chatUI.SetActive(false);
-        Time.timeScale = 1;
-        onEnd();
     }
+    public void ChatTest(int chatNum)
+    {
+        StartChat(chatNum, () => { });
+    }
+
+    public void StartChat(int chatNum, System.Action onEnd)
+    {
+        Interpret("ChatDB/Chat#" + chatNum);
+        this.onEnd = onEnd;
+        //Time.timeScale = 0;
+        index = 0;
+        chatTxt.text = "";
+        currentCharactor = Charactor[chatList[index].who];
+        currentCharactor.SetActive(true);
+        chatUI.SetActive(true);
+        coroutine = StringAnimation(chatList[index].talkString);
+        StartCoroutine(coroutine);
+    }
+
     public void SkipChat()
     {
-        isSkipped = true;
+        StopCoroutine(coroutine);
+        chatUI.SetActive(false);
+        Charactor[chatList[index].who].SetActive(false);
+        chatTxt.text = "";
+        //Time.timeScale = 1;
+        onEnd();
+    }
+
+    IEnumerator coroutine;
+    bool isCoroutineRunning = false;
+    IEnumerator StringAnimation(string text)
+    {
+        isCoroutineRunning = true;
+        for(int i = 0; i < text.Length; i++)
+        {
+            chatTxt.text += text[i];
+            yield return new WaitForSecondsRealtime(0.05f);
+        }
+        isCoroutineRunning = false;
+    }
+    public void NextString()
+    {
+        if (isCoroutineRunning)
+        {
+            StopCoroutine(coroutine);
+            isCoroutineRunning = false;
+            chatTxt.text = stackedChat + chatList[index].talkString;
+            return;
+        }
+        index++;
+        if (index == chatList.Length)
+        {
+            chatUI.SetActive(false);
+            chatTxt.text = "";
+            onEnd();
+            return;
+        }
+        if (chatList[index].who == -1)
+        {          
+            chatTxt.text += "\n";
+            stackedChat = chatTxt.text;
+            coroutine = StringAnimation(chatList[index].talkString);
+            StartCoroutine(coroutine);
+            return;
+        }
+        else stackedChat = "";
+        currentCharactor.SetActive(false);
+        
+        currentCharactor = Charactor[chatList[index].who];
+        currentCharactor.SetActive(true);
+        chatTxt.text = "";
+        coroutine = StringAnimation(chatList[index].talkString);
+        StartCoroutine(coroutine);
+    }
+    void Interpret(string _strSource)
+    {
+        List<Chatter> chatList = new List<Chatter>();
+        TextAsset textAsset = (TextAsset)Resources.Load(_strSource);
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.LoadXml(textAsset.text);
+        XmlNodeList xmlNodeList = xmlDoc.SelectNodes("Chat");
+        foreach (XmlNode node in xmlNodeList)
+        {
+            if (node.Name.Equals("Chat") && node.HasChildNodes)
+            {
+                foreach (XmlNode child in node.ChildNodes)
+                {
+                    chatList.Add(new Chatter
+                    {
+                        // who = child.Attributes.GetNamedItem("who").Value,
+                        who = nameConvertor[child.Attributes.GetNamedItem("who").Value],
+                        talkString = child.Attributes.GetNamedItem("message").Value,
+                    });
+                }
+
+            }
+
+        }
+        this.chatList = chatList.ToArray();
     }
 }

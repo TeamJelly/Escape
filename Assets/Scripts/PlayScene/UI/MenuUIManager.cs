@@ -15,16 +15,14 @@ public class MenuUIManager : MonoBehaviour
     public GameObject todoPanel;
     public GameObject optionPanel;
 
-    UIFunctions uiFuncs;
     private void Awake()
     {
-        uiFuncs = GetComponent<UIFunctions>();
         currentPanel = inventoryPanel;
         currentPanel.SetActive(true);
         inventoryTab.onClick.AddListener(() => SwabPanel(inventoryPanel));
         todoTab.onClick.AddListener(() => SwabPanel(todoPanel));
         optionTab.onClick.AddListener(() => SwabPanel(optionPanel));
-        mainTab.onClick.AddListener(() => uiFuncs.SelectScene("MainScene"));
+        mainTab.onClick.AddListener(() => { this.gameObject.SetActive(false); PlayUIManager.instance.FadeOutForNextScene("MainScene"); });//UIFunctions.SelectScene("MainScene"));
     }
 
     void SwabPanel(GameObject panel)
