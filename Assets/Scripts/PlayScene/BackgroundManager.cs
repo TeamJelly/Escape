@@ -27,7 +27,7 @@ public class BackgroundManager : MonoBehaviour
     }
     private void Start()
     {
-        if (data.events[(int)QuestType.Main, 0] == 0)
+        if (data.events[0] == 0)
         {
             DataManager.Save();          
             PlayUIManager.instance.FadeIn(() =>
@@ -35,7 +35,7 @@ public class BackgroundManager : MonoBehaviour
                 ChatSystem.instance.StartChat(5,
                   () =>
                   {
-                      GetQuest(QuestType.Main, 0);
+                      GetQuest(0);
                   });
             });
         }
@@ -53,19 +53,15 @@ public class BackgroundManager : MonoBehaviour
 
     public void GetItem(Item item) { data.items[item.ID] = 1; }
 
-    public void GetQuest(QuestType type, int eventID)
+    public void GetQuest(int eventID)
     {
-        data.events[(int)type, eventID] = 1;
+        data.events[eventID] = 1;
         DataManager.Save();
-        QuestUIManager.instance.Enable(QuestDatabase.GetQuestWithID(type,eventID));
+        QuestUIManager.instance.Enable(QuestDatabase.GetQuestWithID(eventID));
     }
-    public void GetMainQuest(int eventID)
+    public void FinishQuest(int eventID)
     {
-        GetQuest(QuestType.Main, eventID);
-    }
-    public void FinishQuest(QuestType type, int eventID)
-    {
-        data.events[(int)type,eventID] = 2;
+        data.events[eventID] = 2;
         DataManager.Save();
     }
 }

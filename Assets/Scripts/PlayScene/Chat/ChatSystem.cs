@@ -11,7 +11,7 @@ public class Chatter
 {
     public int who;
     public string talkString;
-
+    System.Action func;
 };
 public class ChatSystem : MonoBehaviour
 {
@@ -22,12 +22,26 @@ public class ChatSystem : MonoBehaviour
     GameObject currentCharactor;
     System.Action onEnd = null;
 
-    Chatter[] chatList;
+    public Chatter[] chatList;
     int index = 0;
     public static ChatSystem instance;
     Dictionary<string, int> nameConvertor = new Dictionary<string, int>();
     string stackedChat = "";
 
+    class state
+    { }
+
+    
+
+    Dictionary<string, System.Action<string>> example = new Dictionary<string, Action<string>>();
+    Dictionary<string, GameObject> states = new Dictionary<string, GameObject>();
+
+    GameObject anger;
+    GameObject happy;
+    public void ChangeState(string state)
+    {
+        Debug.Log(state);
+    }
     public void Awake()
     {
         instance = this;
@@ -37,6 +51,16 @@ public class ChatSystem : MonoBehaviour
             nameConvertor.Add(Charactor[i].name, i);
             Debug.Log(Charactor[i].name);
         }
+
+        states.Add("화남", anger);
+        states.Add("기쁨", happy);
+
+        
+
+        example.Add("changeScene", ChangeState);
+
+        example["changeScene"]("Hello");
+
     }
     public void ChatTest(int chatNum)
     {
@@ -45,7 +69,7 @@ public class ChatSystem : MonoBehaviour
 
     public void StartChat(int chatNum, System.Action onEnd)
     {
-        Interpret("ChatDB/Chat#" + chatNum);
+        Interpret("ChatDB/Chat#1", chatNum);
         this.onEnd = onEnd;
         //Time.timeScale = 0;
         index = 0;
@@ -113,26 +137,25 @@ public class ChatSystem : MonoBehaviour
         coroutine = StringAnimation(chatList[index].talkString);
         StartCoroutine(coroutine);
     }
-    void Interpret(string _strSource)
+    void Interpret(string _strSource,int chatNum)
     {
         List<Chatter> chatList = new List<Chatter>();
         TextAsset textAsset = (TextAsset)Resources.Load(_strSource);
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(textAsset.text);
-        XmlNodeList xmlNodeList = xmlDoc.SelectNodes("Chat");
+        XmlNodeList xmlNodeList = xmlDoc.SelectNodes("Chat/S" + chatNum);
+
         foreach (XmlNode node in xmlNodeList)
         {
-            if (node.Name.Equals("Chat") && node.HasChildNodes)
+            if (node.HasChildNodes)
             {
-                foreach (XmlNode child in node.ChildNodes)
+                foreach(XmlNode child in node.ChildNodes)
+                chatList.Add(new Chatter
                 {
-                    chatList.Add(new Chatter
-                    {
-                        // who = child.Attributes.GetNamedItem("who").Value,
-                        who = nameConvertor[child.Attributes.GetNamedItem("who").Value],
-                        talkString = child.Attributes.GetNamedItem("message").Value,
-                    });
-                }
+                    // who = child.Attributes.GetNamedItem("who").Value,
+                    who = nameConvertor[child.Attributes.GetNamedItem("who").Value],
+                    talkString = child.Attributes.GetNamedItem("message").Value,
+                });
 
             }
 

@@ -13,7 +13,7 @@ public class QuestUIManager : MonoBehaviour
     public GameObject todoPanel;
    // public GameObject todoDescriptionPanel;
     Button[] slots;
-    int[,] events;
+    int[] events;
 
 
     private void Awake()
@@ -35,27 +35,14 @@ public class QuestUIManager : MonoBehaviour
         int slotIdx = 0;
         for (int i = 0; i < 100; i++)
         {
-            if(events[(int)QuestType.Main,i] == 0) continue;
-            Quest q = QuestDatabase.GetQuestWithID(QuestType.Main, i);
+            if(events[i] == 0) continue;
+            Quest q = QuestDatabase.GetQuestWithID(i);
             
             slots[slotIdx].onClick.RemoveAllListeners();
             slots[slotIdx].onClick.AddListener(() => Enable(q));
-            if (DataManager.currentData.events[0, q.ID] == 1)
+            if (DataManager.currentData.events[q.ID] == 1)
                 slots[slotIdx].gameObject.GetComponentInChildren<Text>().text = q.title;
-            else if(DataManager.currentData.events[0, i] == 2)
-                slots[slotIdx].gameObject.GetComponentInChildren<Text>().text = q.title + "-완료";
-            slotIdx++;
-        }
-        for (int i = 0; i < 100; i++)
-        {
-            if (events[(int)QuestType.Sub, i] == 0) continue;
-            Quest q = QuestDatabase.GetQuestWithID(QuestType.Sub, i);
-
-            slots[slotIdx].onClick.RemoveAllListeners();
-            slots[slotIdx].onClick.AddListener(() => Enable(q));
-            if (DataManager.currentData.events[1, q.ID] == 1)
-                slots[slotIdx].gameObject.GetComponentInChildren<Text>().text = q.title;
-            else if (DataManager.currentData.events[1, i] == 2)
+            else if(DataManager.currentData.events[i] == 2)
                 slots[slotIdx].gameObject.GetComponentInChildren<Text>().text = q.title + "-완료";
             slotIdx++;
         }

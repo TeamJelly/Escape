@@ -11,7 +11,6 @@ public class P_M3 : Puzzle
     public int neededItemID = 1;
     private void Awake()
     {
-        type = QuestType.Main;
         eventID = 21;
         //useItemButton.onClick.AddListener(OnClickUseItem);
     }
@@ -28,6 +27,6 @@ public class P_M3 : Puzzle
         //isCleared = true;
         unlockMessage.SetActive(true);
         useItemButton.gameObject.SetActive(false);
-        BackgroundManager.instance.FinishQuest(type, eventID);
+        BackgroundManager.instance.FinishQuest(eventID);
     }
 }

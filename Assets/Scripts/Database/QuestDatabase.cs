@@ -5,11 +5,9 @@ using System;
 using System.IO;
 using System.Xml;
 
-
-public enum QuestType {Main, Sub};
 public static class QuestDatabase
 {
-    static Quest[,] QList = new Quest[2,100];
+    static Quest[] QList = new Quest[100];
 
     public static void InitQuestLists()
     {
@@ -28,9 +26,8 @@ public static class QuestDatabase
                 foreach (XmlNode child in node.ChildNodes)
                 {
                     int id = Convert.ToInt32(child.Attributes.GetNamedItem("id").Value);
-                    QList[0, id] = new Quest
+                    QList[id] = new Quest
                     {
-                        type = QuestType.Main,
                         title = child.Attributes.GetNamedItem("title").Value,
                         problem = child.Attributes.GetNamedItem("problem").Value,
                         description = child.Attributes.GetNamedItem("description").Value,
@@ -42,14 +39,13 @@ public static class QuestDatabase
 
         }
     }
-    public static Quest GetQuestWithID(QuestType type, int ID)
+    public static Quest GetQuestWithID(int ID)
     {
-        return QList[(int)type, ID];
+        return QList[ID];
     }
 }
 public class Quest
 {
-    public QuestType type;
     public string title; // 이벤트 제목
     public string problem; // 이벤트 문제
     public int ID; // 이벤트 고유 ID

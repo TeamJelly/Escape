@@ -12,6 +12,7 @@ public class Starter : MonoBehaviour
     {
         Debug.Log(Application.persistentDataPath);
         DataManager.Load();
+
         QuestDatabase.InitQuestLists();
         ItemDatabase.InitItemList();
         if (DataManager.currentData == null)

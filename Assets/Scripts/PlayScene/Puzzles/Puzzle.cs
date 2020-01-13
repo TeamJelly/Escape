@@ -7,7 +7,6 @@ public abstract class Puzzle : MonoBehaviour
     // public bool isCleared = false; // 
     // public bool isShown = false; // 
 
-    public QuestType type;
    // public bool isMain = true; // 메인이벤트면 true 서브이벤트면 false
     public int eventID;
 
@@ -20,10 +19,10 @@ public abstract class Puzzle : MonoBehaviour
     public abstract void OnEnd();
     public void CheckEventState()
     {
-        int eventState = DataManager.currentData.events[(int)type,eventID];
+        int eventState = DataManager.currentData.events[eventID];
         if (eventState == 0)
         {
-            BackgroundManager.instance.GetQuest(type, eventID);
+            BackgroundManager.instance.GetQuest(eventID);
         }
         else if (eventState == 2) OnEnd();
     }
