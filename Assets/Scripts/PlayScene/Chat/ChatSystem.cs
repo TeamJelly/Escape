@@ -60,7 +60,6 @@ public class ChatSystem : MonoBehaviour
         example.Add("changeScene", ChangeState);
 
         example["changeScene"]("Hello");
-
     }
     public void ChatTest(int chatNum)
     {

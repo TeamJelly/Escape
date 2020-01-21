@@ -11,7 +11,6 @@ public class ItemDatabase : MonoBehaviour
     {
         Interpret("ItemDB");
     }
-
     static void Interpret(string _strSource)
     {
         TextAsset textAsset = (TextAsset)Resources.Load(_strSource);

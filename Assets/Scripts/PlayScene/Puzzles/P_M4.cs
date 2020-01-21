@@ -37,7 +37,6 @@ public class P_M4 : Puzzle // 비밀번호 자물쇠 퍼즐
     {
         if (vals[0] == answer[0] && vals[1] == answer[1] && vals[2] == answer[2] && vals[3] == answer[3])
         {
-            //isCleared = true;
             OnEnd();
         }           
     }

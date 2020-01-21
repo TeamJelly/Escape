@@ -46,11 +46,6 @@ public class BackgroundManager : MonoBehaviour
                 itemObj.DisableItem();
         }
     }
-    public void AddHeart(int i) { data.Heart += i; }
-    public void SubHeart(int i) { data.Heart -= i; }
-    public void AddTime(int i) { data.Time += i; }
-    public void SubTime(int i) { data.Time -= i; }
-
     public void GetItem(Item item) { data.items[item.ID] = 1; }
 
     public void GetQuest(int eventID)

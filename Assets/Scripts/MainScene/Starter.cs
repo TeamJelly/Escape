@@ -10,14 +10,13 @@ public class Starter : MonoBehaviour
     
     private void Awake()
     {
-        Debug.Log(Application.persistentDataPath);
+        //Debug.Log(Application.persistentDataPath);
         DataManager.Load();
 
         QuestDatabase.InitQuestLists();
         ItemDatabase.InitItemList();
         if (DataManager.currentData == null)
-            LoadButton.SetActive(false);
-       
+            LoadButton.SetActive(false);       
     }
     public void Load()
     {

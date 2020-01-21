@@ -10,7 +10,6 @@ public class ItemObject : MonoBehaviour //맵상에 배치되는 아이템정보
 
     public void DisableItem() //맵상에 존재하는 아이템 이미지 비활성화.
     {
-        
         foreach (GameObject img in images)
         {
             img.SetActive(false);
