@@ -32,7 +32,7 @@ public class BackgroundManager : MonoBehaviour
             DataManager.Save();          
             PlayUIManager.instance.FadeIn(() =>
             {
-                ChatSystem.instance.StartChat(5,
+                ChatSystem2.instance.StartChat(2,
                   () =>
                   {
                       GetQuest(0);

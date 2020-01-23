@@ -15,25 +15,28 @@ public class ChatSystem2 : MonoBehaviour
         public string message;
     }
 
-    public List<Charactor> charactorList = new List<Charactor>();
+    public List<Charactor> charactorList;// = new List<Charactor>();
     public GameObject thisUI;
     public Transform charactorPanel;
     public Image bgPanel;
-    
     public Text chatText;
+    public Button skipButton;
 
     Dictionary<string, Charactor> charactorFinder = new Dictionary<string, Charactor>();
-
-    XmlNodeList xmlNodeList;
     List<MessageBox> messageList = new List<MessageBox>();
+    List<int> skipPoint = new List<int>();
+    int skipCount = 0;
 
     Image currentCharactor;
+    Color listeningColor = new Color(50 / 255f, 50 / 255f, 50 / 255f);
+    Color tellingColor = new Color(1, 1, 1);
+
     int currentIndex = 0;
     IEnumerator typeCoroutine;
     bool isTypeCoroutineRunning = false;
     string stackedChat = "";
-    Color listeningColor = new Color(50/255f, 50 / 255f, 50 / 255f);
-    Color tellingColor = new Color(1, 1, 1);
+    Action onEnd = null;
+
     public static ChatSystem2 instance;
 
     private void Awake()
@@ -45,29 +48,38 @@ public class ChatSystem2 : MonoBehaviour
         }
     }
 
-    public void StartChat(int episodeNum, int chatNum)
+    public void StartChat(int episodeNum,Action endFunc)
     {
+        onEnd = endFunc;
         currentIndex = 0;
         thisUI.SetActive(true);
         TextAsset textAsset = (TextAsset)Resources.Load("ChatDB/S" + episodeNum);
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(textAsset.text);
-        xmlNodeList = xmlDoc.SelectNodes("Chat/S" + episodeNum + "-" + chatNum);
-        foreach (XmlNode node in xmlNodeList)
+
+        XmlNode chatList = xmlDoc.SelectSingleNode("Chat");
+
+        foreach(XmlNode node in chatList.ChildNodes)
         {
-            if (node.HasChildNodes)
+            foreach (XmlNode child in node.ChildNodes)
             {
-                foreach (XmlNode child in node.ChildNodes)
-                {
-                    messageList.Add(
-                        new MessageBox
-                        {
-                            name = child.Attributes.GetNamedItem("Who").Value,
-                            state = child.Attributes.GetNamedItem("State").Value,
-                            message = child.Attributes.GetNamedItem("Message").Value
-                        });
-                }
+                messageList.Add(
+                    new MessageBox
+                    {
+                        name = child.Attributes.GetNamedItem("Who").Value,
+                        state = child.Attributes.GetNamedItem("State").Value,
+                        message = child.Attributes.GetNamedItem("Message").Value
+                    });
             }
+            
+            messageList.Add(
+                new MessageBox
+                {
+                    name = "System",
+                    state = "Reset",
+                    message = "-"
+                });
+            skipPoint.Add(messageList.Count - 1);
         }
         ShowNext();
     }
@@ -97,10 +109,9 @@ public class ChatSystem2 : MonoBehaviour
         }
         
         //모든 대사 보여줬으면 비활성화
-        if (currentIndex == messageList.Count)
+        if (currentIndex >= messageList.Count)
         {
-            thisUI.SetActive(false);
-            chatText.text = "";
+            endChat();
             return;
         }
 
@@ -112,6 +123,7 @@ public class ChatSystem2 : MonoBehaviour
             chatText.text += "\n";
             stackedChat = chatText.text + messageBox.message;
             typeCoroutine = TypingAnimation(messageBox.message);
+            currentIndex++;
             StartCoroutine(typeCoroutine);
             return;
         }
@@ -158,13 +170,29 @@ public class ChatSystem2 : MonoBehaviour
     public void SkipChat()
     {
         StopCoroutine(typeCoroutine);
+        isTypeCoroutineRunning = false;
+        if (skipCount < skipPoint.Count)
+        {
+            currentIndex = skipPoint[skipCount];
+            skipCount++;
+            ShowNext();
+        }
+        else endChat();
+        
+        //Time.timeScale = 1;
+    }
+    public void endChat()
+    {
+        StopCoroutine(typeCoroutine);
+        isTypeCoroutineRunning = false;
         thisUI.SetActive(false);
         currentCharactor.gameObject.SetActive(false);
         chatText.text = "";
+        onEnd();
+
         //Time.timeScale = 1;
     }
-
-/***********************************System 명령******************************************************/
+    /***********************************System 명령******************************************************/
     public AudioSource bgmAudio;
     public AudioSource seAudio;
     public void GetCommand(string func, string parameter)
@@ -198,6 +226,7 @@ public class ChatSystem2 : MonoBehaviour
     public void StartSE(string name)
     {
         seAudio.clip = (AudioClip)Resources.Load("SE/" + name);
+        Debug.Log("SE start");
         seAudio.Play();
     }
 
@@ -250,14 +279,23 @@ public class ChatSystem2 : MonoBehaviour
     public void ShowBGCG(string name)
     {
         bgPanel.sprite = Resources.Load("BGCG/" + name,typeof(Sprite)) as Sprite;
+        bgPanel.color = tellingColor;
     }
     //잠들어서 까망화면
     public void HideBGCG()
     {
-
+        Color color = bgPanel.color;
+        color.a = 0;
+        bgPanel.color = color;
     }
-    public void PopUpImage()
+    public void PopUpImage(string name)
     {
 
+    }
+
+    public void Reset()
+    {
+        HideAllSCG();
+        HideBGCG();
     }
 }

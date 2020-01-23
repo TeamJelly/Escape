@@ -37,7 +37,7 @@
 		<Field Who="주인공" State="놀람" Message="(이 밤중에 사람이 있네?)"/>
 		<Field Who="System" State="HideSCG" Message="주인공"/>
 		<Field Who="System" State="ShowSCG" Message="양아치A, 양아치B, 연이, 주인공"/>
-		<Field Who="System" State="StopBGM"/>
+		<Field Who="System" State="StopBGM" Message="-"/>
 		<Field Who="남자A" State="썩은 미소" Message="어..어이, 같이 놀자니까...."/>
 		<Field Who="연이" State="화남" Message="아니 왜그러세요! 싫다고요!"/>
 		<Field Who="주인공" State="놀람" Message="..?! (위험해보이는데..)"/>
@@ -88,4 +88,26 @@
 		<Field Who="연이" State="-" Message="저희집에서 옷이나 말리고 가라고 했어요."/>
 		<Field Who="주인공" State="-" Message="?"/>
 	</S1-2>
+	<S1-3>
+		<Field Who="System" State="StartBGM" Message="샤워 물소리"/>
+		<Field Who="System" State="ShowBGCG" Message="샤워하는 주인공"/>
+		<Field Who="주인공" State="무표정" Message="(어쩌다 이렇게 된걸까..)"/>
+		<Field Who="나래이션" State="-" Message="방금 만난 여자네 집에서 샤워를 하고있는 기묘한 상황이었다."/>
+		<Field Who="System" State="StartSE" Message="노크소리"/>
+		<Field Who="연이" State="-" Message="샤워 물온도는 괜찮으신가요? 보일러가 자주 말썽을 부리거든요."/>
+		<Field Who="주인공" State="-" Message="응 괜찮아!"/>
+		<Field Who="나래이션" State="-" Message="여자의 이름은 '연이', 나보다 어린데 혼자 상경하여 자취하는 여대생이었다."/>
+		<Field Who="연이" State="-" Message="아까는 정말 덕분에 살았어요."/>
+		<Field Who="주인공" State="-" Message="아니 도움받은건 오히려 나야.... 구해줘서 고마워"/>
+		<Field Who="연이" State="-" Message="뜬금없지만 오빠라고 불러도 되요?"/>
+		<Field Who="주인공" State="-" Message="응? 너가 그렇게 불르고 싶다면야.. 맘대로해"/>
+		<Field Who="연이" State="-" Message="그래? 알았어 오빠!"/>
+		<Field Who="주인공" State="-" Message="슬슬 다 씻었으니까 나가 볼까"/>
+		<Field Who="주인공" State="-" Message="(갑자기 왜 이렇게 졸리지?)"/>
+		<Field Who="-" State="-" Message="여기서 잠들면.. 안돼..는데..쿨.."/>
+		<Field Who="System" State="HideBGCG" Message="-"/>
+		<Field Who="System" State="ShowSCG" Message="연이"/>
+		<Field Who="연이" State="황홀" Message="사랑해,"/>
+		<Field Who="-" State="-" Message="오.빠.♡."/>
+	</S1-3>
 </Chat>

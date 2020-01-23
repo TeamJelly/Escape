@@ -7,13 +7,10 @@ public class IntroStart : MonoBehaviour
 {
     public string nextSceneName;
 
-    public GameObject BG1;
-    public GameObject BG2;
-    public GameObject BG3;
     private void Start()
     {
-        //DataManager.Save();
+        DataManager.Save();
 
-        ChatSystem2.instance.StartChat(1,1);
+        ChatSystem2.instance.StartChat(1,()=> UIFunctions.SelectScene(nextSceneName));
      }
 }
