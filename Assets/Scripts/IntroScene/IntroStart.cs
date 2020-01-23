@@ -6,11 +6,10 @@ using System;
 public class IntroStart : MonoBehaviour
 {
     public string nextSceneName;
-
     private void Start()
     {
         DataManager.Save();
-
-        ChatSystem2.instance.StartChat(1,()=> UIFunctions.SelectScene(nextSceneName));
+        ChatSystem2.instance.StartChat(1, () =>
+         PlayUIManager.instance.FadeOutForNextScene(nextSceneName));
      }
 }

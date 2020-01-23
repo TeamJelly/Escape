@@ -116,7 +116,7 @@ public class ChatSystem2 : MonoBehaviour
         }
 
         MessageBox messageBox = messageList[currentIndex];
-
+        Debug.Log(messageBox.name + "," + messageBox.state + "," + messageBox.message);
         //이름이 - 면 텍스트 다음줄에서 계속.
         if (messageBox.name == "-")
         {
@@ -135,8 +135,6 @@ public class ChatSystem2 : MonoBehaviour
                 GetCommand(messageBox.state);
             else 
                 GetCommand(messageBox.state, messageBox.message);
-            currentIndex++;
-            ShowNext();
             return;
         }
 
@@ -173,8 +171,9 @@ public class ChatSystem2 : MonoBehaviour
         isTypeCoroutineRunning = false;
         if (skipCount < skipPoint.Count)
         {
+            chatText.text = "";
             currentIndex = skipPoint[skipCount];
-            skipCount++;
+            //skipCount++;
             ShowNext();
         }
         else endChat();
@@ -186,7 +185,8 @@ public class ChatSystem2 : MonoBehaviour
         StopCoroutine(typeCoroutine);
         isTypeCoroutineRunning = false;
         thisUI.SetActive(false);
-        currentCharactor.gameObject.SetActive(false);
+        if(currentCharactor != null)
+            currentCharactor.gameObject.SetActive(false);
         chatText.text = "";
         onEnd();
 
@@ -214,12 +214,15 @@ public class ChatSystem2 : MonoBehaviour
         bgmAudio.clip = (AudioClip)Resources.Load("BGM/" + name);
         bgmAudio.loop = true;
         bgmAudio.Play();
-
+        currentIndex++;
+        ShowNext();
     }
 
     public void StopBGM()
     {
         bgmAudio.Pause();
+        currentIndex++;
+        ShowNext();
     }
 
     //효과음
@@ -228,6 +231,8 @@ public class ChatSystem2 : MonoBehaviour
         seAudio.clip = (AudioClip)Resources.Load("SE/" + name);
         Debug.Log("SE start");
         seAudio.Play();
+        currentIndex++;
+        ShowNext();
     }
 
 
@@ -237,13 +242,15 @@ public class ChatSystem2 : MonoBehaviour
         string[] result = charactors.Split(new string[] { ", " }, StringSplitOptions.None);
         foreach (string charactor in result)
         {
-            
             Transform t = charactorFinder[charactor].transform;
             charactorFinder[charactor].GetComponent<Image>().color = listeningColor;
             t.SetParent(charactorPanel);
             t.SetAsLastSibling();
             t.gameObject.SetActive(true);
+            StartCoroutine(FadeIn(t.GetComponent<CanvasGroup>(), ()=> { }));
         }
+        currentIndex++;
+        ShowNext();
     }
     //인물 cg재배치
     public void GoSCG(string charactors)
@@ -253,7 +260,10 @@ public class ChatSystem2 : MonoBehaviour
         {
             Transform t = charactorFinder[charactor].transform;
             t.SetAsLastSibling();
+            StartCoroutine(FadeIn(t.GetComponent<CanvasGroup>(), () => { }));
         }
+        currentIndex++;
+        ShowNext();
     }
     //인물 cg숨기기
     public void HideSCG(string charactors)
@@ -265,37 +275,83 @@ public class ChatSystem2 : MonoBehaviour
             t.SetParent(thisUI.transform);
             t.gameObject.SetActive(false);
         }
+        currentIndex++;
+        ShowNext();
     }
     //모든 인물 cg숨기기
     public void HideAllSCG()
     {
         foreach(Charactor c in charactorList)
         {
-            c.transform.SetParent(thisUI.transform);
-            c.gameObject.SetActive(false);
+            StartCoroutine(FadeOut(c.gameObject.GetComponent<CanvasGroup>(), () =>
+            {
+                c.transform.SetParent(thisUI.transform);
+                c.gameObject.SetActive(false);
+            }));
         }
+        currentIndex++;
+        ShowNext();
     }
     //배경 CG를 보여줍니다.
     public void ShowBGCG(string name)
     {
-        bgPanel.sprite = Resources.Load("BGCG/" + name,typeof(Sprite)) as Sprite;
-        bgPanel.color = tellingColor;
+        StartCoroutine(FadeOut(bgPanel.GetComponent<CanvasGroup>(), () =>
+        {
+            chatText.text = "";
+            bgPanel.sprite = Resources.Load("BGCG/" + name, typeof(Sprite)) as Sprite;
+            StartCoroutine(FadeIn(bgPanel.GetComponent<CanvasGroup>(), () =>
+            {
+                currentIndex++;
+                ShowNext();
+            }));
+        }));
     }
     //잠들어서 까망화면
     public void HideBGCG()
     {
-        Color color = bgPanel.color;
-        color.a = 0;
-        bgPanel.color = color;
+        StartCoroutine(FadeOut(bgPanel.GetComponent<CanvasGroup>(), () =>
+        {
+            currentIndex++;
+            ShowNext();
+        }));
+    }
+    IEnumerator FadeIn(CanvasGroup fadeObject, System.Action onEnd)
+    {
+        float tempAlpha = 0;
+        float fadeTime = 0.2f;
+        while (tempAlpha < 1f)
+        {
+            fadeObject.alpha = tempAlpha;
+            tempAlpha += Time.deltaTime / fadeTime;
+            yield return null;
+        }
+        fadeObject.alpha = 1.0f;
+        onEnd();
+    }
+    IEnumerator FadeOut(CanvasGroup fadeObject, System.Action onEnd)
+    {
+        float tempAlpha = fadeObject.alpha;
+        float fadeTime = 0.2f;
+        while (tempAlpha > 0)
+        {
+            fadeObject.alpha = tempAlpha;
+            tempAlpha -= Time.deltaTime / fadeTime;
+            yield return null;
+        }
+        fadeObject.alpha = 0;
+        onEnd();
     }
     public void PopUpImage(string name)
     {
-
+        //팝업이미지띄움
+        currentIndex++;
+        ShowNext();
     }
 
     public void Reset()
     {
         HideAllSCG();
-        HideBGCG();
+        //HideBGCG();
+        skipCount++;
     }
 }

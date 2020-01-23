@@ -10,7 +10,7 @@ public class Charactor : MonoBehaviour
     public void SetEmotion(string emotion)
     {
         Sprite sprite = Resources.Load("Charactors" + "/" + charactorName + "/" + emotion,typeof(Sprite)) as Sprite;
-        Debug.Log("Charactors" + "/" + charactorName + "/" + emotion);
+        //Debug.Log("Charactors" + "/" + charactorName + "/" + emotion);
         if (emotion != "-" && sprite != null)
             image.sprite = sprite;
     }
