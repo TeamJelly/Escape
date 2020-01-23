@@ -347,7 +347,11 @@ public class ChatSystem2 : MonoBehaviour
         currentIndex++;
         ShowNext();
     }
-
+    public void PopDownImage(string name)
+    {
+        currentIndex++;
+        ShowNext();
+    }
     public void Reset()
     {
         HideAllSCG();
