@@ -59,9 +59,10 @@
 		<Field Who="연이" State="놀람" Message="꺄악!"/>
 		<Field Who="양아치A" State="당황" Message="히...히익!!!! 도망가!!"/>
 		<Field Who="양아치B" State="당황" Message="그..그래!!"/>
+    <Field Who="System" State="HideSCG" Message="양아치A, 양아치B"/>
 		<Field Who="System" State="ShowBGCG" Message="물에 빠진 주인공"/>
 		<Field Who="주인공" State="-" Message="어푸.. ㅇㅍ... 살려주세요!!"/>
-		<Field Who="-" State="-" Message="사람이 물에 빠져ㅆ..!"/>
+    <Field Who="-" State="-" Message="사람이 물에 빠져ㅆ..!"/>
 		<Field Who="System" State="ShowBGCG" Message="잠수중인 주인공"/>
 		<Field Who="주인공" State="-" Message="꼬로로로로록"/>
 		<Field Who="-" State="-" Message="(괴로워..숨이 막히고 앞도 보이지 않아..)"/>
