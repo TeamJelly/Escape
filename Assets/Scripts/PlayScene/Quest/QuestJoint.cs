@@ -21,7 +21,7 @@ public class QuestJoint : MonoBehaviour
             };
             if (chatNum >= 0)
             {
-                ChatSystem.instance.StartChat(chatNum, act);
+                ChatSystem2.instance.StartChat(chatNum, act);
             }
             else act();
         }

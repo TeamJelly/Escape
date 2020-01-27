@@ -42,7 +42,7 @@ public class PlayerData
 {
     public string currentScene = "PlayScene";
 
-    public int[] items = new int[100];
+    public int[] items = new int[100]; 
     public int[] events = new int[100]; //0은 발견되지 않음; 1은 발견 및 수집된 상태; 2는 완료되었거나 소진된 상태.
     public PlayerData()
     {

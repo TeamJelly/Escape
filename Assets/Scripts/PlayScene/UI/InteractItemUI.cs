@@ -8,16 +8,13 @@ public class InteractItemUI : MonoBehaviour
     public GameObject panel;
     Button[] slots;
     int[] itemsList;
-
     public void Awake()
     {
         slots = panel.GetComponentsInChildren<Button>();
         itemsList = DataManager.currentData.items;
-
     }
     public void Enable()
     {
-        
         int slotIdx = 0;
         for (int i = 0; i < itemsList.Length; i++)
         {

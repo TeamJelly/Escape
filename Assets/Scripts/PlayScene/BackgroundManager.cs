@@ -18,7 +18,7 @@ public class BackgroundManager : MonoBehaviour
         instance = this;
         data = DataManager.currentData;
        
-
+        //맵상에 있는 모든 아이템 찾기
         GameObject[] _items = GameObject.FindGameObjectsWithTag("Item");
         foreach(GameObject i in _items)
         {
@@ -32,13 +32,11 @@ public class BackgroundManager : MonoBehaviour
             DataManager.Save();          
             PlayUIManager.instance.FadeIn(() =>
             {
-                ChatSystem2.instance.StartChat(2,
-                  () =>
-                  {
-                      GetQuest(0);
-                  });
+                ChatSystem2.instance.StartChat(2,() => GetQuest(0));
             });
         }
+
+        //해당 아이템이 수집상태 or 사용된 상태라면 비활성화.
         foreach (ItemObject itemObj in items)
         {
             itemObj.item = ItemDatabase.GetItemWithID(itemObj.itemID);
@@ -52,6 +50,7 @@ public class BackgroundManager : MonoBehaviour
     {
         data.events[eventID] = 1;
         DataManager.Save();
+        //추후 수정. 띄울필요 없음.
         QuestUIManager.instance.Enable(QuestDatabase.GetQuestWithID(eventID));
     }
     public void FinishQuest(int eventID)

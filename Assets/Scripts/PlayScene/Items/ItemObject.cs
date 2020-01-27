@@ -14,6 +14,15 @@ public class ItemObject : MonoBehaviour //맵상에 배치되는 아이템정보
         {
             img.SetActive(false);
         }
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+    }
+
+    public void EnableItem() //맵상에 존재하는 아이템 이미지 활성화.
+    {
+        foreach (GameObject img in images)
+        {
+            img.SetActive(true);
+        }
+        //gameObject.SetActive(true);
     }
 }

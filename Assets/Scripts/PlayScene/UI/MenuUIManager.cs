@@ -19,10 +19,11 @@ public class MenuUIManager : MonoBehaviour
     {
         currentPanel = inventoryPanel;
         currentPanel.SetActive(true);
+
         inventoryTab.onClick.AddListener(() => SwabPanel(inventoryPanel));
         todoTab.onClick.AddListener(() => SwabPanel(todoPanel));
         optionTab.onClick.AddListener(() => SwabPanel(optionPanel));
-        mainTab.onClick.AddListener(() => { this.gameObject.SetActive(false); PlayUIManager.instance.FadeOutForNextScene("MainScene"); });//UIFunctions.SelectScene("MainScene"));
+        mainTab.onClick.AddListener(() => PlayUIManager.instance.FadeOutForNextScene("MainScene"));//UIFunctions.SelectScene("MainScene"));
     }
 
     void SwabPanel(GameObject panel)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayUIManager : MonoBehaviour
 {
@@ -52,7 +53,7 @@ public class PlayUIManager : MonoBehaviour
     }
     public void FadeOutForNextScene(string sceneName)
     {
-        StartCoroutine(FadeOut(fadeBackground, () => { UIFunctions.SelectScene(sceneName);}));
+        StartCoroutine(FadeOut(fadeBackground, () => { SceneManager.LoadScene(sceneName);}));
     }
 
     IEnumerator FadeIn(CanvasGroup fadeObject, System.Action onEnd)
