@@ -14,4 +14,5 @@ public class Charactor : MonoBehaviour
         if (emotion != "-" && sprite != null)
             image.sprite = sprite;
     }
+
 }
