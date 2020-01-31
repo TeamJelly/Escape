@@ -25,10 +25,10 @@
 	</S1-1>
 	<S1-2>
 		<Field Who="System" State="StartBGM" Message="평화로운 밤"/>
-		<Field Who="System" State="ShowBGCG" Message="편의점"/>
+    <Field Who="System" State="StartSE" Message="편의점 문 벨소리"/>
+    <Field Who="System" State="ShowBGCG" Message="편의점"/>
 		<Field Who="직원" State="-" Message="삼각김밥 2개랑 샌드위치, 캔커피까지 4500원입니다. 카드결제 받았습니다~"/>
 		<Field Who="-" State="-" Message="감사합니다. 또 오세요~"/>
-		<Field Who="System" State="StartSE" Message="편의점 문 벨소리"/>
 		<Field Who="System" State="ShowSCG" Message="주인공"/>
 		<Field Who="주인공" State="기쁨" Message="(오늘 야식은 이걸로 충분하겠지?)"/>
 		<Field Who="주인공" State="괴로움" Message="(으.....밤공기가 차니까 빨리 집에 가야겠다."/>
