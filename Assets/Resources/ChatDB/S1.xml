@@ -45,7 +45,7 @@
 		<Field Who="System" State="HideSCG" Message="주인공"/>
 		<Field Who="System" State="ShowSCG" Message="양아치A, 양아치B, 연이, 주인공"/>
 		<Field Who="System" State="StopBGM" Message="-"/>
-		<Field Who="남자A" State="썩은 미소" Message="어..어이, 같이 놀자니까···"/>
+		<Field Who="양아치A" State="썩은 미소" Message="어..어이, 같이 놀자니까···"/>
 		<Field Who="연이" State="화남" Message="아니 왜그러세요! 싫다고요!"/>
 		<Field Who="주인공" State="놀람" Message="··········?! (위험해보이는데)"/>
 		<Field Who="양아치B" State="썩은 미소" Message="에이 너무 팅기지 말고 같이 놀자니까..!"/>
