@@ -63,23 +63,17 @@ public class ChatSystem2 : MonoBehaviour
         {
             foreach (XmlNode child in node.ChildNodes)
             {
-                messageList.Add(
-                    new MessageBox
-                    {
-                        name = child.Attributes.GetNamedItem("Who").Value,
-                        state = child.Attributes.GetNamedItem("State").Value,
-                        message = child.Attributes.GetNamedItem("Message").Value
-                    });
-            }
-            
-            messageList.Add(
-                new MessageBox
-                {
-                    name = "System",
-                    state = "Reset",
-                    message = "-"
-                });
-            skipPoint.Add(messageList.Count - 1);
+                MessageBox box =
+                     new MessageBox
+                     {
+                         name = child.Attributes.GetNamedItem("Who").Value,
+                         state = child.Attributes.GetNamedItem("State").Value,
+                         message = child.Attributes.GetNamedItem("Message").Value
+                     };
+                messageList.Add(box);
+                if(box.state == "Reset")
+                 skipPoint.Add(messageList.Count - 1);
+            }           
         }
         ShowNext();
     }
