@@ -100,6 +100,7 @@ public class ChatSystem2 : MonoBehaviour
             chatText.text = stackedChat;
             stackedChat = "";
             //currentIndex++;
+            currentIndex--;
             return;
         }
         

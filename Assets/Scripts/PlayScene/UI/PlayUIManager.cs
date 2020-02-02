@@ -9,12 +9,28 @@ public class PlayUIManager : MonoBehaviour
     // Start is called before the first frame update
     public CanvasGroup fadeBackground;
     public GameObject currentPanel;
+
+    public CanvasGroup noticeGetItemUI;
+    public GameObject InventoryItemList;
+    public GameObject ItemBoxPrefab;
+
     public static PlayUIManager instance;
 
     private void Awake()
     {
         instance = this;
         FadeIn(() => { });
+    }
+
+    public void NoticeGetItem(int itemID)
+    {
+        FadeIn(noticeGetItemUI);
+    }
+    public void AddItem(int itemID)
+    {
+        GameObject newItemBox = Instantiate(ItemBoxPrefab);
+        newItemBox.GetComponentInChildren<Text>().text = ItemDatabase.GetItemWithID(itemID).itemName;
+        newItemBox.transform.SetParent(InventoryItemList.transform);
     }
     public void Move(GameObject area)
     {
