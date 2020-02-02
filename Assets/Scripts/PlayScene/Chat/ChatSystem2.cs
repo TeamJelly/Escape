@@ -51,7 +51,7 @@ public class ChatSystem2 : MonoBehaviour
     public void StartChat(int episodeNum,Action endFunc)
     {
         onEnd = endFunc;
-        currentIndex = 0;
+        currentIndex = -1;
         thisUI.SetActive(true);
         TextAsset textAsset = (TextAsset)Resources.Load("ChatDB/S" + episodeNum);
         XmlDocument xmlDoc = new XmlDocument();
@@ -91,6 +91,7 @@ public class ChatSystem2 : MonoBehaviour
 
     public void ShowNext()
     {
+        currentIndex++;
         //현재 쳐지고 있는 텍스트 있으면 완성시키고 종료
         if (isTypeCoroutineRunning)
         {
@@ -117,7 +118,7 @@ public class ChatSystem2 : MonoBehaviour
             chatText.text += "\n";
             stackedChat = chatText.text + messageBox.message;
             typeCoroutine = TypingAnimation(messageBox.message);
-            currentIndex++;
+            
             StartCoroutine(typeCoroutine);
             return;
         }
@@ -157,7 +158,7 @@ public class ChatSystem2 : MonoBehaviour
             typeCoroutine = TypingAnimation(messageBox.message);
             StartCoroutine(typeCoroutine);
         }
-        currentIndex++;//?
+        //currentIndex++;//?
     }
     public void SkipChat()
     {
@@ -166,7 +167,7 @@ public class ChatSystem2 : MonoBehaviour
         if (skipCount < skipPoint.Count)
         {
             chatText.text = "";
-            currentIndex = skipPoint[skipCount];
+            currentIndex = skipPoint[skipCount] - 1;
             //skipCount++;
             ShowNext();
         }
@@ -192,14 +193,14 @@ public class ChatSystem2 : MonoBehaviour
     public void GetCommand(string func, string parameter)
     {
         Type t = GetType();
-        if (t.GetMethod(func) != null) //이 코드 안에 있는 System함수라면
+        MethodInfo method = t.GetMethod(func); // 함수를 저장
+        if (method != null) //이 코드 안에 있는 System함수라면
         { 
-            MethodInfo method = t.GetMethod(func); // 함수를 저장
             method.Invoke(this, new object[] { parameter });
         }
         else //미구현 생략
         {
-            currentIndex++;
+            //currentIndex++;
             Debug.LogError("미구현된 System 함수 : " + func + "{" + parameter + ")");
             ShowNext();
         }
@@ -207,14 +208,14 @@ public class ChatSystem2 : MonoBehaviour
     public void GetCommand(string func)
     {
         Type t = GetType();
-        if (t.GetMethod(func) != null) //이 코드 안에 있는 System함수라면
+        MethodInfo method = t.GetMethod(func); // 함수를 저장
+        if (method != null) //이 코드 안에 있는 System함수라면
         { 
-            MethodInfo method = t.GetMethod(func); // 함수를 저장
             method.Invoke(this, null);
         }
         else //미구현 생략
         {
-            currentIndex++;
+            //currentIndex++;
             Debug.LogError("미구현된 System 함수 : " + func + "()");
             ShowNext();
         }
@@ -224,14 +225,14 @@ public class ChatSystem2 : MonoBehaviour
         bgmAudio.clip = (AudioClip)Resources.Load("BGM/" + name);
         bgmAudio.loop = true;
         bgmAudio.Play();
-        currentIndex++;
+        //currentIndex++;
         ShowNext();
     }
 
     public void StopBGM()
     {
         bgmAudio.Pause();
-        currentIndex++;
+        //currentIndex++;
         ShowNext();
     }
 
@@ -241,7 +242,7 @@ public class ChatSystem2 : MonoBehaviour
         seAudio.clip = (AudioClip)Resources.Load("SE/" + name);
         Debug.Log("SE start");
         seAudio.Play();
-        currentIndex++;
+        //currentIndex++;
         ShowNext();
     }
 
@@ -259,7 +260,7 @@ public class ChatSystem2 : MonoBehaviour
             t.gameObject.SetActive(true);
             StartCoroutine(FadeIn(t.GetComponent<CanvasGroup>(), ()=> { }));
         }
-        currentIndex++;
+        //currentIndex++;
         ShowNext();
     }
     //인물 cg재배치
@@ -272,7 +273,7 @@ public class ChatSystem2 : MonoBehaviour
             t.SetAsLastSibling();
             StartCoroutine(FadeIn(t.GetComponent<CanvasGroup>(), () => { }));
         }
-        currentIndex++;
+        //currentIndex++;
         ShowNext();
     }
     //인물 cg숨기기
@@ -285,7 +286,7 @@ public class ChatSystem2 : MonoBehaviour
             t.SetParent(thisUI.transform);
             t.gameObject.SetActive(false);
         }
-        currentIndex++;
+        //currentIndex++;
         ShowNext();
     }
     //모든 인물 cg숨기기
@@ -299,7 +300,7 @@ public class ChatSystem2 : MonoBehaviour
                 c.gameObject.SetActive(false);
             }));
         }
-        currentIndex++;
+        //currentIndex++;
         ShowNext();
     }
     //배경 CG를 보여줍니다.
@@ -311,7 +312,7 @@ public class ChatSystem2 : MonoBehaviour
             bgPanel.sprite = Resources.Load("BGCG/" + name, typeof(Sprite)) as Sprite;
             StartCoroutine(FadeIn(bgPanel.GetComponent<CanvasGroup>(), () =>
             {
-                currentIndex++;
+                //currentIndex++;
                 ShowNext();
             }));
         }));
@@ -321,7 +322,7 @@ public class ChatSystem2 : MonoBehaviour
     {
         StartCoroutine(FadeOut(bgPanel.GetComponent<CanvasGroup>(), () =>
         {
-            currentIndex++;
+            //currentIndex++;
             ShowNext();
         }));
     }
@@ -354,12 +355,12 @@ public class ChatSystem2 : MonoBehaviour
     public void PopUpImage(string name)
     {
         //팝업이미지띄움
-        currentIndex++;
+       // currentIndex++;
         ShowNext();
     }
     public void PopDownImage(string name)
     {
-        currentIndex++;
+        //currentIndex++;
         ShowNext();
     }
     public void Reset()

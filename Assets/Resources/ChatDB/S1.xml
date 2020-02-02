@@ -110,5 +110,6 @@
 		<Field Who="System" State="ShowSCG" Message="연이"/>
 		<Field Who="연이" State="황홀" Message="사랑해,"/>
 		<Field Who="-" State="-" Message="나의 오.빠.♡."/>
+    <Field Who="System" State="Reset" Message="-"/>
 	</S>
 </Chat>
