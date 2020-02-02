@@ -5,21 +5,24 @@ using UnityEngine.UI;
 
 public class P_WaterSpout : MonoBehaviour
 {
-    public class Tile
+    public class TileBox
     {
-        public Tile(int id) { ID = id; }
+        public TileBox(int id) { ID = id; }
         public bool isEmpty = false;
         public int ID;
-        public Tile up = null;
-        public Tile down = null;
-        public Tile left = null;
-        public Tile right = null;
+        public TileBox up = null;
+        public TileBox down = null;
+        public TileBox left = null;
+        public TileBox right = null;
     }
-
+    public class Tile
+    {
+        
+    }
     public bool isClear = false;
-    public int emptyTileID = 3;
+    public int emptyTileBoxID = 3;
     public Image[] imagies;
-    public Tile[,] tiles = new Tile[4,4];
+    public TileBox[,] TileBoxies = new TileBox[4,4];
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +30,8 @@ public class P_WaterSpout : MonoBehaviour
         {
             for (int j = 0; j < 4; j++)
             {
-                tiles[i, j] = new Tile(i * 4 + j);
-                if (tiles[i, j].ID == emptyTileID) tiles[i, j].isEmpty = true;
+                TileBoxies[i, j] = new TileBox(i * 4 + j);
+                if (TileBoxies[i, j].ID == emptyTileBoxID) TileBoxies[i, j].isEmpty = true;
             }
         }
 
@@ -36,65 +39,65 @@ public class P_WaterSpout : MonoBehaviour
         {
             for(int j = 0; j < 4; j++)
             {
-               // Debug.Log(tiles[i, j].ID + "===============");
+               // Debug.Log(TileBoxs[i, j].ID + "===============");
                 if(i > 0)
                 {
-                    tiles[i,j].up =  tiles[i - 1, j];
-                   // Debug.Log(tiles[i, j].up.ID);
+                    TileBoxies[i,j].up = TileBoxies[i - 1, j];
+                   // Debug.Log(TileBoxs[i, j].up.ID);
                 }
                 if(i < 3)
                 {
-                    tiles[i, j].down = tiles[i + 1, j];
-                  //  Debug.Log(tiles[i, j].down.ID);
+                    TileBoxies[i, j].down = TileBoxies[i + 1, j];
+                  //  Debug.Log(TileBoxs[i, j].down.ID);
                 }
                 if (j > 0)
                 {
-                    tiles[i, j].left = tiles[i, j - 1];
-                  //  Debug.Log(tiles[i, j].left.ID);
+                    TileBoxies[i, j].left = TileBoxies[i, j - 1];
+                  //  Debug.Log(TileBoxs[i, j].left.ID);
                 }
                 if (j < 3)
                 {
-                    tiles[i, j].right = tiles[i, j + 1];
-                  //  Debug.Log(tiles[i, j].right.ID);
+                    TileBoxies[i, j].right = TileBoxies[i, j + 1];
+                  //  Debug.Log(TileBoxs[i, j].right.ID);
                 }
-                Tile tempTile = tiles[i, j];
-                imagies[i * 4 + j].GetComponent<Button>().onClick.AddListener(() => ChangeTile(tempTile));
+                TileBox tempTileBox = TileBoxies[i, j];
+                imagies[i * 4 + j].GetComponent<Button>().onClick.AddListener(() => ChangeTileBox(tempTileBox));
             }
         }
     }
 
-    public void ChangeTile(Tile tile)
+    public void ChangeTileBox(TileBox TileBox)
     {
-        Tile emptyTile = null;
-        if(tile.up != null && tile.up.isEmpty)
+        TileBox emptyTileBox = null;
+        if(TileBox.up != null && TileBox.up.isEmpty)
         {
-            emptyTile = tile.up;
+            emptyTileBox = TileBox.up;
         }
-        if (tile.down != null && tile.down.isEmpty)
+        if (TileBox.down != null && TileBox.down.isEmpty)
         {
-            emptyTile = tile.down;
+            emptyTileBox = TileBox.down;
         }
-        if (tile.left != null && tile.left.isEmpty)
+        if (TileBox.left != null && TileBox.left.isEmpty)
         {
-            emptyTile = tile.left;
+            emptyTileBox = TileBox.left;
         }
-        if (tile.right != null && tile.right.isEmpty)
+        if (TileBox.right != null && TileBox.right.isEmpty)
         {
-            emptyTile = tile.right;
+            emptyTileBox = TileBox.right;
         }
-        //Debug.Log(tile.ID);
-        if (emptyTile != null)
+        //Debug.Log(TileBox.ID);
+        if (emptyTileBox != null)
         {
-            Sprite tempImg = imagies[tile.ID].sprite;
-            imagies[tile.ID].sprite = imagies[emptyTile.ID].sprite;
-            imagies[emptyTile.ID].sprite = tempImg;
+            Sprite tempImg = imagies[TileBox.ID].sprite;
+            imagies[TileBox.ID].sprite = imagies[emptyTileBox.ID].sprite;
+            imagies[emptyTileBox.ID].sprite = tempImg;
 
-            //int tempID = tile.ID;
-            //tile.ID = emptyTile.ID;
-            //emptyTile.ID = tempID;
+            //int tempID = TileBox.ID;
+            //TileBox.ID = emptyTileBox.ID;
+            //emptyTileBox.ID = tempID;
 
-            tile.isEmpty = true;
-            emptyTile.isEmpty = false;
+            TileBox.isEmpty = true;
+            emptyTileBox.isEmpty = false;
             
         }
         
