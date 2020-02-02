@@ -453,6 +453,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225962296522933380, guid: b9a25d8807df82748b352b7e43894789,
         type: 3}
+      propertyPath: charactorList.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225962296522933380, guid: b9a25d8807df82748b352b7e43894789,
+        type: 3}
       propertyPath: bgmAudio
       value: 
       objectReference: {fileID: 70908592}
@@ -461,6 +466,11 @@ PrefabInstance:
       propertyPath: seAudio
       value: 
       objectReference: {fileID: 1081752520}
+    - target: {fileID: 1225962296522933380, guid: b9a25d8807df82748b352b7e43894789,
+        type: 3}
+      propertyPath: charactorList.Array.data[6]
+      value: 
+      objectReference: {fileID: 1614842146}
     - target: {fileID: 4722180453437433541, guid: b9a25d8807df82748b352b7e43894789,
         type: 3}
       propertyPath: m_IsActive
@@ -1120,3 +1130,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428381584}
   m_CullTransparentMesh: 0
+--- !u!114 &1614842146 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6729226891453942429, guid: b9a25d8807df82748b352b7e43894789,
+    type: 3}
+  m_PrefabInstance: {fileID: 492235685}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bdc1ebab83d6344cb0a8760f34b5a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

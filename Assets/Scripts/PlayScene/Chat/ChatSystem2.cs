@@ -163,7 +163,7 @@ public class ChatSystem2 : MonoBehaviour
             typeCoroutine = TypingAnimation(messageBox.message);
             StartCoroutine(typeCoroutine);
         }
-        currentIndex++;
+        currentIndex++;//?
     }
     public void SkipChat()
     {
@@ -198,16 +198,32 @@ public class ChatSystem2 : MonoBehaviour
     public void GetCommand(string func, string parameter)
     {
         Type t = GetType();
-        MethodInfo method = t.GetMethod(func);
-        if (method != null)
+        if (t.GetMethod(func) != null) //이 코드 안에 있는 System함수라면
+        { 
+            MethodInfo method = t.GetMethod(func); // 함수를 저장
             method.Invoke(this, new object[] { parameter });
+        }
+        else //미구현 생략
+        {
+            currentIndex++;
+            Debug.LogError("미구현된 System 함수 : " + func + "{" + parameter + ")");
+            ShowNext();
+        }
     }
     public void GetCommand(string func)
     {
         Type t = GetType();
-        MethodInfo method = t.GetMethod(func);
-        if (method != null)
+        if (t.GetMethod(func) != null) //이 코드 안에 있는 System함수라면
+        { 
+            MethodInfo method = t.GetMethod(func); // 함수를 저장
             method.Invoke(this, null);
+        }
+        else //미구현 생략
+        {
+            currentIndex++;
+            Debug.LogError("미구현된 System 함수 : " + func + "()");
+            ShowNext();
+        }
     }
     public void StartBGM(string name)
     {
