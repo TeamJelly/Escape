@@ -11,8 +11,7 @@ public class PlayUIManager : MonoBehaviour
     public GameObject currentPanel;
 
     public CanvasGroup noticeGetItemUI;
-    public GameObject InventoryItemList;
-    public GameObject ItemBoxPrefab;
+
 
     public static PlayUIManager instance;
 
@@ -26,12 +25,9 @@ public class PlayUIManager : MonoBehaviour
     {
         FadeIn(noticeGetItemUI);
     }
-    public void AddItem(int itemID)
-    {
-        GameObject newItemBox = Instantiate(ItemBoxPrefab);
-        newItemBox.GetComponentInChildren<Text>().text = ItemDatabase.GetItemWithID(itemID).itemName;
-        newItemBox.transform.SetParent(InventoryItemList.transform);
-    }
+
+    //인벤토리바에 아이템들 띄우기
+
     public void Move(GameObject area)
     {
         fadeBackground.interactable = false;

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Item
   - Node
+  - Interactor
   layers:
   - Default
   - TransparentFX

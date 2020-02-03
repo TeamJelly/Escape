@@ -42,13 +42,21 @@ public class BackgroundManager : MonoBehaviour
             ItemObject itemObj = i.GetComponent<ItemObject>();
             if (data.items[itemObj.itemID] > 0)
             {
-                PlayUIManager.instance.AddItem(itemObj.itemID);
                 itemObj.DisableItem();
-                //items.Add(itemObj); // 이게 필요한가 모르겠음.
             }
             else
             {
                 itemObj.Init();
+            }
+        }
+
+        foreach (Item item in ItemDatabase.itemList)
+        {
+            if (item == null) continue;
+            //Debug.Log(item.itemName);
+            if (data.items[item.ID] == 1)
+            {
+                Inventory.instance.AddItem(item.ID);
             }
         }
     }
@@ -58,7 +66,7 @@ public class BackgroundManager : MonoBehaviour
     {
         data.items[itemID] = 1;
         DataManager.Save();
-        PlayUIManager.instance.AddItem(itemID);
+        Inventory.instance.AddItem(itemID);
         PlayUIManager.instance.NoticeGetItem(itemID);
     }
 

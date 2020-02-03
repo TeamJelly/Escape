@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# IDE0059: 불필요한 값 할당
+csharp_style_unused_value_assignment_preference = discard_variable:suggestion
