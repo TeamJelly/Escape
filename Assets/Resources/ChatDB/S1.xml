@@ -29,6 +29,7 @@
 		<Field Who="???" State="-" Message="으아악!"/>
 		<Field Who="???" State="-" Message="살려주세요!"/>
 		<Field Who="System" State="Reset" Message="-"/>
+    
 		<Field Who="System" State="StartBGM" Message="평화로운 밤"/>
 		<Field Who="System" State="ShowBGCG" Message="편의점"/>
 		<Field Who="직원" State="-" Message="삼각김밥 2개랑 샌드위치, 캔커피까지 4500원입니다. 카드결제 받았습니다~"/>
@@ -87,6 +88,7 @@
 		<Field Who="주인공" State="-" Message="네..넵! 듣고있습니다!"/>
 		<Field Who="연이" State="-" Message="요앞에 저희집에서 옷이나 말리고 가라고 했어요."/>
 		<Field Who="System" State="Reset" Message="-"/>
+    
 		<Field Who="System" State="StartBGM" Message="샤워 물소리"/>
 		<Field Who="System" State="ShowBGCG" Message="샤워하는 주인공"/>
 		<Field Who="주인공" State="무표정" Message="(어쩌다 이렇게 된걸까..)"/>

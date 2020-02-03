@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractExample : Interactor
+public class InteractDoor : Interactor
 {
-    public int rewardItemID = 0;
     public override void CallbackFunction(Slot slot)
     {
-        BackgroundManager.instance.GetItem(rewardItemID);
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
+        ChatSystem2.instance.Monologue("문이 열렸다");
+        DataManager.GetData().items[slot.itemID] = 2;
         Destroy(slot.gameObject);
     }
 
     public override bool CheckFinished()
     {
-        return DataManager.GetData().items[rewardItemID] > 0;
+        return false;
     }
 }

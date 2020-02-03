@@ -29,13 +29,13 @@ public class Slot : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerDownHa
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        Inventory.instance.selectedItemID = itemID;
+        Inventory.instance.selectedSlot = this;
         itemImage.SetParent(itemImage.parent.parent.parent.parent);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        Inventory.instance.selectedItemID = -1;
+        Inventory.instance.selectedSlot = null;
         itemImage.SetParent(this.transform);
         itemImage.localPosition = Vector3.zero;
         Inventory.instance.interactMethod?.Invoke();

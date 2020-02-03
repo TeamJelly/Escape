@@ -48,10 +48,31 @@ public class ChatSystem2 : MonoBehaviour
         }
     }
 
+    public void Monologue(string message)
+    {
+        bgPanel.gameObject.SetActive(false);
+        messageList.Clear();
+        onEnd = () => bgPanel.gameObject.SetActive(true);
+        thisUI.SetActive(true);
+        currentIndex = -1;
+        messageList.Add(
+            new MessageBox
+            {
+                name = "주인공",
+                state = "-",
+                message = message
+            });
+        ShowSCG("주인공");
+        
+       
+       // ShowNext();
+    }
+
     public void StartChat(int episodeNum,Action endFunc)
     {
         onEnd = endFunc;
         currentIndex = -1;
+        messageList.Clear();
         thisUI.SetActive(true);
         TextAsset textAsset = (TextAsset)Resources.Load("ChatDB/S" + episodeNum);
         XmlDocument xmlDoc = new XmlDocument();
@@ -184,7 +205,7 @@ public class ChatSystem2 : MonoBehaviour
         if(currentCharactor != null)
             currentCharactor.gameObject.SetActive(false);
         chatText.text = "";
-        onEnd();
+        onEnd?.Invoke();
 
         //Time.timeScale = 1;
     }

@@ -3,26 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public abstract class Interactor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public abstract class Interactor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public int neededItemID;
-    public int rewardItemID;
+    
+    public string onClickMessage;
     public void OnEnable()
     {
-        if (DataManager.GetData().items[rewardItemID] > 0)
+        if(CheckFinished())
             gameObject.SetActive(false);
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (Inventory.instance.selectedItemID == neededItemID)
+        if (Inventory.instance.selectedSlot?.itemID == neededItemID)
         {
-            Inventory.instance.interactMethod = CallbackFunction;
+            Slot temp = Inventory.instance.selectedSlot;
+            Inventory.instance.interactMethod = ()=> CallbackFunction(temp);
         }
     }
-    public abstract void CallbackFunction();
+    public abstract bool CheckFinished();
+    public abstract void CallbackFunction(Slot slot);
 
     public void OnPointerExit(PointerEventData eventData)
     {
         Inventory.instance.interactMethod = null;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log("Clicked");
+        ChatSystem2.instance.Monologue(onClickMessage);
+       
     }
 }

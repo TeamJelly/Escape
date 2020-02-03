@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Chat>
-	<S2-1>
+	<S>
 		<Field Who="System" State="StartBGM" Message="행복한 우리집"/>
 		<Field Who="System" State="ShowBGCG" Message="침실"/>
 		<Field Who="System" State="ShowSCG" Message="연이"/>
@@ -53,37 +53,39 @@
 		<Field Who="주인공" State="-" Message="연이가 안보는 사이에 현관으로 도망치자"/>
 		<Field Who="주인공" State="-" Message="이럴때가 아니야."/>
 		<Field Who="주인공" State="-" Message="나가자마자 큰소리로 주위 사람한테 도움을 요청하는게 좋겠어"/>
-	</S2-1>
-	<S2-2>
-		<Field Who="System" State="StartBGM" Message="긴박한 음악"/>
-		<Field Who="System" State="ShowBGCG" Message="현관"/>
-		<Field Who="System" State="ShowSCG" Message="주인공"/>
-		<Field Who="주인공" State="긴장" Message="화장실에 가는척 하면서, 현관으로 탈출한다!"/>
-		<Field Who="-" State="-" Message="완벽한 계획이야!"/>
-		<Field Who="System" State="ShowBGCG" Message="열린 현관문"/>
-		<Field Who="System" State="StartSE" Message="문여는 소리"/>
-		<Field Who="주인공" State="-" Message="누가좀 도와주...!!!!!"/>
-		<Field Who="System" State="StartSE" Message="심장 박동 소리"/>
-		<Field Who="주인공" State="고통" Message="윽?!"/>
-		<Field Who="나래이션" State="-" Message="문을 열고 소리를 지르려는 그때, 나는 목에서 느껴지는 엄청난 격통에 거의 기절할 뻔했다."/>
-		<Field Who="System" State="PopUpImage" Message="목의 기계장치"/>
-		<Field Who="주인공" State="고통" Message="허억... 헉.... (뭐지? 언제부터 목에 이런 장치가 있었던거야..)"/>
-		<Field Who="System" State="ShowSCG" Message="주인공, 연이"/>
-		<Field Who="연이" State="정색" Message="…………"/>
-		<Field Who="System" State="ShowBGCG" Message="닫힌 현관문"/>
-		<Field Who="System" State="StartSE" Message="자물쇠 철컥 소리"/>
-		<Field Who="나래이션" State="-" Message="(연이는 문을 닫고, 잠가버렸다.)"/>
-		<Field Who="연이" State="-" Message="연인 사이에 거짓말을 하면 안되지? 오.빠."/>
-		<Field Who="주인공" State="고통" Message="너……내 목에 무슨짓을 한거야…"/>
-		<Field Who="연이" State="-" Message="조금 개조한, 애완동물용 짖음 방지 목걸이인데?"/>
-		<Field Who="연이" State="-" Message="나라면, 그걸 만지거나 망가트리려고 하지 않을거야"/>
-		<Field Who="연이" State="광기" Message="만지는 순간 전기가 흐르고, 허가없이 작동을 멈추거나 하면 바로 나에게 알람이 오게 설정되어있거든."/>
-		<Field Who="System" State="PopDownImage" Message="목의 기계장치"/>
-		<Field Who="System" State="PopUpImage" Message="전기밥솥"/>
-		<Field Who="System" State="StartSE" Message="알람음"/>
-		<Field Who="밥솥" State="-" Message="쿡쿠~ 밥이 다 됬어요~"/>
-		<Field Who="연이" State="웃음" Message="마침 밥이 다된거같네, 배고프니까 밥먹으러 가자"/>
-		<Field Who="주인공" State="혐오" Message="(악...악마같은 여자다)"/>
-		<Field Who="나래이션" State="-" Message="나는 얌전히 연이의 말을 따를 수 밖에 없었고, 그렇게 첫 탈출의 기회를 놓쳐버렸다."/>
-	</S2-2>
+    <Field Who="System" State="Reset" Message="-"/>
+    
+    <Field Who="System" State="StartBGM" Message="긴박한 음악"/>
+    <Field Who="System" State="ShowBGCG" Message="현관"/>
+    <Field Who="System" State="ShowSCG" Message="주인공"/>
+    <Field Who="주인공" State="긴장" Message="화장실에 가는척 하면서, 현관으로 탈출한다!"/>
+    <Field Who="-" State="-" Message="완벽한 계획이야!"/>
+    <Field Who="System" State="ShowBGCG" Message="열린 현관문"/>
+    <Field Who="System" State="StartSE" Message="문여는 소리"/>
+    <Field Who="주인공" State="-" Message="누가좀 도와주...!!!!!"/>
+    <Field Who="System" State="StartSE" Message="심장 박동 소리"/>
+    <Field Who="주인공" State="고통" Message="윽?!"/>
+    <Field Who="나래이션" State="-" Message="문을 열고 소리를 지르려는 그때, 나는 목에서 느껴지는 엄청난 격통에 거의 기절할 뻔했다."/>
+    <Field Who="System" State="PopUpImage" Message="목의 기계장치"/>
+    <Field Who="주인공" State="고통" Message="허억... 헉.... (뭐지? 언제부터 목에 이런 장치가 있었던거야..)"/>
+    <Field Who="System" State="ShowSCG" Message="주인공, 연이"/>
+    <Field Who="연이" State="정색" Message="…………"/>
+    <Field Who="System" State="ShowBGCG" Message="닫힌 현관문"/>
+    <Field Who="System" State="StartSE" Message="자물쇠 철컥 소리"/>
+    <Field Who="나래이션" State="-" Message="(연이는 문을 닫고, 잠가버렸다.)"/>
+    <Field Who="연이" State="-" Message="연인 사이에 거짓말을 하면 안되지? 오.빠."/>
+    <Field Who="주인공" State="고통" Message="너……내 목에 무슨짓을 한거야…"/>
+    <Field Who="연이" State="-" Message="조금 개조한, 애완동물용 짖음 방지 목걸이인데?"/>
+    <Field Who="연이" State="-" Message="나라면, 그걸 만지거나 망가트리려고 하지 않을거야"/>
+    <Field Who="연이" State="광기" Message="만지는 순간 전기가 흐르고, 허가없이 작동을 멈추거나 하면 바로 나에게 알람이 오게 설정되어있거든."/>
+    <Field Who="System" State="PopDownImage" Message="목의 기계장치"/>
+    <Field Who="System" State="PopUpImage" Message="전기밥솥"/>
+    <Field Who="System" State="StartSE" Message="알람음"/>
+    <Field Who="밥솥" State="-" Message="쿡쿠~ 밥이 다 됬어요~"/>
+    <Field Who="연이" State="웃음" Message="마침 밥이 다된거같네, 배고프니까 밥먹으러 가자"/>
+    <Field Who="주인공" State="혐오" Message="(악...악마같은 여자다)"/>
+    <Field Who="나래이션" State="-" Message="나는 얌전히 연이의 말을 따를 수 밖에 없었고, 그렇게 첫 탈출의 기회를 놓쳐버렸다."/>
+    <Field Who="System" State="Reset" Message="-"/>
+	</S>
+
 </Chat>

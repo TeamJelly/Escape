@@ -67,7 +67,7 @@ public class BackgroundManager : MonoBehaviour
         data.items[itemID] = 1;
         DataManager.Save();
         Inventory.instance.AddItem(itemID);
-        PlayUIManager.instance.NoticeGetItem(itemID);
+        //PlayUIManager.instance.NoticeGetItem(itemID);
     }
 
     public void GetQuest(int eventID)
