@@ -8,7 +8,7 @@ public class QuestStarter : MonoBehaviour
     private void OnEnable()
     {
         //아직 퀘스트 수주 상태가 아니라면 새 퀘스트 등록.
-        if (DataManager.currentData.events[eventID] == 0)
+        if (DataManager.GetData().events[eventID] == 0)
         {
             BackgroundManager.instance.GetQuest(eventID);
         }

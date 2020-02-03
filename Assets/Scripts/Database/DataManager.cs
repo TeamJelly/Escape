@@ -9,8 +9,20 @@ public static class DataManager
 {
     public static List<string> saveFileList;
     // Start is called before the first frame update
-    public static PlayerData currentData = null;
+    static PlayerData currentData = null;
+    public static bool dataExist = false;
 
+    public static PlayerData GetData()
+    {
+        if (currentData == null)
+        {
+            QuestDatabase.InitQuestLists();
+            ItemDatabase.InitItemList();
+            currentData = new PlayerData();
+            currentData.currentScene = SceneManager.GetActiveScene().name;
+        }
+        return currentData;
+    }
     public static void StartAsNew()
     {
         currentData = new PlayerData();
@@ -19,7 +31,8 @@ public static class DataManager
     }
     public static void Save()
     {
-        currentData.currentScene = SceneManager.GetActiveScene().name;
+        
+        GetData().currentScene = SceneManager.GetActiveScene().name;
         BinaryFormatter bf = new BinaryFormatter();
         FileStream stream = new FileStream(Application.persistentDataPath + "/SaveFile.sav", FileMode.Create);
         bf.Serialize(stream, currentData);
@@ -33,14 +46,16 @@ public static class DataManager
             FileStream stream = new FileStream(Application.persistentDataPath + "/SaveFile.sav", FileMode.Open);
             currentData = bf.Deserialize(stream) as PlayerData;
             stream.Close();
+            dataExist = true;
         }
+        else dataExist = false;
     }
      
 }
 [Serializable]
 public class PlayerData
 {
-    public string currentScene = "PlayScene";
+    public string currentScene = "Intro";
 
     public int[] items = new int[100]; 
     public int[] events = new int[100]; //0은 발견되지 않음; 1은 발견 및 수집된 상태; 2는 완료되었거나 소진된 상태.

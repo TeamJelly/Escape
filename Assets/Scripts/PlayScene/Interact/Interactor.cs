@@ -9,7 +9,7 @@ public abstract class Interactor : MonoBehaviour, IPointerEnterHandler, IPointer
     public int rewardItemID;
     public void OnEnable()
     {
-        if (DataManager.currentData.items[rewardItemID] > 0)
+        if (DataManager.GetData().items[rewardItemID] > 0)
             gameObject.SetActive(false);
     }
     public void OnPointerEnter(PointerEventData eventData)

@@ -16,7 +16,7 @@ public class BackgroundManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        data = DataManager.currentData;
+        data = DataManager.GetData();
         
     }
     private void Start()

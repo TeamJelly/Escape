@@ -17,7 +17,7 @@ public class P_M3 : Puzzle
 
     public void OnClickUseItem()
     {
-        if(DataManager.currentData.items[neededItemID] == 1)
+        if(DataManager.GetData().items[neededItemID] == 1)
         {
             OnEnd();
         }

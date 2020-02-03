@@ -19,7 +19,7 @@ public abstract class Puzzle : MonoBehaviour
     public abstract void OnEnd();
     public void CheckEventState()
     {
-        int eventState = DataManager.currentData.events[eventID];
+        int eventState = DataManager.GetData().events[eventID];
         if (eventState == 0)
         {
             BackgroundManager.instance.GetQuest(eventID);

@@ -12,7 +12,7 @@ public class QuestJoint : MonoBehaviour
         //이전 메인이벤트가 현재 진행중이면 완료로 변경,
         //그 다음 메인 이벤트를 현재 진행중으로 변경,
         //화면상에 띄우기.
-        if (DataManager.currentData.events[prevEventID] == 1)
+        if (DataManager.GetData().events[prevEventID] == 1)
         {
             System.Action act = () =>
             {

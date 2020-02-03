@@ -15,14 +15,14 @@ public class Starter : MonoBehaviour
 
         QuestDatabase.InitQuestLists();
         ItemDatabase.InitItemList();
-        if (DataManager.currentData == null)
+        if (!DataManager.dataExist)
             LoadButton.SetActive(false);       
     }
     public void Load()
     {
         DataManager.Load();
         //UIFunctions.SelectScene(DataManager.currentData.currentScene);
-        PlayUIManager.instance.FadeOutForNextScene(DataManager.currentData.currentScene);
+        PlayUIManager.instance.FadeOutForNextScene(DataManager.GetData().currentScene);
     }
 
     public void StartNew()

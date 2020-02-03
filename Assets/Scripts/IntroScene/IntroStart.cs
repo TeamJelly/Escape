@@ -8,7 +8,7 @@ public class IntroStart : MonoBehaviour
     public string nextSceneName;
     private void Start()
     {
-        //DataManager.Save();
+        DataManager.Save();
         ChatSystem2.instance.StartChat(1, () =>
          PlayUIManager.instance.FadeOutForNextScene(nextSceneName));
      }
