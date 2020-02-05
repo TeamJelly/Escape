@@ -16,4 +16,8 @@ public class InteractExample : Interactor
     {
         return DataManager.GetData().items[rewardItemID] > 0;
     }
+    public override void OnClickFunction()
+    {
+        
+    }
 }

@@ -18,7 +18,8 @@ public class ChatSystem2 : MonoBehaviour
     public List<Charactor> charactorList;// = new List<Charactor>();
     public GameObject thisUI;
     public Transform charactorPanel;
-    public Image bgPanel;
+    public GameObject bgPanel;
+    public Image bgImage;
     public Text chatText;
     public Button skipButton;
 
@@ -52,7 +53,7 @@ public class ChatSystem2 : MonoBehaviour
     {
         bgPanel.gameObject.SetActive(false);
         messageList.Clear();
-        onEnd = () => bgPanel.gameObject.SetActive(true);
+        onEnd = () => bgImage.gameObject.SetActive(true);
         thisUI.SetActive(true);
         currentIndex = -1;
         messageList.Add(
@@ -62,10 +63,7 @@ public class ChatSystem2 : MonoBehaviour
                 state = "-",
                 message = message
             });
-        ShowSCG("주인공");
-        
-       
-       // ShowNext();
+        ShowNext();
     }
 
     public void StartChat(int episodeNum,Action endFunc)
@@ -73,6 +71,7 @@ public class ChatSystem2 : MonoBehaviour
         onEnd = endFunc;
         currentIndex = -1;
         messageList.Clear();
+        bgPanel.gameObject.SetActive(true);
         thisUI.SetActive(true);
         TextAsset textAsset = (TextAsset)Resources.Load("ChatDB/S" + episodeNum);
         XmlDocument xmlDoc = new XmlDocument();
@@ -328,11 +327,11 @@ public class ChatSystem2 : MonoBehaviour
     //배경 CG를 보여줍니다.
     public void ShowBGCG(string name)
     {
-        StartCoroutine(FadeOut(bgPanel.GetComponent<CanvasGroup>(), () =>
+        StartCoroutine(FadeOut(bgImage.GetComponent<CanvasGroup>(), () =>
         {
             chatText.text = "";
-            bgPanel.sprite = Resources.Load("BGCG/" + name, typeof(Sprite)) as Sprite;
-            StartCoroutine(FadeIn(bgPanel.GetComponent<CanvasGroup>(), () =>
+            bgImage.sprite = Resources.Load("BGCG/" + name, typeof(Sprite)) as Sprite;
+            StartCoroutine(FadeIn(bgImage.GetComponent<CanvasGroup>(), () =>
             {
                 //currentIndex++;
                 ShowNext();
@@ -342,7 +341,7 @@ public class ChatSystem2 : MonoBehaviour
     //잠들어서 까망화면
     public void HideBGCG()
     {
-        StartCoroutine(FadeOut(bgPanel.GetComponent<CanvasGroup>(), () =>
+        StartCoroutine(FadeOut(bgImage.GetComponent<CanvasGroup>(), () =>
         {
             //currentIndex++;
             ShowNext();

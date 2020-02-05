@@ -16,4 +16,9 @@ public class InteractDoor : Interactor
     {
         return false;
     }
+
+    public override void OnClickFunction()
+    {
+        //여기서 카드놀이 이벤트 활성화 시키기
+    }
 }
