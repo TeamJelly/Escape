@@ -15,7 +15,7 @@ public abstract class Interactor : MonoBehaviour, IPointerEnterHandler, IPointer
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (Inventory.instance.selectedSlot?.itemID == neededItemID)
+        if (Inventory.instance.selectedSlot?.GetItemID() == neededItemID)
         {
             Slot temp = Inventory.instance.selectedSlot;
             Inventory.instance.interactMethod = ()=> CallbackFunction(temp);

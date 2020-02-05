@@ -7,9 +7,15 @@ using System.Xml;
 public class ItemDatabase : MonoBehaviour
 {
     public static Item[] itemList = new Item[100];
+    static Dictionary<string, Item> dictionary = new Dictionary<string, Item>();
     public static void InitItemList()
     {
         Interpret("ItemDB");
+        foreach (Item item in itemList)
+        {
+            if(item != null)
+            dictionary.Add(item.itemName, item);
+        }
     }
     static void Interpret(string _strSource)
     {
@@ -39,6 +45,10 @@ public class ItemDatabase : MonoBehaviour
     public static Item GetItemWithID(int id)
     {
         return itemList[id];
+    }
+    public static Item GetItemWithName(string iName)
+    {
+        return dictionary[iName];
     }
 }
 

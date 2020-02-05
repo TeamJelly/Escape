@@ -5,13 +5,18 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class Slot : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
 {
-    public int itemID;
     public Transform itemImage;
+    Item item;
 
-    public void Init(int id)
+
+    public int GetItemID()
     {
-        itemID = id;
-        string itemName = ItemDatabase.GetItemWithID(itemID).itemName;
+        return item.ID;
+    }
+    public void Init(Item i)
+    {
+        item = i;
+        string itemName = ItemDatabase.GetItemWithID(item.ID).itemName;
         itemImage.GetComponent<Image>().sprite = Resources.Load("Item/" + itemName,typeof(Sprite)) as Sprite;
     }
     public void OnDrag(PointerEventData data)

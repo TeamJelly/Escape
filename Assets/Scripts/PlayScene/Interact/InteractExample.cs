@@ -7,7 +7,7 @@ public class InteractExample : Interactor
     public int rewardItemID = 0;
     public override void CallbackFunction(Slot slot)
     {
-        BackgroundManager.instance.GetItem(rewardItemID);
+        Inventory.instance.AddItem(rewardItemID);
         this.gameObject.SetActive(false);
         Destroy(slot.gameObject);
     }

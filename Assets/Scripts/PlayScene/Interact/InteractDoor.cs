@@ -8,7 +8,8 @@ public class InteractDoor : Interactor
     {
         gameObject.SetActive(false);
         ChatSystem2.instance.Monologue("문이 열렸다");
-        DataManager.GetData().items[slot.itemID] = 2;
+        DataManager.GetData().items[slot.GetItemID()] = 2;
+        QuestManager.instance.FinishQuest(0);
         Destroy(slot.gameObject);
     }
 
