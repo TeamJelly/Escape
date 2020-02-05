@@ -3,48 +3,49 @@
 	<S>
 		<Field Who="System" State="StartBGM" Message="행복한 우리집"/>
 		<Field Who="System" State="ShowBGCG" Message="침실"/>
-		<Field Who="System" State="ShowSCG" Message="연이"/>
-		<Field Who="System" State="StartSE" Message="쾅!"/>
-		<Field Who="연이" State="기본" Message="오빠!"/>
+		<Field Who="System" State="ShowSCG" Message="연이, 주인공"/>
+		<Field Who="System" State="StartSE" Message="쾅"/>
+		<Field Who="System" State="Animation" Message="화면흔들림"/>
+		<Field Who="연이" State="이잉" Message="오빠!"/>
 		<Field Who="주인공" State="당황" Message="으아악! 뭐야?"/>
-		<Field Who="-" State="-" Message="(여긴 어디지? 어제 분명, 물에빠진 나를 연이가 구해주고..)"/>
+		<Field Who="-" State="-" Message="(여긴 어디지? 어제 분명, 내가 연이를 구해주려다 물에 빠지고···)"/>
 		<Field Who="연이" State="삐짐" Message="오빠, 언제까지 잠만 잘꺼야?"/>
 		<Field Who="-" State="-" Message="계속 잠만 자면 아침밥 나 혼자 다 먹어버린다?"/>
 		<Field Who="주인공" State="-" Message="(설마 어제밤 연이네 집에서 외박한건가?"/>
 		<Field Who="-" State="-" Message="아니 아무리 생각해봐도 여기서 잔 기억이 없는데?)"/>
-		<Field Who="연이" State="-" Message="오빠, 어제 물에 빠지고 피곤했는지 샤워하고 바로 쓰러지더라고"/>
+		<Field Who="연이" State="-" Message="오빠, 어제 물에 빠지고 피곤했는지 샤워하고 바로 잠들었어."/>
 		<Field Who="-" State="-" Message="침대까지 옮기는데 큰일이었다니까~"/>
-		<Field Who="주인공" State="-" Message="아.. 그랬구나? 하하.."/>
-		<Field Who="-" State="-" Message="근데 이제 집에 가봐야 할거 같은데.. 슬슬 부모님이 걱정.."/>
-		<Field Who="System" State="StartSE" Message="쇠사슬 소리"/>
+		<Field Who="주인공" State="-" Message="아... 그랬구나? 미안 하하하.."/>
+		<Field Who="-" State="-" Message="나 집에 가봐도 될까? 갑자기 급한일이 떠올랐는ㄷ···"/>
+		<Field Who="System" State="StartSE" Message="철컥 소리"/>
 		<Field Who="System" State="PopUpImage" Message="수갑"/>
-		<Field Who="주인공" State="궁금" Message="(이건 뭐지?)"/>
+		<Field Who="주인공" State="궁금" Message="(왜 내 손목에 이런게 있는거지?)"/>
 		<Field Who="System" State="PopDownImage" Message="수갑"/>
-		<Field Who="연이" State="얼굴 그림자(중얼거림)" Message="...돼 (중얼)"/>
-		<Field Who="주인공" State="당황" Message="연..연아?"/>
-		<Field Who="연이" State="얼굴 그림자(중얼거림)" Message="안돼..!"/>
-		<Field Who="-" State="화남" Message="이제부터 오빠는 나랑 같이 살거란 말이야!"/>
-		<Field Who="연이" State="화남" Message="[연출 : 속사포] 내가 이 날을 위해서 얼마나 노력한줄 알아? 사랑하는 주인공 오빠를 위해! (넘어감)"/>
-		<Field Who="-" State="슬픔" Message="아르바이트가 힘들었지만 이 행복한 생활을 위해서라면 난 참을수 있었어, 물론 아르바이트는 (넘어감)"/>
-		<Field Who="-" State="슬픔" Message="오빠가 자주 이용하는 피씨방이랑, 편의점만 골라서 했지! 그렇게 몇달동안은 오빠를 보는것만으로 (넘어감)"/>
-		<Field Who="-" State="행복" Message="행복했지만, 이제는 그것만으로 만족할수 없게되어버렸어.... 그래서 계획을 세운거야, 오빠를 집으로 (넘어감)"/>
-		<Field Who="-" State="황홀" Message="데려오는 완벽한 계획을, 물론 매일매일 오빠를 스토킹하니까 오빠의 일과는 다 외우고 있어! (넘어감)"/>
-		<Field Who="-" State="광기" Message="그렇게 도와줄 사람들을 모아 힘들게 데려왔는데....오빠는 나갈수없어, 아니 못나가 못나가 못나가 (넘어감)"/>
-		<Field Who="-" State="광기" Message="못나가 못나가못나가못나가못나가못나가못나가못나가못나가못나가못나가……"/>
-		<Field Who="주인공" State="-" Message="(나는 상당히 위험한 여자에게 걸려든거 같아....."/>
-		<Field Who="-" State="-" Message="일단은 연이의 심기를 거스르지 말고 몰래 틈을 봐서 도망치는게 좋을거 같은데)"/>
-		<Field Who="주인공" State="억지웃음" Message="아하하... 집에 간다는건 농담이야.."/>
+		<Field Who="연이" State="정색" Message="···돼(중얼)"/>
+		<Field Who="주인공" State="당황" Message="돼...?"/>
+		<Field Who="연이" State="정색" Message="안돼.. 오빠는 여기서 계속 살아야해"/>
+		<Field Who="-" State="-" Message="오빠는 나만의 것이야.. 내가 이 집에서 계속 지켜주고 보살펴줄게..."/>
+		<Field Who="-" State="-" Message="다른 여자가 있는 밖은 위험해.. 아무리 오빠라도 여기서 나가는건 용서할수 없어.."/>
+		<Field Who="-" State="-" Message="혹시 지금 다른 여자 생각하고 있는건 아니지..?"/>
+		<Field Who="-" State="-" Message="나는 오빠가 절대로 필요해, 오빠가 없으면 더 이상 살아갈수 없어.."/>
+		<Field Who="-" State="-" Message="그러니까 나가겠다는 말은 하지 마..."/>
+		<Field Who="-" State="-" Message="오빠는 이 집에서 나랑 365일 24시간 계속계속계속계속계속계속계속계속계속"/>
+		<Field Who="-" State="-" Message="계속계속계속계속계속계속 행복하게 살면 되는거야"/>
+		<Field Who="주인공" State="-" Message="(나는 상당히 위험한 여자에게 걸려든거 같다...."/>
+		<Field Who="-" State="-" Message="일단은 심기를 거스르지 말고 틈을 봐서 몰래 나가는게 좋겠어)"/>
+		<Field Who="주인공" State="억지웃음" Message="아하하...! 집에 간다는건 농담이야.."/>
 		<Field Who="연이" State="슬픔" Message="흑..흑...."/>
 		<Field Who="주인공" State="당황" Message="갑자기 왜 울어!?"/>
-		<Field Who="연이" State="슬픔" Message="걱정했단 말이야! 내가 싫다고 할까봐!"/>
+		<Field Who="연이" State="슬픔" Message="걱정했단 말이야.. 오빠가 내가 싫다고 할까봐"/>
 		<Field Who="System" State="StartSE" Message="쇠사슬 소리"/>
 		<Field Who="System" State="PopUpImage" Message="수갑"/>
-		<Field Who="주인공" State="썩소" Message="연이야, 근데 이 팔목에 사슬은 뭔지 물어봐도 될까?"/>
+		<Field Who="주인공" State="썩소" Message="연이야, 근데 이 수갑은 뭔지 물어봐도 될까..요?"/>
 		<Field Who="System" State="PopDownImage" Message="수갑"/>
 		<Field Who="연이" State="-" Message="혹시 나몰래 도망갈까봐..묶어둔거야.. 훌쩍.."/>
-		<Field Who="주인공" State="-" Message="화장실 가고싶은데, 나 이것좀 풀어주면 안될까?"/>
-		<Field Who="연이" State="-" Message="알았어... 화장실은 거실 맞은편에 있어.."/>
-		<Field Who="-" State="-" Message="나는 아침준비 마저 하러갈게.."/>
+		<Field Who="주인공" State="-" Message="화장실 가고싶은데, 나 이것좀 풀어줄수 있을까..??"/>
+		<Field Who="연이" State="-" Message="알았어.. 풀어줬다고 절대 도망가면 안돼!"/>
+		<Field Who="-" State="-" Message="나는 아침준비 마저 하러갈게"/>
+		<Field Who="System" State="Reset" Message="-"/>
 		<Field Who="나래이션" State="-" Message="열쇠를 획득했습니다."/>
 		<Field Who="주인공" State="-" Message="(수갑를 선택해서 열쇠를 사용하자)"/>
 		<Field Who="주인공" State="-" Message="수갑때문에 이동할수 없어"/>
@@ -53,39 +54,36 @@
 		<Field Who="주인공" State="-" Message="연이가 안보는 사이에 현관으로 도망치자"/>
 		<Field Who="주인공" State="-" Message="이럴때가 아니야."/>
 		<Field Who="주인공" State="-" Message="나가자마자 큰소리로 주위 사람한테 도움을 요청하는게 좋겠어"/>
-    <Field Who="System" State="Reset" Message="-"/>
-    
-    <Field Who="System" State="StartBGM" Message="긴박한 음악"/>
-    <Field Who="System" State="ShowBGCG" Message="현관"/>
-    <Field Who="System" State="ShowSCG" Message="주인공"/>
-    <Field Who="주인공" State="긴장" Message="화장실에 가는척 하면서, 현관으로 탈출한다!"/>
-    <Field Who="-" State="-" Message="완벽한 계획이야!"/>
-    <Field Who="System" State="ShowBGCG" Message="열린 현관문"/>
-    <Field Who="System" State="StartSE" Message="문여는 소리"/>
-    <Field Who="주인공" State="-" Message="누가좀 도와주...!!!!!"/>
-    <Field Who="System" State="StartSE" Message="심장 박동 소리"/>
-    <Field Who="주인공" State="고통" Message="윽?!"/>
-    <Field Who="나래이션" State="-" Message="문을 열고 소리를 지르려는 그때, 나는 목에서 느껴지는 엄청난 격통에 거의 기절할 뻔했다."/>
-    <Field Who="System" State="PopUpImage" Message="목의 기계장치"/>
-    <Field Who="주인공" State="고통" Message="허억... 헉.... (뭐지? 언제부터 목에 이런 장치가 있었던거야..)"/>
-    <Field Who="System" State="ShowSCG" Message="주인공, 연이"/>
-    <Field Who="연이" State="정색" Message="…………"/>
-    <Field Who="System" State="ShowBGCG" Message="닫힌 현관문"/>
-    <Field Who="System" State="StartSE" Message="자물쇠 철컥 소리"/>
-    <Field Who="나래이션" State="-" Message="(연이는 문을 닫고, 잠가버렸다.)"/>
-    <Field Who="연이" State="-" Message="연인 사이에 거짓말을 하면 안되지? 오.빠."/>
-    <Field Who="주인공" State="고통" Message="너……내 목에 무슨짓을 한거야…"/>
-    <Field Who="연이" State="-" Message="조금 개조한, 애완동물용 짖음 방지 목걸이인데?"/>
-    <Field Who="연이" State="-" Message="나라면, 그걸 만지거나 망가트리려고 하지 않을거야"/>
-    <Field Who="연이" State="광기" Message="만지는 순간 전기가 흐르고, 허가없이 작동을 멈추거나 하면 바로 나에게 알람이 오게 설정되어있거든."/>
-    <Field Who="System" State="PopDownImage" Message="목의 기계장치"/>
-    <Field Who="System" State="PopUpImage" Message="전기밥솥"/>
-    <Field Who="System" State="StartSE" Message="알람음"/>
-    <Field Who="밥솥" State="-" Message="쿡쿠~ 밥이 다 됬어요~"/>
-    <Field Who="연이" State="웃음" Message="마침 밥이 다된거같네, 배고프니까 밥먹으러 가자"/>
-    <Field Who="주인공" State="혐오" Message="(악...악마같은 여자다)"/>
-    <Field Who="나래이션" State="-" Message="나는 얌전히 연이의 말을 따를 수 밖에 없었고, 그렇게 첫 탈출의 기회를 놓쳐버렸다."/>
-    <Field Who="System" State="Reset" Message="-"/>
+		<Field Who="System" State="StartBGM" Message="긴박한 음악"/>
+		<Field Who="System" State="ShowBGCG" Message="닫힌 현관문"/>
+		<Field Who="System" State="ShowSCG" Message="주인공"/>
+		<Field Who="주인공" State="긴장" Message="화장실에 가는척 하면서, 현관으로 탈출한다!"/>
+		<Field Who="-" State="-" Message="완벽한 계획이야!"/>
+		<Field Who="System" State="ShowBGCG" Message="열린 현관문"/>
+		<Field Who="System" State="StartSE" Message="문여는 소리"/>
+		<Field Who="주인공" State="-" Message="누가좀 도와주세...."/>
+		<Field Who="System" State="StartSE" Message="심장 박동 소리"/>
+		<Field Who="주인공" State="고통" Message="(＆!@#$?)"/>
+		<Field Who="나래이션" State="-" Message="문을 열고 소리를 지르려는 그때, 나는 목에서 느껴지는 엄청난 격통에 거의 기절할 뻔했다."/>
+		<Field Who="System" State="PopUpImage" Message="목의 기계장치"/>
+		<Field Who="주인공" State="고통" Message="허억... 헉.... (뭐지? 언제부터 목에 이런 장치가 있었던거야..)"/>
+		<Field Who="System" State="ShowSCG" Message="주인공, 연이"/>
+		<Field Who="연이" State="정색" Message="..........…오빠"/>
+		<Field Who="System" State="ShowBGCG" Message="닫힌 현관문"/>
+		<Field Who="System" State="StartSE" Message="자물쇠 철컥 소리"/>
+		<Field Who="나래이션" State="-" Message="(연이는 문을 닫고, 잠가버렸다.)"/>
+		<Field Who="연이" State="정색" Message="연인 사이에 거짓말을 하면 안되지? 오.빠."/>
+		<Field Who="주인공" State="고통" Message="너……내 목에 무슨짓을 한거야…"/>
+		<Field Who="연이" State="-" Message="조금 개조한, 애완동물용 짖음 방지 목걸이인데?"/>
+		<Field Who="연이" State="-" Message="나라면, 그걸 만지거나 망가트리려고 하지 않을거야"/>
+		<Field Who="연이" State="광기의 웃음" Message="만지는 순간 전기가 흐르고, 허가없이 작동이 멈추게 되면 바로 나에게 알람이 오게 설정되어있거든."/>
+		<Field Who="System" State="PopDownImage" Message="목의 기계장치"/>
+		<Field Who="System" State="PopUpImage" Message="전기밥솥"/>
+		<Field Who="System" State="StartSE" Message="알람음"/>
+		<Field Who="밥솥" State="-" Message="쿡쿠~ 밥이 다 됬어요~"/>
+		<Field Who="연이" State="웃음" Message="마침 밥이 다 됐으니 일단 밥 먼저 먹으러갈까?"/>
+		<Field Who="주인공" State="혐오" Message="(단...단단히 미친 여자다)"/>
+		<Field Who="나래이션" State="-" Message="나는 얌전히 연이의 말을 따를 수 밖에 없었고, 그렇게 첫 탈출의 기회는 물거품이 되었다."/>
+		<Field Who="System" State="Reset" Message="-"/>
 	</S>
-
 </Chat>
