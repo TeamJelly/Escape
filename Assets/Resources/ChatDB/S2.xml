@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Chat>
-	<S>
 		<Field Who="System" State="StartBGM" Message="행복한 우리집"/>
 		<Field Who="System" State="ShowBGCG" Message="침실"/>
 		<Field Who="System" State="ShowSCG" Message="연이, 주인공"/>
@@ -85,5 +84,4 @@
 		<Field Who="주인공" State="혐오" Message="(단...단단히 미친 여자다)"/>
 		<Field Who="나래이션" State="-" Message="나는 얌전히 연이의 말을 따를 수 밖에 없었고, 그렇게 첫 탈출의 기회는 물거품이 되었다."/>
 		<Field Who="System" State="Reset" Message="-"/>
-	</S>
 </Chat>

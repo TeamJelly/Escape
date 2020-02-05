@@ -27,7 +27,7 @@ public class BackgroundManager : MonoBehaviour
             DataManager.Save();          
             PlayUIManager.instance.FadeIn(() =>
             {
-                ChatSystem2.instance.StartChat(2,() => GetQuest(0));
+                ChatSystem2.instance.StartChat("I",2,() => GetQuest(0));
             });
         }            
     }

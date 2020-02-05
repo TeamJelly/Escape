@@ -66,34 +66,35 @@ public class ChatSystem2 : MonoBehaviour
         ShowNext();
     }
 
-    public void StartChat(int episodeNum,Action endFunc)
+    public void StartChat(string type, int episodeNum,Action endFunc)
     {
         onEnd = endFunc;
         currentIndex = -1;
         messageList.Clear();
         bgPanel.gameObject.SetActive(true);
         thisUI.SetActive(true);
-        TextAsset textAsset = (TextAsset)Resources.Load("ChatDB/S" + episodeNum);
+        TextAsset textAsset = (TextAsset)Resources.Load("ChatDB/" + type);
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(textAsset.text);
 
-        XmlNode chatList = xmlDoc.SelectSingleNode("Chat");
+        XmlNode chatList = xmlDoc.SelectSingleNode("Chat/" + type + episodeNum);
 
         foreach(XmlNode node in chatList.ChildNodes)
         {
-            foreach (XmlNode child in node.ChildNodes)
-            {
-                MessageBox box =
+            MessageBox box =
                      new MessageBox
                      {
-                         name = child.Attributes.GetNamedItem("Who").Value,
-                         state = child.Attributes.GetNamedItem("State").Value,
-                         message = child.Attributes.GetNamedItem("Message").Value
+                         name = node.Attributes.GetNamedItem("Who").Value,
+                         state = node.Attributes.GetNamedItem("State").Value,
+                         message = node.Attributes.GetNamedItem("Message").Value
                      };
-                messageList.Add(box);
-                if(box.state == "Reset")
-                 skipPoint.Add(messageList.Count - 1);
-            }           
+            messageList.Add(box);
+            if (box.state == "Reset")
+                skipPoint.Add(messageList.Count - 1);
+            //foreach (XmlNode child in node.ChildNodes)
+            //{
+                
+            //}           
         }
         ShowNext();
     }

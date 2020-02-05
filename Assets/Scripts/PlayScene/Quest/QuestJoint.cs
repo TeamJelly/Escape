@@ -7,6 +7,7 @@ public class QuestJoint : MonoBehaviour
     public int prevEventID;
     public int nextEventID;
     public int chatNum = -1;
+    public string chatType = "D";
     private void OnEnable()
     {
         //이전 메인이벤트가 현재 진행중이면 완료로 변경,
@@ -21,7 +22,7 @@ public class QuestJoint : MonoBehaviour
             };
             if (chatNum >= 0)
             {
-                ChatSystem2.instance.StartChat(chatNum, act);
+                ChatSystem2.instance.StartChat(chatType,chatNum, act);
             }
             else act();
         }
