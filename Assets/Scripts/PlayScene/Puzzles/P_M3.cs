@@ -27,6 +27,6 @@ public class P_M3 : Puzzle
         //isCleared = true;
         unlockMessage.SetActive(true);
         useItemButton.gameObject.SetActive(false);
-        BackgroundManager.instance.FinishQuest(eventID);
+        QuestManager.instance.FinishQuest(eventID);
     }
 }

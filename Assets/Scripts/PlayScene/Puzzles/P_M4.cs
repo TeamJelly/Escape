@@ -47,7 +47,7 @@ public class P_M4 : Puzzle // 비밀번호 자물쇠 퍼즐
             buttons[i].onClick.RemoveAllListeners();
         }
         unlockMessage.SetActive(true);
-        BackgroundManager.instance.FinishQuest(eventID);
+        QuestManager.instance.FinishQuest(eventID);
     }
 
 }

@@ -27,7 +27,11 @@ public class BackgroundManager : MonoBehaviour
             DataManager.Save();          
             PlayUIManager.instance.FadeIn(() =>
             {
-                ChatSystem2.instance.StartChat("I",2,() => GetQuest(0));
+                ChatSystem2.instance.StartChat("I",2,() =>
+                {
+                    QuestManager.instance.AddQuest(0);
+                    Debug.Log("Quest Added");
+                    });
             });
         }            
     }
@@ -49,35 +53,14 @@ public class BackgroundManager : MonoBehaviour
                 itemObj.Init();
             }
         }
-
-        foreach (Item item in ItemDatabase.itemList)
+        for(int i = 0; i < data.items.Length; i++)
         {
-            if (item == null) continue;
-            //Debug.Log(item.itemName);
-            if (data.items[item.ID] == 1)
+            if(data.items[i] == 1)
             {
-                Inventory.instance.AddItem(item.ID);
+                Inventory.instance.AddItem(i);
             }
         }
     }
 
-    //아이템오브젝트에서 콜백 형식으로 호출됨.
-    public void GetItem(int itemID) 
-    {
-        data.items[itemID] = 1;
-        DataManager.Save();
-        Inventory.instance.AddItem(itemID);
-        //PlayUIManager.instance.NoticeGetItem(itemID);
-    }
-
-    public void GetQuest(int eventID)
-    {
-        data.events[eventID] = 1;
-        DataManager.Save();
-    }
-    public void FinishQuest(int eventID)
-    {
-        data.events[eventID] = 2;
-        DataManager.Save();
-    }
+    
 }

@@ -22,7 +22,7 @@ public abstract class Puzzle : MonoBehaviour
         int eventState = DataManager.GetData().events[eventID];
         if (eventState == 0)
         {
-            BackgroundManager.instance.GetQuest(eventID);
+            QuestManager.instance.AddQuest(eventID);
         }
         else if (eventState == 2) OnEnd();
     }

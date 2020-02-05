@@ -17,8 +17,8 @@ public class QuestJoint : MonoBehaviour
         {
             System.Action act = () =>
             {
-              BackgroundManager.instance.FinishQuest(prevEventID);
-              BackgroundManager.instance.GetQuest(nextEventID);
+              QuestManager.instance.FinishQuest(prevEventID);
+              QuestManager.instance.AddQuest(nextEventID);
             };
             if (chatNum >= 0)
             {
