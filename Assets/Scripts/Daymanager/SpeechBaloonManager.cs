@@ -13,22 +13,22 @@ public class SpeechBaloonManager : MonoBehaviour
     // Start is called before the first frame update
     //현재 활성화 되어있는 상호작용 리스트 activatedList
     public List<int> activatedList = new List<int>();
-    System.Action[] actions;
+    //System.Action[] actions;
     void Start()
     {
         nextButton.gameObject.SetActive(false);
         prevButton.gameObject.SetActive(false);
         //현재 data에서 for문 돌려서 활성화 되어있는 상호작용들을 activatedList에 추가
 
-        actions = new System.Action[activatedList.Count + 2];
+        //actions = new System.Action[activatedList.Count + 2];
         Debug.Log(activatedList.Count);
 
-        actions[0] = () => { Debug.Log("연이와 대화"); };
-        actions[1] = () => PlayUIManager.instance.FadeOutForNextScene("PlayScene");
-        for (int i = 2; i < actions.Length; i++)
-        {
-            actions[i] = () => { };
-        }
+        //actions[0] = () => { Debug.Log("연이와 대화"); };
+        //actions[1] = () => PlayUIManager.instance.FadeOutForNextScene("PlayScene");
+        //for (int i = 2; i < actions.Length; i++)
+        //{
+        //    actions[i] = () => { };
+        //}
         
 
         //만약 말풍선개수보다 상호작용개수가 많다면 다음 버튼 활성화
@@ -36,14 +36,14 @@ public class SpeechBaloonManager : MonoBehaviour
            nextButton.gameObject.SetActive(true);
 
         //첫 페이지 리스트 뿌려주기.
-        SetBlooms(0);
+        SetBaloons(0);
 
         //다음버튼 클릭시 동작 지정
         nextButton.onClick.AddListener(() =>
         {
             prevButton.gameObject.SetActive(true);
             currentIndex += baloons.Length;
-            SetBlooms(currentIndex);
+            SetBaloons(currentIndex);
             //더이상 다음페이지 보여줄게 없으면 버튼 비활성화
             if (currentIndex + baloons.Length >= activatedList.Count)
             {
@@ -56,7 +56,7 @@ public class SpeechBaloonManager : MonoBehaviour
         {
             nextButton.gameObject.SetActive(true);
             currentIndex -= baloons.Length;
-            SetBlooms(currentIndex);
+            SetBaloons(currentIndex);
             //더이상 이전페이지 보여줄게 없으면 버튼 비활성화
             if (currentIndex - baloons.Length < 0)
             {
@@ -65,7 +65,7 @@ public class SpeechBaloonManager : MonoBehaviour
         });
 
     }
-    void SetBlooms(int index)
+    void SetBaloons(int index)
     {
         for (int i = 0; i < baloons.Length; i++)
         {
@@ -79,7 +79,8 @@ public class SpeechBaloonManager : MonoBehaviour
                 baloons[i].onClick.RemoveAllListeners();
                 baloons[i].onClick.AddListener(() =>
                 {
-                    actions[thisIndex]();
+                    ChatSystem2.instance.StartChat("D", activatedList[index], () => { });
+                    //actions[thisIndex]();
                     //해당 상호작용 클릭시 실행할 동작 지정
                 });
             }

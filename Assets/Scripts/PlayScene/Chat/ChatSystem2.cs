@@ -191,7 +191,7 @@ public class ChatSystem2 : MonoBehaviour
             chatText.text = "";
             currentIndex = skipPoint[skipCount] - 1;
             //skipCount++;
-            ShowNext();
+            ShowNext(); 
         }
         else endChat();
         
@@ -385,6 +385,25 @@ public class ChatSystem2 : MonoBehaviour
         //currentIndex++;
         ShowNext();
     }
+
+    public void GetQuest(string name)
+    {
+        QuestManager.instance.AddQuest(name);
+    }
+    public void FinishQuest(string name)
+    {
+        QuestManager.instance.FinishQuest(name);
+    }
+    public void GetItem(string name)
+    {
+        Inventory.instance.AddItem(name);
+    }
+
+    public void StartPuzzle(string name)
+    {
+
+    }
+
     public void Reset()
     {
         HideAllSCG();

@@ -12,7 +12,7 @@ public class MenuUIManager : MonoBehaviour
     public Button mainTab;
 
     public GameObject miniMapPanel;
-    public GameObject todoPanel;
+    public GameObject questPanel;
     public GameObject optionPanel;
 
     GameObject currentPanel;
@@ -22,7 +22,7 @@ public class MenuUIManager : MonoBehaviour
         currentPanel.SetActive(true);
 
         miniMapTab.onClick.AddListener(() => SwabPanel(miniMapPanel));
-        todoTab.onClick.AddListener(() => SwabPanel(todoPanel));
+        todoTab.onClick.AddListener(() => SwabPanel(questPanel));
         optionTab.onClick.AddListener(() => SwabPanel(optionPanel));
         mainTab.onClick.AddListener(() => PlayUIManager.instance.FadeOutForNextScene("MainScene"));//UIFunctions.SelectScene("MainScene"));
     }
