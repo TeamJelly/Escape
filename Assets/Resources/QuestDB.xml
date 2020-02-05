@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Quest>
   <Field id="0"
-         title="[집안 둘러보기]"
-         problem="집안 둘러보기"
+         title="[연이방 열기]"
+         problem="연이의 방문이 잠겨있어 들어갈 수 없다."
          description="연이를 따라 거실로 가보자."/>
   <Field id="10" 
          title="[현관탐색]" 

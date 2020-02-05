@@ -23,6 +23,7 @@ public abstract class Interactor : MonoBehaviour, IPointerEnterHandler, IPointer
     }
     public abstract bool CheckFinished();
     public abstract void CallbackFunction(Slot slot);
+    public abstract void OnClickFunction();
 
     public void OnPointerExit(PointerEventData eventData)
     {
@@ -33,6 +34,7 @@ public abstract class Interactor : MonoBehaviour, IPointerEnterHandler, IPointer
     {
         Debug.Log("Clicked");
         ChatSystem2.instance.Monologue(onClickMessage);
+        OnClickFunction();
        
     }
 }

@@ -6,31 +6,32 @@ using UnityEngine.UI;
 public class MenuUIManager : MonoBehaviour
 {
    // GameObject currentPanel;
-   // public Button inventoryTab;
-   // public Button todoTab;
-   // public Button optionTab;
+    public Button miniMapTab;
+    public Button todoTab;
+    public Button optionTab;
     public Button mainTab;
 
-   // public GameObject inventoryPanel;
-   // public GameObject todoPanel;
-  //  public GameObject optionPanel;
+    public GameObject miniMapPanel;
+    public GameObject todoPanel;
+    public GameObject optionPanel;
 
+    GameObject currentPanel;
     private void Awake()
     {
-       // currentPanel = inventoryPanel;
-      //  currentPanel.SetActive(true);
+        currentPanel = miniMapPanel;
+        currentPanel.SetActive(true);
 
-       // inventoryTab.onClick.AddListener(() => SwabPanel(inventoryPanel));
-       // todoTab.onClick.AddListener(() => SwabPanel(todoPanel));
-       // optionTab.onClick.AddListener(() => SwabPanel(optionPanel));
+        miniMapTab.onClick.AddListener(() => SwabPanel(miniMapPanel));
+        todoTab.onClick.AddListener(() => SwabPanel(todoPanel));
+        optionTab.onClick.AddListener(() => SwabPanel(optionPanel));
         mainTab.onClick.AddListener(() => PlayUIManager.instance.FadeOutForNextScene("MainScene"));//UIFunctions.SelectScene("MainScene"));
     }
 
-    //void SwabPanel(GameObject panel)
-    //{
-    //    currentPanel.SetActive(false);
-    //    currentPanel = panel;
-    //    currentPanel.SetActive(true);
-    //}
+    void SwabPanel(GameObject panel)
+    {
+        currentPanel.SetActive(false);
+        currentPanel = panel;
+        currentPanel.SetActive(true);
+    }
 
 }
