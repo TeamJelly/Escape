@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.UI;
 
+//말풍선 관리해주는 클래스
 public class SpeechBaloonManager : MonoBehaviour
 {
 
@@ -10,26 +13,26 @@ public class SpeechBaloonManager : MonoBehaviour
     public Button nextButton;
     public Button prevButton;
     int currentIndex = 0;
-    // Start is called before the first frame update
+
     //현재 활성화 되어있는 상호작용 리스트 activatedList
-    public List<int> activatedList = new List<int>();
+   // public List<int> activatedList = new List<int>();
+    public List<string> activatedList = new List<string>();
     //System.Action[] actions;
     void Start()
     {
         nextButton.gameObject.SetActive(false);
         prevButton.gameObject.SetActive(false);
-        //현재 data에서 for문 돌려서 활성화 되어있는 상호작용들을 activatedList에 추가
 
-        //actions = new System.Action[activatedList.Count + 2];
-        Debug.Log(activatedList.Count);
-
-        //actions[0] = () => { Debug.Log("연이와 대화"); };
-        //actions[1] = () => PlayUIManager.instance.FadeOutForNextScene("PlayScene");
-        //for (int i = 2; i < actions.Length; i++)
-        //{
-        //    actions[i] = () => { };
-        //}
-        
+        //현재 data에서 for문 돌려서 활성화 되어있는 Dialog들을 activatedList에 추가
+        PlayerData data = DataManager.GetData();
+        foreach (int i in data.dialogs)
+        {
+            if (i == 1)
+            {
+                //activatedList.Add(i);
+                activatedList.Add(GetTitleWithID(i));
+            }
+        }
 
         //만약 말풍선개수보다 상호작용개수가 많다면 다음 버튼 활성화
         if(activatedList.Count > baloons.Length)
@@ -73,8 +76,9 @@ public class SpeechBaloonManager : MonoBehaviour
             if (thisIndex < activatedList.Count)
             {
                 baloons[i].gameObject.SetActive(true);
-                baloons[i].gameObject.GetComponentInChildren<Text>().text = (thisIndex).ToString();
-                //연이 상호작용 db.GetWithID(activatedList[i + index]).title;
+
+                //말풍선 텍스트 갱신
+                baloons[i].gameObject.GetComponentInChildren<Text>().text = activatedList[thisIndex];
 
                 baloons[i].onClick.RemoveAllListeners();
                 baloons[i].onClick.AddListener(() =>
@@ -89,5 +93,15 @@ public class SpeechBaloonManager : MonoBehaviour
                 baloons[i].gameObject.SetActive(false);
             }
         }
+    }
+
+    //다이얼로그 xml에서 현재 활성화된 다이얼로그 가져오기
+    string GetTitleWithID(int id)
+    {
+        TextAsset textAsset = (TextAsset)Resources.Load("ChatDB/D");
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.LoadXml(textAsset.text);
+        XmlNode chatList = xmlDoc.SelectSingleNode("Chat");
+        return chatList.ChildNodes[id].Name;
     }
 }

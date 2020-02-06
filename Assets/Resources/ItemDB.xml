@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Inventory>
+<Items>
 	<Field id="1" name="트럼프" description="트럼프카드" />
 	<Field id="2" name="효자손" description="무시무시하게 생긴 효자손이다"/>
 	<Field id="3" name="주민등록증" description="연이가 잃어버린 민증"/>
 	<Field id="4" name="부러진 열쇠1" description="연이가 처참히 부숴버린 불쌍한 열쇠다."/>
 	<Field id="5" name="부러진 열쇠2" description="연이가 처참히 부숴버린 불쌍한 열쇠다."/>
-</Inventory>
+</Items>

@@ -28,24 +28,17 @@ public static class QuestDatabase
         TextAsset textAsset = (TextAsset)Resources.Load(_strSource);
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(textAsset.text);
-        XmlNodeList xmlNodeList = xmlDoc.SelectNodes("Quest");
-        foreach (XmlNode node in xmlNodeList)
+        XmlNode quests = xmlDoc.SelectSingleNode("Quest");
+        foreach (XmlNode node in quests.ChildNodes)
         {
-            if (node.Name.Equals("Quest") && node.HasChildNodes)
+            int id = Convert.ToInt32(node.Attributes.GetNamedItem("id").Value);
+            QList[id] = new Quest
             {
-                foreach (XmlNode child in node.ChildNodes)
-                {
-                    int id = Convert.ToInt32(child.Attributes.GetNamedItem("id").Value);
-                    QList[id] = new Quest
-                    {
-                        title = child.Attributes.GetNamedItem("title").Value,
-                        problem = child.Attributes.GetNamedItem("problem").Value,
-                        description = child.Attributes.GetNamedItem("description").Value,
-                        ID = id
-                    };
-                }
-
-            }
+                title = node.Attributes.GetNamedItem("title").Value,
+                problem = node.Attributes.GetNamedItem("problem").Value,
+                description = node.Attributes.GetNamedItem("description").Value,
+                ID = id
+            };
 
         }
     }
