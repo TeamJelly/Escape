@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Chat>
 	<소지품>
-		<Field Who="" State="기본"/>
 		<Field Who="주인공" State="-" Message="연이야 내 소지품은 어디갔어?"/>
 		<Field Who="-" State="-" Message="신분증이랑, 휴대폰, 보조배터리 다 안보이는데?"/>
 		<Field Who="연이" State="-" Message="휴대폰이랑 보조배터리는 오빠가 도움을 요청할지도 모르니까 처분했어."/>

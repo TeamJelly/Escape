@@ -25,9 +25,12 @@ public class SpeechBaloonManager : MonoBehaviour
 
         //현재 data에서 for문 돌려서 활성화 되어있는 Dialog들을 activatedList에 추가
         PlayerData data = DataManager.GetData();
-        foreach (int i in data.dialogs)
+        data.dialogs[0] = 1;
+        data.dialogs[1] = 1;
+        data.dialogs[2] = 1;
+        for(int i  = 0; i < data.dialogs.Length; i++)
         {
-            if (i == 1)
+            if (data.dialogs[i] == 1)
             {
                 //activatedList.Add(i);
                 activatedList.Add(GetTitleWithID(i));
@@ -83,7 +86,7 @@ public class SpeechBaloonManager : MonoBehaviour
                 baloons[i].onClick.RemoveAllListeners();
                 baloons[i].onClick.AddListener(() =>
                 {
-                    ChatSystem2.instance.StartChat("D", activatedList[index], () => { });
+                    ChatSystem2.instance.StartChat("Dialog", activatedList[thisIndex], () => { });
                     //actions[thisIndex]();
                     //해당 상호작용 클릭시 실행할 동작 지정
                 });
@@ -98,7 +101,7 @@ public class SpeechBaloonManager : MonoBehaviour
     //다이얼로그 xml에서 현재 활성화된 다이얼로그 가져오기
     string GetTitleWithID(int id)
     {
-        TextAsset textAsset = (TextAsset)Resources.Load("ChatDB/D");
+        TextAsset textAsset = (TextAsset)Resources.Load("ChatDB/Dialog");
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(textAsset.text);
         XmlNode chatList = xmlDoc.SelectSingleNode("Chat");
