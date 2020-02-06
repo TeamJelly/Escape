@@ -395,19 +395,22 @@ public class ChatSystem2 : MonoBehaviour
     public void GetQuest(string name)
     {
         QuestManager.instance.AddQuest(name);
+        ShowNext();
     }
     public void FinishQuest(string name)
     {
         QuestManager.instance.FinishQuest(name);
+        ShowNext();
     }
     public void GetItem(string name)
     {
         Inventory.instance.AddItem(name);
+        ShowNext();
     }
 
     public void StartPuzzle(string name)
     {
-
+        ShowNext();
     }
 
     public void Reset()
