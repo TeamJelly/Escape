@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class P_M3 : Puzzle
 {
-    public Button useItemButton;
     public GameObject unlockMessage;
 
     public int neededItemID = 1;
@@ -26,7 +25,6 @@ public class P_M3 : Puzzle
     {
         //isCleared = true;
         unlockMessage.SetActive(true);
-        useItemButton.gameObject.SetActive(false);
         QuestManager.instance.FinishQuest(eventID);
     }
 }

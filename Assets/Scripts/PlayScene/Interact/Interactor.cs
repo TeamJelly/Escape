@@ -1,29 +1,41 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public abstract class Interactor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class Interactor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    public int neededItemID;
-    
-    public string onClickMessage;
+    [Serializable]
+    public class MyEvent : UnityEvent { }
+
+    [Tooltip("이 퍼즐을 풀기위해 필요한 아이템 이름")]
+    public string neededItem;
+
+    [Tooltip("해당 이벤트 이름")]
+    public string thisEvent;
+
+    public MyEvent OnFailed;
+    public MyEvent OnClick;
+    public MyEvent OnEnd;
+
+    Slot enteredSlot;
     public void OnEnable()
     {
-        if(CheckFinished())
+        if (DataManager.GetData().events[QuestDatabase.GetQuestWithTitle(thisEvent).ID] == 2)
             gameObject.SetActive(false);
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (Inventory.instance.selectedSlot?.GetItemID() == neededItemID)
+        if (Inventory.instance.selectedSlot?.GetItemID() == ItemDatabase.GetItemWithName(neededItem).ID)
         {
-            Slot temp = Inventory.instance.selectedSlot;
-            Inventory.instance.interactMethod = ()=> CallbackFunction(temp);
+            enteredSlot = Inventory.instance.selectedSlot;
+            Inventory.instance.interactMethod = () => OnEnd.Invoke();//CallbackFunction(temp);
         }
+        else
+            Inventory.instance.interactMethod = () => OnFailed.Invoke();
     }
-    public abstract bool CheckFinished();
-    public abstract void CallbackFunction(Slot slot);
-    public abstract void OnClickFunction();
 
     public void OnPointerExit(PointerEventData eventData)
     {
@@ -32,9 +44,15 @@ public abstract class Interactor : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Clicked");
-        ChatSystem2.instance.Monologue(onClickMessage);
-        OnClickFunction();
-       
+        OnClick.Invoke();
     }
+
+    public void DeleteEnteredItem()
+    {
+        DataManager.GetData().items[enteredSlot.GetItemID()] = 2;
+        Destroy(enteredSlot.gameObject);
+    }
+
+    
 }
+
