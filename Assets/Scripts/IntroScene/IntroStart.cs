@@ -9,7 +9,7 @@ public class IntroStart : MonoBehaviour
     private void Start()
     {
         DataManager.Save();
-        ChatSystem2.instance.StartChat("Intro", 1, () =>
+        ChatSystem2.instance.StartChat("Intro","I1", () =>
          PlayUIManager.instance.FadeOutForNextScene(nextSceneName));
      }
 }
