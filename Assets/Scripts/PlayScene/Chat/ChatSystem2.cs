@@ -86,7 +86,6 @@ public class ChatSystem2 : MonoBehaviour
 
         foreach (XmlNode node in chatList.ChildNodes)
         {
-
             MessageBox box =
                      new MessageBox
                      {
