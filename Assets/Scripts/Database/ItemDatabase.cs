@@ -22,24 +22,17 @@ public class ItemDatabase : MonoBehaviour
         TextAsset textAsset = (TextAsset)Resources.Load(_strSource);
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(textAsset.text);
-        XmlNodeList xmlNodeList = xmlDoc.SelectNodes("Inventory");
-        foreach (XmlNode node in xmlNodeList)
+
+        XmlNode items = xmlDoc.SelectSingleNode("Items");
+        foreach (XmlNode node in items.ChildNodes)
         {
-            if (node.Name.Equals("Inventory") && node.HasChildNodes)
+            int id = Convert.ToInt32(node.Attributes.GetNamedItem("id").Value);
+            itemList[id] = new Item
             {
-                foreach (XmlNode child in node.ChildNodes)
-                {
-                    int id = Convert.ToInt32(child.Attributes.GetNamedItem("id").Value);
-                    itemList[id] = new Item
-                    {
-                        itemName = child.Attributes.GetNamedItem("name").Value,
-                        itemDescription = child.Attributes.GetNamedItem("description").Value,
-                        ID = id
-                    };
-                }
-
-            }
-
+                itemName = node.Attributes.GetNamedItem("name").Value,
+                itemDescription = node.Attributes.GetNamedItem("description").Value,
+                ID = id
+            };
         }
     }
     public static Item GetItemWithID(int id)

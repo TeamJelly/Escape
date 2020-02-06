@@ -68,6 +68,10 @@ public class ChatSystem2 : MonoBehaviour
 
     public void StartChat(string type, int episodeNum,Action endFunc)
     {
+        StartChat(type, type + episodeNum, endFunc);
+    }
+    public void StartChat(string type, string title, Action endFunc)
+    {
         onEnd = endFunc;
         currentIndex = -1;
         messageList.Clear();
@@ -77,10 +81,12 @@ public class ChatSystem2 : MonoBehaviour
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(textAsset.text);
 
-        XmlNode chatList = xmlDoc.SelectSingleNode("Chat/" + type + episodeNum);
 
-        foreach(XmlNode node in chatList.ChildNodes)
+        XmlNode chatList = xmlDoc.SelectSingleNode("Chat/" + title);
+
+        foreach (XmlNode node in chatList.ChildNodes)
         {
+
             MessageBox box =
                      new MessageBox
                      {
@@ -93,7 +99,7 @@ public class ChatSystem2 : MonoBehaviour
                 skipPoint.Add(messageList.Count - 1);
             //foreach (XmlNode child in node.ChildNodes)
             //{
-                
+
             //}           
         }
         ShowNext();
