@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-public class Slot : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
+public class Slot : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
     public Transform itemImage;
     Item item;
@@ -22,11 +22,6 @@ public class Slot : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerDownHa
     public void OnDrag(PointerEventData data)
     {
         itemImage.position = data.position;
-    }
-
-    public void OnEndDrag(PointerEventData data)
-    {
-        
     }
     public void DropItem()
     {

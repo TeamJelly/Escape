@@ -70,6 +70,10 @@ public class QuestManager : MonoBehaviour
     {
         DataManager.GetData().events[quest.ID] = 2;
         DataManager.Save();
+        if(!onEndQuest.ContainsKey(quest.title))
+        {
+            AddQuest(quest);
+        }
         onEndQuest[quest.title]();
     }
     // Start is called before the first frame update

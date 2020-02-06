@@ -37,5 +37,6 @@ public class Inventory : MonoBehaviour
         newItemBox.GetComponent<Slot>().Init(item);
     }
 
+
     
 }
