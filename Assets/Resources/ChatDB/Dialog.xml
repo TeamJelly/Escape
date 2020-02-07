@@ -29,12 +29,12 @@
 		<Field Who="-" State="-" Message="그래도 짝맞추기 정도는 할수있지!"/>
 		<Field Who="주인공" State="-" Message="할것도 없는데 해볼까??"/>
 		<Field Who="System" State="Reset" Message="-"/>
-		<Field Who="System" State="GetItem" Message="트럼프"/>
 		<Field Who="System" State="StartPuzzle" Message="CardGame"/>
   </카드놀이>
   <카드놀이_재도전>
 		<Field Who="연이" State="-" Message="재도전하는거야?"/>
 		<Field Who="-" State="-" Message="아무리 오빠라고 해도 봐주지 않을꺼니까!"/>
+    <Field Who="System" State="Reset" Message="-"/>
 		<Field Who="System" State="StartPuzzle" Message="CardGame"/>
   </카드놀이_재도전>
   <카드놀이_패배>
@@ -48,6 +48,7 @@
 		<Field Who="-" State="-" Message="짝맞추기에서 날 이긴건 오빠가 처음이야...."/>
 		<Field Who="연이" State="-" Message="트럼프 카드는 오빠가 가져..."/>
 		<Field Who="-" State="뇨롱" Message="카드놀이 이제 안할래.."/>
-		<Field Who="System" State="GetItem" Message="PlayingCard"/>
+    <Field Who="System" State="Reset" Message="-"/>
+		<Field Who="System" State="GetItem" Message="트럼프"/>
   </카드놀이_승리>
 </Chat>

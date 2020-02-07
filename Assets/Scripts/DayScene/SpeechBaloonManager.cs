@@ -20,6 +20,13 @@ public class SpeechBaloonManager : MonoBehaviour
 
     Dictionary<string, int> titleToID = new Dictionary<string, int>();
     //System.Action[] actions;
+
+    public static SpeechBaloonManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         nextButton.gameObject.SetActive(false);
@@ -61,9 +68,9 @@ public class SpeechBaloonManager : MonoBehaviour
         PlayerData data = DataManager.GetData();
 
         //해당구문은 테스트 목적
-        data.dialogs[0] = 1;
-        data.dialogs[1] = 1;
-        data.dialogs[2] = 1;
+        //data.dialogs[0] = 1;
+        //data.dialogs[1] = 1;
+        //data.dialogs[2] = 1;
         
         for (int i = 0; i < data.dialogs.Length; i++)
         {
@@ -83,11 +90,20 @@ public class SpeechBaloonManager : MonoBehaviour
         SetBaloons(0);
     }
 
-    void SubBaloon(int index)
+    public void SubBaloon(int index)
     {
+        titleToID.Remove(activatedList[index]);
         activatedList.RemoveAt(index);
     }
-
+    public void AddBaloon(int id)
+    {
+        
+        string title = GetTitleWithID(id);
+        if (titleToID.ContainsKey(title)) return;
+        activatedList.Add(title);
+        titleToID.Add(title, id);
+        SetBaloons(currentIndex);
+    }
     void SetBaloons(int index)
     {
         for (int i = 0; i < baloons.Length; i++)
