@@ -97,7 +97,7 @@ public class SpeechBaloonManager : MonoBehaviour
     }
     public void AddBaloon(int id)
     {
-        
+        DataManager.GetData().dialogs[id] = 1;
         string title = GetTitleWithID(id);
         if (titleToID.ContainsKey(title)) return;
         activatedList.Add(title);

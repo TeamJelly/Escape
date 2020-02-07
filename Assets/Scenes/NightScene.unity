@@ -10563,7 +10563,7 @@ PrefabInstance:
     - target: {fileID: 337078121178098092, guid: 002194c464ca7c14b992d88aebf4c33e,
         type: 3}
       propertyPath: OnDisable.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 337078121178098092, guid: 002194c464ca7c14b992d88aebf4c33e,
         type: 3}
@@ -10574,7 +10574,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnDisable.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1696365330}
+      objectReference: {fileID: 1696365335}
     - target: {fileID: 337078121178098092, guid: 002194c464ca7c14b992d88aebf4c33e,
         type: 3}
       propertyPath: OnEnable.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -10603,6 +10603,51 @@ PrefabInstance:
     - target: {fileID: 337078121178098092, guid: 002194c464ca7c14b992d88aebf4c33e,
         type: 3}
       propertyPath: OnEnable.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 337078121178098092, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: OnDisable.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 337078121178098092, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: OnDisable.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 337078121178098092, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: OnDisable.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1696365335}
+    - target: {fileID: 337078121178098092, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: OnDisable.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DisableDialog
+      objectReference: {fileID: 0}
+    - target: {fileID: 337078121178098092, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: OnDisable.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 337078121178098092, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: OnDisable.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 337078121178098092, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: OnDisable.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: DisableDialog
+      objectReference: {fileID: 0}
+    - target: {fileID: 337078121178098092, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: OnDisable.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 337078121178098092, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: OnDisable.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 748275686235917170, guid: 002194c464ca7c14b992d88aebf4c33e,

@@ -85,11 +85,14 @@ public class QuestManager : MonoBehaviour
 
     public void EnableDialog(int id)
     {
-        DataManager.GetData().dialogs[id] = 1;
+        if (DataManager.GetData().dialogs[id] == 0)
+         DataManager.GetData().dialogs[id] = 1;
+        DataManager.Save();
     }
     public void DisableDialog(int id)
     {
         DataManager.GetData().dialogs[id] = 2;
+        DataManager.Save();
     }
     // Start is called before the first frame update
 
