@@ -21,6 +21,7 @@ public class ChatSystem2 : MonoBehaviour
     public GameObject bgPanel;
     public Image bgImage;
     public Text chatText;
+    public Text charactorName;
     public Button skipButton;
 
     Dictionary<string, Charactor> charactorFinder = new Dictionary<string, Charactor>();
@@ -182,6 +183,7 @@ public class ChatSystem2 : MonoBehaviour
 
             //타이핑 시작
             stackedChat = messageBox.message;
+            charactorName.text = messageBox.name;
             typeCoroutine = TypingAnimation(messageBox.message);
             StartCoroutine(typeCoroutine);
         }
