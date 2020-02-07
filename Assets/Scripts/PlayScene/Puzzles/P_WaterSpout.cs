@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class P_WaterSpout : MonoBehaviour
+public class P_WaterSpout : Puzzle
 {
     public class TileBox
     {
@@ -24,7 +24,7 @@ public class P_WaterSpout : MonoBehaviour
     public Image[] imagies;
     public TileBox[,] TileBoxies = new TileBox[4,4];
     // Start is called before the first frame update
-    void Start()
+    public override void InitPuzzle()
     {
         for (int i = 0; i < 4; i++)
         {

@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class Slot : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
     public Transform itemImage;
+    public Text itemText;
     Item item;
 
 
@@ -13,11 +14,16 @@ public class Slot : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUp
     {
         return item.ID;
     }
+    public string GetItemName()
+    {
+        return item.itemName;
+    }
     public void Init(Item i)
     {
         item = i;
         string itemName = ItemDatabase.GetItemWithID(item.ID).itemName;
         itemImage.GetComponent<Image>().sprite = Resources.Load("Item/" + itemName,typeof(Sprite)) as Sprite;
+        itemText.text = i.itemName;
     }
     public void OnDrag(PointerEventData data)
     {

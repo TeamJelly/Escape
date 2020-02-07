@@ -411,6 +411,7 @@ public class ChatSystem2 : MonoBehaviour
 
     public void StartPuzzle(string name)
     {
+        PuzzleManager.instance.StartPuzzleWithName(name);
         ShowNext();
     }
 

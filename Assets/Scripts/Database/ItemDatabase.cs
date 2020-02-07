@@ -13,7 +13,7 @@ public class ItemDatabase : MonoBehaviour
         Interpret("ItemDB");
         foreach (Item item in itemList)
         {
-            if(item != null)
+            if(item != null&& !dictionary.ContainsKey(item.itemName))
             dictionary.Add(item.itemName, item);
         }
     }

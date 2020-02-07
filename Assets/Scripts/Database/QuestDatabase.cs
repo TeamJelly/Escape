@@ -19,7 +19,7 @@ public static class QuestDatabase
 
         foreach(Quest quest in QList)
         {
-            if(quest != null)
+            if(quest != null&& !dictionary.ContainsKey(quest.title))
             dictionary.Add(quest.title, quest);
         }
     }

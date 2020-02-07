@@ -30,7 +30,7 @@ public class BackgroundManager : MonoBehaviour
                 ChatSystem2.instance.StartChat("Intro","I2",() =>
                 {
                     QuestManager.instance.AddQuest(0);
-                    Debug.Log("Quest Added");
+                    //Debug.Log("Quest Added");
                     });
             });
         }            

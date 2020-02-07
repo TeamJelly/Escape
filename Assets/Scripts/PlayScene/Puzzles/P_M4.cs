@@ -15,9 +15,24 @@ public class P_M4 : Puzzle // 비밀번호 자물쇠 퍼즐
     public int[] answer = new int[4]; // 정답
     private void Awake()
     {
-        eventID = 22;
+        OnEnd.AddListener(() =>
+        {
+            OnDisable.Invoke();
+        });
+
+
+        OnDisable.AddListener(() =>
+        {
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttons[i].onClick.RemoveAllListeners();
+            }
+
+            unlockMessage.SetActive(true);
+        });
+
     }
-    private void Start()
+    public override void InitPuzzle()
     {
         System.Array.Clear(vals, 0, vals.Length);
         for (int i = 0; i < buttons.Length; i++)
@@ -37,17 +52,8 @@ public class P_M4 : Puzzle // 비밀번호 자물쇠 퍼즐
     {
         if (vals[0] == answer[0] && vals[1] == answer[1] && vals[2] == answer[2] && vals[3] == answer[3])
         {
-            OnEnd();
+            OnEnd.Invoke();
         }           
-    }
-    public override void OnEnd()
-    {
-        for (int i = 0; i < buttons.Length; i++)
-        {
-            buttons[i].onClick.RemoveAllListeners();
-        }
-        unlockMessage.SetActive(true);
-        QuestManager.instance.FinishQuest(eventID);
     }
 
 }

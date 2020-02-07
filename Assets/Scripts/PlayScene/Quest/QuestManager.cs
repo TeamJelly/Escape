@@ -23,9 +23,13 @@ public class QuestManager : MonoBehaviour
         {
             if(data.events[i] > 0)
             {
-                AddQuest(i);
                 if (data.events[i] == 2)
+                {
+                    AddQuest(i);
                     FinishQuest(i);
+                }
+                else AddQuest(i);
+                
             }
         }
     }
@@ -41,12 +45,14 @@ public class QuestManager : MonoBehaviour
 
     public void AddQuest(Quest quest)
     {
+        if (onEndQuest.ContainsKey(quest.title)) return;
+
         DataManager.GetData().events[quest.ID] = 1;
         DataManager.Save();
         GameObject newObj = Instantiate(questBoxPrefab);
         newObj.GetComponent<Button>().onClick.AddListener(() =>
         {
-
+            //퀘스트목록에서 선택했을 때 기능.
         });
 
         newObj.GetComponentInChildren<Text>().text = quest.title;
@@ -75,6 +81,15 @@ public class QuestManager : MonoBehaviour
             AddQuest(quest);
         }
         onEndQuest[quest.title]();
+    }
+
+    public void EnableDialog(int id)
+    {
+        DataManager.GetData().dialogs[id] = 1;
+    }
+    public void DisableDialog(int id)
+    {
+        DataManager.GetData().dialogs[id] = 2;
     }
     // Start is called before the first frame update
 
