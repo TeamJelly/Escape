@@ -18,6 +18,7 @@ public static class DataManager
         {
             QuestDatabase.InitQuestLists();
             ItemDatabase.InitItemList();
+            SpeechBaloonManager.InitDialogList();
             currentData = new PlayerData();
             currentData.currentScene = SceneManager.GetActiveScene().name;
         }

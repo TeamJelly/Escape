@@ -18,7 +18,7 @@ public class SpeechBaloonManager : MonoBehaviour
    // public List<int> activatedList = new List<int>();
     public List<string> activatedList = new List<string>();
 
-    Dictionary<string, int> titleToID = new Dictionary<string, int>();
+    static Dictionary<string, int> titleToID = new Dictionary<string, int>();
     //System.Action[] actions;
 
     public static SpeechBaloonManager instance;
@@ -79,7 +79,6 @@ public class SpeechBaloonManager : MonoBehaviour
                 //activatedList.Add(i);
                 string title = GetTitleWithID(i);
                 activatedList.Add(title);
-                titleToID.Add(title, i);
             }
         }
         //만약 말풍선개수보다 상호작용개수가 많다면 다음 버튼 활성화
@@ -92,16 +91,14 @@ public class SpeechBaloonManager : MonoBehaviour
 
     public void SubBaloon(int index)
     {
-        titleToID.Remove(activatedList[index]);
         activatedList.RemoveAt(index);
     }
     public void AddBaloon(int id)
     {
         DataManager.GetData().dialogs[id] = 1;
         string title = GetTitleWithID(id);
-        if (titleToID.ContainsKey(title)) return;
+        if (activatedList.Contains(title)) return;
         activatedList.Add(title);
-        titleToID.Add(title, id);
         SetBaloons(currentIndex);
     }
     void SetBaloons(int index)
@@ -119,7 +116,7 @@ public class SpeechBaloonManager : MonoBehaviour
                 baloons[i].onClick.RemoveAllListeners();
                 baloons[i].onClick.AddListener(() =>
                 {
-                    DataManager.GetData().dialogs[titleToID[activatedList[thisIndex]]] = 2;
+                    DataManager.GetData().dialogs[GetIDWithTitle(activatedList[thisIndex])] = 2;
                     DataManager.Save();
                     ChatSystem2.instance.StartChat("Dialog", activatedList[thisIndex], () => { });
                     SubBaloon(thisIndex);
@@ -143,5 +140,23 @@ public class SpeechBaloonManager : MonoBehaviour
         xmlDoc.LoadXml(textAsset.text);
         XmlNode chatList = xmlDoc.SelectSingleNode("Chat");
         return chatList.ChildNodes[id].Name;
+    }
+
+    int GetIDWithTitle(string title)
+    {
+        return titleToID[title];
+    }
+    public static void InitDialogList()
+    {
+        TextAsset textAsset = (TextAsset)Resources.Load("ChatDB/Dialog");
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.LoadXml(textAsset.text);
+        XmlNode chatList = xmlDoc.SelectSingleNode("Chat");
+
+        for(int i = 0; i < chatList.ChildNodes.Count; i++)
+        {
+            if(!titleToID.ContainsKey(chatList.ChildNodes[i].Name))
+                titleToID.Add(chatList.ChildNodes[i].Name, i);
+        }        
     }
 }

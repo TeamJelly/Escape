@@ -15,6 +15,7 @@ public class Starter : MonoBehaviour
 
         QuestDatabase.InitQuestLists();
         ItemDatabase.InitItemList();
+        SpeechBaloonManager.InitDialogList();
         if (!DataManager.dataExist)
             LoadButton.SetActive(false);       
     }
