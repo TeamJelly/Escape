@@ -2388,7 +2388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &399778707
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12842,6 +12842,11 @@ PrefabInstance:
         type: 3}
       propertyPath: OnEnable.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830233763904108518, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: usingItem
+      value: "\uBCF5\uC81C\uB41C \uC5F4\uC1E0"
       objectReference: {fileID: 0}
     - target: {fileID: 3599788636768405291, guid: 002194c464ca7c14b992d88aebf4c33e,
         type: 3}
