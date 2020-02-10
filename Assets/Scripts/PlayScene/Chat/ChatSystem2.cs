@@ -50,6 +50,23 @@ public class ChatSystem2 : MonoBehaviour
         }
     }
 
+    public void Monologue(string[] message)
+    {
+        bgPanel.gameObject.SetActive(false);
+        messageList.Clear();
+        onEnd = () => bgImage.gameObject.SetActive(true);
+        thisUI.SetActive(true);
+        currentIndex = -1;
+        foreach(string s in message)
+        messageList.Add(
+            new MessageBox
+            {
+                name = "주인공",
+                state = "-",
+                message = s
+            });
+        ShowNext();
+    }
     public void Monologue(string message)
     {
         bgPanel.gameObject.SetActive(false);
