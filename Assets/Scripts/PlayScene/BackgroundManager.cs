@@ -29,7 +29,7 @@ public class BackgroundManager : MonoBehaviour
             {
                 ChatSystem2.instance.StartChat("Intro","I2",() =>
                 {
-                    QuestManager.instance.AddQuest(0);
+                    QuestManager.instance.AddQuest("[현관문 진입]");
                     //Debug.Log("Quest Added");
                     });
             });
@@ -44,13 +44,10 @@ public class BackgroundManager : MonoBehaviour
         foreach (GameObject i in _items)
         {
             ItemObject itemObj = i.GetComponent<ItemObject>();
-            if (data.items[itemObj.itemID] > 0)
+            itemObj.Init();
+            if (data.items[ItemDatabase.GetItemWithName(itemObj.itemName).ID] > 0)
             {
                 itemObj.DisableItem();
-            }
-            else
-            {
-                itemObj.Init();
             }
         }
         for(int i = 0; i < data.items.Length; i++)

@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class ItemObject : MonoBehaviour //맵상에 배치되는 아이템정보를 담는 게임오브젝트. BackgroundManager에서 초기화.
 {
-    public int itemID; // 아이템 고유ID
+    //public int itemID; // 아이템 고유ID
+    public string itemName;
     public List<GameObject> images = new List<GameObject>(); // 맵에서 보이는 아이템 이미지들.
 
     public void Init()
@@ -16,7 +17,7 @@ public class ItemObject : MonoBehaviour //맵상에 배치되는 아이템정보
             if (b != null)
                 b.onClick.AddListener(() =>
                 {
-                    Inventory.instance.AddItem(itemID);
+                    Inventory.instance.AddItem(itemName);
                     DisableItem();
                 });
         }

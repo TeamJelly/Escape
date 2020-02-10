@@ -11,6 +11,7 @@ public class Inventory : MonoBehaviour
 
     public Slot selectedSlot = null;
     public System.Action interactMethod;
+    Dictionary<string, GameObject> objFinder = new Dictionary<string, GameObject>();
     public void Awake()
     {
         instance = this;
@@ -35,8 +36,26 @@ public class Inventory : MonoBehaviour
         newItemBox.transform.SetParent(InventoryItemList.transform);
 
         newItemBox.GetComponent<Slot>().Init(item);
+        objFinder.Add(item.itemName, newItemBox);
+    }
+    public void SubItem(int itemID)
+    {
+        Item item = ItemDatabase.GetItemWithID(itemID);
+        SubItem(item);
     }
 
+    public void SubItem(string itemName)
+    {
+        Item item = ItemDatabase.GetItemWithName(itemName);
+        SubItem(item);
+    }
+
+    public void SubItem(Item item)
+    {
+        DataManager.GetData().items[item.ID] = 2;
+        DataManager.Save();
+        Destroy(objFinder[item.itemName]);
+    }
 
     
 }

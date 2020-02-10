@@ -7,6 +7,7 @@ public class PuzzleManager : MonoBehaviour
     Dictionary<string, Puzzle> puzzleFinder = new Dictionary<string, Puzzle>();
 
     public static PuzzleManager instance;
+    Puzzle currentPuzzle;
 
     private void Awake()
     {
@@ -29,7 +30,10 @@ public class PuzzleManager : MonoBehaviour
     public void StartPuzzleWithName(string name)
     {
         if (!puzzleFinder.ContainsKey(name)) return;
+        if (currentPuzzle != null) currentPuzzle.thisUI.gameObject.SetActive(false);
+        
         Puzzle p = GetPuzzleWithName(name);
+        currentPuzzle = p;
         p.EnablePuzzle();
     }
 

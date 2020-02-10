@@ -38,7 +38,7 @@ public class P_UseItem : Puzzle
         interactor.OnEnd.AddListener(() =>
         {
             ChatSystem2.instance.Monologue(successString);
-            if (deleteItemOnEnd) interactor.DeleteEnteredItem();
+            if (deleteItemOnEnd) Inventory.instance.SubItem(usingItem);
             DataManager.GetData().puzzles[puzzleID] = 2;
             DataManager.Save();
             OnEnd.Invoke();

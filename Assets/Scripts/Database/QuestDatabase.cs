@@ -36,7 +36,7 @@ public static class QuestDatabase
             {
                 title = node.Attributes.GetNamedItem("title").Value,
                 problem = node.Attributes.GetNamedItem("problem").Value,
-                description = node.Attributes.GetNamedItem("description").Value,
+                //description = node.Attributes.GetNamedItem("description").Value,
                 ID = id
             };
 
@@ -57,6 +57,6 @@ public class Quest
     public string title; // 이벤트 제목
     public string problem; // 이벤트 문제
     public int ID; // 이벤트 고유 ID
-    public string description; // 이벤트 설명
+    //public string description; // 이벤트 설명
 
 }

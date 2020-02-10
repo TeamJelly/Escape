@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-public class Slot : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
+public class Slot : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
 {
     public Transform itemImage;
     public Text itemText;
@@ -46,5 +46,10 @@ public class Slot : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUp
         itemImage.localPosition = Vector3.zero;
         Inventory.instance.interactMethod?.Invoke();
         Inventory.instance.interactMethod = null;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        PuzzleManager.instance.StartPuzzleWithName(item.itemName);
     }
 }
