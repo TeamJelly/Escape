@@ -2261,6 +2261,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5460797467088962548, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: puzzleName
+      value: "\uC190\uC804\uB4F1"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 002194c464ca7c14b992d88aebf4c33e, type: 3}
 --- !u!224 &1347577262 stripped

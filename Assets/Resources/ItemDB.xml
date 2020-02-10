@@ -8,4 +8,7 @@
 	<Field id="6" name="손전등" description="건전지가 빠져있는 손전등이다."/>
 	<Field id="7" name="건전지" description="건전지가 빠져있는 손전등이다."/>
 	<Field id="8" name="작동되는 손전등" description="작동되는 손전등이다."/>
+	<Field id="9" name="니퍼" description="잘 자르게 생겼다."/>
+	<Field id="10" name="테이프" description="왠지 쓸모가 많아보인다."/>
+	<Field id="11" name="복제된 열쇠" description="카드로 만든 열쇠"/>
 </Items>

@@ -17,16 +17,16 @@ public class Interactor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public UnityEvent OnClick = new UnityEvent();
     [NonSerialized]
     public UnityEvent OnEnd = new UnityEvent();
-    Slot enteredSlot;
+    public Slot enteredSlot;
 
     
     public Condition condition;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        enteredSlot = Inventory.instance.selectedSlot;
         if (condition())
         {
-            enteredSlot = Inventory.instance.selectedSlot;
             Inventory.instance.interactMethod = () => OnEnd.Invoke();//CallbackFunction(temp);
         }
         else
