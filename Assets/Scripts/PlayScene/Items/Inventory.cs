@@ -29,6 +29,7 @@ public class Inventory : MonoBehaviour
     }
     void AddItem(Item item)
     {
+        if (objFinder.ContainsKey(item.itemName)) return;
         DataManager.GetData().items[item.ID] = 1;
         DataManager.Save();
         GameObject newItemBox = Instantiate(ItemBoxPrefab);
@@ -36,6 +37,8 @@ public class Inventory : MonoBehaviour
         newItemBox.transform.SetParent(InventoryItemList.transform);
 
         newItemBox.GetComponent<Slot>().Init(item);
+
+        
         objFinder.Add(item.itemName, newItemBox);
     }
     public void SubItem(int itemID)
@@ -55,6 +58,7 @@ public class Inventory : MonoBehaviour
         DataManager.GetData().items[item.ID] = 2;
         DataManager.Save();
         Destroy(objFinder[item.itemName]);
+        objFinder.Remove(item.itemName);
     }
 
     

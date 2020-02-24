@@ -36,7 +36,12 @@ public abstract class Puzzle : MonoBehaviour
 
     public void DisablePuzzle()
     {
-        PlayUIManager.instance.FadeOut(thisUI);
+        if(thisUI != null)
+         PlayUIManager.instance.FadeOut(thisUI);
         OnDisable.Invoke();
+    }
+    public void ExitPuzzle()
+    {
+        PlayUIManager.instance.FadeOut(thisUI);
     }
 }
