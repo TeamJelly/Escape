@@ -12,7 +12,7 @@ public class BackgroundManager : MonoBehaviour
     public static BackgroundManager instance;
 
     PlayerData data;
-
+    public int failureCount = 0;
     private void Awake()
     {
         instance = this;
@@ -56,6 +56,15 @@ public class BackgroundManager : MonoBehaviour
             {
                 Inventory.instance.AddItem(i);
             }
+        }
+    }
+
+    public void AddFailureCount()
+    {
+        failureCount++;
+        if(failureCount >= 5)
+        {
+            //게임오버
         }
     }
 
