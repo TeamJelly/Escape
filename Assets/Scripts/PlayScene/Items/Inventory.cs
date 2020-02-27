@@ -36,6 +36,8 @@ public class Inventory : MonoBehaviour
 
         newItemBox.transform.SetParent(InventoryItemList.transform);
 
+        RectTransform rect = (RectTransform)newItemBox.transform;
+        rect.localScale = Vector2.one;
         newItemBox.GetComponent<Slot>().Init(item);
 
         
