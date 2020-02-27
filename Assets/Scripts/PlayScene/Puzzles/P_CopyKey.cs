@@ -9,12 +9,14 @@ public class P_CopyKey : Puzzle
     public Interactor interactor3;//테이프
     public Interactor interactor4;//니퍼
 
-    bool state1; //부러진 열쇠1
-    bool state2; //부러진 열쇠2
+    bool state1 = false; //부러진 열쇠1
+    bool state2 = false; //부러진 열쇠2
+    bool complete = false;
     public override void InitPuzzle()
     {
 
         OnEnd.AddListener(() => { DisablePuzzle(); });
+
 
         interactor1.condition = Condition1;
 
@@ -91,6 +93,7 @@ public class P_CopyKey : Puzzle
             Inventory.instance.SubItem("니퍼");
             Inventory.instance.SubItem("주민등록증");
             Inventory.instance.AddItem("복제된 열쇠");
+            complete = true;
             OnEnd.Invoke();
         });
         /**********************************************************/
@@ -114,6 +117,22 @@ public class P_CopyKey : Puzzle
     public bool Condition4()
     {
         return Inventory.instance.selectedSlot?.GetItemName() == "니퍼";
+    }
+
+    public new void ExitPuzzle()
+    {
+        base.ExitPuzzle();
+        if (!complete)
+        {
+            interactor3.gameObject.SetActive(false);
+            interactor4.gameObject.SetActive(false);
+            interactor1.gameObject.SetActive(true);
+            interactor2.gameObject.SetActive(true);
+            state1 = false;
+            state2 = false;
+            Inventory.instance.AddItem("부러진 열쇠1");
+            Inventory.instance.AddItem("부러진 열쇠2");
+        }
     }
 
 }

@@ -2151,6 +2151,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 166018941}
     m_Modifications:
+    - target: {fileID: 243373686731846882, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 748275686235917170, guid: 002194c464ca7c14b992d88aebf4c33e,
         type: 3}
       propertyPath: m_Name
@@ -2261,10 +2266,65 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1865066162967198750, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5336107229665566320, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 5460797467088962548, guid: 002194c464ca7c14b992d88aebf4c33e,
         type: 3}
       propertyPath: puzzleName
       value: "\uC190\uC804\uB4F1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026083023514471627, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026083023514471627, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1673416755}
+    - target: {fileID: 9026083023514471627, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitPuzzle
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026083023514471627, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026083023514471627, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026083023514471627, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1673416753}
+    - target: {fileID: 9026083023514471627, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026083023514471627, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026083023514471627, guid: 002194c464ca7c14b992d88aebf4c33e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 002194c464ca7c14b992d88aebf4c33e, type: 3}
@@ -3583,6 +3643,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1598879865}
   m_CullTransparentMesh: 0
+--- !u!1 &1673416753 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7934370537388073685, guid: 002194c464ca7c14b992d88aebf4c33e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1347577261}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1673416755 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3128403996640136366, guid: 002194c464ca7c14b992d88aebf4c33e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1347577261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673416753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a861fa74ff85c4ca6c5192889b3a7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1682107980
 GameObject:
   m_ObjectHideFlags: 0

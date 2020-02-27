@@ -7,9 +7,9 @@ public abstract class Puzzle : MonoBehaviour
 {
     public CanvasGroup thisUI;
 
-    public UnityEvent OnEnable;
-    public UnityEvent OnDisable;
-    public UnityEvent OnEnd;
+    public UnityEvent OnEnable;// 초기화작업
+    public UnityEvent OnDisable;//끝난 후 결과상태. OnEnd시 자동 실행.
+    public UnityEvent OnEnd;//끝나는 시점에 일어나는 이벤트.
     
     public int puzzleID;
     public string puzzleName;
@@ -36,7 +36,12 @@ public abstract class Puzzle : MonoBehaviour
 
     public void DisablePuzzle()
     {
-        PlayUIManager.instance.FadeOut(thisUI);
+        if(thisUI != null)
+         PlayUIManager.instance.FadeOut(thisUI);
         OnDisable.Invoke();
+    }
+    public void ExitPuzzle()
+    {
+        PlayUIManager.instance.FadeOut(thisUI);
     }
 }
