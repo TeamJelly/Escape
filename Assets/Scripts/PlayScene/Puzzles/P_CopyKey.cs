@@ -60,7 +60,7 @@ public class P_CopyKey : Puzzle
 
         interactor3.OnFailed.AddListener(() =>
         {
-            if(interactor3.enteredSlot.GetItemName() == "니퍼")
+            if(interactor3.enteredItem == "니퍼")
                 ChatSystem2.instance.Monologue("자르려고하니깐 조각이 움직이네...");
             else ChatSystem2.instance.Monologue("이게 아니야");
         });
@@ -101,22 +101,22 @@ public class P_CopyKey : Puzzle
     }
     public bool Condition1()
     {
-        return Inventory.instance.selectedSlot?.GetItemName() == "부러진 열쇠1";
+        return Inventory.instance.selectedItem == "부러진 열쇠1";
     }
 
     public bool Condition2()
     {
-        return Inventory.instance.selectedSlot?.GetItemName() == "부러진 열쇠2";
+        return Inventory.instance.selectedItem == "부러진 열쇠2";
     }
 
     public bool Condition3()
     {
-        return Inventory.instance.selectedSlot?.GetItemName() == "테이프";
+        return Inventory.instance.selectedItem == "테이프";
     }
 
     public bool Condition4()
     {
-        return Inventory.instance.selectedSlot?.GetItemName() == "니퍼";
+        return Inventory.instance.selectedItem == "니퍼";
     }
 
     public new void ExitPuzzle()

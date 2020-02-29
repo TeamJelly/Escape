@@ -44,4 +44,8 @@ public abstract class Puzzle : MonoBehaviour
     {
         PlayUIManager.instance.FadeOut(thisUI);
     }
+    public void EndPuzzle()
+    {
+        OnEnd.Invoke();
+    }
 }

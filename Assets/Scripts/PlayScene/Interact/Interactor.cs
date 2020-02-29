@@ -17,14 +17,14 @@ public class Interactor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public UnityEvent OnClick = new UnityEvent();
     [NonSerialized]
     public UnityEvent OnEnd = new UnityEvent();
-    public Slot enteredSlot;
+    public string enteredItem;
 
     
     public Condition condition;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        enteredSlot = Inventory.instance.selectedSlot;
+        enteredItem = Inventory.instance.selectedItem;
         if (condition())
         {
             Inventory.instance.interactMethod = () => OnEnd.Invoke();//CallbackFunction(temp);
@@ -42,15 +42,6 @@ public class Interactor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         OnClick.Invoke();
     }
-
-
-    //필요시 사용된 아이템 삭제.
-    public void DeleteEnteredItem()
-    {
-        DataManager.GetData().items[enteredSlot.GetItemID()] = 2;
-        Destroy(enteredSlot.gameObject);
-    }
-
     
 }
 

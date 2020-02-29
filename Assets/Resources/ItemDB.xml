@@ -6,7 +6,7 @@
 	<Field id="4" name="부러진 열쇠1" description="연이가 처참히 부숴버린 불쌍한 열쇠다."/>
 	<Field id="5" name="부러진 열쇠2" description="연이가 처참히 부숴버린 불쌍한 열쇠다."/>
 	<Field id="6" name="손전등" description="건전지가 빠져있는 손전등이다."/>
-	<Field id="7" name="건전지" description="건전지가 빠져있는 손전등이다."/>
+	<Field id="7" name="건전지" description="건전지."/>
 	<Field id="8" name="작동되는 손전등" description="작동되는 손전등이다."/>
 	<Field id="9" name="니퍼" description="잘 자르게 생겼다."/>
 	<Field id="10" name="테이프" description="왠지 쓸모가 많아보인다."/>

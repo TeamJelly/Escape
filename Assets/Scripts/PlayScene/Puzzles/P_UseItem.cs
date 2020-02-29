@@ -47,6 +47,6 @@ public class P_UseItem : Puzzle
     //퍼즐 성공조건
     public bool SuccessCondition()
     {
-        return Inventory.instance.selectedSlot?.GetItemName() == usingItem;
+        return Inventory.instance.selectedItem == usingItem;
     }
 }

@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
     public GameObject ItemBoxPrefab;
     public static Inventory instance;
 
-    public Slot selectedSlot = null;
+    public string selectedItem;
     public System.Action interactMethod;
     Dictionary<string, GameObject> objFinder = new Dictionary<string, GameObject>();
     public void Awake()
