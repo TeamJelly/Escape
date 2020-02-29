@@ -62,6 +62,8 @@ public class QuestManager : MonoBehaviour
              newObj.GetComponentInChildren<Text>().text += "-완료";
          });
         newObj.transform.SetParent(questListObj.transform);
+        RectTransform rect = (RectTransform)newObj.transform;
+        rect.localScale = Vector2.one;
     }
 
     public void FinishQuest(int id)
