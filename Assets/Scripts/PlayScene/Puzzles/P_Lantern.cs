@@ -30,6 +30,15 @@ public class P_Lantern : Puzzle
             fourthPanel.SetActive(true);
 
         });
+        OnEnable.AddListener(() =>
+        {
+            if (!complete)
+            {
+                firstPanel.SetActive(true);
+                secondPanel.SetActive(false);
+                thirdPanel.SetActive(false);
+            }
+        });
         /***********************뚜껑따기************************/
         lid.onClick.AddListener(() =>
         {
@@ -74,16 +83,6 @@ public class P_Lantern : Puzzle
         });
 
         
-    }
-    public new void EnablePuzzle()
-    {
-        if (!complete)
-        {
-            firstPanel.SetActive(true);
-            secondPanel.SetActive(false);
-            thirdPanel.SetActive(false);
-        }
-        base.EnablePuzzle();
     }
     public new void ExitPuzzle()
     {
