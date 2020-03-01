@@ -1493,7 +1493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebabb756ddf1670448722b0edc0c41f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enteredSlot: {fileID: 0}
+  enteredItem: 
 --- !u!114 &418092057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1581,7 +1581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebabb756ddf1670448722b0edc0c41f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enteredSlot: {fileID: 0}
+  enteredItem: 
 --- !u!114 &427914432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1668,7 +1668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebabb756ddf1670448722b0edc0c41f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enteredSlot: {fileID: 0}
+  enteredItem: 
 --- !u!114 &431555978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1828,7 +1828,6 @@ MonoBehaviour:
   itemName: "\uD14C\uC774\uD504"
   images:
   - {fileID: 286325302}
-  - {fileID: 0}
 --- !u!1 &443677743
 GameObject:
   m_ObjectHideFlags: 0
@@ -2583,7 +2582,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 486350899}
         m_MethodName: EnablePuzzle
         m_Mode: 1
         m_Arguments:
@@ -2770,7 +2769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebabb756ddf1670448722b0edc0c41f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enteredSlot: {fileID: 0}
+  enteredItem: 
 --- !u!114 &749289751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2857,7 +2856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebabb756ddf1670448722b0edc0c41f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enteredSlot: {fileID: 0}
+  enteredItem: 
 --- !u!114 &758995298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3365,7 +3364,6 @@ MonoBehaviour:
   itemName: "\uB2C8\uD37C"
   images:
   - {fileID: 831271334}
-  - {fileID: 0}
 --- !u!1 &982186868
 GameObject:
   m_ObjectHideFlags: 0
@@ -3852,7 +3850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebabb756ddf1670448722b0edc0c41f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enteredSlot: {fileID: 0}
+  enteredItem: 
 --- !u!114 &1059748723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4543,7 +4541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebabb756ddf1670448722b0edc0c41f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enteredSlot: {fileID: 0}
+  enteredItem: 
 --- !u!114 &1500382206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4630,7 +4628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebabb756ddf1670448722b0edc0c41f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enteredSlot: {fileID: 0}
+  enteredItem: 
 --- !u!114 &1535480040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4718,7 +4716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebabb756ddf1670448722b0edc0c41f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enteredSlot: {fileID: 0}
+  enteredItem: 
 --- !u!114 &1561503802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4837,7 +4835,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1248202594}
         m_MethodName: EnablePuzzle
         m_Mode: 1
         m_Arguments:
@@ -4947,7 +4945,7 @@ MonoBehaviour:
   InventoryItemList: {fileID: 654981521}
   ItemBoxPrefab: {fileID: 8798305126657898647, guid: c7db165576470134091c7fc713994f76,
     type: 3}
-  selectedSlot: {fileID: 0}
+  selectedItem: 
 --- !u!114 &1696365334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5043,7 +5041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebabb756ddf1670448722b0edc0c41f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enteredSlot: {fileID: 0}
+  enteredItem: 
 --- !u!114 &1713335098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5131,7 +5129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebabb756ddf1670448722b0edc0c41f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enteredSlot: {fileID: 0}
+  enteredItem: 
 --- !u!114 &1823357707
 MonoBehaviour:
   m_ObjectHideFlags: 0
