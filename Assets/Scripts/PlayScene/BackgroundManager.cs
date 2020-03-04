@@ -22,18 +22,18 @@ public class BackgroundManager : MonoBehaviour
     private void Start()
     {
         InitItems();
-        if (data.events[0] == 0)
-        {
-            DataManager.Save();          
-            PlayUIManager.instance.FadeIn(() =>
-            {
-                ChatSystem2.instance.StartChat("Intro","I2",() =>
-                {
-                    QuestManager.instance.AddQuest("[현관문 진입]");
-                    //Debug.Log("Quest Added");
-                    });
-            });
-        }            
+        //if (data.events[0] == 0)
+        //{
+        //    DataManager.Save();          
+        //    PlayUIManager.instance.FadeIn(() =>
+        //    {
+        //        ChatSystem2.instance.StartChat("Intro","I2",() =>
+        //        {
+        //            QuestManager.instance.AddQuest("[현관문 진입]");
+        //            //Debug.Log("Quest Added");
+        //            });
+        //    });
+        //}            
     }
     private void InitItems()
     {

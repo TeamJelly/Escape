@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Quest>
  <Field id="0" 
-         title="[현관문 진입]" 
+         title="[현관 진입]" 
          problem="집에서 탈출하기 위해서는 현관을 가야하는데… 몰래 현관으로 가는 방법이 없을까?"/>
   <Field id="1"
          title="[연이방 열기]"

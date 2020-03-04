@@ -11,7 +11,7 @@ public class PlayUIManager : MonoBehaviour
     public GameObject currentPanel;
 
     public CanvasGroup noticeGetItemUI;
-
+    public Image getItemImage;
 
     public static PlayUIManager instance;
 
@@ -21,8 +21,19 @@ public class PlayUIManager : MonoBehaviour
         FadeIn(() => { });
     }
 
-    public void NoticeGetItem(int itemID)
+    public void NoticeGetItem(string itemName)
     {
+        getItemImage.sprite = Resources.Load("Item/" + itemName, typeof(Sprite)) as Sprite;
+        if (getItemImage.sprite != null)
+        {
+            RectTransform newSize = (RectTransform)getItemImage.transform;
+            Vector2 spriteSize = getItemImage.sprite.rect.size;
+            if(spriteSize.x > spriteSize.y)
+            {
+                newSize.sizeDelta = new Vector2(550, spriteSize.y / spriteSize.x * 550);
+            }
+            else newSize.sizeDelta = new Vector2(spriteSize.x / spriteSize.y * 550, 550);
+        }
         FadeIn(noticeGetItemUI);
     }
 
@@ -41,23 +52,23 @@ public class PlayUIManager : MonoBehaviour
     }
     public void FadeIn(System.Action onEnd)
     {
-        StartCoroutine(FadeIn(fadeBackground,onEnd));
+        StartCoroutine(DescendAlpha(fadeBackground,onEnd));
     }
     public void FadeOut(System.Action onEnd)
     {
-        StartCoroutine(FadeOut(fadeBackground, onEnd));
+        StartCoroutine(AscendAlpha(fadeBackground, onEnd));
     }
     public void FadeIn(CanvasGroup fadeObject)
     {
         fadeObject.alpha = 0;
         fadeObject.interactable = false;
         fadeObject.gameObject.SetActive(true);
-        StartCoroutine(FadeIn(fadeObject,() => { fadeObject.interactable = true; }));
+        StartCoroutine(AscendAlpha(fadeObject,() => { fadeObject.interactable = true; }));
     }
     public void FadeOut(CanvasGroup fadeObject)
     {
         fadeObject.interactable = false;
-        StartCoroutine(FadeOut(fadeObject, () => 
+        StartCoroutine(DescendAlpha(fadeObject, () => 
         { 
             fadeObject.gameObject.SetActive(false); 
             fadeObject.interactable = true; 
@@ -65,10 +76,10 @@ public class PlayUIManager : MonoBehaviour
     }
     public void FadeOutForNextScene(string sceneName)
     {
-        StartCoroutine(FadeOut(fadeBackground, () => { SceneManager.LoadScene(sceneName);}));
+        StartCoroutine(AscendAlpha(fadeBackground, () => { SceneManager.LoadScene(sceneName);}));
     }
 
-    IEnumerator FadeIn(CanvasGroup fadeObject, System.Action onEnd)
+    public IEnumerator AscendAlpha(CanvasGroup fadeObject, System.Action onEnd)
     {
         float tempAlpha = 0;
         float fadeTime = 0.2f;
@@ -81,7 +92,7 @@ public class PlayUIManager : MonoBehaviour
         fadeObject.alpha = 1.0f;
         onEnd();
     }
-    IEnumerator FadeOut(CanvasGroup fadeObject, System.Action onEnd)
+    public IEnumerator DescendAlpha(CanvasGroup fadeObject, System.Action onEnd)
     {
         float tempAlpha = 1;
         float fadeTime = 0.2f;

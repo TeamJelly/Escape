@@ -92,7 +92,7 @@ public class P_CopyKey : Puzzle
             ChatSystem2.instance.Monologue("열쇠가 완성되었다.");
             Inventory.instance.SubItem("니퍼");
             Inventory.instance.SubItem("주민등록증");
-            Inventory.instance.AddItem("복제된 열쇠");
+            Inventory.instance.GetItem("복제된 열쇠");
             complete = true;
             OnEnd.Invoke();
         });

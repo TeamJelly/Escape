@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+
     public GameObject InventoryItemList;
+    public GameObject InventoryBar;
     public GameObject ItemBoxPrefab;
+    
     public static Inventory instance;
 
     public string selectedItem;
@@ -15,6 +18,11 @@ public class Inventory : MonoBehaviour
     public void Awake()
     {
         instance = this;
+    }
+    public void GetItem(string itemName)
+    {
+        PlayUIManager.instance.NoticeGetItem(itemName);
+        AddItem(itemName);
     }
     public void AddItem(int itemID)
     {
@@ -63,5 +71,13 @@ public class Inventory : MonoBehaviour
         objFinder.Remove(item.itemName);
     }
 
+    public void EnableInventoryBar()
+    {
+        InventoryBar.SetActive(true);
+    }
+    public void DisableInventoryBar()
+    {
+        InventoryBar.SetActive(false);
+    }
     
 }

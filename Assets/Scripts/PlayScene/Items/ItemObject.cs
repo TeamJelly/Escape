@@ -17,7 +17,7 @@ public class ItemObject : MonoBehaviour //맵상에 배치되는 아이템정보
             if (b != null)
                 b.onClick.AddListener(() =>
                 {
-                    Inventory.instance.AddItem(itemName);
+                    Inventory.instance.GetItem(itemName);
                     DisableItem();
                 });
         }

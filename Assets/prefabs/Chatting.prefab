@@ -452,12 +452,13 @@ MonoBehaviour:
   - {fileID: 1225962296216306192}
   - {fileID: 1225962297193853738}
   - {fileID: 6729226891453942429}
-  thisUI: {fileID: 1225962296702816807}
+  thisUI: {fileID: 5309031044458527899}
   charactorPanel: {fileID: 1225962296620014018}
   bgPanel: {fileID: 1921893313389442780}
   bgImage: {fileID: 6730207107257844294}
   chatText: {fileID: 1225962297737879795}
   charactorName: {fileID: 1656631956783177179}
+  nextButton: {fileID: 5440734365267368038}
   skipButton: {fileID: 1225962296883676707}
   bgmAudio: {fileID: 70908592}
   seAudio: {fileID: 1081752520}
@@ -473,6 +474,7 @@ GameObject:
   - component: {fileID: 1158986428933657370}
   - component: {fileID: 1225962296702816805}
   - component: {fileID: 5440734365267368038}
+  - component: {fileID: 5309031044458527899}
   m_Layer: 5
   m_Name: ChattingPanel
   m_TagString: Untagged
@@ -587,18 +589,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1225962296522933382}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1225962296522933380}
-        m_MethodName: ShowNext
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!225 &5309031044458527899
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225962296702816807}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1921893313389442780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,18 +1610,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3727872127689583812}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1225962296522933380}
-        m_MethodName: SkipChat
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: panorama3
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &8646764348006392048
 GameObject:
   m_ObjectHideFlags: 0
