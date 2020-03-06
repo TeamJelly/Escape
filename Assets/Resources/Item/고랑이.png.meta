@@ -107,12 +107,12 @@ TextureImporter:
       name: "\uACE0\uB791\uC774_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 158
-        width: 918
-        height: 1401
+        x: 40
+        y: 362
+        width: 1385
+        height: 896
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -128,12 +128,12 @@ TextureImporter:
       name: "\uACE0\uB791\uC774_1"
       rect:
         serializedVersion: 2
-        x: 1082
-        y: 551
-        width: 1365
-        height: 768
+        x: 1894
+        y: 1113
+        width: 411
+        height: 465
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
