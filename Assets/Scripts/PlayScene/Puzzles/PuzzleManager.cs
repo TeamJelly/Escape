@@ -30,11 +30,12 @@ public class PuzzleManager : MonoBehaviour
     public void StartPuzzleWithName(string name)//아이템 클릭시 퍼즐 실행 -> 해당 아이템 이름으로 퍼즐이름지정
     {
         if (!puzzleFinder.ContainsKey(name)) return;
-        if (currentPuzzle != null) currentPuzzle.thisUI.gameObject.SetActive(false);
-        
         Puzzle p = GetPuzzleWithName(name);
+        if (currentPuzzle == p) return;
+        if (currentPuzzle != null) currentPuzzle.thisUI.gameObject.SetActive(false);
         currentPuzzle = p;
+        PuzzleDatabase.SetPuzzleState(name, 1);
         p.EnablePuzzle();
     }
-
+    
 }

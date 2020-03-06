@@ -78,8 +78,8 @@ public class P_Lantern : Puzzle
             
             ChatSystem2.instance.Monologue("좋아, 됬다.");
             OnEnd.Invoke();
-            DataManager.GetData().puzzles[puzzleID] = 2;
-            DataManager.Save();
+            PuzzleDatabase.SetPuzzleState(puzzleName,2);
+            DataManager.Save_Auto();
         });
 
         

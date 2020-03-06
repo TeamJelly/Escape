@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Items>
-	<Field id="1" name="트럼프" description="트럼프카드" />
-	<Field id="2" name="효자손" description="무시무시하게 생긴 효자손이다"/>
-	<Field id="3" name="주민등록증" description="연이가 잃어버린 민증"/>
-	<Field id="4" name="부러진 열쇠1" description="연이가 처참히 부숴버린 불쌍한 열쇠다."/>
-	<Field id="5" name="부러진 열쇠2" description="연이가 처참히 부숴버린 불쌍한 열쇠다."/>
-	<Field id="6" name="손전등" description="건전지가 빠져있는 손전등이다."/>
-	<Field id="7" name="건전지" description="건전지."/>
-	<Field id="8" name="작동되는 손전등" description="작동되는 손전등이다."/>
-	<Field id="9" name="니퍼" description="잘 자르게 생겼다."/>
-	<Field id="10" name="테이프" description="왠지 쓸모가 많아보인다."/>
-	<Field id="11" name="복제된 열쇠" description="카드로 만든 열쇠"/>
-	<Field id="12" name="밀가루" description="밀가루다"/>
-	<Field id="13" name="지문1" description="연이의 지문중 하나"/>
-	<Field id="14" name="지문2" description="연이의 지문중 하나"/>
-	<Field id="15" name="지문3" description="연이의 지문중 하나"/>
-	<Field id="16" name="지문4" description="연이의 지문중 하나"/>
-	<Field id="17" name="지문5" description="연이의 지문중 하나"/>
+	<Field id="0" name="고랑이" puzzle="-"/>
+  <Field id="1" name="손전등" puzzle="손전등 조립"/>
+  <Field id="2" name="건전지" puzzle="-"/>
+	<Field id="3" name="트럼프" puzzle="-"/>
+	<Field id="4" name="효자손"  puzzle="-"/>
+	<Field id="5" name="주민등록증" puzzle="열쇠복제하기"/>
+	<Field id="6" name="부러진 열쇠1" puzzle="-"/>
+	<Field id="7" name="부러진 열쇠2" puzzle="-"/>
+	<Field id="8" name="니퍼" puzzle="-"/>
+	<Field id="9" name="테이프" puzzle="-"/>
+	<Field id="10" name="복제된 열쇠" puzzle="-"/>
+	<Field id="11" name="밀가루"  puzzle="-"/>
+	<Field id="12" name="지문1" puzzle="-"/>
+	<Field id="13" name="지문2" puzzle="-"/>
+	<Field id="14" name="지문3" puzzle="-"/>
+	<Field id="15" name="지문4" puzzle="-"/>
+	<Field id="16" name="지문5" puzzle="-"/>
 </Items>

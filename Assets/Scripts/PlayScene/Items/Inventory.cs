@@ -23,6 +23,8 @@ public class Inventory : MonoBehaviour
     {
         PlayUIManager.instance.NoticeGetItem(itemName);
         AddItem(itemName);
+        DataManager.GetData().items[ItemDatabase.GetItemWithName(itemName).ID] = 1;
+        DataManager.Save_Auto();
     }
     public void AddItem(int itemID)
     {
@@ -38,8 +40,7 @@ public class Inventory : MonoBehaviour
     void AddItem(Item item)
     {
         if (objFinder.ContainsKey(item.itemName)) return;
-        DataManager.GetData().items[item.ID] = 1;
-        DataManager.Save();
+        
         GameObject newItemBox = Instantiate(ItemBoxPrefab);
 
         newItemBox.transform.SetParent(InventoryItemList.transform);
@@ -66,7 +67,7 @@ public class Inventory : MonoBehaviour
     public void SubItem(Item item)
     {
         DataManager.GetData().items[item.ID] = 2;
-        DataManager.Save();
+        DataManager.Save_Auto();
         Destroy(objFinder[item.itemName]);
         objFinder.Remove(item.itemName);
     }

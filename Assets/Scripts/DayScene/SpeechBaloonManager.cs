@@ -117,7 +117,7 @@ public class SpeechBaloonManager : MonoBehaviour
                 baloons[i].onClick.AddListener(() =>
                 {
                     DataManager.GetData().dialogs[GetIDWithTitle(activatedList[thisIndex])] = 2;
-                    DataManager.Save();
+                    DataManager.Save_Auto();
                     ChatSystem2.instance.StartChat("Dialog", activatedList[thisIndex], () => { });
                     SubBaloon(thisIndex);
                     SetBaloons(index);

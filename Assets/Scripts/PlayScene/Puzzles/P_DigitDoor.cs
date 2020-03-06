@@ -21,15 +21,15 @@ public class P_DigitDoor : Puzzle
     string passwd = "한글로 Hello World!";
     public override void InitPuzzle()
     {
-        if (DataManager.GetData().puzzles[puzzleID] == 3)
+        if (PuzzleDatabase.GetPuzzleState(puzzleName) == 3)
         {
             hint.text = "힌트 : 초기화 비밀번호";
             passwd = "0000";
         }
         OnEnd.AddListener(()=>
         {
-            DataManager.GetData().puzzles[puzzleID] = 2;
-            DataManager.Save();
+            PuzzleDatabase.SetPuzzleState(puzzleName, 2);
+            DataManager.Save_Auto();
             OnDisable.Invoke();
         });
         OnDisable.AddListener(() =>
@@ -75,8 +75,8 @@ public class P_DigitDoor : Puzzle
             inputHint2.text == "카레" &&
             inputHint3.text == "오빠")
         {
-            DataManager.GetData().puzzles[puzzleID] = 3;
-            DataManager.Save();
+            PuzzleDatabase.SetPuzzleState(puzzleName, 3);
+            DataManager.Save_Auto();
             hint.text = "힌트 : 초기화 비밀번호";
             passwd = "0000";
             resetPage.SetActive(false);

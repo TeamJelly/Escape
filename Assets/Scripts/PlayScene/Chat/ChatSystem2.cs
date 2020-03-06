@@ -56,6 +56,7 @@ public class ChatSystem2 : MonoBehaviour
         chatText.text = "";
         messageList.Clear();
         onEnd = () => bgImage.gameObject.SetActive(true);
+        skipButton.onClick.AddListener(EndChat);
         currentIndex = -1;
         foreach(string s in message)
         messageList.Add(
@@ -65,10 +66,11 @@ public class ChatSystem2 : MonoBehaviour
                 state = "-",
                 message = s
             });
+        bgImage.gameObject.SetActive(false);
         thisUI.gameObject.SetActive(true);
+        
         StartCoroutine(PlayUIManager.instance.AscendAlpha(thisUI, () =>
         {
-            bgPanel.gameObject.SetActive(true);
             ShowNext();
             nextButton.onClick.AddListener(ShowNext);
         }));
@@ -78,6 +80,7 @@ public class ChatSystem2 : MonoBehaviour
         chatText.text = "";
         messageList.Clear();
         onEnd = () => bgImage.gameObject.SetActive(true);
+        skipButton.onClick.AddListener(EndChat);
         currentIndex = -1;
         messageList.Add(
             new MessageBox
@@ -86,10 +89,10 @@ public class ChatSystem2 : MonoBehaviour
                 state = "-",
                 message = message
             });
+        bgImage.gameObject.SetActive(false);
         thisUI.gameObject.SetActive(true);
         StartCoroutine(PlayUIManager.instance.AscendAlpha(thisUI, () =>
         {
-            bgPanel.gameObject.SetActive(true);
             ShowNext();
             nextButton.onClick.AddListener(ShowNext);
         }));
@@ -438,7 +441,7 @@ public class ChatSystem2 : MonoBehaviour
 
     public void GetQuest(string name)
     {
-        QuestManager.instance.AddQuest(name);
+        QuestManager.instance.GetQuest(name);
         ShowNext();
     }
     public void FinishQuest(string name)

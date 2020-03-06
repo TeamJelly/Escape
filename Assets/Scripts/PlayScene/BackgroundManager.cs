@@ -21,7 +21,9 @@ public class BackgroundManager : MonoBehaviour
     }
     private void Start()
     {
+        
         InitItems();
+        DataManager.Save_Auto();
         //if (data.events[0] == 0)
         //{
         //    DataManager.Save();          

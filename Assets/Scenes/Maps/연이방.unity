@@ -2147,8 +2147,7 @@ MonoBehaviour:
   OnEnd:
     m_PersistentCalls:
       m_Calls: []
-  puzzleID: 12
-  puzzleName: "\uD0DC\uBE14\uB9BF\uC7A0\uAE40"
+  puzzleName: "\uC9C0\uBB38\uC778\uC2DD"
   interactor: {fileID: 749289750}
   usingItem: "\uC9C0\uBB385"
   deleteItemOnEnd: 0
@@ -2214,7 +2213,6 @@ MonoBehaviour:
   OnEnd:
     m_PersistentCalls:
       m_Calls: []
-  puzzleID: 13
   puzzleName: "\uD0DC\uBE14\uB9BF"
   interactor: {fileID: 0}
 --- !u!1 &634939753
@@ -3176,8 +3174,7 @@ MonoBehaviour:
           m_StringArgument: "\uC9C0\uBB382"
           m_BoolArgument: 0
         m_CallState: 2
-  puzzleID: 8
-  puzzleName: "\uC9C0\uBB38\uCC44\uCDE82"
+  puzzleName: "\uC9C0\uBB38\uCC44\uCDE8_\uD0DC\uBE14\uB9BF"
   interactor: {fileID: 1561503801}
   usingItem: "\uD14C\uC774\uD504"
   deleteItemOnEnd: 0
@@ -3243,8 +3240,7 @@ MonoBehaviour:
   OnEnd:
     m_PersistentCalls:
       m_Calls: []
-  puzzleID: 4
-  puzzleName: "\uC8FC\uBBFC\uB4F1\uB85D\uC99D"
+  puzzleName: "\uC5F4\uC1E0\uBCF5\uC81C\uD558\uAE30"
   interactor1: {fileID: 1823357706}
   interactor2: {fileID: 1059748722}
   interactor3: {fileID: 418092056}
@@ -4159,8 +4155,8 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!4 &1070416195
-Transform:
+--- !u!224 &1070416195
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4173,6 +4169,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1079840855
 GameObject:
   m_ObjectHideFlags: 0
@@ -4449,8 +4450,7 @@ MonoBehaviour:
           m_StringArgument: "\uC9C0\uBB385"
           m_BoolArgument: 0
         m_CallState: 2
-  puzzleID: 11
-  puzzleName: "\uC9C0\uBB38\uCC44\uCDE85"
+  puzzleName: "\uC9C0\uBB38\uCC44\uCDE8_\uD53C\uADDC\uC5B4"
   interactor: {fileID: 427914431}
   usingItem: "\uD14C\uC774\uD504"
   deleteItemOnEnd: 0

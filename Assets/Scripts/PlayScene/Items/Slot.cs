@@ -8,7 +8,7 @@ public class Slot : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUp
     public Transform itemImage;
     public Text itemText;
     Item item;
-
+    string puzzleName;
 
     public int GetItemID()
     {
@@ -50,6 +50,6 @@ public class Slot : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUp
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        PuzzleManager.instance.StartPuzzleWithName(item.itemName);
+        PuzzleManager.instance.StartPuzzleWithName(item.puzzle);
     }
 }

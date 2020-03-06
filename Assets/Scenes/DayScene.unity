@@ -2595,7 +2595,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   puzzleID: 1
-  puzzleName: CardGame
+  puzzleName: "\uCE74\uB4DC\uB180\uC774"
   winButton: {fileID: 725318406}
   loseButton: {fileID: 45393899}
 --- !u!1 &1306869952

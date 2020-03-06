@@ -11,14 +11,14 @@ public abstract class Puzzle : MonoBehaviour
     public UnityEvent OnDisable;//끝난 후 결과상태. OnEnd시 자동 실행.
     public UnityEvent OnEnd;//끝나는 시점에 일어나는 이벤트.
     
-    public int puzzleID;
+   // public int puzzleID;
     public string puzzleName;
     //퍼즐 활성화 하기 전 이전에 퍼즐을 본 경험이 있는지 깼었는지 채크. 
     public void Start()
     {
 
         InitPuzzle();
-        if (DataManager.GetData().puzzles[puzzleID] == 2)
+        if (PuzzleDatabase.GetPuzzleState(puzzleName) == 2)
         {
             OnDisable.Invoke();
         }
@@ -27,7 +27,9 @@ public abstract class Puzzle : MonoBehaviour
     public void EnablePuzzle()
     {
         PlayUIManager.instance.FadeIn(thisUI);
-        if (DataManager.GetData().puzzles[puzzleID] == 2)
+
+        //이거 없앨수 있는지 확인. 이미 끝났다면은 start에서 처리됬을것.
+        if (PuzzleDatabase.GetPuzzleState(puzzleName) == 2)
         {
             OnDisable.Invoke();
         }
