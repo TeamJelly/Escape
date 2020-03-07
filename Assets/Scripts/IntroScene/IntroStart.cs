@@ -19,7 +19,7 @@ public class IntroStart : MonoBehaviour
                   {
                       PuzzleManager.instance.StartPuzzleWithName("베개바꿔치기");
                 // PlayUIManager.instance.FadeIn(map);
-                DataManager.Save_Auto();
+                     DataManager.Save_Auto();
                   });
               });
         else
