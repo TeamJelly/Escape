@@ -7,7 +7,7 @@ public class PuzzleManager : MonoBehaviour
     Dictionary<string, Puzzle> puzzleFinder = new Dictionary<string, Puzzle>();
 
     public static PuzzleManager instance;
-    Puzzle currentPuzzle;
+    public Puzzle currentPuzzle;
 
     private void Awake()
     {

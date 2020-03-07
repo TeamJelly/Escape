@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2990,7 +2990,7 @@ MonoBehaviour:
   OnEnd:
     m_PersistentCalls:
       m_Calls: []
-  puzzleName: "\uC8FC\uBBFC\uB4F1\uB85D\uC99D"
+  puzzleName: "\uC5F4\uC1E0\uBCF5\uC81C\uD558\uAE30"
   interactor1: {fileID: 1523622932}
   interactor2: {fileID: 639847016}
   interactor3: {fileID: 1207223309}
