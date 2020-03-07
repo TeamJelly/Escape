@@ -22,7 +22,18 @@ public class Slot : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUp
     {
         item = i;
         string itemName = ItemDatabase.GetItemWithID(item.ID).itemName;
-        itemImage.GetComponent<Image>().sprite = Resources.Load("Item/" + itemName,typeof(Sprite)) as Sprite;
+        Sprite sprite = Resources.Load("Item/" + itemName, typeof(Sprite)) as Sprite;
+        itemImage.GetComponent<Image>().sprite = sprite;
+        if (sprite != null)
+        {
+            RectTransform newSize = (RectTransform)itemImage;
+            Vector2 spriteSize = sprite.rect.size;
+            if (spriteSize.x > spriteSize.y)
+            {
+                newSize.sizeDelta = new Vector2(100, spriteSize.y / spriteSize.x * 100);
+            }
+            else newSize.sizeDelta = new Vector2(spriteSize.x / spriteSize.y * 100, 100);
+        }
         itemText.text = i.itemName;
     }
     public void OnDrag(PointerEventData data)
