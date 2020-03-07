@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System;
+
 public class DataSelector : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -17,84 +19,96 @@ public class DataSelector : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+        for(int i = 0; i < 10; i++)
+        {
+            GameObject newBox = GameObject.Instantiate(dataBoxPrefeb);
+            newBox.GetComponent<DataBox>().Init(i+1);
+            AddToList(newBox);
+        }
+    }
+    void ResetDataBoxies()
+    {
+        foreach(GameObject box in boxies)
+            box.GetComponent<DataBox>().ResetData();
+    }
+    void AddToList(GameObject newBox)
+    {
+        newBox.transform.SetParent(dataBoxListObj.transform);
+        RectTransform rect = (RectTransform)newBox.transform;
+        rect.localScale = Vector2.one;
+        boxies.Add(newBox);
     }
     public void SetLoadMode()
     {
+        ResetDataBoxies();
         saveFileList = Directory.GetFiles(Application.persistentDataPath, "*.sav");
-        foreach (GameObject box in boxies)
-            Destroy(box);
-        boxies.Clear();
-        foreach (string saveName in saveFileList)
+        for(int i = 1; i < saveFileList.Length; i++)
         {
-            GameObject newBox = GameObject.Instantiate(dataBoxPrefeb);
-            newBox.GetComponent<DataBox>().InitAsLoadBox(Path.GetFileNameWithoutExtension(saveName));
-            newBox.transform.SetParent(dataBoxListObj.transform);
-            RectTransform rect = (RectTransform)newBox.transform;
-            rect.localScale = Vector2.one;
-            boxies.Add(newBox);
+            string fileName = Path.GetFileNameWithoutExtension(saveFileList[i]);
+            int fileIndex = int.Parse(fileName.Split('_')[0]) - 1;
+            if(fileIndex < boxies.Count)
+            {
+                boxies[fileIndex].GetComponent<DataBox>().InitAsLoadBox(fileName);
+            }
         }
-        addNewDataButton.onClick.RemoveAllListeners();
-        addNewDataButton.onClick.AddListener(() =>
-        {
-            DataManager.StartAsNew();
-            PlayUIManager.instance.FadeOutForNextScene("Intro");
-            DataSelector.instance.SetSaveMode();
-        });
-        addNewDataButton.transform.SetAsLastSibling();
     }
-
     public void SetSaveMode()
     {
-        saveFileList = Directory.GetFiles(Application.persistentDataPath, "*.sav");
-        foreach (GameObject box in boxies)
-            Destroy(box);
-        boxies.Clear();
-        foreach (string saveName in saveFileList)
+        ResetDataBoxies();
+        for(int i = 0; i < 10; i++)
         {
-            GameObject newBox = GameObject.Instantiate(dataBoxPrefeb);
-            newBox.GetComponent<DataBox>().InitAsSaveBox(Path.GetFileNameWithoutExtension(saveName));
-            newBox.transform.SetParent(dataBoxListObj.transform);
-            RectTransform rect = (RectTransform)newBox.transform;
-            rect.localScale = Vector2.one;
-            boxies.Add(newBox);
+            boxies[i].GetComponent<DataBox>().InitAsSaveBox("_빈 데이터_");
         }
-        addNewDataButton.gameObject.SetActive(true);
-        addNewDataButton.onClick.RemoveAllListeners();
-        addNewDataButton.onClick.AddListener(() =>
+        saveFileList = Directory.GetFiles(Application.persistentDataPath, "*.sav");
+        for (int i = 1; i < saveFileList.Length; i++)
         {
-            DataManager.currentData.fileIndex = Directory.GetFiles(Application.persistentDataPath, "*.sav").Length;
-            string saveName = DataManager.currentData.dataName;
-            string originName = DataManager.currentData.dataName_before;
-            DataManager.currentData.dataName_before = saveName;
-            
-            DataManager.Save(saveName);
-            //덮어쓰기를 한 후에는
-            //어떤 데이터로 계속 갱신할 것인가.
-            //기존의 데이터로 계속 하려면 -> 새로 만든 데이터 저장 후 기존 데이터 불러오기.
-            DataManager.Load(originName);
-            //새로 만든 데이터로 계속하려면
-            //DataManager.currentData.dataName_before = saveName;
-            SetSaveMode();
-
-
-        });
-        addNewDataButton.transform.SetAsLastSibling();
+            string fileName = Path.GetFileNameWithoutExtension(saveFileList[i]);
+            int fileIndex = int.Parse(fileName.Split('_')[0]) - 1;
+            if (fileIndex < boxies.Count)
+            {
+                boxies[fileIndex].GetComponent<DataBox>().InitAsSaveBox(fileName);
+            }
+        }
     }
     public void SetDeleteMode()
     {
+        ResetDataBoxies();
         saveFileList = Directory.GetFiles(Application.persistentDataPath, "*.sav");
-        foreach (GameObject box in boxies)
-            Destroy(box);
-        boxies.Clear();
-        foreach (string saveName in saveFileList)
+        for (int i = 1; i < saveFileList.Length; i++)
         {
-            GameObject newBox = GameObject.Instantiate(dataBoxPrefeb);
-            newBox.GetComponent<DataBox>().InitAsDeleteBox(Path.GetFileNameWithoutExtension(saveName));
-            newBox.transform.SetParent(dataBoxListObj.transform);
-            RectTransform rect = (RectTransform)newBox.transform;
-            rect.localScale = Vector2.one;
-            boxies.Add(newBox);
+            string fileName = Path.GetFileNameWithoutExtension(saveFileList[i]);
+            int fileIndex = int.Parse(fileName.Split('_')[0]) - 1;
+            if (fileIndex < boxies.Count)
+            {
+                boxies[fileIndex].GetComponent<DataBox>().InitAsDeleteBox(fileName);
+            }
         }
-        addNewDataButton.gameObject.SetActive(false);
+    }
+
+
+    public void LoadAutoSave(CanvasGroup notifyPanel)
+    {
+        DataManager.Load("0_AutoSave_최근플레이");
+        if(DataManager.currentData == null)
+        {
+            PlayUIManager.instance.FadeIn(notifyPanel);
+        }
+        else PlayUIManager.instance.FadeOutForNextScene(DataManager.GetData().currentScene);
+    }
+    public void StartNew(CanvasGroup notifyPanel)
+    {
+        DataManager.Load("0_AutoSave_최근플레이");
+        if (DataManager.currentData == null)
+        {
+            DataManager.StartAsNew();
+            PlayUIManager.instance.FadeOutForNextScene("Intro");
+        }
+        else PlayUIManager.instance.FadeIn(notifyPanel);
+    }
+    public void StartNew()
+    {
+        DataManager.StartAsNew();
+        PlayUIManager.instance.FadeOutForNextScene("Intro");
     }
 }
