@@ -14,6 +14,10 @@ public class PlayUIManager : MonoBehaviour
     public CanvasGroup noticeGetItemUI;
     public Image getItemImage;
 
+    public CanvasGroup dataWarningUI;
+    public Button actionButton;
+    public Text warningText;
+
     public static PlayUIManager instance;
 
     private void Awake()
@@ -38,6 +42,13 @@ public class PlayUIManager : MonoBehaviour
         FadeIn(noticeGetItemUI);
     }
 
+    public void NoticeDataWarning(string text, System.Action action)
+    {
+        warningText.text = text;
+        actionButton.onClick.RemoveAllListeners();
+        actionButton.onClick.AddListener(() => { action(); FadeOut(dataWarningUI); });
+        FadeIn(dataWarningUI);
+    }
     //인벤토리바에 아이템들 띄우기
 
     public void Move(GameObject area)

@@ -51,7 +51,10 @@ public static class DataManager
         stream.Close();
         Debug.Log("Saved!");
     }
-
+    public static bool Exists(string fileName)
+    {
+        return File.Exists(Application.persistentDataPath + "/" + fileName + ".sav");
+    }
     public static void Load(string saveName)
     {
         if (File.Exists(Application.persistentDataPath + "/" + saveName + ".sav"))
