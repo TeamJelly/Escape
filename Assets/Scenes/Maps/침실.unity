@@ -1461,8 +1461,8 @@ MonoBehaviour:
   m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_PointLightInnerAngle: 230.54
-  m_PointLightOuterAngle: 230.54
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
   m_PointLightOuterRadius: 18
   m_PointLightDistance: 3
@@ -1485,7 +1485,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727695325}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.25, y: -0.75, z: 0}
+  m_LocalPosition: {x: -6.24, y: -0.8, z: 0}
   m_LocalScale: {x: 0.6, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2636,7 +2636,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475529421}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.49, y: 3.79, z: -0.9373165}
+  m_LocalPosition: {x: 8.94, y: 4.62, z: -0.9373165}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3293,6 +3293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d72c3a1dd424874aab53d8059d787a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPuzzle: {fileID: 0}
 --- !u!1 &1716260430
 GameObject:
   m_ObjectHideFlags: 0
