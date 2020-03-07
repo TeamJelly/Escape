@@ -15,26 +15,18 @@ public static class DataManager
     {
         if (currentData == null)
         {
+            Debug.Log("Data is null");
             currentData = new PlayerData();
             int fileCount = Directory.GetFiles(Application.persistentDataPath, "*.sav").Length;
-            currentData.fileIndex = fileCount;
             currentData.currentScene = SceneManager.GetActiveScene().name;
         }
         return currentData;
     }
     public static void StartAsNew()
     {
-       int fileCount = Directory.GetFiles(Application.persistentDataPath, "*.sav").Length;
         currentData = new PlayerData();
         currentData.currentScene = "Intro";
-        currentData.fileIndex = fileCount;
         //Save(currentData.dataName);
-    }
-    public static void SaveAsNew()
-    {
-        int fileCount = Directory.GetFiles(Application.persistentDataPath, "*.sav").Length;
-        currentData.fileIndex = fileCount;
-        Save();
     }
     public static void DeleteFile(string dataName)
     {
@@ -47,33 +39,22 @@ public static class DataManager
     }
     public static void Save_Auto()
     {
-        DeleteFile(currentData.dataName_before);
         currentData.currentScene = SceneManager.GetActiveScene().name;
-        string newName = currentData.dataName;
-        currentData.dataName_before = newName;
-        Save(newName);
+        Save("0_AutoSave_최근플레이");
         
-    }
-
-    public static void Save()
-    {
-        currentData.currentScene = SceneManager.GetActiveScene().name;
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream stream = new FileStream(Application.persistentDataPath + "/" + currentData.dataName + ".sav", FileMode.Create);
-        bf.Serialize(stream, currentData);
-        stream.Close();
-        Debug.Log("Saved!");
     }
     public static void Save(string saveName)
     {
-        currentData.currentScene = SceneManager.GetActiveScene().name;
         BinaryFormatter bf = new BinaryFormatter();
         FileStream stream = new FileStream(Application.persistentDataPath + "/" + saveName + ".sav", FileMode.Create);
         bf.Serialize(stream, currentData);
         stream.Close();
         Debug.Log("Saved!");
     }
-
+    public static bool Exists(string fileName)
+    {
+        return File.Exists(Application.persistentDataPath + "/" + fileName + ".sav");
+    }
     public static void Load(string saveName)
     {
         if (File.Exists(Application.persistentDataPath + "/" + saveName + ".sav"))
@@ -104,17 +85,6 @@ public static class DataManager
 public class PlayerData
 {
     public string currentScene = "Intro";
-    public string dataName{
-        get 
-        {
-            savedTime = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
-            return fileIndex + "_" + currentScene + "_" + savedTime;
-        } 
-    }
-    public string savedTime;
-    public string dataName_before = "??";
-    public int fileIndex = 0;
-
     public int[] items = new int[100]; 
     public int[] puzzles = new int[100]; 
     public int[] dialogs = new int[100]; 

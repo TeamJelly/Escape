@@ -24,7 +24,7 @@ public class MenuUIManager : MonoBehaviour
         currentPanel.SetActive(true);
         currentTab = SaveTab;
         SaveTab.onClick.AddListener(() => { currentTab = SaveTab; SwabPanel(SavenLoadPanel); DataSelector.instance.SetSaveMode(); });
-        LoadTab.onClick.AddListener(() => { currentTab = LoadTab; SwabPanel(SavenLoadPanel); DataSelector.instance.SetLoadMode(); DataSelector.instance.addNewDataButton.gameObject.SetActive(false); });
+        LoadTab.onClick.AddListener(() => { currentTab = LoadTab; SwabPanel(SavenLoadPanel); DataSelector.instance.SetLoadMode(); });
         todoTab.onClick.AddListener(() => { currentTab = todoTab; SwabPanel(questPanel); });
         optionTab.onClick.AddListener(() => { currentTab = optionTab; SwabPanel(optionPanel); });
         mainTab.onClick.AddListener(() => { currentTab = mainTab; PlayUIManager.instance.FadeOutForNextScene("MainScene"); });//UIFunctions.SelectScene("MainScene"));

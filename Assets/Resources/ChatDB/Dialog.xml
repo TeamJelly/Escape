@@ -29,13 +29,13 @@
 		<Field Who="-" State="-" Message="그래도 짝맞추기 정도는 할수있지!"/>
 		<Field Who="주인공" State="-" Message="할것도 없는데 해볼까??"/>
 		<Field Who="System" State="Reset" Message="-"/>
-		<Field Who="System" State="StartPuzzle" Message="CardGame"/>
+		<Field Who="System" State="StartPuzzle" Message="카드놀이"/>
   </카드놀이>
   <카드놀이_재도전>
 		<Field Who="연이" State="-" Message="재도전하는거야?"/>
 		<Field Who="-" State="-" Message="아무리 오빠라고 해도 봐주지 않을꺼니까!"/>
     <Field Who="System" State="Reset" Message="-"/>
-		<Field Who="System" State="StartPuzzle" Message="CardGame"/>
+		<Field Who="System" State="StartPuzzle" Message="카드놀이"/>
   </카드놀이_재도전>
   <카드놀이_패배>
   	<Field Who="주인공" State="-" Message="(강...강하다..)"/>
