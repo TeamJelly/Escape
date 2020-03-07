@@ -25,7 +25,6 @@ public class QuestManager : MonoBehaviour
             {
                 if (data.events[i] == 2)
                 {
-                    AddQuest(i);
                     FinishQuest(i);
                 }
                 else AddQuest(i);
@@ -33,6 +32,13 @@ public class QuestManager : MonoBehaviour
             }
         }
     }
+
+    public void GetQuest(string qTitle)
+    {
+        AddQuest(QuestDatabase.GetQuestWithTitle(qTitle));
+        DataManager.Save_Auto();
+    }
+
     public void AddQuest(int id)
     {
         AddQuest(QuestDatabase.GetQuestWithID(id));
@@ -48,7 +54,7 @@ public class QuestManager : MonoBehaviour
         if (onEndQuest.ContainsKey(quest.title)) return;
 
         DataManager.GetData().events[quest.ID] = 1;
-        DataManager.Save();
+
         GameObject newObj = Instantiate(questBoxPrefab);
         newObj.GetComponent<Button>().onClick.AddListener(() =>
         {
@@ -76,25 +82,30 @@ public class QuestManager : MonoBehaviour
     }
     public void FinishQuest(Quest quest)
     {
-        DataManager.GetData().events[quest.ID] = 2;
-        DataManager.Save();
+        
         if(!onEndQuest.ContainsKey(quest.title))
         {
             AddQuest(quest);
+            onEndQuest[quest.title]();
         }
-        onEndQuest[quest.title]();
+        else
+        {
+            DataManager.GetData().events[quest.ID] = 2;
+            DataManager.Save_Auto();
+        }
+        
     }
 
     public void EnableDialog(int id)
     {
         if (DataManager.GetData().dialogs[id] == 0)
          DataManager.GetData().dialogs[id] = 1;
-        DataManager.Save();
+        DataManager.Save_Auto();
     }
     public void DisableDialog(int id)
     {
         DataManager.GetData().dialogs[id] = 2;
-        DataManager.Save();
+        DataManager.Save_Auto();
     }
     // Start is called before the first frame update
 

@@ -30,7 +30,7 @@ public class ItemDatabase : MonoBehaviour
             itemList[id] = new Item
             {
                 itemName = node.Attributes.GetNamedItem("name").Value,
-                itemDescription = node.Attributes.GetNamedItem("description").Value,
+                puzzle = node.Attributes.GetNamedItem("puzzle").Value,
                 ID = id
             };
         }
@@ -49,8 +49,8 @@ public class ItemDatabase : MonoBehaviour
 public class Item
 {
     public string itemName; //아이템 이름
-    public string itemDescription; //아이템 설명
-    public int ID; // 아이템 고유ID
+    public int ID; // 아이템 고유ID. 데이터 저장시에 index로 사용.
+    public string puzzle; // 인벤토리에서 누르면 활성화되는 퍼즐.
 }
 
 

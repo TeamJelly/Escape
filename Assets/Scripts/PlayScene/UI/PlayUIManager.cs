@@ -10,6 +10,7 @@ public class PlayUIManager : MonoBehaviour
     public CanvasGroup fadeBackground;
     public GameObject currentPanel;
 
+    
     public CanvasGroup noticeGetItemUI;
     public Image getItemImage;
 

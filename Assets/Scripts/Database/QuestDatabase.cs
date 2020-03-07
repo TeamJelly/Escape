@@ -50,6 +50,10 @@ public static class QuestDatabase
     {
         return dictionary[qName];
     }
+    public static int GetQusetState(string name)
+    {
+        return DataManager.GetData().puzzles[GetQuestWithTitle(name).ID];
+    }
 }
 public class Quest
 {

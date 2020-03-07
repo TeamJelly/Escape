@@ -930,15 +930,15 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1234883160}
+  - {fileID: 285798904}
   - {fileID: 1275062651}
-  - {fileID: 1212106206}
   - {fileID: 185012103}
   - {fileID: 1282302799}
   - {fileID: 1899537436}
   - {fileID: 1957532710}
   - {fileID: 1390511471}
-  - {fileID: 1234883160}
-  - {fileID: 285798904}
+  - {fileID: 1212106206}
   m_Father: {fileID: 1048644469}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1141,7 +1141,7 @@ GameObject:
   - component: {fileID: 185012103}
   - component: {fileID: 185012104}
   m_Layer: 5
-  m_Name: Puzzle_M3
+  m_Name: "\uC5F4\uC1E0 \uC790\uBB3C\uC1E0"
   m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1160,7 +1160,7 @@ RectTransform:
   m_Children:
   - {fileID: 1953199233}
   m_Father: {fileID: 166757602}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1211,8 +1211,7 @@ MonoBehaviour:
   OnEnd:
     m_PersistentCalls:
       m_Calls: []
-  puzzleID: 5
-  puzzleName: "\uC790\uBB3C\uC1E0"
+  puzzleName: "\uC5F4\uC1E0 \uC790\uBB3C\uC1E0"
   interactor: {fileID: 917658813}
   usingItem: "\uBCF5\uC81C\uB41C \uC5F4\uC1E0"
   deleteItemOnEnd: 1
@@ -2270,7 +2269,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 166757602}
-  m_RootOrder: 8
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2299,8 +2298,7 @@ MonoBehaviour:
   OnEnd:
     m_PersistentCalls:
       m_Calls: []
-  puzzleID: 15
-  puzzleName: "\uC190\uC804\uB4F1\uC0AC\uC6A9"
+  puzzleName: "\uC190\uC804\uB4F1 \uC0AC\uC6A9"
   blindPanel: {fileID: 1714894072}
 --- !u!1 &339536544
 GameObject:
@@ -8041,7 +8039,7 @@ RectTransform:
   m_Children:
   - {fileID: 648840696}
   m_Father: {fileID: 166757602}
-  m_RootOrder: 1
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8070,8 +8068,7 @@ MonoBehaviour:
   OnEnd:
     m_PersistentCalls:
       m_Calls: []
-  puzzleID: 4
-  puzzleName: "\uC8FC\uBBFC\uB4F1\uB85D\uC99D"
+  puzzleName: "\uC5F4\uC1E0\uBCF5\uC81C\uD558\uAE30"
   interactor1: {fileID: 1515880732}
   interactor2: {fileID: 1023431046}
   interactor3: {fileID: 192532126}
@@ -8194,7 +8191,7 @@ RectTransform:
   m_Children:
   - {fileID: 655435408}
   m_Father: {fileID: 166757602}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8223,8 +8220,7 @@ MonoBehaviour:
   OnEnd:
     m_PersistentCalls:
       m_Calls: []
-  puzzleID: 0
-  puzzleName: "\uC190\uC804\uB4F1"
+  puzzleName: "\uC190\uC804\uB4F1 \uC870\uB9BD"
   firstPanel: {fileID: 1837283082}
   lid: {fileID: 72858139}
   secondPanel: {fileID: 1266443883}
@@ -8767,7 +8763,7 @@ GameObject:
   - component: {fileID: 1275062651}
   - component: {fileID: 1275062652}
   m_Layer: 5
-  m_Name: "\uC5F0\uC774\uBC29 \uBB38"
+  m_Name: "\uC5F0\uC774\uBC29 \uBB38 \uC5F4\uAE30"
   m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8786,7 +8782,7 @@ RectTransform:
   m_Children:
   - {fileID: 1448637651}
   m_Father: {fileID: 166757602}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8870,8 +8866,7 @@ MonoBehaviour:
           m_StringArgument: "[\uC5F0\uC774\uBC29 \uC5F4\uAE30]"
           m_BoolArgument: 0
         m_CallState: 2
-  puzzleID: 2
-  puzzleName: "\uBC29\uC5F4\uAE30"
+  puzzleName: "\uC5F0\uC774\uBC29 \uBB38 \uC5F4\uAE30"
   interactor: {fileID: 1669529740}
   usingItem: "\uD2B8\uB7FC\uD504"
   deleteItemOnEnd: 1
@@ -8889,7 +8884,7 @@ GameObject:
   - component: {fileID: 1282302799}
   - component: {fileID: 1282302800}
   m_Layer: 5
-  m_Name: Puzzle_M4
+  m_Name: "\uBE44\uBC00\uBC88\uD638 \uC790\uBB3C\uC1E0"
   m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8908,7 +8903,7 @@ RectTransform:
   m_Children:
   - {fileID: 1725237566}
   m_Father: {fileID: 166757602}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8937,8 +8932,7 @@ MonoBehaviour:
   OnEnd:
     m_PersistentCalls:
       m_Calls: []
-  puzzleID: 6
-  puzzleName: "\uBE44\uBC00\uBC88\uD638"
+  puzzleName: "\uBE44\uBC00\uBC88\uD638 \uC790\uBB3C\uC1E0"
   buttons:
   - {fileID: 1646198202}
   - {fileID: 819965660}
@@ -9630,7 +9624,7 @@ RectTransform:
   m_Children:
   - {fileID: 130531951}
   m_Father: {fileID: 166757602}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9681,8 +9675,7 @@ MonoBehaviour:
           m_StringArgument: "\uC9C0\uBB384"
           m_BoolArgument: 0
         m_CallState: 2
-  puzzleID: 10
-  puzzleName: "\uC9C0\uBB38\uCC44\uCDE84"
+  puzzleName: "\uC9C0\uBB38\uCC44\uCDE8_\uD14C\uC774\uBE14"
   interactor: {fileID: 1218056044}
   usingItem: "\uD14C\uC774\uD504"
   deleteItemOnEnd: 0
@@ -9767,7 +9760,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1393212222}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -12044,7 +12037,6 @@ GameObject:
   - component: {fileID: 1733513285}
   - component: {fileID: 1733513288}
   - component: {fileID: 1733513287}
-  - component: {fileID: 1733513286}
   m_Layer: 5
   m_Name: Screen
   m_TagString: Untagged
@@ -12076,22 +12068,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -590.6, y: -236.20001}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1733513286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1733513284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95f998112ef579f42a80c92416ebbafc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prevEventID: 10
-  nextEventID: 20
-  chatNum: 7
-  chatType: D
 --- !u!114 &1733513287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13363,7 +13339,6 @@ MonoBehaviour:
   OnEnd:
     m_PersistentCalls:
       m_Calls: []
-  puzzleID: 14
   puzzleName: "\uB514\uC9C0\uD138 \uB3C4\uC5B4\uB77D"
   submitButton: {fileID: 1926762690}
   resetPasswdButton: {fileID: 1862549238}
@@ -13388,7 +13363,7 @@ RectTransform:
   m_Children:
   - {fileID: 871966232}
   m_Father: {fileID: 166757602}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13996,7 +13971,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 166757602}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14047,8 +14022,7 @@ MonoBehaviour:
           m_StringArgument: "\uC9C0\uBB383"
           m_BoolArgument: 0
         m_CallState: 2
-  puzzleID: 9
-  puzzleName: "\uC9C0\uBB38\uCC44\uCDE83"
+  puzzleName: "\uC9C0\uBB38\uCC44\uCDE8_\uB3C4\uC5B4\uB77D"
   interactor: {fileID: 1362135832}
   usingItem: "\uD14C\uC774\uD504"
   deleteItemOnEnd: 0
@@ -15939,6 +15913,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1048644469}
     m_Modifications:
+    - target: {fileID: 1072822756550150274, guid: 516b4e282a3e42e498ab8fb739972f06,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761581954011347879, guid: 516b4e282a3e42e498ab8fb739972f06,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761581954011347879, guid: 516b4e282a3e42e498ab8fb739972f06,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761581954011347879, guid: 516b4e282a3e42e498ab8fb739972f06,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761581954011347879, guid: 516b4e282a3e42e498ab8fb739972f06,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761581954011347879, guid: 516b4e282a3e42e498ab8fb739972f06,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6539430131899190660, guid: 516b4e282a3e42e498ab8fb739972f06,
         type: 3}
       propertyPath: m_LocalPosition.x

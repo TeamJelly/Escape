@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Puzzles>
+  <Field id="0" name="베개바꿔치기"/>
+  <Field id="1" name="손전등 조립"/>
+  <Field id="2" name="손전등 사용"/>
+  <Field id="3" name="연이방 문 열기"/>
+  <Field id="3" name="카드놀이"/>
+  <Field id="4" name="열쇠 자물쇠"/>
+  <Field id="5" name="비밀번호 자물쇠"/>
+  <Field id="6" name="디지털 도어락"/>
+  <Field id="7" name="민증꺼내기"/>
+  <Field id="8" name="열쇠복제하기"/>
+  <Field id="9" name="지문채취_태블릿"/>
+  <Field id="10" name="지문채취_피규어"/>
+  <Field id="11" name="지문채취_테이블"/>
+  <Field id="12" name="지문채취_도어락"/>
+  <Field id="13" name="지문채취_화장실"/>
+  <Field id="14" name="지문인식"/>
+  <Field id="15" name="태블릿"/>
+</Puzzles>

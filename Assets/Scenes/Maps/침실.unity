@@ -1461,8 +1461,8 @@ MonoBehaviour:
   m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
+  m_PointLightInnerAngle: 230.54
+  m_PointLightOuterAngle: 230.54
   m_PointLightInnerRadius: 1
   m_PointLightOuterRadius: 18
   m_PointLightDistance: 3
@@ -2990,7 +2990,6 @@ MonoBehaviour:
   OnEnd:
     m_PersistentCalls:
       m_Calls: []
-  puzzleID: 4
   puzzleName: "\uC8FC\uBBFC\uB4F1\uB85D\uC99D"
   interactor1: {fileID: 1523622932}
   interactor2: {fileID: 639847016}

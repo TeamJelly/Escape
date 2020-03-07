@@ -39,8 +39,8 @@ public class P_UseItem : Puzzle
         {
             ChatSystem2.instance.Monologue(successString);
             if (deleteItemOnEnd) Inventory.instance.SubItem(usingItem);
-            DataManager.GetData().puzzles[puzzleID] = 2;
-            DataManager.Save();
+            PuzzleDatabase.SetPuzzleState(puzzleName,2);
+            DataManager.Save_Auto();
             OnEnd.Invoke();
         });
     }

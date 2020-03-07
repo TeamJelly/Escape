@@ -189,7 +189,7 @@
 		<Field Who="주인공" State="-" Message="(드디어 연이가 잠에 빠진거같아"/>
 		<Field Who="-" State="-" Message="도망치려면 지금이다...!)"/>
 		<Field Who="-" State="-" Message="튜토리얼 시작"/>
-		<Field Who="System" State="GetQuest" Message="[현관 진입]"/>
     <Field Who="System" State="Reset" Message="-"/>
+		<Field Who="System" State="GetQuest" Message="[현관 진입]"/>
 	</I2>
 </Chat>

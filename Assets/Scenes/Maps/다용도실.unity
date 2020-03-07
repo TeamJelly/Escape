@@ -3608,7 +3608,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   puzzleID: 3
-  puzzleName: "\uC8FC\uBBFC\uBC88\uD638"
+  puzzleName: "\uBBFC\uC99D\uAEBC\uB0B4\uAE30"
   interactor: {fileID: 1420641288}
   usingItem: "\uD6A8\uC790\uC190"
   deleteItemOnEnd: 1
@@ -3918,7 +3918,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   puzzleID: 4
-  puzzleName: "\uC8FC\uBBFC\uB4F1\uB85D\uC99D"
+  puzzleName: "\uC5F4\uC1E0\uBCF5\uC81C\uD558\uAE30"
   interactor1: {fileID: 819750761}
   interactor2: {fileID: 2024830929}
   interactor3: {fileID: 212834962}
