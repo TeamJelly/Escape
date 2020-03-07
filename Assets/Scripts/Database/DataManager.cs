@@ -16,6 +16,8 @@ public static class DataManager
         if (currentData == null)
         {
             currentData = new PlayerData();
+            int fileCount = Directory.GetFiles(Application.persistentDataPath, "*.sav").Length;
+            currentData.fileIndex = fileCount;
             currentData.currentScene = SceneManager.GetActiveScene().name;
         }
         return currentData;

@@ -22,7 +22,7 @@ public class IntroStart : MonoBehaviour
                 DataManager.Save_Auto();
             });
         });
-        //else PuzzleManager.instance.StartPuzzleWithName("베개바꿔치기");
+        else PuzzleManager.instance.StartPuzzleWithName("베개바꿔치기");
 
 
     }
