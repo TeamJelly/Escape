@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2284,6 +2284,7 @@ GameObject:
   - component: {fileID: 1070416195}
   - component: {fileID: 1070416194}
   - component: {fileID: 1070416193}
+  - component: {fileID: 1070416196}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2326,7 +2327,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2356,6 +2357,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1070416196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070416192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &1144226767
 GameObject:
   m_ObjectHideFlags: 0
@@ -3146,6 +3163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d72c3a1dd424874aab53d8059d787a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPuzzle: {fileID: 0}
 --- !u!1 &1698207404
 GameObject:
   m_ObjectHideFlags: 0
@@ -3607,7 +3625,6 @@ MonoBehaviour:
           m_StringArgument: "\uC8FC\uBBFC\uB4F1\uB85D\uC99D"
           m_BoolArgument: 0
         m_CallState: 2
-  puzzleID: 3
   puzzleName: "\uBBFC\uC99D\uAEBC\uB0B4\uAE30"
   interactor: {fileID: 1420641288}
   usingItem: "\uD6A8\uC790\uC190"
@@ -3917,7 +3934,6 @@ MonoBehaviour:
   OnEnd:
     m_PersistentCalls:
       m_Calls: []
-  puzzleID: 4
   puzzleName: "\uC5F4\uC1E0\uBCF5\uC81C\uD558\uAE30"
   interactor1: {fileID: 819750761}
   interactor2: {fileID: 2024830929}

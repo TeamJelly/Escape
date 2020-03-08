@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 using System;
 
 [Serializable]
@@ -13,11 +14,13 @@ public class BackgroundManager : MonoBehaviour
 
     PlayerData data;
     public int failureCount = 0;
+
+
     private void Awake()
     {
         instance = this;
         data = DataManager.GetData();
-        
+
     }
     private void Start()
     {

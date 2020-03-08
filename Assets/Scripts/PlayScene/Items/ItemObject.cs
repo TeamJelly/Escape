@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class ItemObject : MonoBehaviour //맵상에 배치되는 아이템정보를 담는 게임오브젝트. BackgroundManager에서 초기화.
@@ -15,11 +16,27 @@ public class ItemObject : MonoBehaviour //맵상에 배치되는 아이템정보
         {
             Button b = g.GetComponent<Button>();
             if (b != null)
+            {
                 b.onClick.AddListener(() =>
                 {
                     Inventory.instance.GetItem(itemName);
                     DisableItem();
                 });
+                continue;
+            }
+            EventTrigger t = g.GetComponent<EventTrigger>();
+            if(t != null)
+            {
+                EventTrigger.Entry entry_PointerClick = new EventTrigger.Entry();
+                entry_PointerClick.eventID = EventTriggerType.PointerClick;
+                entry_PointerClick.callback.AddListener((data) =>
+                {
+                    Inventory.instance.GetItem(itemName);
+                    DisableItem();
+                    Debug.Log("Clicked!");
+                });
+                t.triggers.Add(entry_PointerClick);
+            }
         }
     }
 
