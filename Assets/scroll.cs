@@ -13,6 +13,12 @@ public class scroll : MonoBehaviour
     void Start()
     {
         renderer = GetComponent<Renderer>();
+
+        var height = 2 * Camera.main.orthographicSize; 
+        var width = height * Camera.main.aspect;
+
+        ((SpriteRenderer)renderer).size = new Vector2(width, height);
+        //((RectTransform)transform).sizeDelta = 
     }
 
     void Update()
