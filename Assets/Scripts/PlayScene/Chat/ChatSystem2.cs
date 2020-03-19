@@ -132,7 +132,7 @@ public class ChatSystem2 : MonoBehaviour
         }
         Debug.Log("----chatStart----");
         Debug.Log("SkipCount:" + skipCount);
-        Inventory.instance.DisableInventoryBar();
+        InventoryUI.instance.DisableInventoryBar();
         StartCoroutine(PlayUIManager.instance.AscendAlpha(thisUI, () =>
         {
             bgPanel.gameObject.SetActive(true);
@@ -259,7 +259,7 @@ public class ChatSystem2 : MonoBehaviour
              if (currentCharactor != null)
                  currentCharactor.gameObject.SetActive(false);
              chatText.text = "";
-             Inventory.instance.EnableInventoryBar();
+            InventoryUI.instance.EnableInventoryBar();
             bgImage.GetComponent<CanvasGroup>().alpha = 0;
              onEnd?.Invoke();
          }));

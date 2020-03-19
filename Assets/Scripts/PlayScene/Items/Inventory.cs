@@ -40,16 +40,7 @@ public class Inventory : MonoBehaviour
     void AddItem(Item item)
     {
         if (objFinder.ContainsKey(item.itemName)) return;
-        
-        GameObject newItemBox = Instantiate(ItemBoxPrefab);
-
-        newItemBox.transform.SetParent(InventoryItemList.transform);
-
-        RectTransform rect = (RectTransform)newItemBox.transform;
-        rect.localScale = Vector2.one;
-        newItemBox.GetComponent<Slot>().Init(item);
-
-        
+        GameObject newItemBox = InventoryUI.instance.AddBox(item);
         objFinder.Add(item.itemName, newItemBox);
     }
     public void SubItem(int itemID)
@@ -67,18 +58,12 @@ public class Inventory : MonoBehaviour
     public void SubItem(Item item)
     {
         DataManager.GetData().items[item.ID] = 2;
+        InventoryUI.instance.itemNum--;
         DataManager.Save_Auto();
         Destroy(objFinder[item.itemName]);
         objFinder.Remove(item.itemName);
     }
 
-    public void EnableInventoryBar()
-    {
-        InventoryBar.SetActive(true);
-    }
-    public void DisableInventoryBar()
-    {
-        InventoryBar.SetActive(false);
-    }
+    
     
 }

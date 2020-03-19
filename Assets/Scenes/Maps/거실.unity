@@ -12824,7 +12824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InventoryItemList: {fileID: 654981521}
-  InventoryBar: {fileID: 6539430131264334910}
+  InventoryBar: {fileID: 0}
   ItemBoxPrefab: {fileID: 8798305126657898647, guid: c7db165576470134091c7fc713994f76,
     type: 3}
   selectedItem: 
@@ -17165,10 +17165,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1048644469}
     m_Modifications:
-    - target: {fileID: 602206736, guid: 516b4e282a3e42e498ab8fb739972f06, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6539430131899190660, guid: 516b4e282a3e42e498ab8fb739972f06,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17279,16 +17275,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 6539430131899190664, guid: 516b4e282a3e42e498ab8fb739972f06,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6539430132549219708, guid: 516b4e282a3e42e498ab8fb739972f06,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516b4e282a3e42e498ab8fb739972f06, type: 3}
 --- !u!114 &6539430131264334909 stripped
@@ -17303,9 +17289,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef181f90824f1a84881fad7af1f25fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &6539430131264334910 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1512884956951393537, guid: 516b4e282a3e42e498ab8fb739972f06,
-    type: 3}
-  m_PrefabInstance: {fileID: 6539430131264334908}
-  m_PrefabAsset: {fileID: 0}
