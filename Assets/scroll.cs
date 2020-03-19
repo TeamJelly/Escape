@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class scroll : MonoBehaviour
 {
-    public float scrollSpeed;
+    public float scrollSpeed_x;
 
     private Renderer renderer;
     private Vector2 savedOffset;
@@ -23,9 +23,14 @@ public class scroll : MonoBehaviour
 
     void Update()
     {
-        float x = Mathf.Repeat(Time.time * scrollSpeed, 1);
+        float x = Mathf.Repeat(Time.time * scrollSpeed_x, 1);
         Vector2 offset = new Vector2(x, x);
         renderer.sharedMaterial.SetTextureOffset("_MainTex", offset);
         
+    }
+
+    private void OnDestroy()
+    {
+        renderer.sharedMaterial.SetTextureOffset("_MainTex", new Vector2(0, 0));
     }
 }
