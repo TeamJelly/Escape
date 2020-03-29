@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class MenuUIManager : MonoBehaviour
 {
-   // GameObject currentPanel;
+    // GameObject currentPanel;
+    public CanvasGroup thisUI;
     public Button SaveTab;
     public Button LoadTab;
     public Button todoTab;
@@ -18,6 +19,7 @@ public class MenuUIManager : MonoBehaviour
     public GameObject optionPanel;
 
     GameObject currentPanel;
+    
     private void Awake()
     {
         currentPanel = SavenLoadPanel;
@@ -37,7 +39,14 @@ public class MenuUIManager : MonoBehaviour
     }
     public void EnableMenu()
     {
+        BackgroundManager.instance.isPaused = true;
+        PlayUIManager.instance.FadeIn(thisUI);
         currentTab.onClick.Invoke();
+    }
+    public void DisableMenu()
+    {
+        BackgroundManager.instance.isPaused = false;
+        PlayUIManager.instance.FadeOut(thisUI);
     }
     void SwabPanel(GameObject panel)
     {

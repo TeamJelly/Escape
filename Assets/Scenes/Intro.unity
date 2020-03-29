@@ -4147,7 +4147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InventoryItemList: {fileID: 198945743}
-  InventoryBar: {fileID: 1577785519}
+  InventoryBar: {fileID: 0}
   ItemBoxPrefab: {fileID: 8798305126657898647, guid: c7db165576470134091c7fc713994f76,
     type: 3}
   selectedItem: 
@@ -4193,6 +4193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   failureCount: 0
+  isPaused: 0
 --- !u!114 &1179859447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5255,12 +5256,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1577785519 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1512884956951393537, guid: 516b4e282a3e42e498ab8fb739972f06,
-    type: 3}
-  m_PrefabInstance: {fileID: 483268778}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1614782550
 GameObject:
   m_ObjectHideFlags: 0

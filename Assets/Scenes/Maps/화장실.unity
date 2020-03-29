@@ -1143,8 +1143,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 6539430131264334909}
-          m_MethodName: FadeOutForNextScene
+        - m_Target: {fileID: 1696365334}
+          m_MethodName: MoveScene
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3978,6 +3978,7 @@ GameObject:
   - component: {fileID: 1696365333}
   - component: {fileID: 1696365335}
   - component: {fileID: 1696365336}
+  - component: {fileID: 1696365334}
   m_Layer: 0
   m_Name: Functions
   m_TagString: Untagged
@@ -4012,6 +4013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   failureCount: 0
+  isPaused: 0
 --- !u!114 &1696365333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4025,10 +4027,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InventoryItemList: {fileID: 654981521}
-  InventoryBar: {fileID: 6539430131264334910}
+  InventoryBar: {fileID: 0}
   ItemBoxPrefab: {fileID: 8798305126657898647, guid: c7db165576470134091c7fc713994f76,
     type: 3}
   selectedItem: 
+--- !u!114 &1696365334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696365330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff56ee8cc54203418276a52b0b0c1c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minimumTime: 3
+  maximumTime: 10
+  stateString: "[\uC5F0\uC774 \uCD9C\uBAB0_\uD654\uC7A5\uC2E4]"
 --- !u!114 &1696365335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5149,9 +5166,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef181f90824f1a84881fad7af1f25fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &6539430131264334910 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1512884956951393537, guid: 516b4e282a3e42e498ab8fb739972f06,
-    type: 3}
-  m_PrefabInstance: {fileID: 6539430131264334908}
-  m_PrefabAsset: {fileID: 0}
