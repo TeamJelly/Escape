@@ -58,7 +58,7 @@ public class DataSelector : MonoBehaviour
         ResetDataBoxies();
         for(int i = 0; i < 10; i++)
         {
-            boxies[i].GetComponent<DataBox>().InitAsSaveBox("_빈 데이터_");
+            boxies[i].GetComponent<DataBox>().InitAsSaveBox("_빈 슬롯_");
         }
         saveFileList = Directory.GetFiles(Application.persistentDataPath, "*.sav");
         for (int i = 1; i < saveFileList.Length; i++)

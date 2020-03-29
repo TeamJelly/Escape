@@ -8,8 +8,7 @@ using UnityEngine.UI;
 
 public class DataBox : MonoBehaviour
 {
-    public Text dataName;
-    public Text dataTime;
+    public Text dataNameAndTime;
     public Text dataIndex;
     public Button button;
 
@@ -19,14 +18,12 @@ public class DataBox : MonoBehaviour
     {
         index = i;
         dataIndex.text = i.ToString();
-        dataName.text = "빈 데이터";
-        dataTime.text = "";
+        dataNameAndTime.text = "빈 슬롯";
     }
     public void ResetData()
     {
         button.onClick.RemoveAllListeners();
-        dataName.text = "빈 데이터";
-        dataTime.text = "";
+        dataNameAndTime.text = "빈 슬롯";
     }
 
     public void InitAsLoadBox(string fileName)
@@ -68,8 +65,6 @@ public class DataBox : MonoBehaviour
             });
         }
         else button.onClick.AddListener(()=>act());
-
-        
     }
     public void InitAsDeleteBox(string fileName)
     {
@@ -91,7 +86,12 @@ public class DataBox : MonoBehaviour
     public void SetText(string fileName)
     {
         string[] index_name_time = fileName.Split('_');
-        dataName.text = index_name_time[1];
-        dataTime.text = index_name_time[2];
+        dataNameAndTime.text = index_name_time[1];
+        string[] index_time = index_name_time[2].Split('-');
+
+        if (index_time.Length == 1)
+            dataNameAndTime.text = index_name_time[1];
+        else
+            dataNameAndTime.text = index_name_time[1] + " / " + index_time[0] + "-" + index_time[1] + "-" + index_time[2] + " " + index_time[3] + ":" + index_time[4];
     }
 }
