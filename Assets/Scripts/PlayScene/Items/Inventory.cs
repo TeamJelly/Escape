@@ -58,7 +58,6 @@ public class Inventory : MonoBehaviour
     public void SubItem(Item item)
     {
         DataManager.GetData().items[item.ID] = 2;
-        InventoryUI.instance.itemNum--;
         DataManager.Save_Auto();
         Destroy(objFinder[item.itemName]);
         objFinder.Remove(item.itemName);
