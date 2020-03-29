@@ -30,9 +30,9 @@ public class Slot : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUp
             Vector2 spriteSize = sprite.rect.size;
             if (spriteSize.x > spriteSize.y)
             {
-                newSize.sizeDelta = new Vector2(100, spriteSize.y / spriteSize.x * 100);
+                newSize.sizeDelta = new Vector2(180, spriteSize.y / spriteSize.x * 180);
             }
-            else newSize.sizeDelta = new Vector2(spriteSize.x / spriteSize.y * 100, 100);
+            else newSize.sizeDelta = new Vector2(spriteSize.x / spriteSize.y * 180, 180);
             itemText.gameObject.SetActive(false);
         }
         else itemText.text = i.itemName;
