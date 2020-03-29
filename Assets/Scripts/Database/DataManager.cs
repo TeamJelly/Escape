@@ -17,7 +17,7 @@ public static class DataManager
         {
             Debug.Log("Data is null");
             currentData = new PlayerData();
-            int fileCount = Directory.GetFiles(Application.persistentDataPath, "*.sav").Length;
+            //int fileCount = Directory.GetFiles(Application.persistentDataPath, "*.sav").Length;
             currentData.currentScene = SceneManager.GetActiveScene().name;
         }
         return currentData;
@@ -73,7 +73,7 @@ public static class DataManager
     public static void InitDatabases()
     {
         //DataManager.Load();
-        QuestDatabase.InitQuestLists();
+        StateDatabase.InitStateLists();
         ItemDatabase.InitItemList();
         SpeechBaloonManager.InitDialogList();
         PuzzleDatabase.InitPuzzleList();

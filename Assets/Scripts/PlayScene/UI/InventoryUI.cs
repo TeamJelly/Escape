@@ -31,10 +31,8 @@ public class InventoryUI : MonoBehaviour
     }
     private void Start()
     {
-        Debug.Log(((RectTransform)thisUI.transform).rect.height);
         maxSize = (int)((((RectTransform)thisUI.transform).rect.height) / 160);
         remained = ((((RectTransform)thisUI.transform).rect.height) % 160);
-        Debug.Log(maxSize);
     }
     public GameObject AddBox(Item item)
     {

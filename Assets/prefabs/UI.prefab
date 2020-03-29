@@ -3003,17 +3003,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 141524580459499833}
-        m_MethodName: FadeIn
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1022784829}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: MainScene
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 6539430132549219704}
         m_MethodName: EnableMenu
         m_Mode: 1
@@ -3266,6 +3255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95df1fde14a123c4aaaebb5fe4f8070d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisUI: {fileID: 1022784829}
   SaveTab: {fileID: 386256418006465549}
   LoadTab: {fileID: 6151674430255533827}
   todoTab: {fileID: 1701349150028865196}
@@ -3944,12 +3934,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 141524580459499833}
-        m_MethodName: FadeOut
-        m_Mode: 2
+      - m_Target: {fileID: 6539430132549219704}
+        m_MethodName: DisableMenu
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1022784829}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

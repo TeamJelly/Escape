@@ -14,7 +14,7 @@ public class BackgroundManager : MonoBehaviour
 
     PlayerData data;
     public int failureCount = 0;
-
+    public bool isPaused = false;
 
     private void Awake()
     {
@@ -67,11 +67,9 @@ public class BackgroundManager : MonoBehaviour
     public void AddFailureCount()
     {
         failureCount++;
-        if(failureCount >= 5)
+        if (failureCount >= 5)
         {
             //게임오버
         }
     }
-
-    
 }

@@ -439,7 +439,7 @@ public class ChatSystem2 : MonoBehaviour
         ShowNext();
     }
 
-    public void GetQuest(string name)
+    /*public void GetQuest(string name)
     {
         QuestManager.instance.GetQuest(name);
         ShowNext();
@@ -448,7 +448,7 @@ public class ChatSystem2 : MonoBehaviour
     {
         QuestManager.instance.FinishQuest(name);
         ShowNext();
-    }
+    }*/
     public void GetItem(string name)
     {
         Inventory.instance.GetItem(name);
