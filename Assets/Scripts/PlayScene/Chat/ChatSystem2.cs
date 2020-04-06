@@ -119,9 +119,9 @@ public class ChatSystem2 : MonoBehaviour
             MessageBox box =
                      new MessageBox
                      {
-                         name = node.Attributes.GetNamedItem("Who").Value,
-                         state = node.Attributes.GetNamedItem("State").Value,
-                         message = node.Attributes.GetNamedItem("Message").Value
+                         name = node.Attributes.GetNamedItem("Who") == null ? "-" : node.Attributes.GetNamedItem("Who").Value,
+                         state = node.Attributes.GetNamedItem("State") == null ? "-" : node.Attributes.GetNamedItem("State").Value,
+                         message = node.Attributes.GetNamedItem("Message") == null ? "-" : node.Attributes.GetNamedItem("Message").Value
                      };
             messageList.Add(box);
             if (box.state == "Reset")

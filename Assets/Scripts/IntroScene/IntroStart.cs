@@ -12,7 +12,7 @@ public class IntroStart : MonoBehaviour
 
         map.SetActive(false);
         if (StateDatabase.GetStateValue("[침실 나서기]") < 1)
-            ChatSystem2.instance.StartChat("Intro", "I1", () =>
+            ChatSystem2.instance.StartChat("new_Intro", "I1", () =>
               {
                   DataManager.Save_Auto();
                   ChatSystem2.instance.StartChat("Intro", "I2", () =>
