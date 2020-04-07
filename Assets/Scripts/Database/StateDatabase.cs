@@ -59,5 +59,4 @@ public class State
     public string title; // 이벤트 제목
     public int ID; // 이벤트 고유 ID
     //public string description; // 이벤트 설명
-
 }

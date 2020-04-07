@@ -98,21 +98,17 @@ public class ChatSystem2 : MonoBehaviour
         }));
     }
 
-    public void StartChat(string type, int episodeNum,Action endFunc)
-    {
-        StartChat(type, type + episodeNum, endFunc);
-    }
-    public void StartChat(string type, string title, Action endFunc)
+    public void StartChat(string link, Action endFunc)
     {
         chatText.text = "";
         onEnd = endFunc;
         currentIndex = -1;
         messageList.Clear();
         
-        TextAsset textAsset = (TextAsset)Resources.Load("ChatDB/" + type);
+        TextAsset textAsset = (TextAsset)Resources.Load("ChatDB/" + link.Split('/')[0]);
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(textAsset.text);
-        XmlNode chatList = xmlDoc.SelectSingleNode("Chat/" + title);
+        XmlNode chatList = xmlDoc.SelectSingleNode("Chat/" + link.Split('/')[1]);
 
         foreach (XmlNode node in chatList.ChildNodes)
         {
@@ -194,7 +190,7 @@ public class ChatSystem2 : MonoBehaviour
         {
             if (messageBox.message == "-")
                 GetCommand(messageBox.state);
-            else 
+            else
                 GetCommand(messageBox.state, messageBox.message);
             return;
         }
@@ -266,15 +262,16 @@ public class ChatSystem2 : MonoBehaviour
         
         //Time.timeScale = 1;
     }
-    /***********************************System 명령******************************************************/
+    /***********************************System 명령************************************/
     public AudioSource bgmAudio;
     public AudioSource seAudio;
+
     public void GetCommand(string func, string parameter)
     {
         Type t = GetType();
         MethodInfo method = t.GetMethod(func); // 함수를 저장
         if (method != null) //이 코드 안에 있는 System함수라면
-        { 
+        {
             method.Invoke(this, new object[] { parameter });
         }
         else //미구현 생략
@@ -297,6 +294,45 @@ public class ChatSystem2 : MonoBehaviour
             ShowNext();
         }
     }
+
+    public void Go(string link)
+    {
+        chatText.text = "";
+        currentIndex = -1;
+        messageList.Clear();
+
+        TextAsset textAsset = (TextAsset)Resources.Load("ChatDB/" + link.Split('/')[0]);
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.LoadXml(textAsset.text);
+        XmlNode chatList = xmlDoc.SelectSingleNode("Chat/" + link.Split('/')[1]);
+
+        foreach (XmlNode node in chatList.ChildNodes)
+        {
+            MessageBox box =
+                     new MessageBox
+                     {
+                         name = node.Attributes.GetNamedItem("Who") == null ? "-" : node.Attributes.GetNamedItem("Who").Value,
+                         state = node.Attributes.GetNamedItem("State") == null ? "-" : node.Attributes.GetNamedItem("State").Value,
+                         message = node.Attributes.GetNamedItem("Message") == null ? "-" : node.Attributes.GetNamedItem("Message").Value
+                     };
+            messageList.Add(box);
+            if (box.state == "Reset")
+            {
+                skipPoint.Add(messageList.Count - 1);
+                Debug.Log(messageList.Count - 1);
+            }
+        }
+        Debug.Log("----chatStart----");
+        Debug.Log("SkipCount:" + skipCount);
+        InventoryUI.instance.DisableInventoryBar();
+    }
+
+    public void MakeSelection(string text)
+    {
+        string [] SelectText = text.Split('/');
+        SelectionUIManager.instance.MakeButton("text");
+    }
+
     public void StartBGM(string name)
     {
         bgmAudio.clip = (AudioClip)Resources.Load("BGM/" + name);

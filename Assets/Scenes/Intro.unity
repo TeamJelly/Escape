@@ -2046,6 +2046,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6109488549872264321, guid: 516b4e282a3e42e498ab8fb739972f06,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6539430131899190660, guid: 516b4e282a3e42e498ab8fb739972f06,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4173,7 +4178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e7408d60d95d548b1b6fdb449dcd38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: DayScene
   map: {fileID: 1614782550}
 --- !u!114 &1179859445
 MonoBehaviour:

@@ -12,13 +12,13 @@ public class P_Trump : Puzzle
         winButton.onClick.AddListener(() =>
         {
             DisablePuzzle();
-            ChatSystem2.instance.StartChat("Dialog", "카드놀이_승리", () => { });
+//            ChatSystem2.instance.StartChat("Dialog", "카드놀이_승리", () => { });
         });
 
         loseButton.onClick.AddListener(() =>
         {
             DisablePuzzle();
-            ChatSystem2.instance.StartChat("Dialog", "카드놀이_패배", () => { });
+//            ChatSystem2.instance.StartChat("Dialog", "카드놀이_패배", () => { });
             SpeechBaloonManager.instance.AddBaloon(3);
         });
     }
