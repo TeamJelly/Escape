@@ -7,7 +7,6 @@ public class SelectionUIManager : MonoBehaviour
 {
     public static SelectionUIManager instance;
     public GameObject SelectionPanel;
-    public GameObject SelectionContent;
     public GameObject ButtonPrefab;
     //버튼을 만든다.
     //버튼에 기능을 추가한다.
@@ -19,10 +18,18 @@ public class SelectionUIManager : MonoBehaviour
         instance = this;
     }
 
+/*    private void Start()
+    {
+        MakeButton("테스트용 버튼");
+        MakeButton("테스트용 버튼");
+        MakeButton("테스트용 버튼");
+        MakeButton("테스트용 버튼");
+    }*/
+
     public void MakeButton(string text)
     {
         ButtonPrefab.SetActive(true);
-        GameObject tempButton = Instantiate(ButtonPrefab, Vector3.one, Quaternion.identity, SelectionContent.transform);
+        GameObject tempButton = Instantiate(ButtonPrefab, Vector3.one, Quaternion.identity, SelectionPanel.transform);
         tempButton.GetComponent<Button>().onClick.AddListener(DeleteAllButton);
         tempButton.GetComponentInChildren<Text>().text = text;
         ButtonPrefab.SetActive(false);
@@ -30,7 +37,7 @@ public class SelectionUIManager : MonoBehaviour
 
     public void DeleteAllButton()
     {
-        Transform[] childList = SelectionContent.GetComponentsInChildren<Transform>(true);
+        Transform[] childList = SelectionPanel.GetComponentsInChildren<Transform>(true);
         if (childList != null)
         {
             for (int i = 0; i < childList.Length; i++)

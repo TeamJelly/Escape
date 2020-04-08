@@ -8,14 +8,10 @@ using System.Reflection;
 using System;
 public class ChatSystem2 : MonoBehaviour
 {
-    class MessageBox
-    {
-        public string name;
-        public string state;
-        public string message;
-    }
+    public static ChatSystem2 instance;
 
-    public List<Charactor> charactorList;// = new List<Charactor>();
+    public List<Charactor> AllCharactorList;// = new List<Charactor>();
+
     public CanvasGroup thisUI;
     public Transform charactorPanel;
     public GameObject bgPanel;
@@ -25,8 +21,18 @@ public class ChatSystem2 : MonoBehaviour
     public Button nextButton;
     public Button skipButton;
 
+    public float printTextSpeed = 0.05f;
+
     Dictionary<string, Charactor> charactorFinder = new Dictionary<string, Charactor>();
+
+    class MessageBox
+    {
+        public string name;
+        public string state;
+        public string message;
+    }
     List<MessageBox> messageList = new List<MessageBox>();
+
     List<int> skipPoint = new List<int>();
     int skipCount = 0;
 
@@ -40,12 +46,10 @@ public class ChatSystem2 : MonoBehaviour
     string stackedChat = "";
     Action onEnd = null;
 
-    public static ChatSystem2 instance;
-
     private void Awake()
     {
         instance = this;
-        foreach (Charactor c in charactorList)
+        foreach (Charactor c in AllCharactorList)
         {
             charactorFinder[c.charactorName] = c;
         }
@@ -145,7 +149,7 @@ public class ChatSystem2 : MonoBehaviour
         for (int i = 0; i < text.Length; i++)
         {
             chatText.text += text[i];
-            yield return new WaitForSecondsRealtime(0.05f);
+            yield return new WaitForSecondsRealtime(printTextSpeed);
         }
         isTypeCoroutineRunning = false;
     }
@@ -322,9 +326,12 @@ public class ChatSystem2 : MonoBehaviour
                 Debug.Log(messageList.Count - 1);
             }
         }
-        Debug.Log("----chatStart----");
-        Debug.Log("SkipCount:" + skipCount);
-        InventoryUI.instance.DisableInventoryBar();
+
+        ShowNext();
+
+        //        Debug.Log("----chatStart----");
+        //        Debug.Log("SkipCount:" + skipCount);
+        //        InventoryUI.instance.DisableInventoryBar();
     }
 
     public void MakeSelection(string text)
@@ -360,10 +367,10 @@ public class ChatSystem2 : MonoBehaviour
 
 
     //인물 cg배치
-    public void ShowSCG(string charactors)
+    public void ShowSCG(string text)
     {
-        string[] result = charactors.Split(new string[] { ", " }, StringSplitOptions.None);
-        foreach (string charactor in result)
+        string[] charactors = text.Split(new string[] { ", " }, StringSplitOptions.None);
+        foreach (string charactor in charactors)
         {
             Transform t = charactorFinder[charactor].transform;
             charactorFinder[charactor].GetComponent<Image>().color = listeningColor;
@@ -404,7 +411,7 @@ public class ChatSystem2 : MonoBehaviour
     //모든 인물 cg숨기기
     public void HideAllSCG()
     {
-        foreach(Charactor c in charactorList)
+        foreach (Charactor c in AllCharactorList)
         {
             StartCoroutine(FadeOut(c.gameObject.GetComponent<CanvasGroup>(), () =>
             {
@@ -412,9 +419,9 @@ public class ChatSystem2 : MonoBehaviour
                 c.gameObject.SetActive(false);
             }));
         }
-        
         ShowNext();
     }
+
     //배경 CG를 보여줍니다.
     public void ShowBGCG(string name)
     {
@@ -422,22 +429,16 @@ public class ChatSystem2 : MonoBehaviour
         {
             chatText.text = "";
             bgImage.sprite = Resources.Load("BGCG/" + name, typeof(Sprite)) as Sprite;
-            StartCoroutine(FadeIn(bgImage.GetComponent<CanvasGroup>(), () =>
-            {
-                
-                ShowNext();
-            }));
+            StartCoroutine(FadeIn(bgImage.GetComponent<CanvasGroup>(), () => {ShowNext();}));
         }));
     }
+
     //잠들어서 까망화면
     public void HideBGCG()
     {
-        StartCoroutine(FadeOut(bgImage.GetComponent<CanvasGroup>(), () =>
-        {
-            
-            ShowNext();
-        }));
+        StartCoroutine(FadeOut(bgImage.GetComponent<CanvasGroup>(), () => {ShowNext();}));
     }
+
     IEnumerator FadeIn(CanvasGroup fadeObject, System.Action onEnd)
     {
         float tempAlpha = 0;

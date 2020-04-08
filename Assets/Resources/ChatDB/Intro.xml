@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Chat>
   <A>
-    <Field Who="#A"/>
-    <Field Who="#A1 - 토요일"/>
     <Field Who="나" Message="(하아…. 심심해…)"/>
     <Field Who="독백" Message="딱히 의미도 없이 유X브 추천영상만 주구장창 보고있던 어느 토요일 낮"/>
     <Field Who="독백" Message="모르는 번호로 한통의 문자가 왔다."/>
     <Field Who="System" State="StartSE" Message="띠링"/>
     <Field Who="문자" Message="[사랑해♡]"/>
+    <Field Who="System" State="Go" Message="Intro/A"/>
     <Field Who="나" Message="(누구지?)"/>
     <Field Who="독백" Message="학교 후배의 수줍은 고백부터 불알 친구의 몰래카메라까지 여러 가능성을 생각해봤지만 도대체 이 문자의 소재를 알수가 없었다."/>    
     <Field Who="독백" Message="뭐라 반응하기도 전에, 수많은 문자들이 내 휴대폰으로 물밀듯이 전송되었다."/>
@@ -21,7 +20,6 @@
     <Field Who="문자" Message="[무시하지마!]"/>
     <Field Who="System" State="StartSE" Message="띠링"/>
     <Field Message="[지금 옆에 누구있어?]"/>
-    <Field Who="System" State="Go" Message="Intro/A"/>
     <Field Who="System" State="StartSE" Message="띠링"/>
     <Field Message="[나는 하루종일 오빠만 생각하는데, 오빠도 나만 봐야지?]"/>
     <Field Who="System" State="StartSE" Message="띠링"/>
@@ -34,7 +32,7 @@
     <Field Who="독백" Message="모르는 사람에게 온 문자인것만 해도 당황스러운데 섬뜩한 내용의 문자까지…"/>
     <Field Who="독백" Message="나는 바로 그 번호를 차단했고"/>
     <Field Message="별 생각없이 평소처럼 지냈다."/>
-    <Field Who="#A2 - 일요일"/>
+
     <Field Who="독백" Message="다음날 일요일 정오,"/>
     <Field Who="독백" Message="주말의 여유를 즐기며 깨어난 나는 현관앞에 편지가 놓여있는걸 발견했다."/>
     <Field Who="나" Message="(편지...? 편지를 받은 기억은 없는데...)"/>
@@ -60,7 +58,7 @@
     <Field Who="나" Message="아 예 여기요?"/>
     <Field Who="독백" Message="나는 박스에 서명하기위해 허리를 숙였다."/>
     <Field Who="System" State="StartSE" Message="퍽"/>
-    <Field Who="#A3 - 깨어남"/>
+
     <Field Who="독백" Message="낯선 천장, 낯선 방..."/>
     <Field Who="나" Message="(여긴 어디지?)"/>
     <Field Who="독백" Message="나는 모르는 방의 침대에 누워있었고, 옆에는 한 여성이 나를 바라보고 있었다."/>
@@ -85,9 +83,9 @@
     <Field Who="선택지 A" Message="여자를 추궁한다. &gt; #B로 간다."/>
     <Field Who="선택지 B" Message="기억상실인 척하며 여자의 장단에 맞춰준다. &gt; #D로 간다."/>
   </A>
+  
+  
   <B>
-    <Field Who="#B"/>
-    <Field Who="#B1 - 추궁하는 나"/>
     <Field Who="나" Message="당신! 누군지 몰라도 날 납치하고 거짓말까지 하다니, 속셈이 뭐야!"/>
     <Field Who="여자" State="놀람" Message="....아직 기억이 남아있나 보네?"/>
     <Field Who="나" Message="뭐...뭐라 말이라도 해봐! 이런짓을 하고도 용서받을수 있을거 같아?"/>
@@ -96,7 +94,7 @@
     <Field Who="나" Message="무..무슨짓을 하려는거야?"/>
     <Field Who="여자" Message="미안 오빠."/>
     <Field Who="System" Message="퍽"/>
-    <Field Who="#B2 - 두번째 깨어남"/>
+
     <Field Who="독백" Message="나는 튕기듯 잠에서 깨어났다."/>
     <Field Message="등이 축축해질 정도로 끔찍한 악몽이었다."/>
     <Field Who="엄마" Message="일어났니?"/>
@@ -116,9 +114,9 @@
     <Field Who="선택지 A" Message="비굴하더라도 그녀에게 목숨만은 살려달라고 애원한다. &gt; #C로 간다."/>
     <Field Who="선택지 B" Message="기억상실인 척하며 여자의 장단에 맞춰준다. &gt; #D로 간다."/>
   </B>
+  
+  
   <C>
-    <Field Who="#C"/>
-    <Field Who="#C - 쳐맞는 나"/>
     <Field Who="독백" Message="나는 벌써 2번이나 기절했다."/>
     <Field Message="몸은 엉망이 되어 식은땀이 멈출줄 모르고, 손도 벌벌 떨리고 있다."/>
     <Field Who="독백" Message="더 이상 맞거나 기절하면, 정말 돌이킬수 없을거 같다는 생각에 나는 손발이 닳도록 빌었다."/>
@@ -139,9 +137,9 @@
     <Field Who="독백" Message="그렇게 내가 다시 눈을 뜰일은 없었다."/>
     <Field Who="나래이션" Message="GAME OVER (너무 많이 맞은 ENDING)"/>
   </C>
+  
+  
   <D>
-    <Field Who="#D"/>
-    <Field Who="#D1 - 연기하는 나"/>
     <Field Who="독백" Message="일단.. 여자의 말대로 기억상실인척 연기하며 정보를 모아보자"/>
     <Field Who="나" Message="전혀. 기억이. 안나요."/>
     <Field Who="독백" Message="국어책 읽기 수준의 연기였지만, 놀랍게도 통했다."/>
@@ -149,7 +147,7 @@
     <Field Message="기억나지 않는다 해도 내가 하나부터 열까지 천천히 알려줄게!"/>
     <Field Message="내 이름은 연이! 오빠의 여자친구야!"/>
     <Field Who="독백" Message="그녀는 정말로 기뻐하는 표정이었다."/>
-    <Field Who="#D2 - 밤"/>
+
     <Field Who="연이" Message="쿨..."/>
     <Field Who="나" Message="이제야 잠들었구나.."/>
     <Field Who="독백" Message="연이가 잠들때까지 그녀의 경계심을 풀고 계속해서 정보를 수집했다."/>

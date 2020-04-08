@@ -2046,10 +2046,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6109488549872264321, guid: 516b4e282a3e42e498ab8fb739972f06,
+    - target: {fileID: 5651556042539529349, guid: 516b4e282a3e42e498ab8fb739972f06,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6539430131899190660, guid: 516b4e282a3e42e498ab8fb739972f06,
         type: 3}
@@ -2268,11 +2268,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1030206668}
     m_Modifications:
-    - target: {fileID: 1225962296522933380, guid: b9a25d8807df82748b352b7e43894789,
-        type: 3}
-      propertyPath: bgPanel
-      value: 
-      objectReference: {fileID: 1423006112}
     - target: {fileID: 1225962296522933384, guid: b9a25d8807df82748b352b7e43894789,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2382,41 +2377,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chatting
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225962296702816807, guid: b9a25d8807df82748b352b7e43894789,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9197428411396694158, guid: b9a25d8807df82748b352b7e43894789,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9197428411396694158, guid: b9a25d8807df82748b352b7e43894789,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9197428411396694158, guid: b9a25d8807df82748b352b7e43894789,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9197428411396694158, guid: b9a25d8807df82748b352b7e43894789,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9197428411396694158, guid: b9a25d8807df82748b352b7e43894789,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 9197428411396694158, guid: b9a25d8807df82748b352b7e43894789,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9a25d8807df82748b352b7e43894789, type: 3}
@@ -5062,12 +5022,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1378744976}
   m_CullTransparentMesh: 0
---- !u!1 &1423006112 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1921893313389442780, guid: b9a25d8807df82748b352b7e43894789,
-    type: 3}
-  m_PrefabInstance: {fileID: 492235685}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1432506855
 GameObject:
   m_ObjectHideFlags: 0

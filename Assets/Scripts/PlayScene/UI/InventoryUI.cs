@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
+    public static InventoryUI instance;
+
     public RectTransform itemListUI;
     public GameObject itemBoxPrefab;
-    public static InventoryUI instance;
     public GameObject thisUI;
     private void Awake()
     {

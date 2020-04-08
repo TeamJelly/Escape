@@ -39,15 +39,19 @@ public class MenuUIManager : MonoBehaviour
     }
     public void EnableMenu()
     {
-        BackgroundManager.instance.isPaused = true;
-        PlayUIManager.instance.FadeIn(thisUI);
-        currentTab.onClick.Invoke();
+        if (thisUI.isActiveAndEnabled == false)
+        {
+            BackgroundManager.instance.isPaused = true;
+            PlayUIManager.instance.FadeIn(thisUI);
+            currentTab.onClick.Invoke();
+        }
     }
     public void DisableMenu()
     {
         BackgroundManager.instance.isPaused = false;
         PlayUIManager.instance.FadeOut(thisUI);
     }
+    
     void SwabPanel(GameObject panel)
     {
         currentPanel.SetActive(false);

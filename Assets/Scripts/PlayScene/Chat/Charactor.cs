@@ -7,6 +7,7 @@ public class Charactor : MonoBehaviour
 {
     public string charactorName;
     public Image image;
+
     public void SetEmotion(string emotion)
     {
         Sprite sprite = Resources.Load("Charactors" + "/" + charactorName + "/" + emotion,typeof(Sprite)) as Sprite;
