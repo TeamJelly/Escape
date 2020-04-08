@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2917,6 +2917,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 166018941}
     m_Modifications:
+    - target: {fileID: 2013066759373228534, guid: 516b4e282a3e42e498ab8fb739972f06,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2013066759373228534, guid: 516b4e282a3e42e498ab8fb739972f06,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6539430131899190660, guid: 516b4e282a3e42e498ab8fb739972f06,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3032,12 +3042,6 @@ PrefabInstance:
 --- !u!224 &1496097355 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6539430131899190660, guid: 516b4e282a3e42e498ab8fb739972f06,
-    type: 3}
-  m_PrefabInstance: {fileID: 1496097354}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1496097356 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1512884956951393537, guid: 516b4e282a3e42e498ab8fb739972f06,
     type: 3}
   m_PrefabInstance: {fileID: 1496097354}
   m_PrefabAsset: {fileID: 0}
@@ -3471,7 +3475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InventoryItemList: {fileID: 1496097357}
-  InventoryBar: {fileID: 1496097356}
+  InventoryBar: {fileID: 0}
   ItemBoxPrefab: {fileID: 8798305126657898647, guid: c7db165576470134091c7fc713994f76,
     type: 3}
   selectedItem: 
@@ -3488,6 +3492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   failureCount: 0
+  isPaused: 0
 --- !u!4 &1754616572
 Transform:
   m_ObjectHideFlags: 0
@@ -3536,7 +3541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10c944c0ead91f94b8323759be277213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questListObj: {fileID: 1765465563}
+  questListObj: {fileID: 0}
   questBoxPrefab: {fileID: 1869199418680819133, guid: fb635dd3cbee97f44a8535b95d3710cc,
     type: 3}
 --- !u!114 &1754616575
@@ -3552,12 +3557,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPuzzle: {fileID: 0}
---- !u!1 &1765465563 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5735541025162468108, guid: 516b4e282a3e42e498ab8fb739972f06,
-    type: 3}
-  m_PrefabInstance: {fileID: 1496097354}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1817882527
 GameObject:
   m_ObjectHideFlags: 0

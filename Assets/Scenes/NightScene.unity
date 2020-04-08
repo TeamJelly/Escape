@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -8797,12 +8797,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402828137}
   m_CullTransparentMesh: 0
---- !u!1 &1414649836 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5735541025162468108, guid: 516b4e282a3e42e498ab8fb739972f06,
-    type: 3}
-  m_PrefabInstance: {fileID: 6539430131264334908}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1429234319
 GameObject:
   m_ObjectHideFlags: 0
@@ -11258,6 +11252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   failureCount: 0
+  isPaused: 0
 --- !u!114 &1696365333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11271,9 +11266,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InventoryItemList: {fileID: 654981521}
+  InventoryBar: {fileID: 0}
   ItemBoxPrefab: {fileID: 8798305126657898647, guid: c7db165576470134091c7fc713994f76,
     type: 3}
-  selectedSlot: {fileID: 0}
+  selectedItem: 
 --- !u!114 &1696365334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11288,7 +11284,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeBackground: {fileID: 667907920}
   currentPanel: {fileID: 1633011859}
-  noticeGetItemUI: {fileID: 6539430131264334909}
+  noticeGetItemUI: {fileID: 0}
+  getItemImage: {fileID: 0}
+  dataWarningUI: {fileID: 0}
+  actionButton: {fileID: 0}
+  warningText: {fileID: 0}
 --- !u!114 &1696365335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11301,7 +11301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10c944c0ead91f94b8323759be277213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questListObj: {fileID: 1414649836}
+  questListObj: {fileID: 0}
   questBoxPrefab: {fileID: 1869199418680819133, guid: fb635dd3cbee97f44a8535b95d3710cc,
     type: 3}
 --- !u!114 &1696365336
@@ -11316,6 +11316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d72c3a1dd424874aab53d8059d787a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPuzzle: {fileID: 0}
 --- !u!1 &1698207404
 GameObject:
   m_ObjectHideFlags: 0
@@ -16651,6 +16652,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2013066759373228534, guid: 516b4e282a3e42e498ab8fb739972f06,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2013066759373228534, guid: 516b4e282a3e42e498ab8fb739972f06,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2013488792044517154, guid: 516b4e282a3e42e498ab8fb739972f06,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -16928,9 +16939,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516b4e282a3e42e498ab8fb739972f06, type: 3}
---- !u!225 &6539430131264334909 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 8820809339901264020, guid: 516b4e282a3e42e498ab8fb739972f06,
-    type: 3}
-  m_PrefabInstance: {fileID: 6539430131264334908}
-  m_PrefabAsset: {fileID: 0}

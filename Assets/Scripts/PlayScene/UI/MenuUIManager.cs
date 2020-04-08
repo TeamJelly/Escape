@@ -7,56 +7,45 @@ public class MenuUIManager : MonoBehaviour
 {
     // GameObject currentPanel;
     public CanvasGroup thisUI;
-    public Button SaveTab;
-    public Button LoadTab;
-    public Button todoTab;
-    public Button optionTab;
-    public Button mainTab;
+    public Button SaveButton;
+    public Button LoadButton;
+//    public Button todoTab;
+    public Button OptionButton;
+    public Button ExitButton;
+    public Button BackButton;
 
-    Button currentTab = null; 
-    public GameObject SavenLoadPanel;
-    public GameObject questPanel;
-    public GameObject optionPanel;
+    public GameObject SavePanel;
+    public GameObject LoadPanel;
+    public GameObject OptionPanel;
 
-    GameObject currentPanel;
+    GameObject current;
     
     private void Awake()
     {
-        currentPanel = SavenLoadPanel;
-        currentPanel.SetActive(true);
-        currentTab = SaveTab;
-        SaveTab.onClick.AddListener(() => { currentTab = SaveTab; SwabPanel(SavenLoadPanel); DataSelector.instance.SetSaveMode(); });
-        LoadTab.onClick.AddListener(() => { currentTab = LoadTab; SwabPanel(SavenLoadPanel); DataSelector.instance.SetLoadMode(); });
-        todoTab.onClick.AddListener(() => { currentTab = todoTab; SwabPanel(questPanel); });
-        optionTab.onClick.AddListener(() => { currentTab = optionTab; SwabPanel(optionPanel); });
-        mainTab.onClick.AddListener(() => { currentTab = mainTab; PlayUIManager.instance.FadeOutForNextScene("MainScene"); });//UIFunctions.SelectScene("MainScene"));
-
-        
+        SaveButton.onClick.AddListener(() => { SavePanel.SetActive(true); DataSelector.instance.SetSaveMode(); });
+        LoadButton.onClick.AddListener(() => { LoadPanel.SetActive(true); DataSelector.instance.SetLoadMode(); });
+//        todoTab.onClick.AddListener(() => { currentTab = todoTab; SwabPanel(questPanel); });
+        OptionButton.onClick.AddListener(() => { });
+        ExitButton.onClick.AddListener(() => { Application.Quit(); });
+        BackButton.onClick.AddListener(() => { DisableMenu(); });//UIFunctions.SelectScene("MainScene"));
     }
     public void Start()
     {
-        SaveTab.onClick.Invoke();
     }
+
     public void EnableMenu()
     {
         if (thisUI.isActiveAndEnabled == false)
         {
             BackgroundManager.instance.isPaused = true;
             PlayUIManager.instance.FadeIn(thisUI);
-            currentTab.onClick.Invoke();
         }
     }
+
     public void DisableMenu()
     {
         BackgroundManager.instance.isPaused = false;
         PlayUIManager.instance.FadeOut(thisUI);
-    }
-    
-    void SwabPanel(GameObject panel)
-    {
-        currentPanel.SetActive(false);
-        currentPanel = panel;
-        currentPanel.SetActive(true);
     }
 
 }

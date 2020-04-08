@@ -9,9 +9,12 @@ using System;
 public class DataSelector : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject dataBoxListObj;
+    public GameObject dataBoxListPanel;
     public GameObject dataBoxPrefeb;
-    public Button addNewDataButton;
+    //    public Button addNewDataButton;
+
+    public Button BackButton;
+
     string[] saveFileList;
     List<GameObject> boxies = new List<GameObject>();
 
@@ -20,6 +23,8 @@ public class DataSelector : MonoBehaviour
     {
         instance = this;
 
+        BackButton.onClick.AddListener(() => { gameObject.SetActive(false); });
+
         for(int i = 0; i < 10; i++)
         {
             GameObject newBox = GameObject.Instantiate(dataBoxPrefeb);
@@ -27,18 +32,22 @@ public class DataSelector : MonoBehaviour
             AddToList(newBox);
         }
     }
+
     void ResetDataBoxies()
     {
+        
         foreach(GameObject box in boxies)
             box.GetComponent<DataBox>().ResetData();
     }
+
     void AddToList(GameObject newBox)
     {
-        newBox.transform.SetParent(dataBoxListObj.transform);
+        newBox.transform.SetParent(dataBoxListPanel.transform);
         RectTransform rect = (RectTransform)newBox.transform;
         rect.localScale = Vector2.one;
         boxies.Add(newBox);
     }
+
     public void SetLoadMode()
     {
         ResetDataBoxies();
@@ -53,6 +62,7 @@ public class DataSelector : MonoBehaviour
             }
         }
     }
+
     public void SetSaveMode()
     {
         ResetDataBoxies();
@@ -71,6 +81,7 @@ public class DataSelector : MonoBehaviour
             }
         }
     }
+
     public void SetDeleteMode()
     {
         ResetDataBoxies();
@@ -96,6 +107,7 @@ public class DataSelector : MonoBehaviour
         }
         else PlayUIManager.instance.FadeOutForNextScene(DataManager.GetData().currentScene);
     }
+
     public void StartNew(CanvasGroup notifyPanel)
     {
         DataManager.Load("0_AutoSave_최근플레이");
@@ -106,6 +118,7 @@ public class DataSelector : MonoBehaviour
         }
         else PlayUIManager.instance.FadeIn(notifyPanel);
     }
+
     public void StartNew()
     {
         DataManager.StartAsNew();
