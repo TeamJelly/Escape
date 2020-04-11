@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Chat>
   <A>
-    <Field Who="System" State="MakeSelection" Message="A. 여자를 추궁한다.:Intro/B"/>
-    <Field Who="System" State="MakeSelection" Message="B. 기억상실인 척하며 여자의 장단에 맞춰준다.:Intro/D"/>
-    <Field Who="System" State="ShowSelection"/>
-
     <Field Who="나" Message="(하아…. 심심해…)"/>
     <Field Who="독백" Message="딱히 의미도 없이 유X브 추천영상만 주구장창 보고있던 어느 토요일 낮"/>
     <Field Who="독백" Message="모르는 번호로 한통의 문자가 왔다."/>
