@@ -8,17 +8,21 @@ using System;
 
 public class DataSelector : MonoBehaviour
 {
+    public static DataSelector instance;
+
     // Start is called before the first frame update
     public GameObject dataBoxListPanel;
     public GameObject dataBoxPrefeb;
     //    public Button addNewDataButton;
+
+    public GameObject SaveTitle;
+    public GameObject LoadTitle;
 
     public Button BackButton;
 
     string[] saveFileList;
     List<GameObject> boxies = new List<GameObject>();
 
-    public static DataSelector instance;
     private void Awake()
     {
         instance = this;
@@ -35,7 +39,6 @@ public class DataSelector : MonoBehaviour
 
     void ResetDataBoxies()
     {
-        
         foreach(GameObject box in boxies)
             box.GetComponent<DataBox>().ResetData();
     }
@@ -50,6 +53,10 @@ public class DataSelector : MonoBehaviour
 
     public void SetLoadMode()
     {
+        gameObject.SetActive(true);
+        SaveTitle.SetActive(false);
+        LoadTitle.SetActive(true);
+
         ResetDataBoxies();
         saveFileList = Directory.GetFiles(Application.persistentDataPath, "*.sav");
         for(int i = 1; i < saveFileList.Length; i++)
@@ -65,6 +72,10 @@ public class DataSelector : MonoBehaviour
 
     public void SetSaveMode()
     {
+        gameObject.SetActive(true);
+        SaveTitle.SetActive(true);
+        LoadTitle.SetActive(false);
+
         ResetDataBoxies();
         for(int i = 0; i < 10; i++)
         {

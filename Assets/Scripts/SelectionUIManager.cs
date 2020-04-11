@@ -26,13 +26,15 @@ public class SelectionUIManager : MonoBehaviour
         MakeButton("테스트용 버튼");
     }*/
 
-    public void MakeButton(string text)
+    public void MakeButton(string text, string goal)
     {
-        ButtonPrefab.SetActive(true);
         GameObject tempButton = Instantiate(ButtonPrefab, Vector3.one, Quaternion.identity, SelectionPanel.transform);
-        tempButton.GetComponent<Button>().onClick.AddListener(DeleteAllButton);
+        tempButton.GetComponent<Button>().onClick.AddListener(() => {
+            ChatSystem2.instance.Go(goal); 
+            DeleteAllButton(); 
+            SelectionPanel.SetActive(false); 
+        });
         tempButton.GetComponentInChildren<Text>().text = text;
-        ButtonPrefab.SetActive(false);
     }
 
     public void DeleteAllButton()
@@ -40,7 +42,7 @@ public class SelectionUIManager : MonoBehaviour
         Transform[] childList = SelectionPanel.GetComponentsInChildren<Transform>(true);
         if (childList != null)
         {
-            for (int i = 0; i < childList.Length; i++)
+            for (int i = 1; i < childList.Length; i++)
             {
                 if (childList[i] != transform)
                     Destroy(childList[i].gameObject);

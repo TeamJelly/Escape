@@ -14,23 +14,17 @@ public class MenuUIManager : MonoBehaviour
     public Button ExitButton;
     public Button BackButton;
 
-    public GameObject SavePanel;
-    public GameObject LoadPanel;
+    public GameObject DataPanel;
     public GameObject OptionPanel;
-
-    GameObject current;
     
     private void Awake()
     {
-        SaveButton.onClick.AddListener(() => { SavePanel.SetActive(true); DataSelector.instance.SetSaveMode(); });
-        LoadButton.onClick.AddListener(() => { LoadPanel.SetActive(true); DataSelector.instance.SetLoadMode(); });
+        SaveButton.onClick.AddListener(() => { DataPanel.GetComponent<DataSelector>().SetSaveMode(); });
+        LoadButton.onClick.AddListener(() => { DataPanel.GetComponent<DataSelector>().SetLoadMode(); });
 //        todoTab.onClick.AddListener(() => { currentTab = todoTab; SwabPanel(questPanel); });
         OptionButton.onClick.AddListener(() => { });
         ExitButton.onClick.AddListener(() => { Application.Quit(); });
         BackButton.onClick.AddListener(() => { DisableMenu(); });//UIFunctions.SelectScene("MainScene"));
-    }
-    public void Start()
-    {
     }
 
     public void EnableMenu()

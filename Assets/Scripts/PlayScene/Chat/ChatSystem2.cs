@@ -328,16 +328,21 @@ public class ChatSystem2 : MonoBehaviour
         }
 
         ShowNext();
-
         //        Debug.Log("----chatStart----");
         //        Debug.Log("SkipCount:" + skipCount);
-        //        InventoryUI.instance.DisableInventoryBar();
+        InventoryUI.instance.DisableInventoryBar();
     }
 
     public void MakeSelection(string text)
     {
-        string [] SelectText = text.Split('/');
-        SelectionUIManager.instance.MakeButton("text");
+        string [] SelectText = text.Split(':');
+        SelectionUIManager.instance.MakeButton(SelectText[0], SelectText[1]);
+        ShowNext();
+    }
+
+    public void ShowSelection()
+    {
+        SelectionUIManager.instance.SelectionPanel.SetActive(true);
     }
 
     public void StartBGM(string name)
@@ -503,5 +508,10 @@ public class ChatSystem2 : MonoBehaviour
         skipCount++;
         HideAllSCG();
         //HideBGCG();
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

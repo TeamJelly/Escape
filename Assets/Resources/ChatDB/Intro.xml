@@ -6,7 +6,6 @@
     <Field Who="독백" Message="모르는 번호로 한통의 문자가 왔다."/>
     <Field Who="System" State="StartSE" Message="띠링"/>
     <Field Who="문자" Message="[사랑해♡]"/>
-    <Field Who="System" State="Go" Message="Intro/A"/>
     <Field Who="나" Message="(누구지?)"/>
     <Field Who="독백" Message="학교 후배의 수줍은 고백부터 불알 친구의 몰래카메라까지 여러 가능성을 생각해봤지만 도대체 이 문자의 소재를 알수가 없었다."/>    
     <Field Who="독백" Message="뭐라 반응하기도 전에, 수많은 문자들이 내 휴대폰으로 물밀듯이 전송되었다."/>
@@ -36,7 +35,7 @@
     <Field Who="독백" Message="다음날 일요일 정오,"/>
     <Field Who="독백" Message="주말의 여유를 즐기며 깨어난 나는 현관앞에 편지가 놓여있는걸 발견했다."/>
     <Field Who="나" Message="(편지...? 편지를 받은 기억은 없는데...)"/>
-    <Field Who="독백" Message="아마 내가 자고있는동안 우편배달부가 문 밑으로 넣어준것이리라."/>
+    <Field Who="독백" Message="아마 내가 자고있는동안 우편배달부가 문 밑으로 넣어준것 같다."/>
     <Field Message="편지봉투에는 발신인, 수신인이며 주소며 아무것도 적혀있지 않았다."/>
     <Field Message="약간의 불안감과 함께 봉투를 뜯어 편지의 내용물을 보았다."/>
     <Field Who="독백" Message="불길한 느낌은 언제나 틀리지 않았다."/>
@@ -79,9 +78,9 @@
     <Field Who="독백" Message="그렇다면 저 여자가 택배기사로 위장해서 날 여기로 납치한건가?"/>
     <Field Message="만약에 그렇다면 무엇때문에?"/>
     <Field Who="나" Message="나는...."/>
-    <Field Who="System" State="MakeSelection" Message="여자를 추궁한다./기억상실인 척하며 여자의 장단에 맞춰준다.|Go|B"/>
-    <Field Who="선택지 A" Message="여자를 추궁한다. &gt; #B로 간다."/>
-    <Field Who="선택지 B" Message="기억상실인 척하며 여자의 장단에 맞춰준다. &gt; #D로 간다."/>
+    <Field Who="System" State="MakeSelection" Message="A. 여자를 추궁한다.:Intro/B"/>
+    <Field Who="System" State="MakeSelection" Message="B. 기억상실인 척하며 여자의 장단에 맞춰준다.:Intro/D"/>
+    <Field Who="System" State="ShowSelection"/>
   </A>
   
   
@@ -93,7 +92,7 @@
     <Field Who="독백" Message="여자는 내가 반응할 틈도 없이 자연스럽게 나에게 다가왔다."/>
     <Field Who="나" Message="무..무슨짓을 하려는거야?"/>
     <Field Who="여자" Message="미안 오빠."/>
-    <Field Who="System" Message="퍽"/>
+    <Field Who="System" State="StartSE" Message="퍽"/>
 
     <Field Who="독백" Message="나는 튕기듯 잠에서 깨어났다."/>
     <Field Message="등이 축축해질 정도로 끔찍한 악몽이었다."/>
@@ -111,8 +110,9 @@
     <Field Message="끔찍했던 기억은 악몽이 아닌 당장의 현실이었다."/>
     <Field Who="연이" Message="오빠, 괜찮아? 얼굴색이 창백한데?"/>
     <Field Who="나" Message="나는...."/>
-    <Field Who="선택지 A" Message="비굴하더라도 그녀에게 목숨만은 살려달라고 애원한다. &gt; #C로 간다."/>
-    <Field Who="선택지 B" Message="기억상실인 척하며 여자의 장단에 맞춰준다. &gt; #D로 간다."/>
+    <Field Who="System" State="MakeSelection" Message="A. 비굴하더라도 그녀에게 목숨만은 살려달라고 애원한다.:Intro/C"/>
+    <Field Who="System" State="MakeSelection" Message="B. 기억상실인 척하며 여자의 장단에 맞춰준다.:Intro/D"/>
+    <Field Who="System" State="ShowSelection"/>
   </B>
   
   
@@ -136,8 +136,8 @@
     <Field Who="나" Message="..................................."/>
     <Field Who="독백" Message="그렇게 내가 다시 눈을 뜰일은 없었다."/>
     <Field Who="나래이션" Message="GAME OVER (너무 많이 맞은 ENDING)"/>
+    <Field Who="System" State="QuitGame"/>
   </C>
-  
   
   <D>
     <Field Who="독백" Message="일단.. 여자의 말대로 기억상실인척 연기하며 정보를 모아보자"/>
@@ -172,6 +172,5 @@
     <Field Message="연이가 자고있는 지금이 탈출할수있는 절호의 찬스라는 것이다...."/>
     <Field Who="독백" Message="그녀에게 들키지 않고 여기서 도망갈수있을까?"/>
     <Field Who="나래이션" Message="GAME START"/>
-    <Field Who="System" State="StartChat" Message="Intro/B"/>
   </D>
 </Chat>
