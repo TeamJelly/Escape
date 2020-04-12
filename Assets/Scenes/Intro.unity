@@ -2367,16 +2367,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chatting
       objectReference: {fileID: 0}
-    - target: {fileID: 1915166896738869581, guid: b9a25d8807df82748b352b7e43894789,
-        type: 3}
-      propertyPath: m_CellSize.x
-      value: 1500
-      objectReference: {fileID: 0}
-    - target: {fileID: 1915166896738869581, guid: b9a25d8807df82748b352b7e43894789,
-        type: 3}
-      propertyPath: m_CellSize.y
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9a25d8807df82748b352b7e43894789, type: 3}
 --- !u!224 &492235686 stripped
@@ -3753,7 +3743,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

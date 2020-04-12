@@ -10,7 +10,9 @@ public class ChatSystem2 : MonoBehaviour
 {
     public static ChatSystem2 instance;
 
-    public List<Charactor> AllCharactorList;// = new List<Charactor>();
+    public GameObject Charactors;
+    Charactor[] AllCharactorList;
+    Dictionary<string, Charactor> charactorFinder = new Dictionary<string, Charactor>();
 
     public CanvasGroup thisUI;
     public Transform charactorPanel;
@@ -22,8 +24,6 @@ public class ChatSystem2 : MonoBehaviour
     public Button skipButton;
 
     public float printTextSpeed = 0.05f;
-
-    Dictionary<string, Charactor> charactorFinder = new Dictionary<string, Charactor>();
 
     class MessageBox
     {
@@ -49,8 +49,10 @@ public class ChatSystem2 : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        AllCharactorList = Charactors.GetComponentsInChildren<Charactor>();
         foreach (Charactor c in AllCharactorList)
         {
+            Debug.Log(c.charactorName);
             charactorFinder[c.charactorName] = c;
         }
     }
@@ -66,7 +68,7 @@ public class ChatSystem2 : MonoBehaviour
         messageList.Add(
             new MessageBox
             {
-                name = "주인공",
+                name = "독백",
                 state = "-",
                 message = s
             });
@@ -377,16 +379,17 @@ public class ChatSystem2 : MonoBehaviour
         string[] charactors = text.Split(new string[] { ", " }, StringSplitOptions.None);
         foreach (string charactor in charactors)
         {
+            Debug.Log(charactorFinder[charactor].name);
             Transform t = charactorFinder[charactor].transform;
             charactorFinder[charactor].GetComponent<Image>().color = listeningColor;
             t.SetParent(charactorPanel);
             t.SetAsLastSibling();
-            t.gameObject.SetActive(true);
+//            t.gameObject.SetActive(true);
             StartCoroutine(FadeIn(t.GetComponent<CanvasGroup>(), ()=> { }));
         }
-        
         ShowNext();
     }
+
     //인물 cg재배치
     public void GoSCG(string charactors)
     {
@@ -397,9 +400,9 @@ public class ChatSystem2 : MonoBehaviour
             t.SetAsLastSibling();
             StartCoroutine(FadeIn(t.GetComponent<CanvasGroup>(), () => { }));
         }
-        
         ShowNext();
     }
+
     //인물 cg숨기기
     public void HideSCG(string charactors)
     {

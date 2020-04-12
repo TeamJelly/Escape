@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Chat>
   <A>
+    <Field Who="System" State="ShowBGCG" Message="자취방 현관"/>
+
+    <Field Who="System" State="ShowSCG" Message="나"/>
+    <Field Who="System" State="ShowSCG" Message="연이"/>
+    <Field Who="System" State="ShowSCG" Message="택배기사"/>
+    <Field Who="System" State="ShowSCG" Message="???"/>
+
     <Field Who="나" Message="(하아…. 심심해…)"/>
+
+    <Field Who="연이" State="셔츠" Message="(하아…. 심심해…)"/>
+    <Field Who="연이" State="정색" Message="(하아…. 심심해…)"/>
+    <Field Who="연이" State="시무룩" Message="(하아…. 심심해…)"/>
     <Field Who="독백" Message="딱히 의미도 없이 유X브 추천영상만 주구장창 보고있던 어느 토요일 낮"/>
     <Field Who="독백" Message="모르는 번호로 한통의 문자가 왔다."/>
+    
     <Field Who="System" State="StartSE" Message="띠링"/>
     <Field Who="문자" Message="[사랑해♡]"/>
     <Field Who="나" Message="(누구지?)"/>
@@ -31,6 +43,10 @@
     <Field Who="독백" Message="모르는 사람에게 온 문자인것만 해도 당황스러운데 섬뜩한 내용의 문자까지…"/>
     <Field Who="독백" Message="나는 바로 그 번호를 차단했고"/>
     <Field Message="별 생각없이 평소처럼 지냈다."/>
+  
+    <Field Who="System" State="HideBGCG"/>
+    <Field Who=" " State=" " Message=" "/>
+    <Field Who="System" State="ShowBGCG" Message="자취방 현관"/>
 
     <Field Who="독백" Message="다음날 일요일 정오,"/>
     <Field Who="독백" Message="주말의 여유를 즐기며 깨어난 나는 현관앞에 편지가 놓여있는걸 발견했다."/>
@@ -39,7 +55,7 @@
     <Field Message="편지봉투에는 발신인, 수신인이며 주소며 아무것도 적혀있지 않았다."/>
     <Field Message="약간의 불안감과 함께 봉투를 뜯어 편지의 내용물을 보았다."/>
     <Field Who="독백" Message="불길한 느낌은 언제나 틀리지 않았다."/>
-    <Field Who="System" State="StartBGM" Message="현뜯는소리"/>
+    <Field Who="System" State="StartBGM" Message="섬뜩함"/>
     <Field Who="편지" Message="[사랑해, 곧 만나러 갈게]"/>
     <Field Who="독백" Message="......?!?"/>
     <Field Message="깜찍한 분홍색 편지지였지만, 그 위의 붉은색 글자는 혼란스럽고 섬뜩했다."/>
@@ -56,8 +72,12 @@
     <Field Who="택배기사" Message="ㅁㅁㅁ님 본인 맞으시죠? 여기 서명해주시면 됩니다."/>
     <Field Who="나" Message="아 예 여기요?"/>
     <Field Who="독백" Message="나는 박스에 서명하기위해 허리를 숙였다."/>
+    <Field Who="System" State="ShowBGCG" Message="피"/>
     <Field Who="System" State="StartSE" Message="퍽"/>
+    <Field Who=" " State=" " Message=" "/>
+    <Field Who="System" State="HideBGCG"/>
 
+    <Field Who="System" State="ShowBGCG" Message="거실"/>
     <Field Who="독백" Message="낯선 천장, 낯선 방..."/>
     <Field Who="나" Message="(여긴 어디지?)"/>
     <Field Who="독백" Message="나는 모르는 방의 침대에 누워있었고, 옆에는 한 여성이 나를 바라보고 있었다."/>
@@ -148,10 +168,12 @@
     <Field Message="내 이름은 연이! 오빠의 여자친구야!"/>
     <Field Who="독백" Message="그녀는 정말로 기뻐하는 표정이었다."/>
 
+
     <Field Who="연이" Message="쿨..."/>
     <Field Who="나" Message="이제야 잠들었구나.."/>
-    <Field Who="독백" Message="연이가 잠들때까지 그녀의 경계심을 풀고 계속해서 정보를 수집했다."/>
-    <Field Message="내가 낮시간 동안 알아낸건 크게 세가지이다."/>
+    <Field Who="System" State="StartBGM" Message="물음표"/>
+    <Field Who="독백" Message="나는 연이가 잠들때까지 그녀의 경계심을 풀고 계속해서 정보를 수집했다."/>
+    <Field Message="알아낸건 크게 세가지이다."/>
     <Field Who="독백" Message="첫째, 날 납치한 범인에 대한 정보이다."/>
     <Field Message="그녀의 이름은 연이, 나이는.. 모르겠다. 오빠라 부르는걸 보면 연하같기도 하고..."/>
     <Field Message="암튼... 이런걸 말하려는게 아니었는데."/>
@@ -171,6 +193,7 @@
     <Field Message="뭐... 이렇게 절망적인 상황이고, 육체적으로도 정신적으로도 힘들지만"/>
     <Field Message="연이가 자고있는 지금이 탈출할수있는 절호의 찬스라는 것이다...."/>
     <Field Who="독백" Message="그녀에게 들키지 않고 여기서 도망갈수있을까?"/>
+    <Field Who="System" State="StopBGM"/>
     <Field Who="나래이션" Message="GAME START"/>
   </D>
 </Chat>

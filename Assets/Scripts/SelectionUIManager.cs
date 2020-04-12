@@ -18,14 +18,6 @@ public class SelectionUIManager : MonoBehaviour
         instance = this;
     }
 
-/*    private void Start()
-    {
-        MakeButton("테스트용 버튼");
-        MakeButton("테스트용 버튼");
-        MakeButton("테스트용 버튼");
-        MakeButton("테스트용 버튼");
-    }*/
-
     public void MakeButton(string text, string goal)
     {
         GameObject tempButton = Instantiate(ButtonPrefab, Vector3.one, Quaternion.identity, SelectionPanel.transform);
@@ -50,9 +42,4 @@ public class SelectionUIManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
