@@ -34,6 +34,7 @@ public class DataBox : MonoBehaviour
         void act()
         {
             DataManager.Load(fileName);
+
             PlayUIManager.instance.FadeOutForNextScene(DataManager.GetData().currentScene);
             //DataSelector.instance.SetLoadMode();
         };

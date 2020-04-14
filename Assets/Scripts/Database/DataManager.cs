@@ -11,6 +11,7 @@ public static class DataManager
     public static PlayerData currentData = null;
     public static bool dataExist = false; // 메인화면에서 load 버튼 활성화 여부 판단.
 
+    
     public static PlayerData GetData()
     {
         if (currentData == null)
@@ -41,8 +42,8 @@ public static class DataManager
     {
         currentData.currentScene = SceneManager.GetActiveScene().name;
         Save("0_AutoSave_최근플레이");
-        
     }
+
     public static void Save(string saveName)
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -95,7 +96,6 @@ public class PlayerData
         Array.Clear(dialogs, 0, dialogs.Length);
         Array.Clear(events, 0, events.Length);
         Array.Clear(puzzles, 0, puzzles.Length);
-
         dialogs[0] = 1;
         
     }

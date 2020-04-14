@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 4431103155398917792}
   - component: {fileID: 5941221427004618151}
   - component: {fileID: 3155799624998629822}
+  - component: {fileID: 3341968806279836888}
   m_Layer: 5
   m_Name: DataPanel
   m_TagString: Untagged
@@ -243,6 +244,18 @@ MonoBehaviour:
   SaveTitle: {fileID: 1683719625}
   LoadTitle: {fileID: 823987194654769630}
   BackButton: {fileID: 4120270762519407463}
+--- !u!225 &3341968806279836888
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254243532849188698}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &823987194654769630
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +438,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -526}
+  m_SizeDelta: {x: 0, y: -730.7026}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2139912733508785304
 MonoBehaviour:

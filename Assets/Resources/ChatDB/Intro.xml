@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Chat>
+  <Z>
+
+    <Field Who="System" State="ShowBGCG" Message="자취방 현관"/>
+    <Field Who="나" Message="(하아…. 심심해…)"/>
+    <Field Who="System" State="WaitSeconds" Message="2"/>
+
+    <Field Who="System" State="MakeSelection" Message="A. 인트로 시작:Intro/A"/>
+    <Field Who="System" State="MakeSelection" Message="B. 인트로 끝:Intro/ZZ"/>
+    <Field Who="System" State="ShowSelection"/>
+  </Z>
+
+  <ZZ>
+    <Field Who="나" Message="게임 시작"/>
+  </ZZ>
+  
   <A>
     <Field Who="System" State="ShowBGCG" Message="자취방 현관"/>
-
-    <Field Who="System" State="ShowSCG" Message="나"/>
-    <Field Who="System" State="ShowSCG" Message="연이"/>
-    <Field Who="System" State="ShowSCG" Message="택배기사"/>
-    <Field Who="System" State="ShowSCG" Message="???"/>
-
     <Field Who="나" Message="(하아…. 심심해…)"/>
+    <Field Who="System" State="WaitSeconds" Message="2"/>
+    <Field Message=" "/>
 
-    <Field Who="연이" State="셔츠" Message="(하아…. 심심해…)"/>
-    <Field Who="연이" State="정색" Message="(하아…. 심심해…)"/>
-    <Field Who="연이" State="시무룩" Message="(하아…. 심심해…)"/>
     <Field Who="독백" Message="딱히 의미도 없이 유X브 추천영상만 주구장창 보고있던 어느 토요일 낮"/>
-    <Field Who="독백" Message="모르는 번호로 한통의 문자가 왔다."/>
-    
+    <Field Who="독백" Message="모르는 번호로 한통의 문자가 왔다."/>  
     <Field Who="System" State="StartSE" Message="띠링"/>
     <Field Who="문자" Message="[사랑해♡]"/>
     <Field Who="나" Message="(누구지?)"/>
@@ -72,9 +79,10 @@
     <Field Who="택배기사" Message="ㅁㅁㅁ님 본인 맞으시죠? 여기 서명해주시면 됩니다."/>
     <Field Who="나" Message="아 예 여기요?"/>
     <Field Who="독백" Message="나는 박스에 서명하기위해 허리를 숙였다."/>
+    <Field Who="System" State="WaitSeconds" Message="10"/>
     <Field Who="System" State="ShowBGCG" Message="피"/>
     <Field Who="System" State="StartSE" Message="퍽"/>
-    <Field Who=" " State=" " Message=" "/>
+    <Field Message=" "/>
     <Field Who="System" State="HideBGCG"/>
 
     <Field Who="System" State="ShowBGCG" Message="거실"/>
@@ -175,8 +183,7 @@
     <Field Who="독백" Message="나는 연이가 잠들때까지 그녀의 경계심을 풀고 계속해서 정보를 수집했다."/>
     <Field Message="알아낸건 크게 세가지이다."/>
     <Field Who="독백" Message="첫째, 날 납치한 범인에 대한 정보이다."/>
-    <Field Message="그녀의 이름은 연이, 나이는.. 모르겠다. 오빠라 부르는걸 보면 연하같기도 하고..."/>
-    <Field Message="암튼... 이런걸 말하려는게 아니었는데."/>
+    <Field Message="그녀의 이름은 연이, 나이는.. 모르겠다. 오빠라 부르는걸 보면 연하같은데.."/>
     <Field Who="독백" Message="그녀는 나의 여자친구를 연기한다."/>
     <Field Message="난 그녀를 알지 못하지만, 그녀는 나에대해서 아주 잘 알고 오랬동안 관찰해온거같다."/>
     <Field Message="세간에서 말하는 스토커란 부류인거겠지.."/>

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayUIManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public CanvasGroup fadeBackground;
+    public CanvasGroup fadePanel;
     public GameObject currentPanel;
 
     
@@ -15,7 +15,8 @@ public class PlayUIManager : MonoBehaviour
     public Image getItemImage;
 
     public CanvasGroup dataWarningUI;
-    public Button actionButton;
+    public Button yesButton;
+    public Button noButton;
     public Text warningText;
 
     public static PlayUIManager instance;
@@ -24,6 +25,7 @@ public class PlayUIManager : MonoBehaviour
     {
         instance = this;
         FadeIn(() => { });
+        noButton.onClick.AddListener(() => { FadeOut(dataWarningUI); });
     }
 
     public void NoticeGetItem(string itemName)
@@ -45,30 +47,30 @@ public class PlayUIManager : MonoBehaviour
     public void NoticeDataWarning(string text, System.Action action)
     {
         warningText.text = text;
-        actionButton.onClick.RemoveAllListeners();
-        actionButton.onClick.AddListener(() => { action(); FadeOut(dataWarningUI); });
+        yesButton.onClick.RemoveAllListeners();
+        yesButton.onClick.AddListener(() => { action(); FadeOut(dataWarningUI); });
         FadeIn(dataWarningUI);
     }
     //인벤토리바에 아이템들 띄우기
 
     public void Move(GameObject area)
     {
-        fadeBackground.interactable = false;
+        fadePanel.interactable = false;
          FadeOut(() =>
          {
              currentPanel.SetActive(false);
              currentPanel = area;
              currentPanel.SetActive(true);
-             FadeIn(() => { fadeBackground.interactable = true;});
+             FadeIn(() => { fadePanel.interactable = true;});
          });
     }
     public void FadeIn(System.Action onEnd)
     {
-        StartCoroutine(DescendAlpha(fadeBackground,onEnd));
+        StartCoroutine(DescendAlpha(fadePanel,onEnd));
     }
     public void FadeOut(System.Action onEnd)
     {
-        StartCoroutine(AscendAlpha(fadeBackground, onEnd));
+        StartCoroutine(AscendAlpha(fadePanel, onEnd));
     }
     public void FadeIn(CanvasGroup fadeObject)
     {
@@ -88,7 +90,7 @@ public class PlayUIManager : MonoBehaviour
     }
     public void FadeOutForNextScene(string sceneName)
     {
-        StartCoroutine(AscendAlpha(fadeBackground, () => { SceneManager.LoadScene(sceneName);}));
+        StartCoroutine(AscendAlpha(fadePanel, () => { SceneManager.LoadScene(sceneName);}));
     }
 
     public IEnumerator AscendAlpha(CanvasGroup fadeObject, System.Action onEnd)

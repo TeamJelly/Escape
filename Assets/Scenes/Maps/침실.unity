@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2529,13 +2529,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143098300}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.0061086393, w: 0.99998134}
   m_LocalPosition: {x: 0.28, y: 1.8258, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1949788231}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.7}
 --- !u!114 &1143098303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2577,7 +2577,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.038740546, y: 0.13416672}
   m_SpriteTilingProperty:
     border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
     pivot: {x: 0.5, y: 0.5}
@@ -2588,7 +2588,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8847497, y: 5.5567913}
+  m_Size: {x: 2.0268967, y: 5.5095596}
   m_EdgeRadius: 0
 --- !u!1 &1207223307
 GameObject:
@@ -2885,12 +2885,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318675122}
   m_CullTransparentMesh: 0
---- !u!1 &1414649836 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5735541025162468108, guid: 516b4e282a3e42e498ab8fb739972f06,
-    type: 3}
-  m_PrefabInstance: {fileID: 6539430131264334908}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1471468477
 GameObject:
   m_ObjectHideFlags: 0
@@ -3569,7 +3563,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1636072850
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3773,7 +3767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10c944c0ead91f94b8323759be277213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questListObj: {fileID: 1414649836}
+  questListObj: {fileID: 0}
   questBoxPrefab: {fileID: 1869199418680819133, guid: fb635dd3cbee97f44a8535b95d3710cc,
     type: 3}
 --- !u!114 &1696365336

@@ -91,7 +91,7 @@ public class ChatSystem2 : MonoBehaviour
         messageList.Add(
             new MessageBox
             {
-                name = "주인공",
+                name = "독백",
                 state = "-",
                 message = message
             });
@@ -328,10 +328,7 @@ public class ChatSystem2 : MonoBehaviour
                 Debug.Log(messageList.Count - 1);
             }
         }
-
         ShowNext();
-        //        Debug.Log("----chatStart----");
-        //        Debug.Log("SkipCount:" + skipCount);
         InventoryUI.instance.DisableInventoryBar();
     }
 
@@ -376,7 +373,7 @@ public class ChatSystem2 : MonoBehaviour
     //인물 cg배치
     public void ShowSCG(string text)
     {
-        string[] charactors = text.Split(new string[] { ", " }, StringSplitOptions.None);
+        string[] charactors = text.Split(new string[] { "," }, StringSplitOptions.None);
         foreach (string charactor in charactors)
         {
             Debug.Log(charactorFinder[charactor].name);
@@ -393,7 +390,7 @@ public class ChatSystem2 : MonoBehaviour
     //인물 cg재배치
     public void GoSCG(string charactors)
     {
-        string[] result = charactors.Split(new string[] { ", " }, StringSplitOptions.None);
+        string[] result = charactors.Split(new string[] { "," }, StringSplitOptions.None);
         foreach (string charactor in result)
         {
             Transform t = charactorFinder[charactor].transform;
@@ -406,7 +403,7 @@ public class ChatSystem2 : MonoBehaviour
     //인물 cg숨기기
     public void HideSCG(string charactors)
     {
-        string[] result = charactors.Split(new string[] { ", " }, StringSplitOptions.None);
+        string[] result = charactors.Split(new string[] { "," }, StringSplitOptions.None);
         foreach (string charactor in result)
         {
             Transform t = charactorFinder[charactor].transform;
@@ -435,7 +432,6 @@ public class ChatSystem2 : MonoBehaviour
     {
         StartCoroutine(FadeOut(bgImage.GetComponent<CanvasGroup>(), () =>
         {
-            chatText.text = "";
             bgImage.sprite = Resources.Load("BGCG/" + name, typeof(Sprite)) as Sprite;
             StartCoroutine(FadeIn(bgImage.GetComponent<CanvasGroup>(), () => {ShowNext();}));
         }));
@@ -511,6 +507,20 @@ public class ChatSystem2 : MonoBehaviour
         skipCount++;
         HideAllSCG();
         //HideBGCG();
+    }
+
+    public void WaitSeconds(string text)
+    {
+        ShowNext();
+        StartCoroutine(NotInteractiveSeconds(float.Parse(text)));
+    }
+
+    IEnumerator NotInteractiveSeconds(float time)
+    {
+        thisUI.interactable = false;
+        yield return new WaitForSeconds(time);
+        thisUI.interactable = true;
+        ShowNext();
     }
 
     public void QuitGame()
