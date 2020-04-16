@@ -24,6 +24,7 @@ public class PlayUIManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        Debug.Log("PlayUIManager Awake");
         FadeIn(() => { });
         noButton.onClick.AddListener(() => { FadeOut(dataWarningUI); });
     }

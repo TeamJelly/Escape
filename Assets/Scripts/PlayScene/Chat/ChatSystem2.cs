@@ -106,35 +106,9 @@ public class ChatSystem2 : MonoBehaviour
 
     public void StartChat(string link, Action endFunc)
     {
-        chatText.text = "";
-        onEnd = endFunc;
-        currentIndex = -1;
-        messageList.Clear();
-        
-        TextAsset textAsset = (TextAsset)Resources.Load("ChatDB/" + link.Split('/')[0]);
-        XmlDocument xmlDoc = new XmlDocument();
-        xmlDoc.LoadXml(textAsset.text);
-        XmlNode chatList = xmlDoc.SelectSingleNode("Chat/" + link.Split('/')[1]);
-
-        foreach (XmlNode node in chatList.ChildNodes)
-        {
-            MessageBox box =
-                     new MessageBox
-                     {
-                         name = node.Attributes.GetNamedItem("Who") == null ? "-" : node.Attributes.GetNamedItem("Who").Value,
-                         state = node.Attributes.GetNamedItem("State") == null ? "-" : node.Attributes.GetNamedItem("State").Value,
-                         message = node.Attributes.GetNamedItem("Message") == null ? "-" : node.Attributes.GetNamedItem("Message").Value
-                     };
-            messageList.Add(box);
-            if (box.state == "Reset")
-            {
-                skipPoint.Add(messageList.Count - 1);
-                Debug.Log(messageList.Count - 1);
-            }
-        }
+        Go(link);
         Debug.Log("----chatStart----");
         Debug.Log("SkipCount:" + skipCount);
-        InventoryUI.instance.DisableInventoryBar();
         StartCoroutine(PlayUIManager.instance.AscendAlpha(thisUI, () =>
         {
             bgPanel.gameObject.SetActive(true);
@@ -303,16 +277,44 @@ public class ChatSystem2 : MonoBehaviour
 
     public void Go(string link)
     {
+        InventoryUI.instance.DisableInventoryBar();
+
         chatText.text = "";
         currentIndex = -1;
         messageList.Clear();
 
-        TextAsset textAsset = (TextAsset)Resources.Load("ChatDB/" + link.Split('/')[0]);
+        string[] Links = link.Split('/');
+
+        TextAsset textAsset = (TextAsset)Resources.Load("ChatDB/" + Links[0]);
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(textAsset.text);
-        XmlNode chatList = xmlDoc.SelectSingleNode("Chat/" + link.Split('/')[1]);
+        XmlNode chatList = xmlDoc.SelectSingleNode("Chat/" + Links[1]);
 
-        foreach (XmlNode node in chatList.ChildNodes)
+        int startNode = 0;
+
+        if (Links.Length == 3)
+            startNode = int.Parse(Links[2]);
+
+        for (int i = startNode; i < chatList.ChildNodes.Count; i++)
+        {
+            XmlNode node = chatList.ChildNodes.Item(i);
+            MessageBox box =
+                     new MessageBox
+                     {
+                         name = node.Attributes.GetNamedItem("Who") == null ? "-" : node.Attributes.GetNamedItem("Who").Value,
+                         state = node.Attributes.GetNamedItem("State") == null ? "-" : node.Attributes.GetNamedItem("State").Value,
+                         message = node.Attributes.GetNamedItem("Message") == null ? "-" : node.Attributes.GetNamedItem("Message").Value
+                     };
+            messageList.Add(box);
+            if (box.state == "Reset")
+            {
+                skipPoint.Add(messageList.Count - 1);
+                Debug.Log(messageList.Count - 1);
+            }
+
+        }
+
+/*        foreach (XmlNode node in chatList.ChildNodes)
         {
             MessageBox box =
                      new MessageBox
@@ -327,9 +329,8 @@ public class ChatSystem2 : MonoBehaviour
                 skipPoint.Add(messageList.Count - 1);
                 Debug.Log(messageList.Count - 1);
             }
-        }
+        }*/
         ShowNext();
-        InventoryUI.instance.DisableInventoryBar();
     }
 
     public void MakeSelection(string text)

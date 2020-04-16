@@ -47,7 +47,10 @@ public class MenuUIManager : MonoBehaviour
 
         OptionButton?.onClick.AddListener(() => { });
 
-        ExitButton?.onClick.AddListener(() => { Application.Quit(); });
+        ExitButton?.onClick.AddListener(() => {
+            //Application.Quit(); 
+            PlayUIManager.instance.FadeOutForNextScene("MainScene");
+        });
 
         BackButton?.onClick.AddListener(() => { DisableMenu(); });
     }

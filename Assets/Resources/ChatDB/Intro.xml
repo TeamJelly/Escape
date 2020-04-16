@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Chat>
   <Z>
-
     <Field Who="System" State="ShowBGCG" Message="자취방 현관"/>
     <Field Who="나" Message="(하아…. 심심해…)"/>
-    <Field Who="System" State="WaitSeconds" Message="2"/>
-
-    <Field Who="System" State="MakeSelection" Message="A. 인트로 시작:Intro/A"/>
+    <Field Who="System" State="MakeSelection" Message="A. 인트로 시작:Intro/A/19"/>
     <Field Who="System" State="MakeSelection" Message="B. 인트로 끝:Intro/ZZ"/>
     <Field Who="System" State="ShowSelection"/>
   </Z>
@@ -18,8 +15,6 @@
   <A>
     <Field Who="System" State="ShowBGCG" Message="자취방 현관"/>
     <Field Who="나" Message="(하아…. 심심해…)"/>
-    <Field Who="System" State="WaitSeconds" Message="2"/>
-    <Field Message=" "/>
 
     <Field Who="독백" Message="딱히 의미도 없이 유X브 추천영상만 주구장창 보고있던 어느 토요일 낮"/>
     <Field Who="독백" Message="모르는 번호로 한통의 문자가 왔다."/>  
