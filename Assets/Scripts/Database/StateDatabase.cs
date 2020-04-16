@@ -5,11 +5,9 @@ using System;
 using System.IO;
 using System.Xml;
 
-
-enum QuestType {낮,밤};
+//enum QuestType {낮,밤};
 public static class StateDatabase
 {
-
     public static State[] SList = new State[100];
 
     static Dictionary<string, State> dictionary = new Dictionary<string, State>();
@@ -20,9 +18,9 @@ public static class StateDatabase
         {
             if(state != null&& !dictionary.ContainsKey(state.title))
             dictionary.Add(state.title, state);
-
         }
     }
+
     static void Interpret(string _strSource)
     {
         TextAsset textAsset = (TextAsset)Resources.Load(_strSource);
@@ -38,9 +36,9 @@ public static class StateDatabase
                 //description = node.Attributes.GetNamedItem("description").Value,
                 ID = id
             };
-
         }
     }
+
     public static State GetStateWithID(int ID)
     {
         return SList[ID];

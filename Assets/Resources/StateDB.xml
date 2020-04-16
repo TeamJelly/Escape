@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <State>
- <Field id="0" title="[현관 진입]" />
+ <Field id="0" title="[게임 시작]" />
  <Field id="1" title="[연이방 열기]"/>
  <Field id="2" title="[현관 문의 4가지 잠금장치]" />
  <Field id="3" title="[첫번째 자물쇠]" />

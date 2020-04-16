@@ -9,6 +9,7 @@
   </Z>
 
   <A>
+    <Field Who="나" Message="(하아…. 심심해…)"/>
     <Field Who="System" State="ShowBGCG" Message="자취방 현관"/>
     <Field Who="나" Message="(하아…. 심심해…)"/>
 
@@ -133,7 +134,6 @@
     <Field Who="System" State="MakeSelection" Message="B. 기억상실인 척하며 여자의 장단에 맞춰준다.:Intro/D"/>
     <Field Who="System" State="ShowSelection"/>
   </B>
-  
   
   <C>
     <Field Who="독백" Message="나는 벌써 2번이나 기절했다."/>

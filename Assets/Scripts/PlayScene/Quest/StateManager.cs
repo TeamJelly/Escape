@@ -8,7 +8,9 @@ public class StateManager : MonoBehaviour
     public GameObject questListObj;
     public GameObject questBoxPrefab;
     public static StateManager instance;
+
     Dictionary<string, System.Action> onEndQuest = new Dictionary<string, System.Action>();
+
     private void Awake()
     {
         instance = this;
@@ -26,7 +28,7 @@ public class StateManager : MonoBehaviour
         DataManager.GetData().events[StateDatabase.GetStateWithTitle(s).ID] = 2;
     }
 
-    public void EnableYunEncount()
+    public void EnableEncount()
     {
         EnableState("[연이 출몰_침실]");
         EnableState("[연이 출몰_다용도실]");
@@ -34,6 +36,7 @@ public class StateManager : MonoBehaviour
         EnableState("[연이 출몰_연이방]");
         EnableState("[연이 출몰_현관]");
     }
+
         /*
      
    public void InitQuestList()

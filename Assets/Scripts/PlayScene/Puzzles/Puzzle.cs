@@ -18,6 +18,7 @@ public abstract class Puzzle : MonoBehaviour
     {
 
         InitPuzzle();
+
         if (PuzzleDatabase.GetPuzzleState(puzzleName) == 2)
         {
             OnDisable.Invoke();

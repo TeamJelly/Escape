@@ -44,4 +44,3 @@ public class Interactor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     }
     
 }
-
