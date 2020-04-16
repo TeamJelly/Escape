@@ -12,10 +12,11 @@ public class TitleManager : MonoBehaviour
     public GameObject white_particle;
     public GameObject dark_particle;
 
-    public GameObject TitleText;
+    public Text [] UITexts;
     public Camera _camera;
-    
-    Color blue = new Color(0, 98, 98);
+
+    Color pink = new Color(1f, 0.6f, 0.6f);
+    Color blue = new Color(0, 0.6f, 0.6f);
 
     bool isWhite = true;
 
@@ -36,8 +37,9 @@ public class TitleManager : MonoBehaviour
     public void SetBlackTheme()
     {
         isWhite = false;
+        foreach(Text text in UITexts)
+            text.GetComponent<Text>().color = blue;
         _camera.backgroundColor = Color.black;
-        TitleText.GetComponent<Image>().color = blue;
         dark_particle.SetActive(true);
         white_particle.SetActive(false);
     }
@@ -45,8 +47,9 @@ public class TitleManager : MonoBehaviour
     public void SetWhiteTheme()
     {
         isWhite = true;
+        foreach (Text text in UITexts)
+            text.GetComponent<Text>().color = pink;
         _camera.backgroundColor = Color.white;
-        TitleText.GetComponent<Image>().color = Color.white;
         dark_particle.SetActive(false);
         white_particle.SetActive(true);
     }

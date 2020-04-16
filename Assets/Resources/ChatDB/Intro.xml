@@ -3,15 +3,11 @@
   <Z>
     <Field Who="System" State="ShowBGCG" Message="자취방 현관"/>
     <Field Who="나" Message="(하아…. 심심해…)"/>
-    <Field Who="System" State="MakeSelection" Message="A. 인트로 시작:Intro/A/19"/>
-    <Field Who="System" State="MakeSelection" Message="B. 인트로 끝:Intro/ZZ"/>
+    <Field Who="System" State="MakeSelection" Message="A. 인트로 시작:Intro/A"/>
+    <Field Who="System" State="MakeSelection" Message="B. 인트로 끝:Intro/D/31"/>
     <Field Who="System" State="ShowSelection"/>
   </Z>
 
-  <ZZ>
-    <Field Who="나" Message="게임 시작"/>
-  </ZZ>
-  
   <A>
     <Field Who="System" State="ShowBGCG" Message="자취방 현관"/>
     <Field Who="나" Message="(하아…. 심심해…)"/>
@@ -170,8 +166,6 @@
     <Field Message="기억나지 않는다 해도 내가 하나부터 열까지 천천히 알려줄게!"/>
     <Field Message="내 이름은 연이! 오빠의 여자친구야!"/>
     <Field Who="독백" Message="그녀는 정말로 기뻐하는 표정이었다."/>
-
-
     <Field Who="연이" Message="쿨..."/>
     <Field Who="나" Message="이제야 잠들었구나.."/>
     <Field Who="System" State="StartBGM" Message="물음표"/>
