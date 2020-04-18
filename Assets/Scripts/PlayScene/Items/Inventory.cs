@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-
-    public GameObject InventoryItemList;
-    public GameObject InventoryBar;
-    public GameObject ItemBoxPrefab;
+//    public GameObject InventoryItemList;
+//    public GameObject InventoryBar;
+//    public GameObject ItemBoxPrefab;
     
     public static Inventory instance;
 
     public string selectedItem;
     public System.Action interactMethod;
     Dictionary<string, GameObject> objFinder = new Dictionary<string, GameObject>();
+
     public void Awake()
     {
         instance = this;
@@ -23,7 +23,8 @@ public class Inventory : MonoBehaviour
     {
         PlayUIManager.instance.NoticeGetItem(itemName);
         AddItem(itemName);
-        DataManager.GetData().items[ItemDatabase.GetItemWithName(itemName).ID] = 1;
+        //        DataManager.GetData().items[ItemDatabase.GetItemWithName(itemName).ID] = 1;
+        DataManager.GetData().states[itemName + "획득"] = true;
         DataManager.Save_Auto();
     }
     public void AddItem(int itemID)
@@ -61,8 +62,5 @@ public class Inventory : MonoBehaviour
         DataManager.Save_Auto();
         Destroy(objFinder[item.itemName]);
         objFinder.Remove(item.itemName);
-    }
-
-    
-    
+    }    
 }

@@ -17,7 +17,7 @@ public class PuzzleManager : MonoBehaviour
         foreach (GameObject g in puzzles)
         {
             Puzzle p = g.GetComponent<Puzzle>();
-            puzzleFinder.Add(p.puzzleName, p);
+            puzzleFinder.Add(p.PuzzleName, p);
         }
     }
     public Puzzle GetPuzzleWithName(string name)
@@ -33,10 +33,10 @@ public class PuzzleManager : MonoBehaviour
         }
         Puzzle p = GetPuzzleWithName(name);
         if (currentPuzzle == p) return;
-        if (currentPuzzle != null) currentPuzzle.thisUI.gameObject.SetActive(false);
+//        if (currentPuzzle != null) currentPuzzle.thisUI.gameObject.SetActive(false);
         currentPuzzle = p;
         PuzzleDatabase.SetPuzzleState(name, 1);
-        p.EnablePuzzle();
+//        p.EnablePuzzle();
         
     }
     

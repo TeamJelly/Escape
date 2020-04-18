@@ -20,6 +20,7 @@ public class P_Lantern : Puzzle
 
     public override void InitPuzzle()
     {
+        /*
         OnEnd.AddListener(() => { OnDisable.Invoke(); });
         OnDisable.AddListener(() => 
         {
@@ -38,7 +39,8 @@ public class P_Lantern : Puzzle
                 secondPanel.SetActive(false);
                 thirdPanel.SetActive(false);
             }
-        });
+        });*/
+
         /***********************뚜껑따기************************/
         lid.onClick.AddListener(() =>
         {
@@ -75,10 +77,9 @@ public class P_Lantern : Puzzle
 
         lidInteractor.OnEnd.AddListener(() =>
         {
-            
             ChatSystem2.instance.Monologue("좋아, 됬다.");
-            OnEnd.Invoke();
-            PuzzleDatabase.SetPuzzleState(puzzleName,2);
+            //OnEnd.Invoke();
+            PuzzleDatabase.SetPuzzleState(PuzzleName,2);
             DataManager.Save_Auto();
         });
 
@@ -86,7 +87,7 @@ public class P_Lantern : Puzzle
     }
     public new void ExitPuzzle()
     {
-        base.ExitPuzzle();
+//        base.ExitPuzzle();
         if (!complete)
         {  
             if(usedBattery)

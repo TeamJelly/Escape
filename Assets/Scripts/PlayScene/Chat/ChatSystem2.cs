@@ -78,6 +78,7 @@ public class ChatSystem2 : MonoBehaviour
         StartCoroutine(PlayUIManager.instance.AscendAlpha(thisUI, () =>
         {
             ShowNext();
+            nextButton.onClick.RemoveAllListeners();
             nextButton.onClick.AddListener(ShowNext);
         }));
     }
@@ -100,12 +101,13 @@ public class ChatSystem2 : MonoBehaviour
         StartCoroutine(PlayUIManager.instance.AscendAlpha(thisUI, () =>
         {
             ShowNext();
+            nextButton.onClick.RemoveAllListeners();
             nextButton.onClick.AddListener(ShowNext);
         }));
     }
     public void Go(string link)
     {
-        InventoryUI.instance.DisableInventoryBar();
+        InventoryManager.instance.DisableInventoryBar();
 
         chatText.text = "";
         currentIndex = -1;
@@ -141,7 +143,15 @@ public class ChatSystem2 : MonoBehaviour
             }
 
         }
-        ShowNext();
+
+        StartCoroutine(PlayUIManager.instance.AscendAlpha(thisUI, () =>
+        {
+            bgPanel.gameObject.SetActive(true);
+            thisUI.gameObject.SetActive(true);
+            ShowNext();
+            nextButton.onClick.RemoveAllListeners();
+            nextButton.onClick.AddListener(ShowNext);
+        }));
     }
 
     public void StartChat(string link, Action endFunc)
@@ -151,14 +161,17 @@ public class ChatSystem2 : MonoBehaviour
         Go(link);
         Debug.Log("----chatStart----");
         Debug.Log("SkipCount:" + skipCount);
-        StartCoroutine(PlayUIManager.instance.AscendAlpha(thisUI, () =>
+/*        StartCoroutine(PlayUIManager.instance.AscendAlpha(thisUI, () =>
         {
             bgPanel.gameObject.SetActive(true);
             thisUI.gameObject.SetActive(true);
             ShowNext();
             skipButton.onClick.AddListener(SkipChat);
+
+            nextButton.onClick.RemoveAllListeners();
+
             nextButton.onClick.AddListener(ShowNext);
-        }));
+        }));*/
     }
 
     IEnumerator TypingAnimation(string text)
@@ -174,6 +187,7 @@ public class ChatSystem2 : MonoBehaviour
 
     public void ShowNext()
     {
+//        Debug.Log("ShowNext");
         currentIndex++;
         //현재 쳐지고 있는 텍스트 있으면 완성시키고 종료
         if (isTypeCoroutineRunning)
@@ -277,7 +291,7 @@ public class ChatSystem2 : MonoBehaviour
             if (currentCharactor != null)
                 currentCharactor.gameObject.SetActive(false);
             chatText.text = "";
-            InventoryUI.instance.EnableInventoryBar();
+            InventoryManager.instance.EnableInventoryBar();
             bgImage.GetComponent<CanvasGroup>().alpha = 0;
             onEnd?.Invoke();
         }));

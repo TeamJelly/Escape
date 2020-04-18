@@ -21,21 +21,21 @@ public class P_DigitDoor : Puzzle
     string passwd = "한글로 Hello World!";
     public override void InitPuzzle()
     {
-        if (PuzzleDatabase.GetPuzzleState(puzzleName) == 3)
+        if (PuzzleDatabase.GetPuzzleState(PuzzleName) == 3)
         {
             hint.text = "힌트 : 초기화 비밀번호";
             passwd = "0000";
         }
-        OnEnd.AddListener(()=>
+        /*OnEnd.AddListener(()=>
         {
-            PuzzleDatabase.SetPuzzleState(puzzleName, 2);
+            PuzzleDatabase.SetPuzzleState(PuzzleName, 2);
             DataManager.Save_Auto();
             OnDisable.Invoke();
         });
         OnDisable.AddListener(() =>
         {
             unlockMessage.SetActive(true);
-        });
+        });*/
 
         submitButton.onClick.AddListener(Check_Input);
         resetPasswdButton.onClick.AddListener(Check_Hint);
@@ -49,7 +49,7 @@ public class P_DigitDoor : Puzzle
         inputHint3.text = "";
         resetPage.SetActive(false);
         errorMessage.SetActive(false);
-        base.EnablePuzzle();
+//        base.EnablePuzzle();
     }
 
     void Check_Input()
@@ -60,7 +60,7 @@ public class P_DigitDoor : Puzzle
         }
         else if (inputPasswd.text == passwd)
         {
-            OnEnd.Invoke();
+            //OnEnd.Invoke();
         }
         else
         {
@@ -75,7 +75,7 @@ public class P_DigitDoor : Puzzle
             inputHint2.text == "카레" &&
             inputHint3.text == "오빠")
         {
-            PuzzleDatabase.SetPuzzleState(puzzleName, 3);
+            PuzzleDatabase.SetPuzzleState(PuzzleName, 3);
             DataManager.Save_Auto();
             hint.text = "힌트 : 초기화 비밀번호";
             passwd = "0000";

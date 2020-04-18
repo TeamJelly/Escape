@@ -10,8 +10,7 @@ public static class DataManager
     // Start is called before the first frame update
     public static PlayerData currentData = null;
     public static bool dataExist = false; // 메인화면에서 load 버튼 활성화 여부 판단.
-
-    
+  
     public static PlayerData GetData()
     {
         if (currentData == null)
@@ -73,11 +72,32 @@ public static class DataManager
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public static void InitDatabases()
     {
+        GetData();
         //DataManager.Load();
         StateDatabase.InitStateLists();
         ItemDatabase.InitItemList();
         SpeechBaloonManager.InitDialogList();
         PuzzleDatabase.InitPuzzleList();
+
+        currentData.states = new Dictionary<string, bool>()
+        {
+            {"인트로시작", false},
+            {"인트로다봄", false},
+
+            {"고양이획득", false},
+            {"고양이소모", false},
+
+            {"손전등획득", false},
+            {"손전등소모", false},
+
+            {"건전지획득", false},
+            {"건전지소모", false},
+
+            {"베개바꾸기퍼즐완료", false},
+            {"손전등조립퍼즐완료", false}
+
+        };
+
         Debug.Log("Initialized finish");
     }
 
@@ -90,12 +110,16 @@ public class PlayerData
     public int[] puzzles = new int[100]; 
     public int[] dialogs = new int[100]; 
     public int[] events = new int[100]; //0은 발견되지 않음; 1은 발견 및 수집된 상태; 2는 완료되었거나 소진된 상태.
+    public Dictionary<string, bool> states = new Dictionary<string, bool>();
+
     public PlayerData()
     {
         Array.Clear(items, 0, items.Length);
         Array.Clear(dialogs, 0, dialogs.Length);
         Array.Clear(events, 0, events.Length);
         Array.Clear(puzzles, 0, puzzles.Length);
+        states.Clear();
+
         dialogs[0] = 1;
         
     }

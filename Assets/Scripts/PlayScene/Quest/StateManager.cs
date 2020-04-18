@@ -9,7 +9,7 @@ public class StateManager : MonoBehaviour
     public GameObject questBoxPrefab;
     public static StateManager instance;
 
-    Dictionary<string, System.Action> onEndQuest = new Dictionary<string, System.Action>();
+//    Dictionary<string, System.Action> onEndQuest = new Dictionary<string, System.Action>();
 
     private void Awake()
     {

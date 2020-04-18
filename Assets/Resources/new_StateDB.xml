@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<State>
+  <Field title="인트로시작"/>
+  <Field title="인트로다봄"/>
+
+  <Field title="고양이획득"/>
+  <Field title="고양이사용"/>
+
+  <Field title="손전등획득"/>
+  <Field title="손전등사용"/>
+  
+  <Field title="건전지획득"/>
+  <Field title="건전지사용"/>
+
+</State>

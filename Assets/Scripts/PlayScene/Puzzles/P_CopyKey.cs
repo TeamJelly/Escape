@@ -15,7 +15,7 @@ public class P_CopyKey : Puzzle
     public override void InitPuzzle()
     {
 
-        OnEnd.AddListener(() => { DisablePuzzle(); });
+//        OnEnd.AddListener(() => { DisablePuzzle(); });
 
 
         interactor1.condition = Condition1;
@@ -94,7 +94,7 @@ public class P_CopyKey : Puzzle
             Inventory.instance.SubItem("주민등록증");
             Inventory.instance.GetItem("복제된 열쇠");
             complete = true;
-            OnEnd.Invoke();
+//            OnEnd.Invoke();
         });
         /**********************************************************/
 
@@ -121,7 +121,7 @@ public class P_CopyKey : Puzzle
 
     public new void ExitPuzzle()
     {
-        base.ExitPuzzle();
+//        base.ExitPuzzle();
         if (!complete)
         {
             interactor3.gameObject.SetActive(false);

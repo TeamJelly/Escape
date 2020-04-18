@@ -5,63 +5,45 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class Slot : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
 {
-    public Transform itemImage;
-    public Text itemText;
-    Item item;
-    string puzzleName;
+    public GameObject PopUp;
+    public Transform imageTransform;
 
-    public int GetItemID()
+    private void Start()
     {
-        return item.ID;
-    }
-    public string GetItemName()
-    {
-        return item.itemName;
-    }
-    public void Init(Item i)
-    {
-        item = i;
-        string itemName = ItemDatabase.GetItemWithID(item.ID).itemName;
-        Sprite sprite = Resources.Load("Item/" + itemName, typeof(Sprite)) as Sprite;
-        itemImage.GetComponent<Image>().sprite = sprite;
+        Sprite sprite = imageTransform.gameObject.GetComponent<Image>().sprite;
         if (sprite != null)
         {
-            RectTransform newSize = (RectTransform)itemImage;
+            RectTransform newSize = (RectTransform)imageTransform;
             Vector2 spriteSize = sprite.rect.size;
             if (spriteSize.x > spriteSize.y)
-            {
                 newSize.sizeDelta = new Vector2(180, spriteSize.y / spriteSize.x * 180);
-            }
-            else newSize.sizeDelta = new Vector2(spriteSize.x / spriteSize.y * 180, 180);
-            itemText.gameObject.SetActive(false);
+            else
+                newSize.sizeDelta = new Vector2(spriteSize.x / spriteSize.y * 180, 180);
         }
-        else itemText.text = i.itemName;
     }
+
     public void OnDrag(PointerEventData data)
     {
-        itemImage.position = data.position;
+        imageTransform.position = data.position;
     }
-    public void DropItem()
-    {
 
-    }
     public void OnPointerDown(PointerEventData eventData)
     {
-        Inventory.instance.selectedItem = item.itemName;
-        itemImage.SetParent(itemImage.parent.parent.parent.parent);
+        InventoryManager.instance.currentSelectItem = gameObject.name;
+        imageTransform.SetParent(transform.parent.parent.parent.parent);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        Inventory.instance.selectedItem = " ";
-        itemImage.SetParent(this.transform);
-        itemImage.localPosition = Vector3.zero;
-        Inventory.instance.interactMethod?.Invoke();
-        Inventory.instance.interactMethod = null;
+        InventoryManager.instance.currentSelectItem = "";
+        imageTransform.SetParent(transform);
+        imageTransform.localPosition = Vector3.zero;
     }
+
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        PuzzleManager.instance.StartPuzzleWithName(item.puzzle);
+        if (!PlayUIManager.instance.PopUpPanel.activeSelf)
+            PlayUIManager.instance.SetPopUp(PopUp);
     }
 }

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Chat>
   <Z>
-    <Field Who="System" State="ShowBGCG" Message="자취방 현관"/>
-    <Field Who="나" Message="(하아…. 심심해…)"/>
     <Field Who="System" State="MakeSelection" Message="A. 인트로 시작:Intro/A"/>
     <Field Who="System" State="MakeSelection" Message="B. 인트로 끝:Intro/D/31"/>
     <Field Who="System" State="ShowSelection"/>
   </Z>
 
-  <A>
+  <Test>
+    <Field Who="연이" Message="음냐음냐.."/>
+    <Field Who="나" Message="잘도 자는구만"/>
+  </Test>
+    <A>
     <Field Who="나" Message="(하아…. 심심해…)"/>
     <Field Who="System" State="ShowBGCG" Message="자취방 현관"/>
     <Field Who="나" Message="(하아…. 심심해…)"/>

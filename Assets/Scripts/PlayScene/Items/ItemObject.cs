@@ -45,6 +45,7 @@ public class ItemObject : MonoBehaviour //맵상에 배치되는 아이템정보
         foreach (GameObject img in images)
         {
             img.SetActive(false);
+            Debug.Log("disableitem : " + img.name);
         }
         //gameObject.SetActive(false);
     }
@@ -54,6 +55,7 @@ public class ItemObject : MonoBehaviour //맵상에 배치되는 아이템정보
         foreach (GameObject img in images)
         {
             img.SetActive(true);
+            Debug.Log("enableitem : " + img.name);
         }
         //gameObject.SetActive(true);
     }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Items>
-	<Field id="0" name="고랑이" puzzle="-"/>
+	<Field id="0" name="고양이" puzzle="-"/>
   <Field id="1" name="손전등" puzzle="손전등 조립"/>
   <Field id="2" name="건전지" puzzle="-"/>
 	<Field id="3" name="트럼프" puzzle="-"/>

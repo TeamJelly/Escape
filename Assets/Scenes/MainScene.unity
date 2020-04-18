@@ -12865,13 +12865,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadePanel: {fileID: 282439953}
-  currentPanel: {fileID: 1388126653}
+  PopUpPanel: {fileID: 0}
+  PopUpBackButton: {fileID: 0}
   noticeGetItemUI: {fileID: 0}
   getItemImage: {fileID: 0}
-  dataWarningUI: {fileID: 1866084762}
-  yesButton: {fileID: 1510126571}
-  noButton: {fileID: 1266479237}
-  warningText: {fileID: 909765022}
+  WarningUI: {fileID: 1866084762}
+  WarningYesButton: {fileID: 1510126571}
+  WarningNoButton: {fileID: 1266479237}
+  WarningText: {fileID: 909765022}
 --- !u!4 &2045726173
 Transform:
   m_ObjectHideFlags: 0

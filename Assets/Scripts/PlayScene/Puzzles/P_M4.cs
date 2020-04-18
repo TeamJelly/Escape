@@ -15,7 +15,7 @@ public class P_M4 : Puzzle // 비밀번호 자물쇠 퍼즐
     public int[] answer = new int[4]; // 정답
     private void Awake()
     {
-        OnEnd.AddListener(() =>
+        /*OnEnd.AddListener(() =>
         {
             OnDisable.Invoke();
         });
@@ -29,7 +29,7 @@ public class P_M4 : Puzzle // 비밀번호 자물쇠 퍼즐
             }
 
             unlockMessage.SetActive(true);
-        });
+        });*/
 
     }
     public override void InitPuzzle()
@@ -52,7 +52,7 @@ public class P_M4 : Puzzle // 비밀번호 자물쇠 퍼즐
     {
         if (vals[0] == answer[0] && vals[1] == answer[1] && vals[2] == answer[2] && vals[3] == answer[3])
         {
-            OnEnd.Invoke();
+            //OnEnd.Invoke();
         }           
     }
 

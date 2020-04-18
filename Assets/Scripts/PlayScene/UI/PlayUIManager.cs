@@ -8,16 +8,18 @@ public class PlayUIManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public CanvasGroup fadePanel;
-    public GameObject currentPanel;
+    //    public GameObject currentPanel;
+    public GameObject PopUpPanel;
+    public GameObject PopUpContent;
+    public Button PopUpBackButton;
 
-    
     public CanvasGroup noticeGetItemUI;
     public Image getItemImage;
 
-    public CanvasGroup dataWarningUI;
-    public Button yesButton;
-    public Button noButton;
-    public Text warningText;
+    public CanvasGroup WarningUI;
+    public Button WarningYesButton;
+    public Button WarningNoButton;
+    public Text WarningText;
 
     public static PlayUIManager instance;
 
@@ -26,7 +28,32 @@ public class PlayUIManager : MonoBehaviour
         instance = this;
         Debug.Log("PlayUIManager Awake");
         FadeIn(() => { });
-        noButton.onClick.AddListener(() => { FadeOut(dataWarningUI); });
+        WarningNoButton.onClick.AddListener(() => { FadeOut(WarningUI); });
+    }
+
+    public void SetPopUp(GameObject PopUpObject)
+    {
+        Transform parentTransform =  PopUpObject.transform.parent;
+        PopUpObject.transform.SetParent(PopUpContent.transform, false);
+
+        Sprite sprite = PopUpObject.GetComponent<Image>().sprite;
+        RectTransform newSize = (RectTransform)PopUpObject.transform;
+        Vector2 spriteSize = sprite.rect.size;
+        if (spriteSize.x > spriteSize.y)
+            newSize.sizeDelta = new Vector2(1320, spriteSize.y / spriteSize.x * 1320);
+        else
+            newSize.sizeDelta = new Vector2(spriteSize.x / spriteSize.y * 720, 720);
+
+        PopUpObject.SetActive(true);
+        FadeIn(PopUpPanel.GetComponent<CanvasGroup>());
+
+        PopUpBackButton.onClick.AddListener(() => {
+            FadeOut(PopUpPanel.GetComponent<CanvasGroup>(), () => {
+                PopUpObject.transform.SetParent(parentTransform, false);
+                PopUpObject.SetActive(false);
+                PopUpBackButton.onClick.RemoveAllListeners();
+            });
+        });
     }
 
     public void NoticeGetItem(string itemName)
@@ -47,14 +74,13 @@ public class PlayUIManager : MonoBehaviour
 
     public void NoticeDataWarning(string text, System.Action action)
     {
-        warningText.text = text;
-        yesButton.onClick.RemoveAllListeners();
-        yesButton.onClick.AddListener(() => { action(); FadeOut(dataWarningUI); });
-        FadeIn(dataWarningUI);
+        WarningText.text = text;
+        WarningYesButton.onClick.RemoveAllListeners();
+        WarningYesButton.onClick.AddListener(() => { action(); FadeOut(WarningUI); });
+        FadeIn(WarningUI);
     }
     //인벤토리바에 아이템들 띄우기
-
-    public void Move(GameObject area)
+    /*public void Move(GameObject area)
     {
         fadePanel.interactable = false;
          FadeOut(() =>
@@ -64,14 +90,11 @@ public class PlayUIManager : MonoBehaviour
              currentPanel.SetActive(true);
              FadeIn(() => { fadePanel.interactable = true;});
          });
-    }
-    public void FadeIn(System.Action onEnd)
+    }*/
+
+    public void FadeIn(System.Action onEnd) //어둡게 시작함
     {
         StartCoroutine(DescendAlpha(fadePanel,onEnd));
-    }
-    public void FadeOut(System.Action onEnd)
-    {
-        StartCoroutine(AscendAlpha(fadePanel, onEnd));
     }
     public void FadeIn(CanvasGroup fadeObject)
     {
@@ -80,8 +103,21 @@ public class PlayUIManager : MonoBehaviour
         fadeObject.gameObject.SetActive(true);
         StartCoroutine(AscendAlpha(fadeObject,() => { fadeObject.interactable = true; }));
     }
+    public void FadeIn(CanvasGroup fadeObject, System.Action onEnd)
+    {
+        fadeObject.alpha = 0;
+        fadeObject.interactable = false;
+        fadeObject.gameObject.SetActive(true);
+        StartCoroutine(AscendAlpha(fadeObject, () => { fadeObject.interactable = true; onEnd();}));
+    }
+
+    public void FadeOut(System.Action onEnd) //어둡게 끝남
+    {
+        StartCoroutine(AscendAlpha(fadePanel, onEnd));
+    }
     public void FadeOut(CanvasGroup fadeObject)
     {
+        fadeObject.alpha = 1;
         fadeObject.interactable = false;
         StartCoroutine(DescendAlpha(fadeObject, () => 
         { 
@@ -89,6 +125,19 @@ public class PlayUIManager : MonoBehaviour
             fadeObject.interactable = true; 
         }));
     }
+    public void FadeOut(CanvasGroup fadeObject, System.Action onEnd)
+    {
+        fadeObject.alpha = 1;
+        fadeObject.interactable = false;
+        StartCoroutine(DescendAlpha(fadeObject, () =>
+        {
+            fadeObject.gameObject.SetActive(false);
+            fadeObject.interactable = true;
+            onEnd();
+        }));
+    }
+
+
     public void FadeOutForNextScene(string sceneName)
     {
         StartCoroutine(AscendAlpha(fadePanel, () => { SceneManager.LoadScene(sceneName);}));

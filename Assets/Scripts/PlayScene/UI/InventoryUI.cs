@@ -22,7 +22,7 @@ public class InventoryUI : MonoBehaviour
 
         RectTransform rect = (RectTransform)newItemBox.transform;
         rect.localScale = Vector2.one;
-        newItemBox.GetComponent<Slot>().Init(item);
+//        newItemBox.GetComponent<Slot>().Init(item);
         return newItemBox;
     }
     public void EnableInventoryBar()

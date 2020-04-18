@@ -59,14 +59,14 @@ public class MenuUIManager : MonoBehaviour
     {
         if (thisUI.isActiveAndEnabled == false)
         {
-            BackgroundManager.instance.isPaused = true;
+//            BackgroundManager.instance.isPaused = true;
             PlayUIManager.instance.FadeIn(thisUI);
         }
     }
 
     public void DisableMenu()
     {
-        BackgroundManager.instance.isPaused = false;
+//        BackgroundManager.instance.isPaused = false;
         PlayUIManager.instance.FadeOut(thisUI);
     }
 

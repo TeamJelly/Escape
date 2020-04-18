@@ -20,13 +20,13 @@ public class BackgroundManager : MonoBehaviour
     {
         instance = this;
         data = DataManager.GetData();
-
     }
+
     private void Start()
     {
         
-        InitItems();
-        DataManager.Save_Auto();
+//        InitItems();
+//        DataManager.Save_Auto();
         //if (data.events[0] == 0)
         //{
         //    DataManager.Save();          
