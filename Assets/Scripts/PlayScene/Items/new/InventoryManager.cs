@@ -39,35 +39,17 @@ public class InventoryManager : MonoBehaviour
     public void GetItem(string itemName)
     {
         PlayUIManager.instance.NoticeGetItem(itemName);
-
-        foreach(GameObject item in AllSlotList)
-        {
-            if (item.name == itemName)
-            {
-                DataManager.GetData().states[itemName + "획득"] = true;
-                Debug.Log(item.name + "획득!!");
-                UpdateInventory();
-                DataManager.Save_Auto();
-                break;
-            } 
-            else
-                Debug.LogError(itemName + "의 이름을 가진 아이템이 없습니다.");
-        }
+        DataManager.GetData().states[itemName + "획득"] = true;
+        UpdateInventory();
+        DataManager.Save_Auto();
     }
 
     public void LoseItem(string itemName)
     {
-        foreach (GameObject item in AllSlotList)
-        {
-            if (item.name == itemName)
-            {
-                DataManager.GetData().states[itemName + "소모"] = true;
-                Debug.Log(item.name + "소모!!");
-                UpdateInventory();
-                DataManager.Save_Auto();
-                break;
-            }
-        }
+        DataManager.GetData().states[itemName + "소모"] = true;
+        Debug.Log(itemName + "소모!!");
+        UpdateInventory();
+        DataManager.Save_Auto();
     }
 
     public void disableSlot(string itemName)
