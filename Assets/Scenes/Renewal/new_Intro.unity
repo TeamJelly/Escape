@@ -542,6 +542,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5553528112356406912, guid: 516b4e282a3e42e498ab8fb739972f06,
+        type: 3}
+      propertyPath: PopUp
+      value: 
+      objectReference: {fileID: 1659854933}
     - target: {fileID: 6539430131899190660, guid: 516b4e282a3e42e498ab8fb739972f06,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -657,8 +662,8 @@ PrefabInstance:
       propertyPath: m_BlocksRaycasts
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: [{fileID: 7853929860020117200, guid: 516b4e282a3e42e498ab8fb739972f06,
-        type: 3}]
+    m_RemovedComponents:
+    - {fileID: 7853929860020117200, guid: 516b4e282a3e42e498ab8fb739972f06, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 516b4e282a3e42e498ab8fb739972f06, type: 3}
 --- !u!224 &483268779 stripped
 RectTransform:
