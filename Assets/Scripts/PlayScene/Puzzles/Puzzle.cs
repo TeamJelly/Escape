@@ -9,7 +9,10 @@ public abstract class Puzzle : MonoBehaviour
 
     public void Awake()
     {
-        if (DataManager.GetData().states[PuzzleName + "완료"])
+        Debug.Log(PuzzleName);
+
+        
+        if (PuzzleName != "" && DataManager.GetData().states[PuzzleName + "완료"])
             gameObject.SetActive(false);
         else
             InitPuzzle();

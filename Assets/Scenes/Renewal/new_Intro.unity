@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PuzzleName: "\uBCA0\uAC1C\uBC14\uAFB8\uAE30\uD37C\uC990"
-  Slot: {fileID: 2081963007}
+  Slot: {fileID: 518195985}
   Trigger: {fileID: 140599926}
   CompleteMonologue: "\uB42C\uB2E4!! \uC774\uC81C \uC774 \uBC29\uC5D0\uC11C \uB098\uAC08\uC218
     \uC788\uC5B4!"
@@ -571,6 +571,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1030206668}
     m_Modifications:
+    - target: {fileID: 1510593527, guid: 516b4e282a3e42e498ab8fb739972f06, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2013066759373228534, guid: 516b4e282a3e42e498ab8fb739972f06,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -940,6 +944,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 509720187}
   m_CullTransparentMesh: 0
+--- !u!1 &518195985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4925174139057262049, guid: 516b4e282a3e42e498ab8fb739972f06,
+    type: 3}
+  m_PrefabInstance: {fileID: 483268778}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &671212429
 GameObject:
   m_ObjectHideFlags: 0
@@ -2173,15 +2183,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.6502542, y: 1.5856534}
   m_EdgeRadius: 0
---- !u!114 &2081963007 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2690167395381829375, guid: 516b4e282a3e42e498ab8fb739972f06,
-    type: 3}
-  m_PrefabInstance: {fileID: 483268778}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71d09f3f6a0fc8f4482473fcf35422a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
