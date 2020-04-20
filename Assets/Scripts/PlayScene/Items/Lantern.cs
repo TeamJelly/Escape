@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Lantern : MonoBehaviour
 {
-    public GameObject lanternLight;
+    public GameObject lanternLight = null;
     public Button button;
     public GameObject onLight;
     public GameObject offLight;
@@ -13,7 +13,8 @@ public class Lantern : MonoBehaviour
     {
         button.onClick.AddListener(() =>
         {
-            lanternLight?.SetActive(!lanternLight.activeSelf);
+            if(lanternLight != null)
+                lanternLight.SetActive(!lanternLight.activeSelf);
             onLight.SetActive(!onLight.activeSelf);
             offLight.SetActive(!offLight.activeSelf);
         });

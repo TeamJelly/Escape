@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -61,11 +62,10 @@ public class P_Lantern : Puzzle
     public new void CompletePuzzle()
     {
         complete = true;
-        base.CompletePuzzle();
-
+        
+        InventoryManager.instance.LoseItem("안작동손전등");
         InventoryManager.instance.GetItem("작동손전등");
-        button.onClick.RemoveAllListeners();
-        trigger.triggers.Clear();
+        base.CompletePuzzle();
     }
 
     public void ExitPuzzle()
