@@ -6,28 +6,21 @@ using UnityEditor;
 [CustomEditor(typeof(DataViewer))]
 public class DataViewerEditor : Editor
 {
+    Dictionary<string, bool> states;
 
     public override void OnInspectorGUI()
     {
+        if (DataManager.currentData == null)
+            return;
+        else
+            states = DataManager.GetData().states;
+
         foreach (string key in PlayerData.statesKeys)
         {
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.Toggle(key, DataManager.GetData().states[key]);
-
-
-            if (GUILayout.Button("Button"))
-            {
-                if (DataManager.GetData().states[key] == true)
-                    DataManager.GetData().states[key] = false;
-                else
-                    DataManager.GetData().states[key] = true;
-            }
-            EditorGUILayout.EndHorizontal();
+            EditorGUI.BeginChangeCheck();
+            bool _bool = EditorGUILayout.Toggle(key, states[key]);
+            if (EditorGUI.EndChangeCheck())
+                states[key] = _bool;
         }
-        if (GUILayout.Button("ForceUpdate"))
-            OnInspectorGUI();
-
-
     }
-
 }
