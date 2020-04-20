@@ -72,7 +72,6 @@ public class P_Lantern : Puzzle
             lightOff.SetActive(!lightOff.activeSelf);
             lightOn.SetActive(!lightOn.activeSelf);
         });
-
     }
 
     public void ExitPuzzle()
