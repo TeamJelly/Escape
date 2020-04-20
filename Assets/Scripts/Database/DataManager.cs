@@ -79,24 +79,10 @@ public static class DataManager
         SpeechBaloonManager.InitDialogList();
         PuzzleDatabase.InitPuzzleList();
 
-        currentData.states = new Dictionary<string, bool>()
-        {
-            {"인트로시작", false},
-            {"인트로다봄", false},
+//        currentData.states = new Dictionary<string, bool>();
 
-            {"고양이획득", false},
-            {"고양이소모", false},
-
-            {"손전등획득", false},
-            {"손전등소모", false},
-
-            {"건전지획득", false},
-            {"건전지소모", false},
-
-            {"베개바꾸기퍼즐완료", false},
-            {"손전등조립퍼즐완료", false}
-
-        };
+        foreach (string key in PlayerData.statesKeys)
+            currentData.states.Add(key, false);
 
         Debug.Log("Initialized finish");
     }
@@ -111,6 +97,23 @@ public class PlayerData
     public int[] dialogs = new int[100]; 
     public int[] events = new int[100]; //0은 발견되지 않음; 1은 발견 및 수집된 상태; 2는 완료되었거나 소진된 상태.
     public Dictionary<string, bool> states = new Dictionary<string, bool>();
+    public static string[] statesKeys =
+    {
+            "인트로시작",
+            "인트로다봄",
+
+            "고양이획득",
+            "고양이소모",
+
+            "손전등획득",
+            "손전등소모",
+
+            "건전지획득",
+            "건전지소모",
+
+            "베개바꾸기퍼즐완료",
+            "손전등조립퍼즐완료",
+    };
 
     public PlayerData()
     {

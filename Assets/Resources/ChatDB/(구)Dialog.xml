@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Chat>
+	<소지품>
+		<Field Who="주인공" State="-" Message="연이야 내 소지품은 어디갔어?"/>
+		<Field Who="-" State="-" Message="신분증이랑, 휴대폰, 보조배터리 다 안보이는데?"/>
+		<Field Who="연이" State="-" Message="휴대폰이랑 보조배터리는 오빠가 도움을 요청할지도 모르니까 처분했어."/>
+		<Field Who="-" State="-" Message="신분증은 모르겠네? 어디 다른곳에 흘렸나?"/>
+		<Field Who="연이" State="-" Message="오빠, 설마 다른 여자한테 연락하려고 휴대폰 찾는거 아니지?"/>
+		<Field Who="주인공" State="-" Message="아..아니야...!"/>
+		<Field Who="주인공" State="오열" Message="(내 휴대폰....아직 약정 안끝났는데....크흑...)"/>
+  </소지품>
+  <잠겨있는_방>
+	  <Field Who="주인공" State="-" Message="연이야 하나 물어봐도 돼?"/>
+		<Field Who="연이" State="-" Message="뭐든지 물어봐!"/>
+		<Field Who="-" State="-" Message="탈출이랑 관련된거 말고는 뭐든지 알려줄게 오빠!!"/>
+		<Field Who="주인공" State="-" Message="침실 옆에방은 잠겨있던데, 무슨 방이야?"/>
+		<Field Who="연이" State="-" Message="아.. 그 방은 내 방이야!"/>
+		<Field Who="연이" State="-" Message="오빠에게 보여주기 부끄러운 물건도 있고 해서 잠가놨어!"/>
+		<Field Who="-" State="-" Message="헤헤.."/>
+		<Field Who="연이" State="-" Message="오빠랑 상관없는 방이니까 신경쓰지마."/>
+		<Field Who="주인공" State="-" Message="그렇군..."/>
+  </잠겨있는_방>
+  <카드놀이>
+   <Field Who="주인공" State="-" Message="하루쟁일 집안에만 갖혀있으니..너무 심심해..."/>
+		<Field Who="연이" State="-" Message="나는 오빠랑 같이 있기만 해도 좋은데!"/>
+		<Field Who="연이" State="-" Message="그래도 너무 심심하면 카드놀이라도 할래? 집에 트럼프카드가 있거든!"/>
+		<Field Who="주인공" State="-" Message="할줄 아는 게임 있어?"/>
+		<Field Who="연이" State="-" Message="아니!"/>
+		<Field Who="-" State="-" Message="그래도 짝맞추기 정도는 할수있지!"/>
+		<Field Who="주인공" State="-" Message="할것도 없는데 해볼까??"/>
+		<Field Who="System" State="Reset" Message="-"/>
+		<Field Who="System" State="StartPuzzle" Message="카드놀이"/>
+  </카드놀이>
+  <카드놀이_재도전>
+		<Field Who="연이" State="-" Message="재도전하는거야?"/>
+		<Field Who="-" State="-" Message="아무리 오빠라고 해도 봐주지 않을꺼니까!"/>
+    <Field Who="System" State="Reset" Message="-"/>
+		<Field Who="System" State="StartPuzzle" Message="카드놀이"/>
+  </카드놀이_재도전>
+  <카드놀이_패배>
+  	<Field Who="주인공" State="-" Message="(강...강하다..)"/>
+		<Field Who="연이" State="-" Message="헤헷.. 나 엄청 잘하지!"/>
+		<Field Who="-" State="-" Message="오빠가 날 이기려면 아직 100년은 이른거같네!!"/>
+		<Field Who="연이" State="-" Message="좀더 수련하고 와!"/>
+  </카드놀이_패배>
+	<카드놀이_승리>
+  	<Field Who="연이" State="-" Message="졌...졌어?"/>
+		<Field Who="-" State="-" Message="짝맞추기에서 날 이긴건 오빠가 처음이야...."/>
+		<Field Who="연이" State="-" Message="트럼프 카드는 오빠가 가져..."/>
+		<Field Who="-" State="뇨롱" Message="카드놀이 이제 안할래.."/>
+    <Field Who="System" State="Reset" Message="-"/>
+		<Field Who="System" State="GetItem" Message="트럼프"/>
+  </카드놀이_승리>
+</Chat>

@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class P_UseItem : Puzzle
 {
-    public Slot Slot;//AnswerItem
-    public EventTrigger Trigger;//GoalObject에 넣으면 성공!
+    public Slot Slot;//이것을
+    public EventTrigger Trigger;//여기에 넣으면 성공!
 
     [TextArea(2, 3)]
     public string CompleteMonologue;
