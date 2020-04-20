@@ -1,91 +1,81 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class P_Lantern : Puzzle
 {
-    public GameObject firstPanel;
-    public Button lid;
+    public Button button;//랜턴 온/오프 스위치.
+    public EventTrigger trigger;
 
-    public GameObject secondPanel;
-    public Interactor batteryInteractor;
+    public P_UseItem puzzle;
 
-    public GameObject thirdPanel;
-    public Interactor lidInteractor;
+    public GameObject mainPanel;//퍼즐이 아닌 키고끄는 패널.
+    public GameObject fixingPanel;// 진짜 퍼즐.
+    public GameObject lightOn;
+    public GameObject lightOff;
+   
 
-    public GameObject fourthPanel;
+    public GameObject lid;
+    public GameObject battery_slot;
+    public GameObject fixedBattery;
+
     bool complete = false;
     bool usedBattery = false;
 
     public override void InitPuzzle()
-    {
-        /*
-        OnEnd.AddListener(() => { OnDisable.Invoke(); });
-        OnDisable.AddListener(() => 
-        {
-            complete = true;
-            firstPanel.SetActive(false);
-            secondPanel.SetActive(false);
-            thirdPanel.SetActive(false);
-            fourthPanel.SetActive(true);
-
-        });
-        OnEnable.AddListener(() =>
-        {
-            if (!complete)
-            {
-                firstPanel.SetActive(true);
-                secondPanel.SetActive(false);
-                thirdPanel.SetActive(false);
-            }
-        });*/
-
+    { 
         /***********************뚜껑따기************************/
-        lid.onClick.AddListener(() =>
-        {
-            firstPanel.SetActive(false);
-            secondPanel.SetActive(true);
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerClick;
+        entry.callback.AddListener((data) => {
+            lid.SetActive(true);
+            Debug.Log("?");
+            mainPanel.SetActive(false);
+            fixingPanel.SetActive(true);
+            trigger.triggers.Clear();
+            puzzle.Trigger = trigger;
+            puzzle.Slot = battery_slot;
+            puzzle.CompleteMonologue = "전지 장착완료.";
+            puzzle.InitPuzzle();
         });
-        /***********************건전지 장착************************/
-        batteryInteractor.condition = ()=>
+        trigger.triggers.Add(entry);
+
+        puzzle.OnComplete = () =>
         {
-            return Inventory.instance.selectedItem == "건전지";
+            fixingPanel.SetActive(true);
+            fixedBattery.SetActive(true);
+            usedBattery = true; // 건전지 사용됨.
+            trigger.triggers.Clear();
+            puzzle.Slot = lid;
+            puzzle.CompleteMonologue = "뚜껑 장착완료.";
+            puzzle.InitPuzzle();
+            puzzle.OnComplete = () => 
+            {
+                CompletePuzzle();
+            };
         };
-        batteryInteractor.OnEnd.AddListener(() =>
-        {
-            usedBattery = true;
-            Inventory.instance.SubItem("건전지");
-            secondPanel.SetActive(false);
-            thirdPanel.SetActive(true);
-        });
-        /***********************뚜껑덮기************************/
-        lidInteractor.condition = () =>
-        {
-            return Inventory.instance.selectedItem == "손전등 뚜껑";
-        };
-
-        lidInteractor.OnClick.AddListener(() =>
-        {
-            ChatSystem2.instance.Monologue("뚜껑 덮어야지ㅡㅡ");
-        });
-
-        lidInteractor.OnFailed.AddListener(() =>
-        {
-            ChatSystem2.instance.Monologue("아니야");
-        });
-
-        lidInteractor.OnEnd.AddListener(() =>
-        {
-            ChatSystem2.instance.Monologue("좋아, 됬다.");
-            //OnEnd.Invoke();
-            PuzzleDatabase.SetPuzzleState(PuzzleName,2);
-            DataManager.Save_Auto();
-        });
-
-        
+        button.onClick.AddListener(() => ChatSystem2.instance.Monologue("켜지지 않는다."));
     }
-    public new void ExitPuzzle()
+    public new void CompletePuzzle()
+    {
+        base.CompletePuzzle();
+        gameObject.SetActive(true);
+        mainPanel.SetActive(true);
+        lid.SetActive(false);
+        fixingPanel.SetActive(false);
+        button.onClick.RemoveAllListeners();
+        trigger.triggers.Clear();
+        button.onClick.AddListener(() =>
+        {
+            lightOff.SetActive(!lightOff.activeSelf);
+            lightOn.SetActive(!lightOn.activeSelf);
+        });
+
+    }
+
+    public void ExitPuzzle()
     {
 //        base.ExitPuzzle();
         if (!complete)

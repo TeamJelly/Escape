@@ -6,12 +6,10 @@ using UnityEngine.EventSystems;
 
 public class DragListener : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
 {
-    public string objName;
     public Transform targetImage;
     public void OnDrag(PointerEventData eventData)
     {
         targetImage.position = eventData.position;
-        
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -21,15 +19,15 @@ public class DragListener : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Inventory.instance.selectedItem = objName;
+        InventoryManager.instance.currentSelectItem = gameObject.name;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        this.transform.position = targetImage.position;
+        transform.position = targetImage.position;
         targetImage.localPosition = Vector3.zero;
-        Inventory.instance.interactMethod?.Invoke();
-        Inventory.instance.interactMethod = null;
-        Inventory.instance.selectedItem = " ";
+        //Inventory.instance.interactMethod?.Invoke();
+        //Inventory.instance.interactMethod = null;
+        InventoryManager.instance.currentSelectItem = " ";
     }
 }
