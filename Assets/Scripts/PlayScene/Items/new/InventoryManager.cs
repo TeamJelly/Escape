@@ -36,6 +36,13 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public void GetItemSilent(string itemName)
+    {
+        DataManager.GetData().states[itemName + "획득"] = true;
+        UpdateInventory();
+        DataManager.Save_Auto();
+    }
+
     public void GetItem(string itemName)
     {
         PlayUIManager.instance.NoticeGetItem(itemName);
