@@ -8,7 +8,7 @@ using System.IO;
 public static class DataManager
 {
     // Start is called before the first frame update
-    public static PlayerData currentData = null;
+    public static PlayerData currentData;
     public static bool dataExist = false; // 메인화면에서 load 버튼 활성화 여부 판단.
   
     public static PlayerData GetData()
