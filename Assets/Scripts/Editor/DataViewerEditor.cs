@@ -20,7 +20,10 @@ public class DataViewerEditor : Editor
             EditorGUI.BeginChangeCheck();
             bool _bool = EditorGUILayout.Toggle(key, states[key]);
             if (EditorGUI.EndChangeCheck())
+            {
                 states[key] = _bool;
+                InventoryManager.instance.UpdateInventory();
+            }
         }
     }
 }
