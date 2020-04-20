@@ -21,8 +21,12 @@ public abstract class Puzzle : MonoBehaviour
 
     public void CompletePuzzle()
     {
-        DataManager.GetData().states[PuzzleName + "완료"] = true;
-        DataManager.Save_Auto();
-        gameObject.SetActive(false);
+        if (PuzzleName != "")
+        {
+            DataManager.GetData().states[PuzzleName + "완료"] = true;
+            DataManager.Save_Auto();
+            PlayUIManager.instance.PopUpBackButton.onClick.Invoke();
+            gameObject.SetActive(false);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -60,27 +61,20 @@ public class P_Lantern : Puzzle
     }
     public new void CompletePuzzle()
     {
+        complete = true;
+        
+        InventoryManager.instance.LoseItem("안작동손전등");
+        InventoryManager.instance.GetItem("작동손전등");
         base.CompletePuzzle();
-        gameObject.SetActive(true);
-        mainPanel.SetActive(true);
-        lid.SetActive(false);
-        fixingPanel.SetActive(false);
-        button.onClick.RemoveAllListeners();
-        trigger.triggers.Clear();
-        button.onClick.AddListener(() =>
-        {
-            lightOff.SetActive(!lightOff.activeSelf);
-            lightOn.SetActive(!lightOn.activeSelf);
-        });
     }
 
     public void ExitPuzzle()
     {
 //        base.ExitPuzzle();
         if (!complete)
-        {  
-            if(usedBattery)
-                Inventory.instance.AddItem("건전지");
+        {
+            if (usedBattery)
+                InventoryManager.instance.GetItemSilent("건전지");
             usedBattery = false;
         }
     }
