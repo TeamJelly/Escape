@@ -305,8 +305,12 @@ MonoBehaviour:
   PuzzleName: 
   Item: {fileID: 0}
   Trigger: {fileID: 60621540}
-  CompleteMonologue: 
-  ClickMonologue: 
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  OnComplete:
+    m_PersistentCalls:
+      m_Calls: []
   EnteredItem: 
   RemoveItemOnComplete: 0
 --- !u!1 &378962658
@@ -1292,7 +1296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121945a4cb8876542bbda0bb3ead7b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PuzzleName: "\uC190\uC804\uB4F1\uC870\uB9BD\uD37C\uC990"
+  PuzzleName: "\uC190\uC804\uB4F1\uC870\uB9BD"
   button: {fileID: 1510593529}
   trigger: {fileID: 60621540}
   puzzle: {fileID: 372675865}

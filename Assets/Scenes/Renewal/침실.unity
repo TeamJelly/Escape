@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 246882225}
   - component: {fileID: 246882226}
   m_Layer: 0
-  m_Name: "Puzzle[\uBCA0\uAC1C\uBC14\uAFB8\uAE30\uD37C\uC990]"
+  m_Name: "Screen[\uBCA0\uAC1C\uBC14\uAFB8\uAE30]"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -414,13 +414,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd78f65e3828dfd4394d8c1c4e94fddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PuzzleName: "\uBCA0\uAC1C\uBC14\uAFB8\uAE30\uD37C\uC990"
+  PuzzleName: "\uBCA0\uAC1C\uBC14\uAFB8\uAE30"
   Item: {fileID: 725002526}
   Trigger: {fileID: 140599926}
-  CompleteMonologue: "\uB42C\uB2E4!! \uC774\uC81C \uC774 \uBC29\uC5D0\uC11C \uB098\uAC08\uC218
-    \uC788\uC5B4!"
-  ClickMonologue: "\uBE60\uC838\uB098\uAC00\uC57C\uD558\uB294\uB370.. \uC5F0\uC774\uAC00
-    \uB194\uC8FC\uC9C8 \uC54A\uB294\uB2E4..;"
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  OnComplete:
+    m_PersistentCalls:
+      m_Calls: []
   EnteredItem: 
   RemoveItemOnComplete: 1
 --- !u!114 &246882226
@@ -536,7 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PuzzleName: 
-  StateName: "\uC190\uC804\uB4F1\uC870\uB9BD\uD37C\uC990\uC644\uB8CC"
+  StateName: "\uC190\uC804\uB4F1\uC870\uB9BD\uC644\uB8CC"
   falseTrigger:
     m_PersistentCalls:
       m_Calls:
@@ -572,26 +574,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1030206668}
     m_Modifications:
-    - target: {fileID: 141524580459499833, guid: 516b4e282a3e42e498ab8fb739972f06,
-        type: 3}
-      propertyPath: WarningUI
-      value: 
-      objectReference: {fileID: 483268784}
-    - target: {fileID: 141524580459499833, guid: 516b4e282a3e42e498ab8fb739972f06,
-        type: 3}
-      propertyPath: WarningYesButton
-      value: 
-      objectReference: {fileID: 483268781}
-    - target: {fileID: 141524580459499833, guid: 516b4e282a3e42e498ab8fb739972f06,
-        type: 3}
-      propertyPath: WarningNoButton
-      value: 
-      objectReference: {fileID: 483268780}
-    - target: {fileID: 141524580459499833, guid: 516b4e282a3e42e498ab8fb739972f06,
-        type: 3}
-      propertyPath: WarningText
-      value: 
-      objectReference: {fileID: 483268782}
     - target: {fileID: 2013066759373228534, guid: 516b4e282a3e42e498ab8fb739972f06,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -720,60 +702,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 483268778}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &483268780 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8849215328091841403, guid: 516b4e282a3e42e498ab8fb739972f06,
-    type: 3}
-  m_PrefabInstance: {fileID: 483268778}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &483268781 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8838750114941823207, guid: 516b4e282a3e42e498ab8fb739972f06,
-    type: 3}
-  m_PrefabInstance: {fileID: 483268778}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &483268782 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2295543468286688256, guid: 516b4e282a3e42e498ab8fb739972f06,
-    type: 3}
-  m_PrefabInstance: {fileID: 483268778}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &483268783 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 850363672304708340, guid: 516b4e282a3e42e498ab8fb739972f06,
-    type: 3}
-  m_PrefabInstance: {fileID: 483268778}
-  m_PrefabAsset: {fileID: 0}
---- !u!225 &483268784
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 483268783}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &486378173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,7 +1573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Map: {fileID: 1614782551}
-  light2D: {fileID: 931867405}
+  PointLight2D: {fileID: 931867405}
 --- !u!114 &1179859443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1813,7 +1741,7 @@ GameObject:
   - component: {fileID: 1492269171}
   - component: {fileID: 1492269172}
   m_Layer: 0
-  m_Name: Screen
+  m_Name: "Screen[\uAE30\uBCF8]"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

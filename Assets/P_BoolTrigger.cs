@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 
 public class P_BoolTrigger : Puzzle
 {
-
     public string StateName;
     public UnityEvent falseTrigger;
     public UnityEvent trueTrigger;
@@ -18,9 +17,9 @@ public class P_BoolTrigger : Puzzle
         entry.eventID = EventTriggerType.PointerClick;
         entry.callback.AddListener((data) => {
             if (DataManager.GetStates()[StateName])
-                trueTrigger.Invoke();
+                trueTrigger?.Invoke();
             else
-                falseTrigger.Invoke();
+                falseTrigger?.Invoke();
         });
         GetComponent<EventTrigger>().triggers.Add(entry);
     }

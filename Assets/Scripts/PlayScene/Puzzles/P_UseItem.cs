@@ -9,16 +9,11 @@ public class P_UseItem : Puzzle
     public GameObject Item;//이것을
     public EventTrigger Trigger;//여기에 넣으면 성공!
 
-    [TextArea(2, 3)]
-    public string CompleteMonologue;
-
-    [TextArea(2, 3)]
-    public string ClickMonologue;
+    public UnityEvent OnClick;
+    public UnityEvent OnComplete;
 
     public string EnteredItem = "";
     public bool RemoveItemOnComplete = false;
-
-    public UnityAction OnComplete;
 
     public override void InitPuzzle()
     {
@@ -54,13 +49,11 @@ public class P_UseItem : Puzzle
 
     public void ClickPuzzle()
     {
-        ChatSystem2.instance.Monologue(ClickMonologue);
+        OnClick?.Invoke();
     }
 
     public new void CompletePuzzle()
-    {
-        ChatSystem2.instance.Monologue(CompleteMonologue);
-        
+    {      
         if (RemoveItemOnComplete)
             InventoryManager.instance.LoseItem(EnteredItem);
 

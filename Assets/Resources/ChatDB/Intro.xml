@@ -2,8 +2,11 @@
 <Chat>
   <Z>
     <Field Who="시스템" Message="인트로를 스킵하시겠습니까?"/>
-    <Field Who="System" State="MakeSelection" Message="네:Intro/D/31"/>
-    <Field Who="System" State="MakeSelection" Message="아니오:Intro/C"/>
+    <Field Who="System" State="MakeSelection" Message="스킵한다.:Intro/D/31"/>
+    <Field Who="System" State="MakeSelection" Message="처음부터.[Intro/A]:Intro/A"/>
+    <Field Who="System" State="MakeSelection" Message="여자를 추궁한다.[Intro/B]:Intro/B"/>
+    <Field Who="System" State="MakeSelection" Message="비굴하더라도 그녀에게 목숨만은 살려달라고 애원한다.[Intro/C]:Intro/C"/>
+    <Field Who="System" State="MakeSelection" Message="기억상실인 척하며 여자의 장단에 맞춰준다.[Intro/D]:Intro/D"/>
     <Field Who="System" State="ShowSelection"/>
   </Z>
 
@@ -154,14 +157,14 @@
     <Field Who="System" State="WaitSeconds" Message="1"/>
     <Field Message=" "/>
     
-    <Field Who="나" Message="커헉!!"/>
+    <Field Who="나" Message="커헉!! 아파......! 진짜 아파!!!!"/>
     <Field Who="연이" Message="음.... 여기다!!"/>
     <Field Who="System" State="StartSE" Message="깨짐1"/>
     <Field Who="System" State="ShowBGCG" Message="깨짐2"/>
     <Field Who="System" State="WaitSeconds" Message="1"/>
     <Field Message=" "/>
 
-    <Field Who="나" Message="살..려줘.."/>
+    <Field Who="나" Message="그만.....그만둬.... 용서해주세요...."/>
     <Field Who="연이" Message="여기도 아닌가?"/>
     <Field Who="System" State="StartSE" Message="깨짐1"/>
     <Field Who="System" State="ShowBGCG" Message="깨짐3"/>
@@ -169,14 +172,16 @@
     <Field Message=" "/>
 
 
-    <Field Who="나" Message="..................................."/>
+    <Field Who="나" Message="살..려줘............."/>
+    <Field Who="연이" Message="진짜! 진짜 마지막!! 한번만 더!!"/>
     <Field Who="System" State="StartSE" Message="깨짐2"/>
     <Field Who="System" State="ShowBGCG" Message="깨짐4"/>
     <Field Who="System" State="WaitSeconds" Message="1"/>
     <Field Message=" "/>
 
     <Field Who="나" Message="..................................."/>
-    <Field Message="..................................."/>
+    <Field Who="연이" Message="오빠? 왜 안움직여.."/>
+    <Field Message="오빠........오빠........!!!!!!!!"/>
     <Field Who="독백" Message="그렇게 내가 다시 눈을 뜰일은 없었다."/>
     <Field Who="나래이션" Message="GAME OVER (너무 많이 맞은 ENDING)"/>
     <Field Who="System" State="StopBGM"/>

@@ -16,7 +16,6 @@ public class P_Lantern : Puzzle
     public GameObject fixingPanel;// 진짜 퍼즐.
     public GameObject lightOn;
     public GameObject lightOff;
-   
 
     public GameObject lid;
     public GameObject battery;
@@ -39,18 +38,19 @@ public class P_Lantern : Puzzle
         });
         trigger.triggers.Add(entry);
 
-        puzzle.OnComplete = () =>
+        puzzle.OnComplete.AddListener(() =>
         {
             fixingPanel.SetActive(true);
             fixedBattery.SetActive(true);
             trigger.triggers.Clear();
             puzzle.Item = lid;
             puzzle.InitPuzzle();
-            puzzle.OnComplete = () => 
+            puzzle.OnComplete.RemoveAllListeners();
+            puzzle.OnComplete.AddListener(() =>
             {
                 CompletePuzzle();
-            };
-        };
+            });
+        });
         button.onClick.AddListener(() => ChatSystem2.instance.Monologue("켜지지 않는다."));
 
     }
