@@ -24,10 +24,8 @@ public class DragListener : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        transform.position = targetImage.position;
+        targetImage.position = transform.position;
         targetImage.localPosition = Vector3.zero;
-        //Inventory.instance.interactMethod?.Invoke();
-        //Inventory.instance.interactMethod = null;
         InventoryManager.instance.currentSelectItem = " ";
     }
 }

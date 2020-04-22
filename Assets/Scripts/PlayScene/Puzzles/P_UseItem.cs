@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class P_UseItem : Puzzle
 {
-    public GameObject Slot;//이것을
+    public GameObject Item;//이것을
     public EventTrigger Trigger;//여기에 넣으면 성공!
 
     [TextArea(2, 3)]
@@ -16,6 +16,7 @@ public class P_UseItem : Puzzle
     public string ClickMonologue;
 
     public string EnteredItem = "";
+    public bool RemoveItemOnComplete = false;
 
     public UnityAction OnComplete;
 
@@ -24,7 +25,7 @@ public class P_UseItem : Puzzle
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.Drop;
         entry.callback.AddListener((data) => {
-            if (Slot.name == EnteredItem)
+            if (Item.name == EnteredItem)
                 CompletePuzzle();
         });
         Trigger.triggers.Add(entry);
@@ -59,7 +60,10 @@ public class P_UseItem : Puzzle
     public new void CompletePuzzle()
     {
         ChatSystem2.instance.Monologue(CompleteMonologue);
-        InventoryManager.instance.LoseItem(EnteredItem);
+        
+        if (RemoveItemOnComplete)
+            InventoryManager.instance.LoseItem(EnteredItem);
+
         base.CompletePuzzle();
         OnComplete?.Invoke();
     }

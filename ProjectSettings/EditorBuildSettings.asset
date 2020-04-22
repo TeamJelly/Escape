@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LoadingScene.unity
     guid: 4cac30c92d38c7e4bbfbcd2aab33809e
   - enabled: 1
+    path: "Assets/Scenes/Renewal/\uC2DC\uC791.unity"
+    guid: 7dc25e1c74b45424fbadcdbbd5acde52
+  - enabled: 0
     path: Assets/Scenes/Intro.unity
     guid: 3de03512a1f660b4990a5a04f3b550a9
   - enabled: 1
@@ -21,6 +24,9 @@ EditorBuildSettings:
     path: "Assets/Scenes/Maps/\uB2E4\uC6A9\uB3C4\uC2E4.unity"
     guid: a91dddd73a42e43419010e05c2c84b06
   - enabled: 1
+    path: "Assets/Scenes/Renewal/\uAC70\uC2E4.unity"
+    guid: d020fd34da34b0c49b4fc40d5318310c
+  - enabled: 0
     path: "Assets/Scenes/Maps/\uAC70\uC2E4.unity"
     guid: 905dc987c5e3e1f45b8859a55aac7d14
   - enabled: 1

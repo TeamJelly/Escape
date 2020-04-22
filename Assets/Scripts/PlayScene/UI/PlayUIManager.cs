@@ -51,6 +51,7 @@ public class PlayUIManager : MonoBehaviour
             FadeOut(PopUpPanel.GetComponent<CanvasGroup>(), () => {
                 PopUpObject.transform.SetParent(parentTransform, false);
                 PopUpObject.SetActive(false);
+                InventoryManager.instance.UpdateInventory();
                 PopUpBackButton.onClick.RemoveAllListeners();
             });
         });

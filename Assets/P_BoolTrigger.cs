@@ -12,20 +12,15 @@ public class P_BoolTrigger : Puzzle
     public UnityEvent falseTrigger;
     public UnityEvent trueTrigger;
 
-    public new void Awake()
-    {
-        InitPuzzle();
-    }
-
     public override void InitPuzzle()
     {
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerClick;
         entry.callback.AddListener((data) => {
-            if (DataManager.GetData().states[StateName] == false)
-                falseTrigger.Invoke();
-            else if (DataManager.GetData().states[StateName] == true)
+            if (DataManager.GetStates()[StateName])
                 trueTrigger.Invoke();
+            else
+                falseTrigger.Invoke();
         });
         GetComponent<EventTrigger>().triggers.Add(entry);
     }

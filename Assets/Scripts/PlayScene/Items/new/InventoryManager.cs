@@ -22,6 +22,7 @@ public class InventoryManager : MonoBehaviour
     {
         foreach(Slot slot in Content.GetComponentsInChildren<Slot>(true))
             AllSlotList.Add(slot.gameObject);
+        UpdateInventory();
     }
 
     public void UpdateInventory()

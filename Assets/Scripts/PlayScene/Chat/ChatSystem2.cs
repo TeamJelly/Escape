@@ -84,6 +84,9 @@ public class ChatSystem2 : MonoBehaviour
     }
     public void Monologue(string message)
     {
+        if (message == "")
+            return;
+
         chatText.text = "";
         messageList.Clear();
         onEnd = () => bgImage.gameObject.SetActive(true);

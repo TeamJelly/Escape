@@ -19,11 +19,8 @@ public class P_Lantern : Puzzle
    
 
     public GameObject lid;
-    public GameObject battery_slot;
+    public GameObject battery;
     public GameObject fixedBattery;
-
-    bool complete = false;
-    bool usedBattery = false;
 
     public override void InitPuzzle()
     { 
@@ -37,8 +34,7 @@ public class P_Lantern : Puzzle
             fixingPanel.SetActive(true);
             trigger.triggers.Clear();
             puzzle.Trigger = trigger;
-            puzzle.Slot = battery_slot;
-            puzzle.CompleteMonologue = "전지 장착완료.";
+            puzzle.Item = battery;
             puzzle.InitPuzzle();
         });
         trigger.triggers.Add(entry);
@@ -47,10 +43,8 @@ public class P_Lantern : Puzzle
         {
             fixingPanel.SetActive(true);
             fixedBattery.SetActive(true);
-            usedBattery = true; // 건전지 사용됨.
             trigger.triggers.Clear();
-            puzzle.Slot = lid;
-            puzzle.CompleteMonologue = "뚜껑 장착완료.";
+            puzzle.Item = lid;
             puzzle.InitPuzzle();
             puzzle.OnComplete = () => 
             {
@@ -58,24 +52,23 @@ public class P_Lantern : Puzzle
             };
         };
         button.onClick.AddListener(() => ChatSystem2.instance.Monologue("켜지지 않는다."));
+
     }
     public new void CompletePuzzle()
     {
-        complete = true;
-        
         InventoryManager.instance.LoseItem("안작동손전등");
+        InventoryManager.instance.LoseItem("건전지");
         InventoryManager.instance.GetItem("작동손전등");
         base.CompletePuzzle();
     }
-
+    
     public void ExitPuzzle()
     {
-//        base.ExitPuzzle();
-        if (!complete)
+/*        if (!complete)
         {
             if (usedBattery)
                 InventoryManager.instance.GetItemSilent("건전지");
             usedBattery = false;
-        }
+        }*/
     }
 }

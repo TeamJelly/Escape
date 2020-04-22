@@ -22,6 +22,18 @@ public static class DataManager
         }
         return currentData;
     }
+
+    public static Dictionary<string, bool> GetStates()
+    {
+        return GetData().states;
+    }
+
+    public static void SetState(string key, bool _bool)
+    {
+        GetData().states[key] = _bool;
+        Save_Auto();
+    }
+
     public static void StartAsNew()
     {
         currentData = new PlayerData();
@@ -73,13 +85,6 @@ public static class DataManager
     public static void InitDatabases()
     {
         GetData();
-        //DataManager.Load();
-        StateDatabase.InitStateLists();
-        ItemDatabase.InitItemList();
-        SpeechBaloonManager.InitDialogList();
-        PuzzleDatabase.InitPuzzleList();
-
-//        currentData.states = new Dictionary<string, bool>();
 
         foreach (string key in PlayerData.statesKeys)
             currentData.states.Add(key, false);

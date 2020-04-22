@@ -27,7 +27,7 @@ public class MenuUIManager : MonoBehaviour
 
         NewGameButton?.onClick.AddListener(() =>
         {
-            PlayUIManager.instance.FadeOutForNextScene("Intro");
+            PlayUIManager.instance.FadeOutForNextScene("시작");
         });
 
         SaveButton?.onClick.AddListener(() => {
