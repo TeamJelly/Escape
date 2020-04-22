@@ -3,7 +3,7 @@
   <Z>
     <Field Who="시스템" Message="인트로를 스킵하시겠습니까?"/>
     <Field Who="System" State="MakeSelection" Message="네:Intro/D/31"/>
-    <Field Who="System" State="MakeSelection" Message="아니오:Intro/A/54"/>
+    <Field Who="System" State="MakeSelection" Message="아니오:Intro/C"/>
     <Field Who="System" State="ShowSelection"/>
   </Z>
 
@@ -146,7 +146,7 @@
     <Field Who="나" Message="제발 살려만 주세요!"/>
     <Field Message="살려만 주시면... 뭐든지 할게요!"/>
     <Field Who="연이" Message="이상하다? 아직도 기억이 남아있나보네..."/>
-    <Field Message="분명 이렇게 하면 기억이 사라진다 했었는데."/>
+    <Field Message="분명 이렇게 하면 기억이 사라진다 했었는데?"/>
     <Field Who="독백" Message="뭔가 잘못된 낌새를 느꼇다."/>
     <Field Who="연이" Message="다시해야겠다. 오빠, 아파도 조금만 참아."/>
     <Field Who="System" State="StartSE" Message="깨짐1"/>
