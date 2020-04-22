@@ -151,18 +151,32 @@
     <Field Who="연이" Message="다시해야겠다. 오빠, 아파도 조금만 참아."/>
     <Field Who="System" State="StartSE" Message="깨짐1"/>
     <Field Who="System" State="ShowBGCG" Message="깨짐1"/>
+    <Field Who="System" State="WaitSeconds" Message="1"/>
+    <Field Message=" "/>
+    
     <Field Who="나" Message="커헉!!"/>
-    <Field Who="연이" Message="이런...! 잘@#$%^린거같아!"/>
+    <Field Who="연이" Message="음.... 여기다!!"/>
     <Field Who="System" State="StartSE" Message="깨짐1"/>
     <Field Who="System" State="ShowBGCG" Message="깨짐2"/>
+    <Field Who="System" State="WaitSeconds" Message="1"/>
+    <Field Message=" "/>
+
     <Field Who="나" Message="살..려줘.."/>
-    <Field Who="연이" Message="여기도 @#$%^가?"/>
+    <Field Who="연이" Message="여기도 아닌가?"/>
     <Field Who="System" State="StartSE" Message="깨짐1"/>
     <Field Who="System" State="ShowBGCG" Message="깨짐3"/>
-    <Field Who="나" Message="........"/>
+    <Field Who="System" State="WaitSeconds" Message="1"/>
+    <Field Message=" "/>
+
+
+    <Field Who="나" Message="..................................."/>
     <Field Who="System" State="StartSE" Message="깨짐2"/>
     <Field Who="System" State="ShowBGCG" Message="깨짐4"/>
+    <Field Who="System" State="WaitSeconds" Message="1"/>
+    <Field Message=" "/>
+
     <Field Who="나" Message="..................................."/>
+    <Field Message="..................................."/>
     <Field Who="독백" Message="그렇게 내가 다시 눈을 뜰일은 없었다."/>
     <Field Who="나래이션" Message="GAME OVER (너무 많이 맞은 ENDING)"/>
     <Field Who="System" State="StopBGM"/>
