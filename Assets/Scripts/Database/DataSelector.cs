@@ -8,12 +8,11 @@ using System;
 
 public class DataSelector : MonoBehaviour
 {
+    
     public static DataSelector instance;
 
-    // Start is called before the first frame update
     public GameObject dataBoxListPanel;
     public GameObject dataBoxPrefeb;
-    //    public Button addNewDataButton;
 
     public GameObject SaveTitle;
     public GameObject LoadTitle;
@@ -142,7 +141,6 @@ public class DataSelector : MonoBehaviour
         DataManager.Load("0_AutoSave_최근플레이");
         if (DataManager.currentData == null)
         {
-            DataManager.StartAsNew();
             PlayUIManager.instance.FadeOutForNextScene("Intro");
         }
         else PlayUIManager.instance.FadeIn(notifyPanel);

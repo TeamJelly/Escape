@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/*
 public class P_Trump : Puzzle
 {
     public Button winButton;
@@ -23,3 +23,4 @@ public class P_Trump : Puzzle
         });
     }
 }
+*/

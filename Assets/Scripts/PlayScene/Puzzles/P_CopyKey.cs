@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public class P_CopyKey : Puzzle
 {
+
     public Interactor interactor1;//부러진 열쇠1
     public Interactor interactor2;//부러진 열쇠2
     public Interactor interactor3;//테이프
@@ -36,7 +37,6 @@ public class P_CopyKey : Puzzle
             Inventory.instance.SubItem("부러진 열쇠1");
             if (state2) interactor3.gameObject.SetActive(true);
         });
-        /**********************************************************/
         interactor2.condition = Condition2;
 
         interactor2.OnFailed.AddListener(() =>
@@ -55,7 +55,6 @@ public class P_CopyKey : Puzzle
             Inventory.instance.SubItem("부러진 열쇠2");
             if (state1) interactor3.gameObject.SetActive(true);
         });
-        /**********************************************************/
         interactor3.condition = Condition3;
 
         interactor3.OnFailed.AddListener(() =>
@@ -74,7 +73,6 @@ public class P_CopyKey : Puzzle
         {
             interactor4.gameObject.SetActive(true);
         });
-        /**********************************************************/
         interactor4.condition = Condition4;
 
         interactor4.OnFailed.AddListener(() =>
@@ -96,7 +94,6 @@ public class P_CopyKey : Puzzle
             complete = true;
 //            OnEnd.Invoke();
         });
-        /**********************************************************/
 
     }
     public bool Condition1()
@@ -136,3 +133,4 @@ public class P_CopyKey : Puzzle
     }
 
 }
+*/

@@ -35,7 +35,7 @@ public class PuzzleManager : MonoBehaviour
         if (currentPuzzle == p) return;
 //        if (currentPuzzle != null) currentPuzzle.thisUI.gameObject.SetActive(false);
         currentPuzzle = p;
-        PuzzleDatabase.SetPuzzleState(name, 1);
+//        PuzzleDatabase.SetPuzzleState(name, 1);
 //        p.EnablePuzzle();
         
     }

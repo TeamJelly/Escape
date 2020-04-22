@@ -27,22 +27,19 @@ public class MenuUIManager : MonoBehaviour
 
         NewGameButton?.onClick.AddListener(() =>
         {
-            PlayUIManager.instance.FadeOutForNextScene("시작");
+            PlayUIManager.instance.NoticeDataWarning("새로 시작하시겠습니까?\n자동저장된 정보는 사라집니다.", () => {
+                DataManager.StartAsNew();
+                PlayUIManager.instance.FadeOutForNextScene("시작");
+            });
         });
 
         SaveButton?.onClick.AddListener(() => {
-//            PlayUIManager.instance.FadeOut(() =>
-//            {
                 DataPanel.GetComponent<DataSelector>().SetSaveMode();
-//            });
         });
 
         LoadButton?.onClick.AddListener(() =>
         {
-//          PlayUIManager.instance.FadeOut(() =>
-//            {
                 DataPanel.GetComponent<DataSelector>().SetLoadMode();
-//            });
         });
 
         OptionButton?.onClick.AddListener(() => { });
@@ -59,14 +56,12 @@ public class MenuUIManager : MonoBehaviour
     {
         if (thisUI.isActiveAndEnabled == false)
         {
-//            BackgroundManager.instance.isPaused = true;
             PlayUIManager.instance.FadeIn(thisUI);
         }
     }
 
     public void DisableMenu()
     {
-//        BackgroundManager.instance.isPaused = false;
         PlayUIManager.instance.FadeOut(thisUI);
     }
 

@@ -493,7 +493,7 @@ public class ChatSystem2 : MonoBehaviour
     }*/
     public void GetItem(string name)
     {
-        Inventory.instance.GetItem(name);
+        InventoryManager.instance.GetItem(name);
         ShowNext();
     }
 

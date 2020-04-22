@@ -8,7 +8,7 @@ using UnityEngine.UI;
 //말풍선 관리해주는 클래스
 public class SpeechBaloonManager : MonoBehaviour
 {
-
+/*
     public Button[] baloons;
     public Button nextButton;
     public Button prevButton;
@@ -158,5 +158,5 @@ public class SpeechBaloonManager : MonoBehaviour
             if(!titleToID.ContainsKey(chatList.ChildNodes[i].Name))
                 titleToID.Add(chatList.ChildNodes[i].Name, i);
         }        
-    }
+    }*/
 }

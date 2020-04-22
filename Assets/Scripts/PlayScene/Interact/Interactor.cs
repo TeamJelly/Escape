@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 
 public delegate bool Condition();
 //상호작용시켜주는 클래스. 보통은 퍼즐 클래스에서 관리된다.
+/*
 public class Interactor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
 
@@ -44,3 +45,4 @@ public class Interactor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     }
     
 }
+*/
