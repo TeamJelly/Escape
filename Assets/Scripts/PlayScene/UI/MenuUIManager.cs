@@ -29,7 +29,7 @@ public class MenuUIManager : MonoBehaviour
         {
             PlayUIManager.instance.NoticeDataWarning("새로 시작하시겠습니까?\n자동저장된 정보는 사라집니다.", () => {
                 DataManager.StartAsNew();
-                PlayUIManager.instance.FadeOutForNextScene("시작");
+                PlayUIManager.instance.FadeOutForNextScene("침실");
             });
         });
 

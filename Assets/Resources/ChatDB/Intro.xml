@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Chat>
   <Z>
-    <Field Who="System" State="MakeSelection" Message="A. 인트로 시작:Intro/A"/>
-    <Field Who="System" State="MakeSelection" Message="B. 인트로 끝:Intro/D/31"/>
+    <Field Who="시스템" Message="인트로를 스킵하시겠습니까?"/>
+    <Field Who="System" State="MakeSelection" Message="네:Intro/D/31"/>
+    <Field Who="System" State="MakeSelection" Message="아니오:Intro/A/54"/>
     <Field Who="System" State="ShowSelection"/>
   </Z>
 
@@ -10,7 +11,8 @@
     <Field Who="연이" Message="음냐음냐.."/>
     <Field Who="나" Message="잘도 자는구만"/>
   </Test>
-    <A>
+  
+  <A>
     <Field Who="System" State="ShowBGCG" Message="자취방 현관"/>
     <Field Who="나" Message="(하아…. 심심해…)"/>
 
@@ -18,7 +20,7 @@
     <Field Who="독백" Message="모르는 번호로 한통의 문자가 왔다."/>  
     <Field Who="System" State="StartSE" Message="띠링"/>
     <Field Who="문자" Message="[사랑해♡]"/>
-    <Field Who="나" Message="(누구지?)"/>
+    <Field Who="나" Message="(?????????뭐지?)"/>
     <Field Who="독백" Message="학교 후배의 수줍은 고백부터 불알 친구의 몰래카메라까지 여러 가능성을 생각해봤지만 도대체 이 문자의 소재를 알수가 없었다."/>    
     <Field Who="독백" Message="뭐라 반응하기도 전에, 수많은 문자들이 내 휴대폰으로 물밀듯이 전송되었다."/>
     <Field Who="System" State="StartSE" Message="띠링"/>
@@ -41,13 +43,10 @@
     <Field Message="[죽여버릴꺼야죽여버릴꺼야죽여버릴꺼야죽여버릴꺼야...]"/>
     <Field Who="나" Message="(???????)"/>
     <Field Who="독백" Message="모르는 사람에게 온 문자인것만 해도 당황스러운데 섬뜩한 내용의 문자까지…"/>
-    <Field Who="독백" Message="나는 바로 그 번호를 차단했고"/>
-    <Field Message="별 생각없이 평소처럼 지냈다."/>
+    <Field Who="독백" Message="나는 바로 그 번호를 차단했고 별 생각없이 평소처럼 지냈다."/>
   
     <Field Who="System" State="HideBGCG"/>
-    <Field Who=" " State=" " Message=" "/>
     <Field Who="System" State="ShowBGCG" Message="자취방 현관"/>
-
     <Field Who="독백" Message="다음날 일요일 정오,"/>
     <Field Who="독백" Message="주말의 여유를 즐기며 깨어난 나는 현관앞에 편지가 놓여있는걸 발견했다."/>
     <Field Who="나" Message="(편지...? 편지를 받은 기억은 없는데...)"/>
@@ -71,10 +70,10 @@
     <Field Who="나" Message="(이건 대체...)"/>
     <Field Who="택배기사" Message="ㅁㅁㅁ님 본인 맞으시죠? 여기 서명해주시면 됩니다."/>
     <Field Who="나" Message="아 예 여기요?"/>
-    <Field Who="독백" Message="나는 박스에 서명하기위해 허리를 숙였다."/>
-    <Field Who="System" State="WaitSeconds" Message="10"/>
-    <Field Who="System" State="ShowBGCG" Message="피"/>
+    <Field Who="독백" Message="나는 박스에 서명하기위해 허리를 숙였고.."/>
     <Field Who="System" State="StartSE" Message="퍽"/>
+    <Field Who="System" State="ShowBGCG" Message="피"/>
+    <Field Who="System" State="WaitSeconds" Message="1"/>
     <Field Message=" "/>
     <Field Who="System" State="HideBGCG"/>
 
@@ -113,8 +112,11 @@
     <Field Who="독백" Message="여자는 내가 반응할 틈도 없이 자연스럽게 나에게 다가왔다."/>
     <Field Who="나" Message="무..무슨짓을 하려는거야?"/>
     <Field Who="여자" Message="미안 오빠."/>
+    <Field Who="System" State="WaitSeconds" Message="1"/>
+    <Field Who="System" State="ShowBGCG" Message="피"/>
     <Field Who="System" State="StartSE" Message="퍽"/>
-
+    <Field Message=" "/>
+    <Field Who="System" State="HideBGCG"/>
     <Field Who="독백" Message="나는 튕기듯 잠에서 깨어났다."/>
     <Field Message="등이 축축해질 정도로 끔찍한 악몽이었다."/>
     <Field Who="엄마" Message="일어났니?"/>
@@ -137,6 +139,7 @@
   </B>
   
   <C>
+    <Field Who="System" State="StartBGM" Message="Flying_Free"/>
     <Field Who="독백" Message="나는 벌써 2번이나 기절했다."/>
     <Field Message="몸은 엉망이 되어 식은땀이 멈출줄 모르고, 손도 벌벌 떨리고 있다."/>
     <Field Who="독백" Message="더 이상 맞거나 기절하면, 정말 돌이킬수 없을거 같다는 생각에 나는 손발이 닳도록 빌었다."/>
@@ -146,16 +149,23 @@
     <Field Message="분명 이렇게 하면 기억이 사라진다 했었는데."/>
     <Field Who="독백" Message="뭔가 잘못된 낌새를 느꼇다."/>
     <Field Who="연이" Message="다시해야겠다. 오빠, 아파도 조금만 참아."/>
-    <Field Who="System" State="StartSE" Message="퍽"/>
+    <Field Who="System" State="StartSE" Message="깨짐1"/>
+    <Field Who="System" State="ShowBGCG" Message="깨짐1"/>
     <Field Who="나" Message="커헉!!"/>
-    <Field Who="연이" Message="이런...! 잘못 @#$린거같아!"/>
-    <Field Who="System" State="StartSE" Message="퍽"/>
+    <Field Who="연이" Message="이런...! 잘@#$%^린거같아!"/>
+    <Field Who="System" State="StartSE" Message="깨짐1"/>
+    <Field Who="System" State="ShowBGCG" Message="깨짐2"/>
     <Field Who="나" Message="살..려줘.."/>
-    <Field Who="연이" Message="여기도 아닌가?"/>
-    <Field Who="System" State="StartSE" Message="퍽"/>
+    <Field Who="연이" Message="여기도 @#$%^가?"/>
+    <Field Who="System" State="StartSE" Message="깨짐1"/>
+    <Field Who="System" State="ShowBGCG" Message="깨짐3"/>
+    <Field Who="나" Message="........"/>
+    <Field Who="System" State="StartSE" Message="깨짐2"/>
+    <Field Who="System" State="ShowBGCG" Message="깨짐4"/>
     <Field Who="나" Message="..................................."/>
     <Field Who="독백" Message="그렇게 내가 다시 눈을 뜰일은 없었다."/>
     <Field Who="나래이션" Message="GAME OVER (너무 많이 맞은 ENDING)"/>
+    <Field Who="System" State="StopBGM"/>
     <Field Who="System" State="QuitGame"/>
   </C>
   
