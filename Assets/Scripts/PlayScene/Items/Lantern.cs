@@ -1,22 +1,50 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Lantern : MonoBehaviour
+public class Lantern : Slot, IPointerClickHandler
 {
-    public GameObject lanternLight = null;
-    public Button button;
-    public GameObject onLight;
-    public GameObject offLight;
-    private void Awake()
+    public Image OnLantern;
+    public Image OffLantern;
+    public Text LanternText;
+    public GameObject lights;
+
+    public new void Start()
     {
-        button.onClick.AddListener(() =>
-        {
-            if(lanternLight != null)
-                lanternLight.SetActive(!lanternLight.activeSelf);
-            onLight.SetActive(!onLight.activeSelf);
-            offLight.SetActive(!offLight.activeSelf);
-        });
+        lights = GameObject.FindGameObjectWithTag("light");
+
+        if (DataManager.GetStates()["손전등킴"] == true)
+            TurnOnLantern();
+        else
+            TurnOffLantern();
+
+        base.Start();
     }
+
+    public new void OnPointerClick(PointerEventData eventData)
+    {
+        if (DataManager.GetStates()["손전등킴"] == true)
+            TurnOffLantern();
+        else
+            TurnOnLantern();
+    }
+
+    public void TurnOnLantern()
+    {
+        lights.SetActive(true);
+        imageTransform.gameObject.GetComponent<Image>().sprite = OnLantern.sprite;
+        LanternText.text = "On";
+        LanternText.color = new Color(1f, 1f, 0.81f);
+        DataManager.SetState("손전등킴", true);
+    }
+
+    public void TurnOffLantern()
+    {
+        lights.SetActive(false);
+        imageTransform.gameObject.GetComponent<Image>().sprite = OffLantern.sprite;
+        LanternText.text = "Off";
+        LanternText.color = new Color(0.207f, 0.207f, 0.207f);
+        DataManager.SetState("손전등킴", false);
+    }
+
 }

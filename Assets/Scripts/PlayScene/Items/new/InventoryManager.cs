@@ -76,11 +76,11 @@ public class InventoryManager : MonoBehaviour
 
     public void EnableInventoryBar()
     {
-        gameObject.SetActive(true);
+        PlayUIManager.instance.FadeIn(GetComponent<CanvasGroup>());
     }
     public void DisableInventoryBar()
     {
-        gameObject.SetActive(false);
+        PlayUIManager.instance.FadeOut(GetComponent<CanvasGroup>());
     }
 
 }

@@ -12,11 +12,6 @@ public class DragListener : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
         targetImage.position = eventData.position;
     }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-
-    }
-
     public void OnPointerDown(PointerEventData eventData)
     {
         InventoryManager.instance.currentSelectItem = gameObject.name;
@@ -24,8 +19,14 @@ public class DragListener : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        targetImage.position = transform.position;
+        InventoryManager.instance.currentSelectItem = "";
         targetImage.localPosition = Vector3.zero;
-        InventoryManager.instance.currentSelectItem = " ";
     }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+
+    }
+
+
 }

@@ -6,7 +6,7 @@ public class ScreenManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public SpriteRenderer Map;
-    public Light2D PointLight2D;
+    public Light2D [] PointLight2D;
     private void Awake()
     {
         float spriteSizeRatio = Map.sprite.rect.size.y / Map.sprite.rect.size.x;
@@ -15,8 +15,12 @@ public class ScreenManager : MonoBehaviour
         {
             float ratio = Screen.width / needSizeX;
             Map.gameObject.transform.localScale = Vector3.one * ratio;
-            PointLight2D.pointLightInnerRadius *= ratio;
-            PointLight2D.pointLightOuterRadius *= ratio;
+
+            foreach (Light2D pointLight2D in PointLight2D)
+            {
+                pointLight2D.pointLightInnerRadius *= ratio;
+                pointLight2D.pointLightOuterRadius *= ratio;
+            }
         }
     }
 }

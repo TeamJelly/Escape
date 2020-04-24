@@ -56,7 +56,7 @@ public class ChatSystem2 : MonoBehaviour
             charactorFinder[c.charactorName] = c;
         }
     }
-
+    /*
     public void Monologue(string[] message)
     {
         chatText.text = "";
@@ -81,9 +81,11 @@ public class ChatSystem2 : MonoBehaviour
             nextButton.onClick.RemoveAllListeners();
             nextButton.onClick.AddListener(ShowNext);
         }));
-    }
+    }*/
     public void Monologue(string message)
     {
+        InventoryManager.instance.DisableInventoryBar();
+
         if (message == "")
             return;
 

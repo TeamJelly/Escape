@@ -8,7 +8,7 @@ public class Slot : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUp
     public GameObject PopUp;
     public Transform imageTransform;
 
-    private void Start()
+    public void Start()
     {
         Sprite sprite = imageTransform.gameObject.GetComponent<Image>().sprite;
         if (sprite != null)
@@ -22,9 +22,9 @@ public class Slot : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUp
         }
     }
 
-    public void OnDrag(PointerEventData data)
+    public void OnDrag(PointerEventData eventData)
     {
-        imageTransform.position = data.position;
+        imageTransform.position = eventData.position;
     }
 
     public void OnPointerDown(PointerEventData eventData)

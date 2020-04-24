@@ -14,8 +14,6 @@ public class P_Lantern : Puzzle
 
     public GameObject mainPanel;//퍼즐이 아닌 키고끄는 패널.
     public GameObject fixingPanel;// 진짜 퍼즐.
-    public GameObject lightOn;
-    public GameObject lightOff;
 
     public GameObject lid;
     public GameObject battery;
@@ -51,7 +49,7 @@ public class P_Lantern : Puzzle
                 CompletePuzzle();
             });
         });
-        button.onClick.AddListener(() => ChatSystem2.instance.Monologue("켜지지 않는다."));
+//        button.onClick.AddListener(() => ChatSystem2.instance.Monologue("켜지지 않는다."));
 
     }
     public new void CompletePuzzle()

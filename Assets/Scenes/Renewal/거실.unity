@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1423,7 +1423,7 @@ GameObject:
   - component: {fileID: 1748715956}
   m_Layer: 0
   m_Name: lights
-  m_TagString: Untagged
+  m_TagString: light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1614,6 +1614,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1048644469}
     m_Modifications:
+    - target: {fileID: 1901592698, guid: 516b4e282a3e42e498ab8fb739972f06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3162002452121868234, guid: c4d610b370798cc47816f932a6ec04cb,
+        type: 3}
     - target: {fileID: 2013066759373228534, guid: 516b4e282a3e42e498ab8fb739972f06,
         type: 3}
       propertyPath: m_AnchorMax.x
