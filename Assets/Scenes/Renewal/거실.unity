@@ -1386,7 +1386,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Map: {fileID: 1921180659}
-  PointLight2D: {fileID: 568072719}
+  LanternLight: {fileID: 568072719}
+  OtherLight: {fileID: 0}
+  GlobalLight: {fileID: 886924095}
 --- !u!114 &1696365334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1422,7 +1424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1748715956}
   m_Layer: 0
-  m_Name: lights
+  m_Name: Lights
   m_TagString: light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1614,11 +1616,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1048644469}
     m_Modifications:
-    - target: {fileID: 1901592698, guid: 516b4e282a3e42e498ab8fb739972f06, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -3162002452121868234, guid: c4d610b370798cc47816f932a6ec04cb,
-        type: 3}
     - target: {fileID: 2013066759373228534, guid: 516b4e282a3e42e498ab8fb739972f06,
         type: 3}
       propertyPath: m_AnchorMax.x

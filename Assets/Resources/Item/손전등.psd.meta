@@ -200,10 +200,10 @@ TextureImporter:
       name: "\uC190\uC804\uB4F1_3"
       rect:
         serializedVersion: 2
-        x: 3075
-        y: 310
-        width: 241
-        height: 183
+        x: 2946
+        y: 315
+        width: 517
+        height: 193
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,10 +242,10 @@ TextureImporter:
       name: "\uC190\uC804\uB4F1_6"
       rect:
         serializedVersion: 2
-        x: 3769
-        y: 125
-        width: 816
-        height: 543
+        x: 3735
+        y: 120
+        width: 855
+        height: 523
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bedroom : MonoBehaviour
 {
     public GameObject GameScreen;
-    public GameObject MoodLight;
 
     private void Start()
     {
@@ -15,13 +14,14 @@ public class Bedroom : MonoBehaviour
             {
                 DataManager.SetState("인트로다봄", true);
                 GameScreen.SetActive(true);
+//                Lantern.instance.LanternLight.SetActive(false);
             });
         else
             GameScreen.SetActive(true);
 
         if (DataManager.GetStates()["화장실최초입장"] == true || DataManager.GetStates()["다용도실최초입장"] == true)
         {
-            MoodLight.SetActive(false);
+//            Lantern.instance.OtherLight.SetActive(false);
             //ChatSystem2.instance.Go("");
         }
 

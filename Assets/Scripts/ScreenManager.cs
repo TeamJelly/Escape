@@ -6,9 +6,16 @@ public class ScreenManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public SpriteRenderer Map;
-    public Light2D [] PointLight2D;
+    public Light2D LanternLight;
+    public Light2D OtherLight;
+    public Light2D GlobalLight;
+
+    public static ScreenManager instance;
+
     private void Awake()
     {
+        instance = this;
+
         float spriteSizeRatio = Map.sprite.rect.size.y / Map.sprite.rect.size.x;
         float needSizeX = Screen.height / spriteSizeRatio;
         if (needSizeX > Screen.width)
@@ -16,11 +23,42 @@ public class ScreenManager : MonoBehaviour
             float ratio = Screen.width / needSizeX;
             Map.gameObject.transform.localScale = Vector3.one * ratio;
 
-            foreach (Light2D pointLight2D in PointLight2D)
+            LanternLight.pointLightInnerRadius *= ratio;
+            LanternLight.pointLightOuterRadius *= ratio;
+
+            if (OtherLight != null)
             {
-                pointLight2D.pointLightInnerRadius *= ratio;
-                pointLight2D.pointLightOuterRadius *= ratio;
+                OtherLight.pointLightInnerRadius *= ratio;
+                OtherLight.pointLightOuterRadius *= ratio;
             }
         }
+    }
+
+    public void TurnOnLanternLight()
+    {
+        LanternLight.gameObject.SetActive(true);
+        GlobalLight.gameObject.SetActive(true);
+    }
+
+    public void TurnOffLanternLight()
+    {
+        LanternLight.gameObject.SetActive(false);
+        if (OtherLight == null || OtherLight.gameObject.activeSelf == false)
+            GlobalLight.gameObject.SetActive(false);
+    }
+
+    public void TurnOnOtherLight()
+    {
+        if (OtherLight != null)
+            OtherLight.gameObject.SetActive(true);
+        GlobalLight.gameObject.SetActive(true);
+    }
+
+    public void TurnOffOtherLight()
+    {
+        if (OtherLight != null)
+            OtherLight.gameObject.SetActive(false);
+        if (LanternLight.gameObject.activeSelf == false)
+            GlobalLight.gameObject.SetActive(false);
     }
 }

@@ -98,7 +98,7 @@ public static class DataManager
 [Serializable]
 public class PlayerData
 {
-    public string currentScene = "시작";
+    public string currentScene = "침실";
     public Dictionary<string, bool> states = new Dictionary<string, bool>();
     public static string[] statesKeys =
     {

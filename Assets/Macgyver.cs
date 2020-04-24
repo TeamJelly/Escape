@@ -14,13 +14,10 @@ public class Macgyver : Slot, IPointerClickHandler
     {
         if (DataManager.GetStates()["맥가이버스패너"] == true)
             SpannerMode();
-
         else if (DataManager.GetStates()["맥가이버드라이버"] == true)
             DriverMode();
-
         else if (DataManager.GetStates()["맥가이버나이프"] == true)
             KnifeMode();
-
         else
             SpannerMode();
 
