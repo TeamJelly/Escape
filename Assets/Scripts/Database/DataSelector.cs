@@ -29,18 +29,13 @@ public class DataSelector : MonoBehaviour
 
         for(int i = 0; i < 10; i++)
         {
-            GameObject newBox = GameObject.Instantiate(dataBoxPrefeb);
+            GameObject newBox = Instantiate(dataBoxPrefeb);
             newBox.GetComponent<DataBox>().Init(i);
             AddToList(newBox);
         }
 
         string autoFileName = "0_AutoSave_최근플레이";
         boxies[0].GetComponent<DataBox>().InitAsLoadBox(autoFileName);
-    }
-
-    private void OnEnable()
-    {
-        PlayUIManager.instance.FadeIn(GetComponent<CanvasGroup>());
     }
 
     void ResetDataBoxies()
@@ -59,16 +54,14 @@ public class DataSelector : MonoBehaviour
 
     public void SetLoadMode()
     {
-        gameObject.SetActive(true);
         SaveTitle.SetActive(false);
         LoadTitle.SetActive(true);
-
+        PlayUIManager.instance.FadeIn(GetComponent<CanvasGroup>());
         ResetDataBoxies();
 
         saveFileList = Directory.GetFiles(Application.persistentDataPath, "*.sav");
 
-
-        if (saveFileList.Length != 0 && Path.GetFileNameWithoutExtension(saveFileList[0]) == "0_AutoSave_최근플레이") 
+        if (saveFileList.Length != 0 && Path.GetFileNameWithoutExtension(saveFileList[0]) == "0_AutoSave_최근플레이")
             boxies[0].SetActive(true);
         else
             boxies[0].SetActive(false);
@@ -77,7 +70,7 @@ public class DataSelector : MonoBehaviour
         {
             string fileName = Path.GetFileNameWithoutExtension(saveFileList[i]);
             int fileIndex = int.Parse(fileName.Split('_')[0]);
-            if(fileIndex < boxies.Count)
+            if (fileIndex < boxies.Count)
             {
                 boxies[fileIndex].GetComponent<DataBox>().InitAsLoadBox(fileName);
             }
@@ -86,10 +79,9 @@ public class DataSelector : MonoBehaviour
 
     public void SetSaveMode()
     {
-        gameObject.SetActive(true);
         SaveTitle.SetActive(true);
         LoadTitle.SetActive(false);
-
+        PlayUIManager.instance.FadeIn(GetComponent<CanvasGroup>());
         ResetDataBoxies();
 
         for (int i = 1; i < 10; i++)

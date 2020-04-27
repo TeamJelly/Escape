@@ -27,42 +27,28 @@ public class MenuUIManager : MonoBehaviour
 
         NewGameButton?.onClick.AddListener(() =>
         {
-            PlayUIManager.instance.NoticeDataWarning("새로 시작하시겠습니까?\n자동저장된 정보는 사라집니다.", () => {
+            PlayUIManager.instance.NoticeDataWarning("새로 시작하시겠습니까?\n자동저장된 데이터는 사라집니다.", () => {
                 DataManager.StartAsNew();
                 PlayUIManager.instance.FadeOutForNextScene("침실");
             });
         });
 
         SaveButton?.onClick.AddListener(() => {
-                DataPanel.GetComponent<DataSelector>().SetSaveMode();
+            DataPanel.GetComponent<DataSelector>().SetSaveMode();
         });
 
         LoadButton?.onClick.AddListener(() =>
         {
-                DataPanel.GetComponent<DataSelector>().SetLoadMode();
+            DataPanel.GetComponent<DataSelector>().SetLoadMode();
         });
 
         OptionButton?.onClick.AddListener(() => { });
 
         ExitButton?.onClick.AddListener(() => {
             //Application.Quit(); 
-            PlayUIManager.instance.FadeOutForNextScene("MainScene");
+            PlayUIManager.instance.FadeOutForNextScene("메인");
         });
 
-        BackButton?.onClick.AddListener(() => { DisableMenu(); });
+        BackButton?.onClick.AddListener(() => { PlayUIManager.instance.FadeOut(thisUI); });
     }
-
-    public void EnableMenu()
-    {
-        if (thisUI.isActiveAndEnabled == false)
-        {
-            PlayUIManager.instance.FadeIn(thisUI);
-        }
-    }
-
-    public void DisableMenu()
-    {
-        PlayUIManager.instance.FadeOut(thisUI);
-    }
-
 }

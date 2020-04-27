@@ -11,7 +11,7 @@ public class ChatSystem2 : MonoBehaviour
     public static ChatSystem2 instance;
 
     public GameObject Charactors;
-    Charactor[] AllCharactorList;
+    public Charactor[] AllCharactorList;
     Dictionary<string, Charactor> charactorFinder = new Dictionary<string, Charactor>();
 
     public CanvasGroup thisUI;
@@ -36,10 +36,6 @@ public class ChatSystem2 : MonoBehaviour
     List<int> skipPoint = new List<int>();
     int skipCount = 0;
 
-    Image currentCharactor;
-    Color listeningColor = new Color(50 / 255f, 50 / 255f, 50 / 255f);
-    Color tellingColor = new Color(1, 1, 1);
-
     int currentIndex = 0;
     IEnumerator typeCoroutine;
     bool isTypeCoroutineRunning = false;
@@ -49,39 +45,17 @@ public class ChatSystem2 : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        AllCharactorList = Charactors.GetComponentsInChildren<Charactor>();
+        AllCharactorList = Charactors.GetComponentsInChildren<Charactor>(true);
+        
         foreach (Charactor c in AllCharactorList)
         {
-            Debug.Log(c.charactorName);
-            charactorFinder[c.charactorName] = c;
+            foreach (string name in c.charactorName)
+            {
+                Debug.LogError(name + ", " + c.name);
+                charactorFinder[name] = c;
+            }
         }
     }
-    /*
-    public void Monologue(string[] message)
-    {
-        chatText.text = "";
-        messageList.Clear();
-        onEnd = () => bgImage.gameObject.SetActive(true);
-        skipButton.onClick.AddListener(EndChat);
-        currentIndex = -1;
-        foreach(string s in message)
-        messageList.Add(
-            new MessageBox
-            {
-                name = "독백",
-                state = "-",
-                message = s
-            });
-        bgImage.gameObject.SetActive(false);
-        thisUI.gameObject.SetActive(true);
-        
-        StartCoroutine(PlayUIManager.instance.AscendAlpha(thisUI, () =>
-        {
-            ShowNext();
-            nextButton.onClick.RemoveAllListeners();
-            nextButton.onClick.AddListener(ShowNext);
-        }));
-    }*/
     public void Monologue(string message)
     {
         InventoryManager.instance.DisableInventoryBar();
@@ -172,9 +146,7 @@ public class ChatSystem2 : MonoBehaviour
             thisUI.gameObject.SetActive(true);
             ShowNext();
             skipButton.onClick.AddListener(SkipChat);
-
             nextButton.onClick.RemoveAllListeners();
-
             nextButton.onClick.AddListener(ShowNext);
         }));*/
     }
@@ -225,9 +197,7 @@ public class ChatSystem2 : MonoBehaviour
             StartCoroutine(typeCoroutine);
             return;
         }
-
-        //이름이 System이면 명령 호출
-        if (messageBox.name == "System")
+        else if (messageBox.name == "System")
         {
             if (messageBox.message == "-")
                 GetCommand(messageBox.state);
@@ -235,25 +205,23 @@ public class ChatSystem2 : MonoBehaviour
                 GetCommand(messageBox.state, messageBox.message);
             return;
         }
-
         else
         {
             chatText.text = "";
-            if (charactorFinder.ContainsKey(messageBox.name))
+            //표정변경
+            if (charactorFinder.ContainsKey(messageBox.name) && messageBox.state != "-")
             {
-                //표정변경
                 charactorFinder[messageBox.name].SetEmotion(messageBox.state);
+            }
 
-                //말하고 있는 인물 부각효과
-                
-                if (currentCharactor != null)
-                {
-                    currentCharactor.color = listeningColor;
-                }
-
-                currentCharactor = charactorFinder[messageBox.name].GetComponent<Image>();
-                if (currentCharactor != null)
-                    currentCharactor.color = tellingColor;
+            //말하고 있는 인물 부각효과
+            foreach (Charactor charactor in AllCharactorList)
+            {
+                if (charactor.isActiveAndEnabled)
+                    if (charactorFinder.ContainsKey(messageBox.name) && charactorFinder[messageBox.name] == charactor)
+                        charactor.SetTelling();
+                    else
+                        charactor.SetListening();
             }
 
             //타이핑 시작
@@ -293,8 +261,7 @@ public class ChatSystem2 : MonoBehaviour
             StopCoroutine(typeCoroutine);
             isTypeCoroutineRunning = false;
             thisUI.gameObject.SetActive(false);
-            if (currentCharactor != null)
-                currentCharactor.gameObject.SetActive(false);
+            HideAllSCG();
             chatText.text = "";
             InventoryManager.instance.EnableInventoryBar();
             bgImage.GetComponent<CanvasGroup>().alpha = 0;
@@ -376,16 +343,16 @@ public class ChatSystem2 : MonoBehaviour
     //인물 cg배치
     public void ShowSCG(string text)
     {
-        string[] charactors = text.Split(new string[] { "," }, StringSplitOptions.None);
-        foreach (string charactor in charactors)
+//        string[] charactors = text.Split(new string[] { "," }, StringSplitOptions.None);
+        foreach (string charactor in text.Split(','))
         {
-            Debug.Log(charactorFinder[charactor].name);
+            Debug.Log(charactor);
             Transform t = charactorFinder[charactor].transform;
-            charactorFinder[charactor].GetComponent<Image>().color = listeningColor;
-            t.SetParent(charactorPanel);
+            charactorFinder[charactor].SetListening();
+//            t.SetParent(charactorPanel);
             t.SetAsLastSibling();
-//            t.gameObject.SetActive(true);
-            StartCoroutine(FadeIn(t.GetComponent<CanvasGroup>(), ()=> { }));
+            PlayUIManager.instance.FadeIn(t.GetComponent<CanvasGroup>());
+//            StartCoroutine(FadeIn(t.GetComponent<CanvasGroup>(), ()=> { }));
         }
         ShowNext();
     }
@@ -409,9 +376,9 @@ public class ChatSystem2 : MonoBehaviour
         string[] result = charactors.Split(new string[] { "," }, StringSplitOptions.None);
         foreach (string charactor in result)
         {
-            Transform t = charactorFinder[charactor].transform;
-            t.SetParent(thisUI.transform);
-            t.gameObject.SetActive(false);
+            PlayUIManager.instance.FadeOut(charactorFinder[charactor].GetComponent<CanvasGroup>());
+//            t.SetParent(thisUI.transform);
+//            t.gameObject.SetActive(false);
         }
         
         ShowNext();
@@ -419,13 +386,15 @@ public class ChatSystem2 : MonoBehaviour
     //모든 인물 cg숨기기
     public void HideAllSCG()
     {
-        foreach (Charactor c in AllCharactorList)
+        foreach (Charactor charactor in AllCharactorList)
         {
-            StartCoroutine(FadeOut(c.gameObject.GetComponent<CanvasGroup>(), () =>
+            PlayUIManager.instance.FadeOut(charactor.GetComponent<CanvasGroup>());
+
+/*            StartCoroutine(FadeOut(c.gameObject.GetComponent<CanvasGroup>(), () =>
             {
                 c.transform.SetParent(thisUI.transform);
                 c.gameObject.SetActive(false);
-            }));
+            }));*/
         }
         ShowNext();
     }

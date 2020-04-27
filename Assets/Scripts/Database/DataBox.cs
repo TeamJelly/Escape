@@ -40,7 +40,7 @@ public class DataBox : MonoBehaviour
         };
         button.onClick.AddListener(() =>
         {
-            PlayUIManager.instance.NoticeDataWarning("데이터를 불러오면\n 최근 데이터는 날아갑니다.", act);
+            PlayUIManager.instance.NoticeDataWarning("데이터를 불러오면\n자동저장된 데이터는 사라집니다.", act);
         });
 
     }

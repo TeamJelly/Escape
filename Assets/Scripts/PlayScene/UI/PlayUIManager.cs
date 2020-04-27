@@ -99,6 +99,12 @@ public class PlayUIManager : MonoBehaviour
     }
     public void FadeIn(CanvasGroup fadeObject)
     {
+        if (fadeObject.gameObject.activeSelf) 
+        {
+            Debug.LogError(fadeObject.gameObject.name + ": 이미 활성화 되어있습니다.");
+            return;
+        }
+
         fadeObject.alpha = 0;
         fadeObject.interactable = false;
         fadeObject.gameObject.SetActive(true);
@@ -106,6 +112,12 @@ public class PlayUIManager : MonoBehaviour
     }
     public void FadeIn(CanvasGroup fadeObject, System.Action onEnd)
     {
+        if (fadeObject.gameObject.activeSelf)
+        {
+            Debug.LogError(fadeObject.gameObject.name + ": 이미 활성화 되어있습니다.");
+            return;
+        }
+
         fadeObject.alpha = 0;
         fadeObject.interactable = false;
         fadeObject.gameObject.SetActive(true);
@@ -118,6 +130,12 @@ public class PlayUIManager : MonoBehaviour
     }
     public void FadeOut(CanvasGroup fadeObject)
     {
+        if (!fadeObject.gameObject.activeSelf)
+        {
+            Debug.LogError(fadeObject.gameObject.name + ": 이미 비활성화 되어있습니다.");
+            return;
+        }
+
         fadeObject.alpha = 1;
         fadeObject.interactable = false;
         StartCoroutine(DescendAlpha(fadeObject, () => 
@@ -128,6 +146,12 @@ public class PlayUIManager : MonoBehaviour
     }
     public void FadeOut(CanvasGroup fadeObject, System.Action onEnd)
     {
+        if (!fadeObject.gameObject.activeSelf)
+        {
+            Debug.LogError(fadeObject.gameObject.name + ": 이미 비활성화 되어있습니다.");
+            return;
+        }
+
         fadeObject.alpha = 1;
         fadeObject.interactable = false;
         StartCoroutine(DescendAlpha(fadeObject, () =>

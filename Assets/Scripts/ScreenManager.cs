@@ -5,7 +5,7 @@ using UnityEngine.Experimental.Rendering.LWRP;
 public class ScreenManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public SpriteRenderer Map;
+    public SpriteRenderer GameScreen;
     public Light2D LanternLight;
     public Light2D OtherLight;
     public Light2D GlobalLight;
@@ -16,12 +16,12 @@ public class ScreenManager : MonoBehaviour
     {
         instance = this;
 
-        float spriteSizeRatio = Map.sprite.rect.size.y / Map.sprite.rect.size.x;
+        float spriteSizeRatio = GameScreen.sprite.rect.size.y / GameScreen.sprite.rect.size.x;
         float needSizeX = Screen.height / spriteSizeRatio;
         if (needSizeX > Screen.width)
         {
             float ratio = Screen.width / needSizeX;
-            Map.gameObject.transform.localScale = Vector3.one * ratio;
+            GameScreen.gameObject.transform.localScale = Vector3.one * ratio;
 
             LanternLight.pointLightInnerRadius *= ratio;
             LanternLight.pointLightOuterRadius *= ratio;

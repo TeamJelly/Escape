@@ -120,24 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &7421836 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3187113102565657146, guid: 231234c5dafedba4e80c00ae31ddeaee,
+--- !u!225 &7421837 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7421837, guid: 231234c5dafedba4e80c00ae31ddeaee,
     type: 3}
   m_PrefabInstance: {fileID: 3187113104392682402}
   m_PrefabAsset: {fileID: 0}
---- !u!225 &7421837
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7421836}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &47595134
 GameObject:
   m_ObjectHideFlags: 0
@@ -2334,11 +2322,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5941221427004618151, guid: 905b37abf817a1e42991935c3bb4a4f7,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 905b37abf817a1e42991935c3bb4a4f7, type: 3}
 --- !u!1 &1301939011
@@ -2359,7 +2342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1301939012
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13170,35 +13153,5 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3337396812535929979, guid: 231234c5dafedba4e80c00ae31ddeaee,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3337396812535929979, guid: 231234c5dafedba4e80c00ae31ddeaee,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6547335563645469436, guid: 231234c5dafedba4e80c00ae31ddeaee,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6547335563645469436, guid: 231234c5dafedba4e80c00ae31ddeaee,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6547335563645469436, guid: 231234c5dafedba4e80c00ae31ddeaee,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6547335563645469436, guid: 231234c5dafedba4e80c00ae31ddeaee,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 231234c5dafedba4e80c00ae31ddeaee, type: 3}

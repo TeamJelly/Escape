@@ -6,12 +6,11 @@ using UnityEngine.Events;
 public abstract class Puzzle : MonoBehaviour
 {
     public string PuzzleName;
+//    public bool SetInactiveOnComplete;
 
     public void Awake()
     {
-        Debug.Log(PuzzleName);
-
-        
+        Debug.Log(" \"" + PuzzleName + "\" 퍼즐 활성화");
         if (PuzzleName != "" && DataManager.GetData().states[PuzzleName + "완료"])
             gameObject.SetActive(false);
         else
@@ -26,7 +25,8 @@ public abstract class Puzzle : MonoBehaviour
             DataManager.GetData().states[PuzzleName + "완료"] = true;
             DataManager.Save_Auto();
             PlayUIManager.instance.PopUpBackButton.onClick.Invoke();
-            gameObject.SetActive(false);
         }
+//        if (!SetInactiveOnComplete)
+//            gameObject.SetActive(false);
     }
 }

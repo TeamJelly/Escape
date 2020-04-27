@@ -2,25 +2,20 @@
 <Chat>
   <Z>
     <Field Who="시스템" Message="인트로를 스킵하시겠습니까?"/>
-    <Field Who="System" State="MakeSelection" Message="스킵한다.:Intro/D/31"/>
-    <Field Who="System" State="MakeSelection" Message="처음부터.[Intro/A]:Intro/A"/>
-    <Field Who="System" State="MakeSelection" Message="여자를 추궁한다.[Intro/B]:Intro/B"/>
-    <Field Who="System" State="MakeSelection" Message="비굴하더라도 그녀에게 목숨만은 살려달라고 애원한다.[Intro/C]:Intro/C"/>
-    <Field Who="System" State="MakeSelection" Message="기억상실인 척하며 여자의 장단에 맞춰준다.[Intro/D]:Intro/D"/>
+    <Field Who="System" State="MakeSelection" Message="A. 스킵한다.:Intro/D/31"/>
+    <Field Who="System" State="MakeSelection" Message="B. 처음부터 시작.:Intro/A"/>
+    <Field Who="System" State="MakeSelection" Message="C. 여자의 거짓말을 추궁한다.:Intro/B"/>
+    <Field Who="System" State="MakeSelection" Message="D. 비굴하더라도 그녀에게 목숨만은 살려달라고 애원한다.:Intro/C"/>
+    <Field Who="System" State="MakeSelection" Message="E. 기억상실인 척하며 여자의 장단에 맞춰준다.:Intro/D"/>
     <Field Who="System" State="ShowSelection"/>
   </Z>
-
-  <Test>
-    <Field Who="연이" Message="음냐음냐.."/>
-    <Field Who="나" Message="잘도 자는구만"/>
-  </Test>
-  
+ 
   <A>
     <Field Who="System" State="ShowBGCG" Message="자취방 현관"/>
-    <Field Who="나" Message="(하아…. 심심해…)"/>
+    <Field Who="나" Message="(하아…. 심심해… 뭐 재밌는일 없나?)"/>
 
     <Field Who="독백" Message="딱히 의미도 없이 유X브 추천영상만 주구장창 보고있던 어느 토요일 낮"/>
-    <Field Who="독백" Message="모르는 번호로 한통의 문자가 왔다."/>  
+    <Field Who="독백" Message="모르는 번호로 한통의 문자가 왔다."/>
     <Field Who="System" State="StartSE" Message="띠링"/>
     <Field Who="문자" Message="[사랑해♡]"/>
     <Field Who="나" Message="(?????????뭐지?)"/>
@@ -66,23 +61,30 @@
     <Field Who="System" State="StopBGM"/>
     <Field Who="System" State="StartSE" Message="문 두드림"/>
     <Field Who="독백" Message="생각하던 중, 누군가 문을 두드리는 소리가 들렸다."/>
+
+    <Field Who="System" State="ShowSCG" Message="???"/>
     <Field Who="???" Message="계십니까?!"/>
     <Field Who="나" Message="누구세요?"/>
     <Field Who="???" Message="택배입니다!!"/>
+    <Field Who="System" State="HideSCG" Message="???"/>
+    <Field Who="System" State="ShowSCG" Message="택배기사"/>
     <Field Who="독백" Message="문을 열자마자 커다란 박스가 내 시선을 사로잡았다."/>
     <Field Who="나" Message="(이건 대체...)"/>
     <Field Who="택배기사" Message="ㅁㅁㅁ님 본인 맞으시죠? 여기 서명해주시면 됩니다."/>
     <Field Who="나" Message="아 예 여기요?"/>
-    <Field Who="독백" Message="나는 박스에 서명하기위해 허리를 숙였고.."/>
+    <Field Who="독백" Message="박스에 서명하기위해 허리를 숙였고.."/>
     <Field Who="System" State="StartSE" Message="퍽"/>
     <Field Who="System" State="ShowBGCG" Message="피"/>
     <Field Who="System" State="WaitSeconds" Message="1"/>
+    <Field Message="나는 그대로 쓰러졌다."/>
     <Field Message=" "/>
+    <Field Who="System" State="HideAllSCG"/>
     <Field Who="System" State="HideBGCG"/>
 
     <Field Who="System" State="ShowBGCG" Message="거실"/>
-    <Field Who="독백" Message="낯선 천장, 낯선 방..."/>
-    <Field Who="나" Message="(여긴 어디지?)"/>
+    <Field Who="System" State="ShowSCG" Message="여자"/>
+    <Field Who="나" Message="으.....윽..."/>
+    <Field Message="여긴......어디지?"/>
     <Field Who="독백" Message="나는 모르는 방의 침대에 누워있었고, 옆에는 한 여성이 나를 바라보고 있었다."/>
     <Field Who="여자" Message="오빠! 이제야 일어났구나? 갑자기 쓰러져서 놀랐잖아..... 몸은 좀 괜찮아?"/>
     <Field Who="나" Message="여긴...어디죠?"/>
@@ -101,7 +103,7 @@
     <Field Who="독백" Message="그렇다면 저 여자가 택배기사로 위장해서 날 여기로 납치한건가?"/>
     <Field Message="만약에 그렇다면 무엇때문에?"/>
     <Field Who="나" Message="나는...."/>
-    <Field Who="System" State="MakeSelection" Message="A. 여자를 추궁한다.:Intro/B"/>
+    <Field Who="System" State="MakeSelection" Message="A. 여자의 거짓말을 추궁한다.:Intro/B"/>
     <Field Who="System" State="MakeSelection" Message="B. 기억상실인 척하며 여자의 장단에 맞춰준다.:Intro/D"/>
     <Field Who="System" State="ShowSelection"/>
   </A>
@@ -148,10 +150,11 @@
     <Field Who="독백" Message="더 이상 맞거나 기절하면, 정말 돌이킬수 없을거 같다는 생각에 나는 손발이 닳도록 빌었다."/>
     <Field Who="나" Message="제발 살려만 주세요!"/>
     <Field Message="살려만 주시면... 뭐든지 할게요!"/>
+    <Field Who="System" State="ShowSCG" Message="연이"/>
     <Field Who="연이" Message="이상하다? 아직도 기억이 남아있나보네..."/>
     <Field Message="분명 이렇게 하면 기억이 사라진다 했었는데?"/>
     <Field Who="독백" Message="뭔가 잘못된 낌새를 느꼇다."/>
-    <Field Who="연이" Message="다시해야겠다. 오빠, 아파도 조금만 참아."/>
+    <Field Who="연이" State="공포" Message="다시해야겠다. 오빠, 아파도 조금만 참아."/>
     <Field Who="System" State="StartSE" Message="깨짐1"/>
     <Field Who="System" State="ShowBGCG" Message="깨짐1"/>
     <Field Who="System" State="WaitSeconds" Message="1"/>
