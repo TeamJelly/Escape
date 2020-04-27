@@ -11,5 +11,11 @@
     <Field Who="나" Message="어두워서 아무것도 안보이네..."/>
     <Field Who="나" Message="뭔가 광원이 될만한 무언가가 없을까?"/>
   </Bedroom_Event>
+
+  <Bedroom_Yuni>
+    <Field Who="연이" Message="음냐음냐..."/>
+    <Field Message="히히... 거긴 안되 오빠~.. 음냐..."/>
+    <Field Who="나" Message="무슨 꿈을 꾸고 있는거지...;;"/>
+  </Bedroom_Yuni>
   
 </Chat>
