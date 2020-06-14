@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
-public class Slot : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
+
+public class Slot : MonoBehaviour
 {
     public GameObject PopUp;
     public Transform imageTransform;
@@ -22,28 +22,4 @@ public class Slot : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUp
         }
     }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        imageTransform.position = eventData.position;
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        InventoryManager.instance.currentSelectItem = gameObject.name;
-        imageTransform.SetParent(transform.parent.parent.parent.parent);
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        InventoryManager.instance.currentSelectItem = "";
-        imageTransform.SetParent(transform);
-        imageTransform.localPosition = Vector3.zero;
-    }
-
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (!PlayUIManager.instance.PopUpPanel.activeSelf)
-            PlayUIManager.instance.SetPopUp(PopUp);
-    }
 }
