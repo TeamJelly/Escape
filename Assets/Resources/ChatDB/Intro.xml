@@ -4,14 +4,12 @@
     <Field Who="시스템" Message="인트로를 스킵하시겠습니까?"/>
     <Field Who="System" State="MakeSelection" Message="A. 스킵한다.:Intro/D/31"/>
     <Field Who="System" State="MakeSelection" Message="B. 처음부터 시작.:Intro/A"/>
+    <Field Who="System" State="MakeSelection" Message="C. 여자의 거짓말을 추궁한다.:Intro/B"/>
+    <Field Who="System" State="MakeSelection" Message="D. 비굴하더라도 그녀에게 목숨만은 살려달라고 애원한다.:Intro/C"/>
+    <Field Who="System" State="MakeSelection" Message="E. 기억상실인 척하며 여자의 장단에 맞춰준다.:Intro/D"/>
     <Field Who="System" State="ShowSelection"/>
- </Z>
-
-  <Field Who="System" State="MakeSelection" Message="C. 여자의 거짓말을 추궁한다.:Intro/B"/>
-  <Field Who="System" State="MakeSelection" Message="D. 비굴하더라도 그녀에게 목숨만은 살려달라고 애원한다.:Intro/C"/>
-  <Field Who="System" State="MakeSelection" Message="E. 기억상실인 척하며 여자의 장단에 맞춰준다.:Intro/D"/>
-
-
+  </Z>
+ 
   <A>
     <Field Who="System" State="ShowBGCG" Message="자취방 현관"/>
     <Field Who="나" Message="(하아…. 심심해… 뭐 재밌는일 없나?)"/>
@@ -64,9 +62,11 @@
     <Field Who="System" State="StartSE" Message="문 두드림"/>
     <Field Who="독백" Message="생각하던 중, 누군가 문을 두드리는 소리가 들렸다."/>
 
+    <Field Who="System" State="ShowSCG" Message="???"/>
     <Field Who="???" Message="계십니까?!"/>
     <Field Who="나" Message="누구세요?"/>
     <Field Who="???" Message="택배입니다!!"/>
+    <Field Who="System" State="HideSCG" Message="???"/>
     <Field Who="System" State="ShowSCG" Message="택배기사"/>
     <Field Who="독백" Message="문을 열자마자 커다란 박스가 내 시선을 사로잡았다."/>
     <Field Who="나" Message="(이건 대체...)"/>
@@ -121,10 +121,7 @@
     <Field Who="System" State="ShowBGCG" Message="피"/>
     <Field Who="System" State="StartSE" Message="퍽"/>
     <Field Message=" "/>
-    <Field Who="System" State="HideAllSCG"/>
     <Field Who="System" State="HideBGCG"/>
-
-    <Field Who="System" State="ShowSCG" Message="???"/>
     <Field Who="독백" Message="나는 튕기듯 잠에서 깨어났다."/>
     <Field Message="등이 축축해질 정도로 끔찍한 악몽이었다."/>
     <Field Who="엄마" Message="일어났니?"/>
@@ -135,10 +132,8 @@
     <Field Who="엄마" Message="그래..? 정말 무서운 꿈이었네... "/>
     <Field Who="엄마?" Message="하지만 걱정마, 여긴 안전하니까."/>
     <Field Message="무슨일이 있어도 내가 오빠를 지켜줄게!"/>
-    <Field Who="System" State="HideAllSCG"/>
     <Field Who="나" Message="(응...? 지금 오빠라고...)"/>
     <Field Message="!!!!!!!!!!!!!!!!!!!!!!!!!"/>
-    <Field Who="System" State="ShowSCG" Message="연이"/>
     <Field Who="독백" Message="꿈속의 미친 여자가 바로 눈 앞에 있었다."/>
     <Field Message="끔찍했던 기억은 악몽이 아닌 당장의 현실이었다."/>
     <Field Who="연이" Message="오빠, 괜찮아? 얼굴색이 창백한데?"/>

@@ -4,4 +4,10 @@
     <Field Who="고양이 인형" Message="냐옹~"/>
   </Cat>
   
+  <Bedroom_Event>
+    <Field Who="System" State="ShowBGCG" Message="어두운 거실"/>
+    <Field Who="나" Message="어두워서 아무것도 안보이네..."/>
+    <Field Who="나" Message="뭔가 광원이 될만한 무언가가 없을까?"/>
+  </Bedroom_Event>
+  
 </Chat>

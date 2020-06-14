@@ -15,8 +15,8 @@ public class TitleManager : MonoBehaviour
     public Text [] UITexts;
     public Camera _camera;
 
-    public Color pink;
-    public Color blue;
+    Color pink = new Color(1f, 0.6f, 0.6f);
+    Color blue = new Color(0, 0.6f, 0.6f);
 
     bool isWhite = true;
 

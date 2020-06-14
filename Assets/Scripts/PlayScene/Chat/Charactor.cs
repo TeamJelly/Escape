@@ -20,19 +20,19 @@ public class Charactor : MonoBehaviour
 
     public void SetEmotion(string name)
     {
-        var temp = nowEmotion;
-
-        foreach (GameObject emotion in Emotions)
-            if (emotion.name == name)
-                nowEmotion = emotion;
-
-        if (nowEmotion == temp)
-            return;
-
         PlayUIManager.instance.FadeOut(GetComponent<CanvasGroup>(), () => {
             foreach (GameObject emotion in Emotions)
-                emotion.SetActive(false);
-            nowEmotion.SetActive(true);
+            {
+                if (emotion.name == name)
+                {
+                    emotion.SetActive(true);
+                    nowEmotion = emotion;
+                }
+                else
+                {
+                    emotion.SetActive(false);
+                }
+            }
             PlayUIManager.instance.FadeIn(GetComponent<CanvasGroup>());
         });
     }
