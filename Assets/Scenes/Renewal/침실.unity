@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -561,7 +561,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Dialog/Bedroom_Door
+          m_StringArgument: Event/Bedroom_Door
           m_BoolArgument: 0
         m_CallState: 2
   trueTrigger:
@@ -2231,7 +2231,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: Intro/Test
+            m_StringArgument: Event/Bedroom_Yuni
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!61 &2041982986
